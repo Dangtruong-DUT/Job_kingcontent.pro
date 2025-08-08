@@ -1,7 +1,7 @@
 import { Slider } from "primereact/slider";
 import React, { useEffect, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import MarkerIconUrl from "@/../assets/images/editor/marker.svg";
+import MarkerIconUrl from "@/assets/images/editor/marker.svg";
 import PenIconUrl from "@/../assets/images/editor/pen.svg";
 import PencilIconUrl from "@/../assets/images/editor/pencil.svg";
 const Draw = ({ editor }) => {

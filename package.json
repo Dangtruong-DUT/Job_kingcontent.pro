@@ -19,6 +19,7 @@
         "@headlessui/react": "^2.2.7",
         "@heroicons/react": "^2.2.0",
         "@mui/system": "^5.15.14",
+        "@mui/x-date-pickers": "^8.10.0",
         "axios": "^1.11.0",
         "bootstrap": "^5.3.7",
         "chart.js": "^4.5.0",
