@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Label } from "reactstrap";
 import { DatePicker } from "rsuite";
-import { CalendarLocaleVn } from "@/../helpers/date";
+import { CalendarLocaleVn } from "@/helpers/date";
 import Select from "react-select";
 import { useDispatch, useSelector } from "react-redux";
-import { setScheduleCommentsWaitingList } from "@/../store/actions/Schedules";
+import { setScheduleCommentsWaitingList } from "@/store/actions/Schedules";
 
 // generate time options from 5 minutes to 2 hours
 const generateTimeOptions = () => {

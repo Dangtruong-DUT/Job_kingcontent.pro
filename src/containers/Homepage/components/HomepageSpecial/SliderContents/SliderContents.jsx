@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSpecialContents } from "@/../../store/actions/homepage";
+import { getSpecialContents } from "@/../store/actions/homepage";
 import SingleContent from "@/SingleContent";
 import SliderEmpty from "@/SliderEmpty";
 const SliderContents = (props) => {

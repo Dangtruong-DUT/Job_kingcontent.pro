@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { useDispatch } from "react-redux";
-import { AddElement } from "@/../store/actions/createContent";
+import { AddElement } from "@/store/actions/createContent";
 
 const Text = ({ editor, allFonts, googleFonts, setGoogleFonts }) => {
     const [textValue, setTextValue] = useState("");

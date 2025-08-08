@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { FaCheckSquare } from "react-icons/fa";
-import tiktokIcon from "@/../assets/images/icon/tiktok.png";
-import threadsIcon from "@/../assets/images/icon/threads-grey-icon.png";
-import { convertInstagramLink } from "@/../helpers";
+import tiktokIcon from "@/assets/images/icon/tiktok.png";
+import threadsIcon from "@/assets/images/icon/threads-grey-icon.png";
+import { convertInstagramLink } from "@/helpers";
 
 const SingleDes = (props) => {
     const { destination, onClickDestination, selectedDestinations, type } = props;

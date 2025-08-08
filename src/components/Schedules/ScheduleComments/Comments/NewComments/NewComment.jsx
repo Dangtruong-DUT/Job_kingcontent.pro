@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Checkbox, Input } from "rsuite";
-import { setScheduleCommentsWaitingList } from "@/../../store/actions/Schedules";
+import { setScheduleCommentsWaitingList } from "@/../store/actions/Schedules";
 
 const NewComment = (props) => {
     const { comment = [], index = 0, onRemoveComment } = props;

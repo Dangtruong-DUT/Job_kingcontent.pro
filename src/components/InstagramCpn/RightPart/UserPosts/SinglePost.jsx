@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import InstagramIcon from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
-import { convertInstagramLink } from "@/../helpers";
+import InstagramIcon from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
+import { convertInstagramLink } from "@/helpers";
 import { FiPlay } from "react-icons/fi";
-import { checkInInstagramCollection, kFormatter } from "@/../utils/utilityFunc";
+import { checkInInstagramCollection, kFormatter } from "@/utils/utilityFunc";
 import { FiMessageCircle, FiThumbsUp } from "react-icons/fi";
 import {
     actionGetCollectionPosts,
@@ -14,7 +14,7 @@ import {
     actionSaveUser,
     actionSetCurrentContent,
     actionUpdateChosenPosts,
-} from "@/../store/actions/instagram";
+} from "@/store/actions/instagram";
 import {
     FaClock,
     FaCheck,
@@ -30,19 +30,19 @@ import { ImEye, ImPlay } from "react-icons/im";
 import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { toast } from "react-toastify";
-import addIcons from "@/../assets/images/icon/create-content/add.png";
+import addIcons from "@/assets/images/icon/create-content/add.png";
 import {
     setIsShowFinalStep,
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
     setCurrentDateTime,
     setCurrentEditingContent,
-} from "@/../store/actions/Schedules";
-import { actionPushContentToCreateContentScreen } from "@/../store/actions/homepage";
-import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/../store/actions/createContent";
-import { isArrayEmpty, OK } from "@/../configs";
-import { instagramService } from "@/../services/instagram";
-import { formatUnixDate } from "@/../helpers/date";
+} from "@/store/actions/Schedules";
+import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
+import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/store/actions/createContent";
+import { isArrayEmpty, OK } from "@/configs";
+import { instagramService } from "@/services/instagram";
+import { formatUnixDate } from "@/helpers/date";
 
 const defaultActions = [
     { icon: ImEye, title: "Xem chi tiết", action: "VIEW_DETAIL_CONTENT" },

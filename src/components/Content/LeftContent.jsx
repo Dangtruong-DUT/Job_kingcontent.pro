@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
-import Card from "@/Card";
+import Card from "@/components/Content/Card";
 import SearchBox from "./SearchBox";
 import PopupDetailContentPlan from "@/pages/createPost/components/planCpn/popupDetail";
 import GridLayoutContent from "@/components/CategoriesContent/GridLayoutContent";

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { changeStateSelectedCat } from "@/../store/actions/editor/editorActions";
+import { changeStateSelectedCat } from "@/store/actions/editor/editorActions";
 
 const CatItem = (props) => {
     const { category, changeStateSelectedCat, selectedCatId } = props;

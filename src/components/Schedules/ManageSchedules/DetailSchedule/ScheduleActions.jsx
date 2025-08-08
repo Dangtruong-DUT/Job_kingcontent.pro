@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import pauseIcon from "@/../assets/images/icon/schedules/pause.png";
-import playIcon from "@/../assets/images/icon/schedules/play.png";
-import binIcon from "@/../assets/images/icon/schedules/bin.png";
+import pauseIcon from "@/assets/images/icon/schedules/pause.png";
+import playIcon from "@/assets/images/icon/schedules/play.png";
+import binIcon from "@/assets/images/icon/schedules/bin.png";
 import { confirmAlert } from "react-confirm-alert";
 import { useDispatch } from "react-redux";
-import { removeScheduleContents, updateScheduleContentsStatus } from "@/../store/actions/Schedules";
-import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from "@/../store/types/schedules";
+import { removeScheduleContents, updateScheduleContentsStatus } from "@/store/actions/Schedules";
+import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from "@/store/types/schedules";
 
 const ScheduleActions = (props) => {
     const { listSelected = [], contents = [] } = props;

@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import aimIcon from "@/../assets/images/icon/create-content/aim.png";
-import {
-    actionQuestionChatGPT,
-    actionUpdateSyncRequestPedding,
-    getBankQuestion,
-} from "@/../store/actions/createContent";
+import aimIcon from "@/assets/images/icon/create-content/aim.png";
+import { actionQuestionChatGPT, actionUpdateSyncRequestPedding, getBankQuestion } from "@/store/actions/createContent";
 import { toast } from "react-toastify";
 import { CHAT } from "@/utility";
 import PerfectScrollbar from "react-perfect-scrollbar";

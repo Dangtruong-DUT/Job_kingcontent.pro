@@ -4,7 +4,7 @@ import { setShowSchedulesPane, setShowReportPane } from "@/store/actions/Schedul
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { VscCalendar } from "react-icons/vsc";
-import { setShowSourceIdeasAutoPopup } from "@/../store/actions/Schedules";
+import { setShowSourceIdeasAutoPopup } from "@/store/actions/Schedules";
 
 const ScheduleAuto = (props) => {
     const dispatch = useDispatch();

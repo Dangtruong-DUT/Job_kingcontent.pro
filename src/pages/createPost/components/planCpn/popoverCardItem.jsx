@@ -4,17 +4,17 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // @ts-ignore
-import editIcon from "@/../assets/images/icon/plan/edit.png";
+import editIcon from "@/assets/images/icon/plan/edit.png";
 // @ts-ignore
-import PinIcon from "@/../assets/images/icon/plan/pin-angle-fill.png";
+import PinIcon from "@/assets/images/icon/plan/pin-angle-fill.png";
 // @ts-ignore
-import sortIcon from "@/../assets/images/icon/plan/sort.png";
+import sortIcon from "@/assets/images/icon/plan/sort.png";
 // @ts-ignore
-import trashIcon from "@/../assets/images/icon/plan/trash.png";
-import { KEY_PLAN_DATA, KEY_PLAN_SELECT } from "@/../reducers/createContent";
-import { CreateContent } from "@/../services/createContent";
-import { actionGetPlan, updateProps } from "@/../store/actions/createContent";
-import { OK } from "@/../configs";
+import trashIcon from "@/assets/images/icon/plan/trash.png";
+import { KEY_PLAN_DATA, KEY_PLAN_SELECT } from "@/reducers/createContent";
+import { CreateContent } from "@/services/createContent";
+import { actionGetPlan, updateProps } from "@/store/actions/createContent";
+import { OK } from "@/configs";
 
 export default function PopoverTopCardItem({
     id,

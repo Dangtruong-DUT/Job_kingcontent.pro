@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionGetThreadComments, actionPostThreadsComment } from "@/../store/actions/threads";
-import { DATE_TIME_FORMAT, formatDate } from "@/../helpers/date";
+import { actionGetThreadComments, actionPostThreadsComment } from "@/store/actions/threads";
+import { DATE_TIME_FORMAT, formatDate } from "@/helpers/date";
 import LoadingApp from "@/LoadingApp";
 import { FiX } from "react-icons/fi";
 import SingleComment from "@/SingleComment";

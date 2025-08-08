@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DEFAULT, SEVEN_SALE_SINGLE_CLOSING } from "@/utility";
+import { DEFAULT, SEVEN_SALE_SINGLE_CLOSING } from "../utility";
 import { Tab } from "@headlessui/react";
 import { BiArrowBack } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";

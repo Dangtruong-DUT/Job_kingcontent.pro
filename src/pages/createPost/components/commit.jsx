@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { actionGetPostByKeyword } from "@/store/actions/createContent";
-import { COMMIT } from "@/utility";
+import { COMMIT } from "../utility";
 import ContentSugestion from "@/components/ContentSugesstion";
 import { useDispatch } from "react-redux";
 import { API_EDIT_SUGGEST_KEYWORD } from "@/configs";

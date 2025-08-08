@@ -1,6 +1,6 @@
-import AddSpecialIcon from "@/../../assets/images/icon/add-special.png";
+import AddSpecialIcon from "@/../assets/images/icon/add-special.png";
 import SingleFanpage from "@/SingleFanpage";
-import { getSpecialFanpages } from "@/../../store/actions/homepage";
+import { getSpecialFanpages } from "@/../store/actions/homepage";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";

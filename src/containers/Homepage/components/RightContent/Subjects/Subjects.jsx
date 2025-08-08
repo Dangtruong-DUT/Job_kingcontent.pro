@@ -1,9 +1,9 @@
-import AddSpecialIcon from "@/../../assets/images/icon/add-special.png";
+import AddSpecialIcon from "@/../assets/images/icon/add-special.png";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import PopupSelectCate from "@/popupSelectCate";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getChosenCategories } from "@/../../store/actions/homepage";
+import { getChosenCategories } from "@/../store/actions/homepage";
 import SingleCate from "@/SingleCate";
 
 const Subjects = () => {

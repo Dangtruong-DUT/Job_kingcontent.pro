@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteHistory, getHistory, removeHistoryHashtag } from "@/../store/actions/createContent";
+import { deleteHistory, getHistory, removeHistoryHashtag } from "@/store/actions/createContent";
 import { toast } from "react-toastify";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import { confirmAlert } from "react-confirm-alert";

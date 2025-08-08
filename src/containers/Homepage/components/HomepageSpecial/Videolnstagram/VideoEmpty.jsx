@@ -1,5 +1,5 @@
 import React from "react";
-import instagramIcon from "@/../../assets/images/icon/main-menu/menu-icon-instagram.png";
+import instagramIcon from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
 
 const VideoEmpty = () => {
     return (

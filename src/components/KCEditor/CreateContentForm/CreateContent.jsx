@@ -1,16 +1,16 @@
 import React, { useCallback, useState, useEffect, useContext } from "react";
-import Header from "@/Header";
-import Input from "@/Input";
-import Options from "@/Options";
-import CustomerOverview from "@/CustomerOverview";
-import FormularTab from "@/FormularTab";
+import Header from "@/components/KCEditor/CreateContentForm/Header";
+import Input from "@/components/KCEditor/CreateContentForm/Input";
+import Options from "@/components/KCEditor/CreateContentForm/Options";
+import CustomerOverview from "@/components/KCEditor/CreateContentForm/CustomerOverview";
+import FormularTab from "@/components/KCEditor/CreateContentForm/FormularTab";
 import { ChartPieIcon, DocumentTextIcon } from "@heroicons/react/outline";
 import { getContentSuggestions } from "@/store/actions/editor/createContentActions";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import * as types from "@/store/types";
 import { useSelector } from "react-redux";
 import { EditorState, SelectionState, Modifier } from "draft-js";
-import ContentDetail from "@/CategoriesContent/ContentDetail";
+import ContentDetail from "@/components/CategoriesContent/ContentDetail";
 import { createEmptyContent } from "@/utils/utilityFunc";
 import { saveUserContent } from "@/store/actions/editor/editorActions";
 

@@ -8,8 +8,8 @@ import {
     createContentToHomepage,
     resetCreateContent,
     writeContentHomeToCreateScreen,
-} from "@/../store/actions/createContent";
-import { TYPE_GO_CHAT, TYPE_GO_CONTENT, getCurrentYear } from "@/../utils/utilityFunc";
+} from "@/store/actions/createContent";
+import { TYPE_GO_CHAT, TYPE_GO_CONTENT, getCurrentYear } from "@/utils/utilityFunc";
 import PerfectScrollbar from "react-perfect-scrollbar";
 const ModalEvent = (props) => {
     const { event, setIsShowModal, isShowModal, type = TYPE_GO_CHAT } = props;

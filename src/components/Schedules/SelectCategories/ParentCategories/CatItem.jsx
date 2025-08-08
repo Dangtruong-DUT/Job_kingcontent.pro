@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { changeStateSelectedCat } from "@/../store/actions/Schedules";
+import { changeStateSelectedCat } from "@/store/actions/Schedules";
 
 const CatItem = (props) => {
     const { category, changeStateSelectedCat, selectedCat } = props;

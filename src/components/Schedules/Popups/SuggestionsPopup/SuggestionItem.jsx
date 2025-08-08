@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { FaCommentDots, FaShare } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { numberWithCommas } from "@/../utils/utilityFunc";
-import * as SCHEDULES from "@/../store/actions/Schedules";
-import { setContentDetailToShow } from "@/../store/actions/Contents/contentActions";
+import { numberWithCommas } from "@/utils/utilityFunc";
+import * as SCHEDULES from "@/store/actions/Schedules";
+import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import moment from "moment";
 
 function SuggestionItem(props) {

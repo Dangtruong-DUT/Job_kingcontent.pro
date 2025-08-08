@@ -6,21 +6,21 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 import ColorPicker from "react-pick-color";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import uploadCloud from "@/../assets/images/icon/plan/cloud-computing.png";
+import uploadCloud from "@/assets/images/icon/plan/cloud-computing.png";
 
 import { InputSwitch } from "primereact/inputswitch";
-import { KEY_HASH_TAG_PLANS, KEY_IMAGES } from "@/../reducers/createContent";
-import { CreateContent } from "@/../services/createContent";
-import { actionGetLabels, actionGetPlans, updateProps } from "@/../store/actions/createContent";
+import { KEY_HASH_TAG_PLANS, KEY_IMAGES } from "@/reducers/createContent";
+import { CreateContent } from "@/services/createContent";
+import { actionGetLabels, actionGetPlans, updateProps } from "@/store/actions/createContent";
 
 import { Tab } from "@headlessui/react";
 import axios from "axios";
-import { ResourcesService } from "@/../services/resources";
-import { UPLOAD_TYPE_IMAGE, _text_title, getBodyCreatePlan, getObject_create_post } from "@/utility";
-import PopupSuggTagChatgpt from "@/popupSuggTagChatgpt";
-import { initialColor, initialValues } from "@/utility";
+import { ResourcesService } from "@/services/resources";
+import { UPLOAD_TYPE_IMAGE, _text_title, getBodyCreatePlan, getObject_create_post } from "./utility";
+import PopupSuggTagChatgpt from "./popupSuggTagChatgpt";
+import { initialColor, initialValues } from "./utility";
 import "./custom.css";
-import { isArrayEmpty, OK } from "@/../configs";
+import { isArrayEmpty, OK } from "@/configs";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");

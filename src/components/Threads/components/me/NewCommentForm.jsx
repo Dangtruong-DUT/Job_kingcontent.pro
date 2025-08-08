@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { actionPostThreadsComment } from "@/../store/actions/threads";
+import { actionPostThreadsComment } from "@/store/actions/threads";
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 

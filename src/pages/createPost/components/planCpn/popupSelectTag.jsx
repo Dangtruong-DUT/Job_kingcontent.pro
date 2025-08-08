@@ -2,14 +2,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { FiCheck, FiEdit, FiX } from "react-icons/fi";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { _dashed_border, _input_style, _text_title } from "@/utility";
+import { _dashed_border, _input_style, _text_title } from "./utility";
 import { useDispatch, useSelector } from "react-redux";
-import { KEY_HASH_TAG_PLANS, KEY_LABELS, KEY_LABEL_SELECT, KEY_PLAN_SELECT } from "@/../reducers/createContent";
-import { actionGetLabels, actionGetPlan, actionSelectLabel } from "@/../store/actions/createContent";
-import { CreateContent } from "@/../services/createContent";
+import { KEY_HASH_TAG_PLANS, KEY_LABELS, KEY_LABEL_SELECT, KEY_PLAN_SELECT } from "@/reducers/createContent";
+import { actionGetLabels, actionGetPlan, actionSelectLabel } from "@/store/actions/createContent";
+import { CreateContent } from "@/services/createContent";
 import { toast } from "react-toastify";
-import { isObjEmpty } from "@/../utils/utilityFunc";
-import { OK } from "@/../configs";
+import { isObjEmpty } from "@/utils/utilityFunc";
+import { OK } from "@/configs";
 
 const PopupSelectTag = ({ isOpen, setOpen, isEditInList = false, itemEdit = {} }) => {
     const [isEdit, setIsEdit] = useState(false);

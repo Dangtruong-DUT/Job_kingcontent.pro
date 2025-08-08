@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { IoIosSearch } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { AddElement } from "@/../store/actions/createContent";
+import { AddElement } from "@/store/actions/createContent";
 import { uniqueId } from "lodash";
 
 const Images = ({ onUploadImage, fabric, editor }) => {

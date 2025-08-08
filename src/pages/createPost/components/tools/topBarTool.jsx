@@ -1,9 +1,9 @@
 import { faBold, faItalic, faUnderline } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { CLIP_PATH, TEXT_TOOL } from "@/utility";
+import { CLIP_PATH, TEXT_TOOL } from "@/utils/utilityFunc";
 import { Dropdown } from "primereact/dropdown";
-import { isArrayEmpty } from "@/../configs";
+import { isArrayEmpty } from "@/configs";
 import { FaAlignJustify, FaAlignLeft, FaAlignRight } from "react-icons/fa";
 import { BsAlignCenter, BsAlignEnd, BsAlignMiddle } from "react-icons/bs";
 import { BsAlignStart } from "react-icons/bs";

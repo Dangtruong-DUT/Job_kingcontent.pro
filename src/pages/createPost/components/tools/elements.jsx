@@ -16,11 +16,11 @@ import { MdClear, MdHexagon, MdLayersClear, MdRectangle } from "react-icons/md";
 import { RiCheckboxBlankCircleFill } from "react-icons/ri";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { useDispatch, useSelector } from "react-redux";
-import { isArrayEmpty } from "@/../configs";
-import { KEY_ELEMENTS_IMAGES } from "@/../reducers/createContent";
-import { AddElement, DeleteElement, ResetCanvasLayer, UpdateCanvasLayer } from "@/../store/actions/createContent";
-import { REDUX_NAME_CREATE_POST } from "@/../utils/utilityFunc";
-import { _dashed_border, hasEmoji } from "@/utility";
+import { isArrayEmpty } from "@/configs";
+import { KEY_ELEMENTS_IMAGES } from "@/reducers/createContent";
+import { AddElement, DeleteElement, ResetCanvasLayer, UpdateCanvasLayer } from "@/store/actions/createContent";
+import { REDUX_NAME_CREATE_POST } from "@/utils/utilityFunc";
+import { _dashed_border, hasEmoji } from "@/utils/utilityFunc";
 import { IoMdCloseCircle } from "react-icons/io";
 const Elements = ({
     editor,

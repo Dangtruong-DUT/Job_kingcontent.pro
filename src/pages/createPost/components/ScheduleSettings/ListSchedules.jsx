@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import Select from "react-select";
 import { Input, Label } from "reactstrap";
-import { getSchedules } from "@/../store/actions/Schedules";
+import { getSchedules } from "@/store/actions/Schedules";
 
 const style = {
     control: (base) => ({

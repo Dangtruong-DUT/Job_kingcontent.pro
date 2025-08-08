@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import ContentSugestion from "@/components/ContentSugesstion";
 import { API_EDIT_SUGGEST_KEYWORD } from "@/configs";
 import { actionGetPostByKeyword } from "@/store/actions/createContent";
-import { DISCOUNT } from "@/utility";
+import { DISCOUNT } from "../utility";
 
 const Discount = () => {
     const [startDocument, setStartDocument] = useState(5);

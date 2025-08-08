@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HomepageSearchBar from "@/HomepageSearchBar";
 import Popular from "@/Popular";
 import Suggestions from "@/Suggestions";
-import { getPopularTags } from "@/../store/actions/homepage";
+import { getPopularTags } from "@/store/actions/homepage";
 import { connect, useDispatch, useSelector } from "react-redux";
 
 const SearchForm = (props) => {

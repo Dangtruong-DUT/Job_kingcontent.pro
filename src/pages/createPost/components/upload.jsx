@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionAddImage, resetImagesSelect, updateProps } from "@/store/actions/createContent";
 import { ResourcesService } from "@/services/resources";
 import { toast } from "react-toastify";
-import { UPLOAD_TYPE_IMAGE, UPLOAD_TYPE_VIDEO, hasVideo } from "@/utility";
+import { UPLOAD_TYPE_IMAGE, UPLOAD_TYPE_VIDEO, hasVideo } from "../utility";
 import { useState } from "react";
 import { isArrayEmpty, OK } from "@/configs";
 import { confirmAlert } from "react-confirm-alert";

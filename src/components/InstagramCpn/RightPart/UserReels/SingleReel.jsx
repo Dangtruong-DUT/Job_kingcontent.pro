@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 // @ts-ignore
-import InstagramIcon from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
+import InstagramIcon from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
 // @ts-ignore
-import addIcons from "@/../assets/images/icon/create-content/add.png";
+import addIcons from "@/assets/images/icon/create-content/add.png";
 import { useDispatch, useSelector } from "react-redux";
-import { convertInstagramLink } from "@/../helpers";
-import { checkInInstagramCollection, kFormatter } from "@/../utils/utilityFunc";
+import { convertInstagramLink } from "@/helpers";
+import { checkInInstagramCollection, kFormatter } from "@/utils/utilityFunc";
 import { FiMessageCircle, FiThumbsUp, FiPlay } from "react-icons/fi";
 import {
     actionGetCollectionPosts,
@@ -13,9 +13,9 @@ import {
     actionRemovePostsFromCollection,
     actionSetCurrentContent,
     actionUpdateChosenPosts,
-} from "@/../store/actions/instagram";
+} from "@/store/actions/instagram";
 import { toast } from "react-toastify";
-import { instagramService } from "@/../services/instagram";
+import { instagramService } from "@/services/instagram";
 import { ImEye } from "react-icons/im";
 import {
     FaCheckSquare,
@@ -32,11 +32,11 @@ import {
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
     setCurrentDateTime,
-} from "@/../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import { confirmAlert } from "react-confirm-alert";
-import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/../store/actions/createContent";
-import { actionPushContentToCreateContentScreen } from "@/../store/actions/homepage";
-import { OK } from "@/../configs";
+import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/store/actions/createContent";
+import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
+import { OK } from "@/configs";
 
 const defaultActions = [
     { icon: ImEye, title: "Xem chi tiết", action: "VIEW_DETAIL_CONTENT" },

@@ -3,11 +3,11 @@ import { toast } from "react-toastify";
 import { Card } from "primereact/card";
 import { Image } from "primereact/image";
 import customData from "@/dataTemplate.json";
-import { isArrayEmpty } from "@/../configs";
+import { isArrayEmpty } from "@/configs";
 import { uniqueId } from "lodash";
-import { AddElement, updateProps } from "@/../store/actions/createContent";
+import { AddElement, updateProps } from "@/store/actions/createContent";
 import { useDispatch } from "react-redux";
-import { KEY_ELEMENTS_IMAGES } from "@/../reducers/createContent";
+import { KEY_ELEMENTS_IMAGES } from "@/reducers/createContent";
 
 const Template = ({ canvasFromJson, setCanvasHeight, setCanvasWidth, editor }) => {
     const templates = [];

@@ -1,6 +1,6 @@
 import { FaAngleLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { manageGetScheduleContents, manageSetCurrentSchedule } from "@/../store/actions/Schedules";
+import { manageGetScheduleContents, manageSetCurrentSchedule } from "@/store/actions/Schedules";
 import { useEffect, useState } from "react";
 import ListContents from "@/ListContents";
 import LoadingApp from "@/LoadingApp";

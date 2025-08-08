@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { ImArrowLeft } from "react-icons/im";
-import * as SCHEDULES from "@/../store/actions/Schedules";
+import * as SCHEDULES from "@/store/actions/Schedules";
 import { connect, useDispatch } from "react-redux";
-import { numberWithCommas } from "@/../utils/utilityFunc";
+import { numberWithCommas } from "@/utils/utilityFunc";
 
 function Header(props) {
     const { currentSuggestionsSubject = null } = props;

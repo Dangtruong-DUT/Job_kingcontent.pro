@@ -1,15 +1,15 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CreateContent } from "@/../../services/createContent";
-import defaultImage from "@/../../assets/images/category_default_loading.png";
-import { actionLoadingApp } from "@/../../store/actions/loading";
+import { CreateContent } from "@/../services/createContent";
+import defaultImage from "@/../assets/images/category_default_loading.png";
+import { actionLoadingApp } from "@/../store/actions/loading";
 import { FiFacebook } from "react-icons/fi";
-import { actionGetMyTopic, actionSelectMyTopic, saveChosenCategories } from "@/../../store/actions/homepage";
-import LoadingApp from "@/../../components/LoadingApp";
+import { actionGetMyTopic, actionSelectMyTopic, saveChosenCategories } from "@/../store/actions/homepage";
+import LoadingApp from "@/../components/LoadingApp";
 import { toast } from "react-toastify";
 import { id } from "date-fns/locale";
-import { OK } from "@/../../configs";
+import { OK } from "@/../configs";
 const PopupSelectCate = ({ isOpen, toggle }) => {
     const [loading, setLoading] = useState(false);
     const [parentListArr, setParentListArr] = useState([]);

@@ -1,0 +1,5 @@
+<!-- TikTok Logo SVG placeholder -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" fill="#FF0050"/>
+  <path d="M14.5 8.5c0-1.1.9-2 2-2s2 .9 2 2v3.5c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6h.5v2h-.5c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4V8.5z" fill="white"/>
+</svg>

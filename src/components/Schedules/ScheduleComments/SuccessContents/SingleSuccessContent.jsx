@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox } from "rsuite";
-import defaultImg from "@/../assets/images/anh-cute-nhat.jpg";
+import defaultImg from "@/assets/images/anh-cute-nhat.jpg";
 import moment from "moment";
 import { useSelector } from "react-redux";
 const MAX_CHARACTERS = 100;

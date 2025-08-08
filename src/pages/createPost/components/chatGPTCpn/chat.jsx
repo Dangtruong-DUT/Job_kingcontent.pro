@@ -3,7 +3,7 @@ import { FiCheckCircle, FiMaximize, FiEdit, FiRefreshCcw, FiSave, FiSearch, FiTr
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import LoadingApp from "@/../components/LoadingApp";
+import LoadingApp from "@/components/LoadingApp";
 import {
     ACTION_QUESTION_CHAT_GPT,
     actionQuestionChatGPT,
@@ -13,12 +13,12 @@ import {
     toggleEditorText,
     updateHistoryHashtag,
     updateIsSavedChatGPT,
-} from "@/../store/actions/createContent";
-import { actionLoadingApp } from "@/../store/actions/loading";
+} from "@/store/actions/createContent";
+import { actionLoadingApp } from "@/store/actions/loading";
 import PopupDetailContentChat from "@/popupDetailContentChat";
 import { toast } from "react-toastify";
 import PopupTag from "@/popupTag";
-import { TYPE_GO_CHAT } from "@/../utils/utilityFunc";
+import { TYPE_GO_CHAT } from "@/utils/utilityFunc";
 
 import { confirmAlert } from "react-confirm-alert";
 

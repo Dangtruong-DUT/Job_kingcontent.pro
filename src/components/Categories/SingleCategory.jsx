@@ -1,7 +1,7 @@
-import React from 'react';
-import defaultCatImg from '@/assets/images/default-cat-thumbnail.jpg';
-import { numberWithCommas } from '@/utils/utilityFunc';
-import { env } from '@/configs'/envConfig';
+import React from "react";
+import defaultCatImg from "@/assets/images/default-cat-thumbnail.jpg";
+import { numberWithCommas } from "@/utils/utilityFunc";
+import { env } from "@/configs/envConfig";
 
 const SingleCategory = (props) => {
     const { category, isActive, onTogglePopup } = props;
@@ -81,7 +81,3 @@ const SingleCategory = (props) => {
 };
 
 export default SingleCategory;
-
-
-
-

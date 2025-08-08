@@ -1,11 +1,11 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import Button from "@/Button";
-import logoTikTok from "@/../assets/images/icon/main-menu/menu-icon-tiktok.png";
-import { userServices } from "@/../services/users";
+import logoTikTok from "@/assets/images/icon/main-menu/menu-icon-tiktok.png";
+import { userServices } from "@/services/users";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FiPlayCircle } from "react-icons/fi";
 import ReactPlayer from "react-player";
-import { convertInstagramLink, getNoImage } from "@/../helpers";
+import { convertInstagramLink, getNoImage } from "@/helpers";
 
 const ImageElm = (props) => {
     const { ObjFit, url } = props;

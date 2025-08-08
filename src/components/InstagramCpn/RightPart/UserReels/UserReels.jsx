@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SingleReel from "@/SingleReel";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { actionGetHashtagPosts, actionGetUserReels } from "@/../store/actions/instagram";
+import { actionGetHashtagPosts, actionGetUserReels } from "@/store/actions/instagram";
 import LoadingApp from "@/LoadingApp";
 import { applyOrder } from "@/helpers";
 

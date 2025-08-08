@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { BiPencil } from "react-icons/bi";
 import { FiTrash2 } from "react-icons/fi";
 import { Checkbox } from "rsuite";
-import auth from "@/../utils/auth";
+import auth from "@/utils/auth";
 
 const SingleSuggestionTag = (props) => {
     const {

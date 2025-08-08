@@ -3,19 +3,19 @@ import { ImCross, ImFacebook } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import InfoLeft from "@/ScheduleItemPopup/InfoLeft";
 import InfoRight from "@/ScheduleItemPopup/InfoRight";
-import { setScheduleItemPopupToShowMultiple } from "@/../store/actions/Schedules";
+import { setScheduleItemPopupToShowMultiple } from "@/store/actions/Schedules";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import DetailTiktok from "@/Tiktok/DetailTiktok";
-import { actionSetCurrentContent } from "@/../store/actions/instagram";
-import { instagramService } from "@/../services/instagram";
-import { threadsService } from "@/../services/threads";
-import { convertInstagramLink } from "@/../helpers";
-import { setContentDetailToShow } from "@/../store/actions/Contents/contentActions";
+import { actionSetCurrentContent } from "@/store/actions/instagram";
+import { instagramService } from "@/services/instagram";
+import { threadsService } from "@/services/threads";
+import { convertInstagramLink } from "@/helpers";
+import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import DetailDouyin from "@/douyin/detailDouyin";
 import ContentDetail from "@/InstagramCpn/ContentDetail";
 import { toast } from "react-toastify";
-import { OK } from "@/../configs";
-import { TextToVideoService } from "@/../services/TextToVideo";
+import { OK } from "@/configs";
+import { TextToVideoService } from "@/services/TextToVideo";
 
 const ScheduleMultipleItemsPopup = (props) => {
     const { contents = null } = props;

@@ -15,9 +15,9 @@ import {
 } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { Checkbox, DatePicker, Input } from "rsuite";
-import { userServices } from "@/../../services/users";
+import { userServices } from "@/../services/users";
 import { confirmAlert } from "react-confirm-alert";
-import { getScheduleContents } from "@/../../store/actions/Schedules";
+import { getScheduleContents } from "@/../store/actions/Schedules";
 import { useDispatch, useSelector } from "react-redux";
 
 const defaultCommentItem = {

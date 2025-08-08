@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Contents from "@/../components/KCEditor/FeedbacksForm/FeedbackContents/Contents";
-import ContentDetail from "@/../components/CategoriesContent/ContentDetail";
-import { getContents } from "@/../store/actions/Contents/contentActions";
-import KindOfContentSelect from "@/../components/CategoriesContent/SearchAndFilter/KindOfContentSelect";
-import FreqLikeSelect from "@/../components/CategoriesContent/SearchAndFilter/FreqLikeSelect";
-import FreqCommentSelect from "@/../components/CategoriesContent/SearchAndFilter/FreqCommentSelect";
-import FreqShareSelect from "@/../components/CategoriesContent/SearchAndFilter/FreqShareSelect";
-import FreqTimeSelect from "@/../components/CategoriesContent/SearchAndFilter/FreqTimeSelect";
+import Contents from "@/components/KCEditor/FeedbacksForm/FeedbackContents/Contents";
+import ContentDetail from "@/components/CategoriesContent/ContentDetail";
+import { getContents } from "@/store/actions/Contents/contentActions";
+import KindOfContentSelect from "@/components/CategoriesContent/SearchAndFilter/KindOfContentSelect";
+import FreqLikeSelect from "@/components/CategoriesContent/SearchAndFilter/FreqLikeSelect";
+import FreqCommentSelect from "@/components/CategoriesContent/SearchAndFilter/FreqCommentSelect";
+import FreqShareSelect from "@/components/CategoriesContent/SearchAndFilter/FreqShareSelect";
+import FreqTimeSelect from "@/components/CategoriesContent/SearchAndFilter/FreqTimeSelect";
 import { ImSearch } from "react-icons/im";
-import { handleSelectSort } from "@/../helpers";
+import { handleSelectSort } from "@/helpers";
 
 const IdeaContents = (props) => {
     const { setShowCats, setShowContents } = props;

@@ -1,5 +1,5 @@
 import { useState, useEffect, memo, useCallback } from "react";
-import { destructContentsToParagraph } from "@/../utils/utilityFunc";
+import { destructContentsToParagraph } from "@/utils/utilityFunc";
 import ParagraphItem from "@/ParagraphItem";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import ModalFullContent from "@/ModalFullContent";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { getQuestionPromt } from "@/../store/actions/createContent";
+import { getQuestionPromt } from "@/store/actions/createContent";
 import { CHAT } from "@/utility";
 import PerfectScrollbar from "react-perfect-scrollbar";
 

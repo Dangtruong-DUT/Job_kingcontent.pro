@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSchedules, setCurrentSchedule } from "@/../store/actions/Schedules";
+import { getSchedules, setCurrentSchedule } from "@/store/actions/Schedules";
 import Select from "react-select";
 
 const ScheduleList = (props) => {

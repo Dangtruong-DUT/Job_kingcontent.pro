@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { VscSettingsGear } from "react-icons/vsc";
-import { changeStateShowManageSchedule } from "@/../store/actions/Schedules";
+import { changeStateShowManageSchedule } from "@/store/actions/Schedules";
 
 const ManageScheduleTab = (props) => {
     const dispatch = useDispatch();

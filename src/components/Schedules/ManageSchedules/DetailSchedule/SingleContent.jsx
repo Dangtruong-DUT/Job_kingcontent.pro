@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { formatDate } from "@/../helpers/date";
+import { formatDate } from "@/helpers/date";
 import { Link } from "@mui/material";
 import { FaEye, FaFacebook } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
-import { getScheduleSourceLink } from "@/../helpers";
-import pauseIcon from "@/../assets/images/icon/schedules/pause.png";
-import playIcon from "@/../assets/images/icon/schedules/play.png";
-import binIcon from "@/../assets/images/icon/schedules/bin.png";
+import { getScheduleSourceLink } from "@/helpers";
+import pauseIcon from "@/assets/images/icon/schedules/pause.png";
+import playIcon from "@/assets/images/icon/schedules/play.png";
+import binIcon from "@/assets/images/icon/schedules/bin.png";
 import { FiPlayCircle } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from "@/../store/types/schedules";
+import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from "@/store/types/schedules";
 import { confirmAlert } from "react-confirm-alert";
-import { removeScheduleContents, updateScheduleContentsStatus } from "@/../store/actions/Schedules";
-import logoTikTok from "@/../assets/images/icon/main-menu/menu-icon-tiktok.png";
-import douyinLogo from "@/../assets/images/icon/main-menu/douyin.png";
-import InstagramLogo from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
-import ThreadsLogo from "@/../assets/images/threads-thumbnail.png";
-import FacebookIcon from "@/../assets/images/icon/facebook.png";
+import { removeScheduleContents, updateScheduleContentsStatus } from "@/store/actions/Schedules";
+import logoTikTok from "@/assets/images/icon/main-menu/menu-icon-tiktok.png";
+import douyinLogo from "@/assets/images/icon/main-menu/douyin.png";
+import InstagramLogo from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
+import ThreadsLogo from "@/assets/images/threads-thumbnail.png";
+import FacebookIcon from "@/assets/images/icon/facebook.png";
 
 const SingleContent = (props) => {
     const { content, index, listSelected, setListSelected } = props;

@@ -1,6 +1,6 @@
 import { XIcon } from "@heroicons/react/outline";
 import moment from "moment";
-import { TYPE_GO_CHAT, getCurrentYear } from "@/../utils/utilityFunc";
+import { TYPE_GO_CHAT, getCurrentYear } from "@/utils/utilityFunc";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
@@ -10,15 +10,15 @@ import {
     resetCreateContent,
     toggleEditorText,
     updateProps,
-} from "@/../store/actions/createContent";
+} from "@/store/actions/createContent";
 import { useHistory } from "react-router-dom";
-import Image from "@/../components/CategoriesContent/CategoriesContentItem/Image";
+import Image from "@/components/CategoriesContent/CategoriesContentItem/Image";
 import { FiEdit2, FiEdit3, FiX } from "react-icons/fi";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { actionPushContentToCreateContentScreen } from "@/../store/actions/homepage";
+import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
 import { toast } from "react-toastify";
 import ReactPlayer from "react-player";
-import { isArrayEmpty } from "@/../configs";
+import { isArrayEmpty } from "@/configs";
 const PopupDetailContentPlan = ({ isOpen, item, setIsOpenDetail, showTool = false }) => {
     const dispatch = useDispatch();
     const history = useHistory();

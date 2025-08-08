@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiCheckCircle, FiEdit, FiMaximize, FiPlayCircle, FiTrash, FiPlusCircle } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import LoadingApp from "@/../components/LoadingApp";
+import LoadingApp from "@/components/LoadingApp";
 import {
     ACTION_GET_HISTORY_QUESTION,
     deleteHistory,
@@ -10,7 +10,7 @@ import {
     toggleEditorText,
     updateHistory,
     updateHistoryHashtag,
-} from "@/../store/actions/createContent";
+} from "@/store/actions/createContent";
 import PopupDetailContentChat from "@/popupDetailContentChat";
 
 import styled from "styled-components";

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import ModalOverlay from "@/ModalOverlay";
-import Body from "@/Body";
-import Footer from "@/Footer";
-import Header from "@/Header";
-import Image from "@/Image";
+import ModalOverlay from "./ModalOverlay";
+import Body from "./Body";
+import Footer from "./Footer";
+import Header from "./Header";
+import Image from "./Image";
 import { useDispatch } from "react-redux";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/store/actions/createContent";

@@ -3,15 +3,15 @@ import { FaSearch } from "react-icons/fa";
 import { FiPlusSquare } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import LoadingApp from "@/../components/LoadingApp";
+import LoadingApp from "@/components/LoadingApp";
 import {
     actionGetChartByKeyword,
     actionGetTitle,
     actionQuestionChatGPT,
     actionResetState,
     actionUpdateSyncRequestPedding,
-} from "@/../store/actions/createContent";
-import { actionLoadingApp } from "@/../store/actions/loading";
+} from "@/store/actions/createContent";
+import { actionLoadingApp } from "@/store/actions/loading";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 const Isue = () => {

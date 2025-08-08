@@ -2,17 +2,17 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { confirmAlert } from "react-confirm-alert";
-import Destinations from "@/Destinations";
-import ListSchedules from "@/ListSchedules";
+import Destinations from "./Destinations";
+import ListSchedules from "./ListSchedules";
 import { toast } from "react-toastify";
-import CustomizeContent from "@/CustomizeContent";
-import AutoComments from "@/AutoComments";
+import CustomizeContent from "./CustomizeContent";
+import AutoComments from "./AutoComments/";
 import moment from "moment";
-import { destructScheduleContent } from "@/../components/Schedules/helpers";
-import { userServices } from "@/../services/users";
-import { getFacebookDestinations, getThreadsInfo, getTikTokInfo } from "@/../store/actions/Schedules";
-import { createPost, createPostAndSchedule } from "@/../store/actions/createContent";
-import { KEY_ITEM_EDIT } from "@/../reducers/createContent";
+import { destructScheduleContent } from "@/components/Schedules/helpers";
+import { userServices } from "@/services/users";
+import { getFacebookDestinations, getThreadsInfo, getTikTokInfo } from "@/store/actions/Schedules";
+import { createPost, createPostAndSchedule } from "@/store/actions/createContent";
+import { KEY_ITEM_EDIT } from "@/reducers/createContent";
 import { FiX } from "react-icons/fi";
 const defaultCommentItem = {
     id: 1,

@@ -13,15 +13,15 @@ import {
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
     updateSelectedDateTime,
-} from "@/../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import ModalEvent from "@/ModalEvent";
-import { searchEventByDate, TYPE_GO_CHAT } from "@/../utils/utilityFunc";
+import { searchEventByDate, TYPE_GO_CHAT } from "@/utils/utilityFunc";
 import { confirmAlert } from "react-confirm-alert";
 import { useHistory } from "react-router-dom";
 import ModalListEvent from "@/ModalListEvent";
-import { ResourcesService } from "@/../services/resources";
-import { OK } from "@/../configs";
-import { EVENT } from "@/../components/Schedules/SourceIdeas/utility";
+import { ResourcesService } from "@/services/resources";
+import { OK } from "@/configs";
+import { EVENT } from "@/components/Schedules/SourceIdeas/utility";
 const CalendarStyled = styled.div`
     .react-calendar {
         width: 100% !important;

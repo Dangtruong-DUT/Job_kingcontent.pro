@@ -1,6 +1,6 @@
 import { connect, useDispatch } from "react-redux";
 import { useEffect, useCallback, useState } from "react";
-import { getFanpagesByKeyword, getTagsByKeyword, getGoogleSubjectsByKeyword } from "@/../store/actions/homepage";
+import { getFanpagesByKeyword, getTagsByKeyword, getGoogleSubjectsByKeyword } from "@/store/actions/homepage";
 
 const HomepageSearchBar = (props) => {
     const { setLoading, setIsSearch, isHome = true } = props;

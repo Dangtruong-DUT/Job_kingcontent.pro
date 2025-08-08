@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SinglePost from "@/SinglePost";
-import { actionGetHashtagPosts, actionGetUserPosts } from "@/../store/actions/instagram";
+import { actionGetHashtagPosts, actionGetUserPosts } from "@/store/actions/instagram";
 import LoadingApp from "@/LoadingApp";
 import { applyOrder } from "@/helpers";
 

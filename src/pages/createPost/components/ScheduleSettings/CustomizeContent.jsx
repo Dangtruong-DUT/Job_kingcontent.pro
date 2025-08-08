@@ -3,7 +3,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { Label } from "reactstrap";
 import { Checkbox, DatePicker, Input } from "rsuite";
 // import 'rsuite/dist/styles/rsuite-default.min.css';
-import { CalendarLocaleVn } from "@/../helpers/date";
+import { CalendarLocaleVn } from "@/helpers/date";
 import { useSelector } from "react-redux";
 
 const CustomizeContent = (props) => {

@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import MenuIconFavorite from "@/assets/images/icon/main-menu/menu-icon-favorite.png";
 import TiktokLogoIcon from "@/assets/images/tiktok_logo.png";
 import Tiktok from "@/components/Schedules/Tiktok";
-import Special from "@/special";
+import Special from "./special";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { KEY_LABEL_SELECT } from "@/reducers/createContent";

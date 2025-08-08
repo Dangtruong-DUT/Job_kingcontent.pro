@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { getChildCategories } from "@/../store/actions/categories";
+import { getChildCategories } from "@/store/actions/categories";
 import { useDispatch, useSelector } from "react-redux";
 import ByItemsSelect from "@/Select";
-import { getContents } from "@/../store/actions/Contents/contentActions";
+import { getContents } from "@/store/actions/Contents/contentActions";
 import Contents from "@/Contents";
 import ContentDetail from "@/CategoriesContent/ContentDetail";
 

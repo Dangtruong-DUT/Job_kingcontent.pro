@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import SingleSuccessContent from "@/SingleSuccessContent";
-import { commentSetCurrentSchedule, setScheduleCommentsWaitingList } from "@/../store/actions/Schedules";
+import { commentSetCurrentSchedule, setScheduleCommentsWaitingList } from "@/store/actions/Schedules";
 import LoadingApp from "@/LoadingApp";
 import SearchBox from "@/SearchBox";
 import { FaAngleLeft } from "react-icons/fa";

@@ -8,8 +8,8 @@ import ModalNewTime from "@/ModalNewTime";
 import SettingsForm from "@/SettingsForm";
 import { toPng } from "html-to-image";
 import FeedbackContents from "@/FeedbackContents";
-import { actionAddImage } from "@/../store/actions/createContent";
-import { saveFeedbackData } from "@/../store/actions/editor/editorActions";
+import { actionAddImage } from "@/store/actions/createContent";
+import { saveFeedbackData } from "@/store/actions/editor/editorActions";
 
 const FeedbackType = (props) => {
     const { setIsShowTypes, setFeebackImage, setIsShowSingleType, reset } = props;

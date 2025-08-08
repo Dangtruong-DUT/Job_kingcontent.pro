@@ -6,10 +6,10 @@ import {
     setCurrentScheduleContent,
     setIsShowFinalStep,
     setScheduleItemPopupToShow,
-} from "@/../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import { confirmAlert } from "react-confirm-alert";
-import { userServices } from "@/../services/users";
-import { OK } from "@/../configs";
+import { userServices } from "@/services/users";
+import { OK } from "@/configs";
 
 function Button(props) {
     const { isSuccess = false, scheduleContent = null } = props;

@@ -1,6 +1,6 @@
 import { XIcon } from "@heroicons/react/outline";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { changeStateFormularPopup } from "@/../store/actions/editor/createContentActions";
+import { changeStateFormularPopup } from "@/store/actions/editor/createContentActions";
 import { connect } from "react-redux";
 
 const FormularForm = ({ changeStateFormularPopup }) => {

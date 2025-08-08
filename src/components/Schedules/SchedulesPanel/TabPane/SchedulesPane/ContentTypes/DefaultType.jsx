@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { GoPlus } from "react-icons/go";
 import moment from "moment";
 import { toast } from "react-toastify";
-import { setShowSourceIdeasPopup, updateSelectedDateTime } from "@/../../../store/actions/Schedules";
+import { setShowSourceIdeasPopup, updateSelectedDateTime } from "@/../../store/actions/Schedules";
 
 function DefaultType(props) {
     const { hour, day } = props;

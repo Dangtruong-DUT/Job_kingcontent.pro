@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaLayerGroup, FaTrash } from "react-icons/fa";
-import { KEY_EDITOR_IMAGE, KEY_INDEX_IMAGE_SELECT } from "@/../reducers/createContent";
-import { REDUX_NAME_CREATE_POST } from "@/../utils/utilityFunc";
+import { KEY_EDITOR_IMAGE, KEY_INDEX_IMAGE_SELECT } from "@/reducers/createContent";
+import { REDUX_NAME_CREATE_POST } from "@/utils/utilityFunc";
 import { useSelector } from "react-redux";
 import { IoSaveSharp } from "react-icons/io5";
-import { isArrayEmpty } from "@/../configs";
+import { isArrayEmpty } from "@/configs";
 import { MdLibraryAdd } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 

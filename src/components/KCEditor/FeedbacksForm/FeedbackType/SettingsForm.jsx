@@ -3,7 +3,7 @@ import { XIcon } from "@heroicons/react/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignal, faClock, faBatteryHalf, faSave } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { changeFeedbackSettings } from "@/../store/actions/editor/editorActions";
+import { changeFeedbackSettings } from "@/store/actions/editor/editorActions";
 
 const SettingsForm = (props) => {
     const { setIsShowSettingsForm, feedbackSettings, changeFeedbackSettings } = props;

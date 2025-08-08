@@ -6,16 +6,16 @@ import { AiFillLike } from "react-icons/ai";
 import { FaCommentDots, FaEye, FaShare } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
 import styled from "styled-components";
-import { kFormatter } from "@/../utils/utilityFunc";
-import Client from "@/../Client";
-import logoTikTok from "@/../assets/images/icon/main-menu/menu-icon-tiktok.png";
-import douyinLogo from "@/../assets/images/icon/main-menu/douyin.png";
-import InstagramLogo from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
-import ThreadsLogo from "@/../assets/images/threads-thumbnail.png";
-import threadsIcon from "@/../assets/images/icon/threads-black-icon.png";
-import FacebookIcon from "@/../assets/images/icon/facebook.png";
-import { getScheduleSourceLink } from "@/../helpers";
-import { OK } from "@/../configs";
+import { kFormatter } from "@/utils/utilityFunc";
+import Client from "@/Client";
+import logoTikTok from "@/assets/images/icon/main-menu/menu-icon-tiktok.png";
+import douyinLogo from "@/assets/images/icon/main-menu/douyin.png";
+import InstagramLogo from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
+import ThreadsLogo from "@/assets/images/threads-thumbnail.png";
+import threadsIcon from "@/assets/images/icon/threads-black-icon.png";
+import FacebookIcon from "@/assets/images/icon/facebook.png";
+import { getScheduleSourceLink } from "@/helpers";
+import { OK } from "@/configs";
 
 const TextStyle = styled.p`
     max-height: 70px;

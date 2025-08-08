@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { VscCalendar } from "react-icons/vsc";
-import { setShowScheduleCommentsPopup } from "@/../store/actions/Schedules";
+import { setShowScheduleCommentsPopup } from "@/store/actions/Schedules";
 
 const ScheduleComments = (props) => {
     const dispatch = useDispatch();

@@ -2,9 +2,9 @@ import React, { useCallback, useState } from "react";
 import NewComments from "@/NewComments";
 import Settings from "@/Settings";
 import { useDispatch, useSelector } from "react-redux";
-import { setScheduleCommentsWaitingList } from "@/../store/actions/Schedules";
+import { setScheduleCommentsWaitingList } from "@/store/actions/Schedules";
 import { toast } from "react-toastify";
-import { userServices } from "@/../services/users";
+import { userServices } from "@/services/users";
 import moment from "moment";
 
 const Comments = () => {

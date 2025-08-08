@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CloudUploadIcon, CloudDownloadIcon, XIcon } from "@heroicons/react/outline";
-import { pushFeedbackMessage, updateFeedbackMessage } from "@/../store/actions/editor/editorActions";
+import { pushFeedbackMessage, updateFeedbackMessage } from "@/store/actions/editor/editorActions";
 import { useDispatch } from "react-redux";
 import { ImCamera } from "react-icons/im";
 import { EmojiHappyIcon } from "@heroicons/react/solid";

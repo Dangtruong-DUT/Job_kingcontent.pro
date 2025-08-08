@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import VideoEmpty from "@/VideoEmpty";
-import instagramIcon from "@/../../assets/images/icon/main-menu/menu-icon-instagram.png";
-import VideoGenIcon from "@/../../assets/images/icon/main-menu/menu-icon-videogen.png";
+import instagramIcon from "@/../assets/images/icon/main-menu/menu-icon-instagram.png";
+import VideoGenIcon from "@/../assets/images/icon/main-menu/menu-icon-videogen.png";
 
 import moment from "moment";
 import { FiCalendar, FiMessageCircle, FiPlay, FiThumbsUp } from "react-icons/fi";
@@ -12,13 +12,13 @@ import {
     setIsShowFinalStep,
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
-} from "@/../../store/actions/Schedules";
+} from "@/../store/actions/Schedules";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { kFormatter } from "@/../../utils/utilityFunc";
-import { convertInstagramLink } from "@/../../helpers";
-import ContentDetail from "@/../../components/InstagramCpn/ContentDetail";
-import { actionSetCurrentContent } from "@/../../store/actions/instagram";
+import { kFormatter } from "@/../utils/utilityFunc";
+import { convertInstagramLink } from "@/../helpers";
+import ContentDetail from "@/../components/InstagramCpn/ContentDetail";
+import { actionSetCurrentContent } from "@/../store/actions/instagram";
 
 const VideoInstagram = ({ searchPosts = null }) => {
     const { currentContent = null } = useSelector((state) => state.instagram);
