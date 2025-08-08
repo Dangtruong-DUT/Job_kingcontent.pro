@@ -1,3 +1,3 @@
-﻿import ContentDetail from '@/ContentDetail'
+﻿import ContentDetail from './ContentDetail'
 
 export default ContentDetail;

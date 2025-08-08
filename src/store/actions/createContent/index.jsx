@@ -20,7 +20,7 @@ import { getObject_create_post } from '@/pages/createPost/utility';
 import { CreateContent } from '@/services/createContent';
 import * as types from '@/..';
 import { ACTION_GET_ALL_FANPAGE } from '@/store/actions/Fanpages';
-import { actionLoadingApp } from '@/loading';
+import { actionLoadingApp } from '@/store/actions/loading';
 import { Header } from 'rsuite';
 import { toast } from 'react-toastify';
 import {
@@ -35,15 +35,15 @@ import {
   KEY_PLANS,
   KEY_PLAN_DATA,
   KEY_PLAN_SELECT,
-} from '@/../reducers/createContent';
-import { REDUX_NAME_CREATE_POST, isObjEmpty } from '@/../utils/utilityFunc';
+} from '@/reducers/createContent';
+import { REDUX_NAME_CREATE_POST, isObjEmpty } from '@/utils/utilityFunc';
 import { uniqueId } from 'lodash';
 import { userServices } from '@/services/users';
 import {
   setIsActivePreset,
   setSelectFacebookPreset,
-} from '@/editor/createContentActions';
-import { getSchedules } from '@/Schedules';
+} from '@/store/actions/editor/createContentActions';
+import { getSchedules } from '@/store/actions/Schedules';
 export const ACTION_GET_TITLE = 'ACTION_GET_TITLE';
 export const ACTION_SAVE_TITLE_OBJ = 'ACTION_SAVE_TITLE_OBJ';
 export const ACTION_GET_TITLE_CHILD = 'ACTION_GET_TITLE_CHILD';

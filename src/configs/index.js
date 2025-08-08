@@ -120,5 +120,5 @@ export const nFormatter = (num) => {
 };
 export const PATH_NAME_CONTENT_LIKED = '/content-da-thich';
 export const DEFAULT_TAKE_CARE_CAT = 257;
-import { env } from '@/envConfig';
+import { env } from './envConfig';
 export const VIDEO_EDITOR_URL = env.VITE_VIDEO_EDITOR_URL ?? 'http://localhost:3000';

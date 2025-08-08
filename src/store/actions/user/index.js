@@ -1,6 +1,6 @@
-import * as types from '@/types/user';
-import client from '@/../Client';
-import auth from '@/../utils/auth';
+import * as types from '@/store/types/user';
+import client from '@/Client';
+import auth from '@/utils/auth';
 import { API_USER_LIKED_CONTENT, OK } from '@/configs';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';

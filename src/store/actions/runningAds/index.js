@@ -1,7 +1,7 @@
 ﻿import { toast } from 'react-toastify';
 import { OK } from '@/configs';
 import { runningAdsService } from '@/services/runningAds';
-import { getObjectTemplateCard } from '@/utils';
+import { getObjectTemplateCard } from '@/utils/utilityFunc';
 
 export const ACTION_SEARCH_ADS = 'ACTION_SEARCH_ADS';
 export const ACTION_EMPTY_ARR_SEARCH = 'ACTION_EMPTY_ARR_SEARCH';
