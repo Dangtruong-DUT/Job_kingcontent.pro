@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { faLaughWink, faSadTear, faClock } from "@fortawesome/free-solid-svg-icons";
-import SelectCustom from "./SelectCustom";
+import SelectCustom from "@/components/CategoriesContent/SelectCustom";
 
 const FreqTimeList = [
     {

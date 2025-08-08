@@ -9,17 +9,17 @@ import {
     faCertificate,
     faEnvelopeOpenText,
 } from "@fortawesome/free-solid-svg-icons";
-import SelectCustom from "./SelectCustom";
+import SelectCustom from "@/components/CategoriesContent/SelectCustom";
 
 const kindOfContentList = [
-    { name: "Táº¥t cáº£", value: "", icon: faCertificate },
-    { name: "Táº¡o hÃ ng loáº¡t", value: "for_ai_generate", icon: faCertificate },
-    { name: "HÃ¬nh áº£nh", value: "image", icon: faImage },
+    { name: "Tất cả", value: "", icon: faCertificate },
+    { name: "Tạo hàng loạt", value: "for_ai_generate", icon: faCertificate },
+    { name: "Hình ảnh", value: "image", icon: faImage },
     { name: "Video", value: "video", icon: faVideo },
-    { name: "VÄƒn báº£n", value: "text", icon: faEnvelopeOpenText },
+    { name: "Văn bản", value: "text", icon: faEnvelopeOpenText },
     { name: "Feedback", value: "feedback", icon: faComment },
-    { name: "BÃ¡n hÃ ng", value: "sale", icon: faSearchDollar },
-    { name: "Phi bÃ¡n hÃ ng", value: "nonsale", icon: faStoreAltSlash },
+    { name: "Bán hàng", value: "sale", icon: faSearchDollar },
+    { name: "Phi bán hàng", value: "nonsale", icon: faStoreAltSlash },
 ];
 
 function KindOfContentSelect(props) {

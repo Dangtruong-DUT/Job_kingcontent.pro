@@ -1,4 +1,4 @@
-﻿import SuggestionsPopup from '@/SuggestionsPopup';
+﻿import SuggestionsPopup from './SuggestionsPopup';
 
 export default SuggestionsPopup;
 

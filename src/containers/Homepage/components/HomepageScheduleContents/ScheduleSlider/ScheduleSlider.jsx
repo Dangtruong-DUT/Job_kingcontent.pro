@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getScheduleContents, getScheduleContentsHomepage } from "@/../store/actions/Schedules";
+import { getScheduleContents, getScheduleContentsHomepage } from "@/store/actions/Schedules";
 import ScheduleSingle from "@/ScheduleSingle";
 import moment from "moment";
 

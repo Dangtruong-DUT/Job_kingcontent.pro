@@ -1,11 +1,11 @@
-import { TYPE_GO_CONTENT } from "@/../utils/utilityFunc";
+import { TYPE_GO_CONTENT } from "@/utils/utilityFunc";
 import Footer from "@/HomepageSpecial/SliderContents/Footer";
-import { getFanpageAvatar } from "@/../helpers";
+import { getFanpageAvatar } from "@/helpers";
 import { FiEye } from "react-icons/fi";
 import { FaPencilAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { actionUpdateStep1, resetCreateContent } from "@/../store/actions/createContent";
-import { actionPushContentToCreateContentScreen } from "@/../store/actions/homepage";
+import { actionUpdateStep1, resetCreateContent } from "@/store/actions/createContent";
+import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 const TextStyled = styled.div`

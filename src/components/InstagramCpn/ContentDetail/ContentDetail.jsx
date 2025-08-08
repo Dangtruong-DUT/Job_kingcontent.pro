@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Medias from "@/Medias";
-import Header from "@/Header";
-import Footer from "@/Footer";
+import Medias from "./Medias";
+import Header from "./Header";
+import Footer from "./Footer";
 import { useHistory } from "react-router-dom";
 import { _dashed_border } from "@/pages/createPost/utility";
 import { breakWord } from "@/helpers";

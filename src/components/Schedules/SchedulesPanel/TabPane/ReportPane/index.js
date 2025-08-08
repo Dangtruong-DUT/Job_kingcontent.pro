@@ -1,4 +1,4 @@
-﻿import ReportPane from '@/ReportPane';
+﻿import ReportPane from './ReportPane';
 
 export default ReportPane;
 

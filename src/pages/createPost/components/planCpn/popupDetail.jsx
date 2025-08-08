@@ -12,7 +12,7 @@ import {
     updateProps,
 } from "@/store/actions/createContent";
 import { useHistory } from "react-router-dom";
-import Image from "@/components/CategoriesContent/CategoriesContentItem/Image";
+import Image from "@/components/CategoriesContent/CategonesContentltem/Image";
 import { FiEdit2, FiEdit3, FiX } from "react-icons/fi";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";

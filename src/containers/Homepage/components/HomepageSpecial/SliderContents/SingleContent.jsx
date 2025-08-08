@@ -1,27 +1,27 @@
 import { useCallback, useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import PopupDetailContentPlan from "@/../pages/createPost/components/planCpn/popupDetail";
-import { _dashed_border } from "@/../pages/createPost/utility";
-import { setContentDetailToShow } from "@/../store/actions/Contents/contentActions";
+import PopupDetailContentPlan from "@/pages/createPost/components/planCpn/popupDetail";
+import { _dashed_border } from "@/pages/createPost/utility";
+import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import Footer from "@/Footer";
 import { FiCalendar, FiEye, FiPlayCircle } from "react-icons/fi";
 import { FaPencilAlt } from "react-icons/fa";
-import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/../store/actions/createContent";
-import { actionPushContentToCreateContentScreen } from "@/../store/actions/homepage";
+import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/store/actions/createContent";
+import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
 import {
     setCurrentDateTime,
     setIsShowFinalStep,
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
-} from "@/../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import { toast } from "react-toastify";
-import Client from "@/../Client";
-import { OK } from "@/../configs";
-import VideoGenIcon from "@/../assets/images/icon/main-menu/menu-icon-videogen.png";
-import { setScript } from "@/../store/actions/TextToVideo";
+import Client from "@/Client";
+import { OK } from "@/configs";
+import VideoGenIcon from "@/assets/images/icon/main-menu/menu-icon-videogen.png";
+import { setScript } from "@/store/actions/TextToVideo";
 
 const TextStyled = styled.div`
     span {

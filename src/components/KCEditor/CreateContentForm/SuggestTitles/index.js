@@ -1,3 +1,3 @@
-﻿import SuggestTitles from '@/SuggestTitles' 
+﻿import SuggestTitles from './SuggestTitles'
 
 export default SuggestTitles

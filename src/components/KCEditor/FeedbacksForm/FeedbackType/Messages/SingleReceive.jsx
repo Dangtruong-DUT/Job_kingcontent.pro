@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { removeFeedbackMessage } from "@/../store/actions/editor/editorActions";
+import { removeFeedbackMessage } from "@/store/actions/editor/editorActions";
 
 const SingleReceive = (props) => {
     const {

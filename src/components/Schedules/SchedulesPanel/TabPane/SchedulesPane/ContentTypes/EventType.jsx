@@ -3,16 +3,16 @@ import React, { useCallback } from "react";
 import { GoPlus } from "react-icons/go";
 import { HiStar } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import defaultEventIcon from "@/../../assets/images/anh-cute-nhat.jpg";
+import defaultEventIcon from "@/assets/images/anh-cute-nhat.jpg";
 import {
     setShowSourceIdeasPopup,
     updateSelectedDateTime,
     setCurrentScheduleContentType,
     setSelectedEvent,
-} from "@/../../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import { toast } from "react-toastify";
-import { EVENT } from "@/../Schedules/SourceIdeas/utility";
-import { searchEventByDate } from "@/../../utils/utilityFunc";
+import { EVENT } from "@/Schedules/SourceIdeas/utility";
+import { searchEventByDate } from "@/utils/utilityFunc";
 
 function EventType(props) {
     const { hour, day, event = null } = props;

@@ -1,42 +1,42 @@
 ﻿import React from 'react';
 import { faShareSquare } from '@fortawesome/free-solid-svg-icons';
-import SelectCustom from '@/SelectCustom';
+import SelectCustom from '../SelectCustom';
 
 const ByShareList = [
   {
-    name: 'DÆ°á»›i 20',
+    name: 'Dưới 20',
     value: '0-20',
     icon: faShareSquare,
   },
   {
-    name: 'Tá»« 21 - 50',
+    name: 'Từ 21 - 50',
     value: '21-50',
     icon: faShareSquare,
   },
   {
-    name: 'Tá»« 50 - 100',
+    name: 'Từ 50 - 100',
     value: '50-100',
     icon: faShareSquare,
   },
   {
-    name: 'Tá»« 100 - 300',
+    name: 'Từ 100 - 300',
     value: '100-300',
     icon: faShareSquare,
   },
   {
-    name: 'Tá»« 300 - 1000',
+    name: 'Từ 300 - 1000',
     value: '300-1000',
     icon: faShareSquare,
   },
   {
-    name: 'TrÃªn 1000',
+    name: 'Trên 1000',
     value: '1000-10000000',
     icon: faShareSquare,
   },
 ];
 
 const initSelect = {
-  name: 'Chá»n sá»‘ lÆ°á»£t share ...',
+  name: 'Chọn số lượt share ...',
   value: '',
   icon: faShareSquare,
 };

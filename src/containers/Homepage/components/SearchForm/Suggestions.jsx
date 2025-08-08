@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from "react";
 import ListContents from "@/containers/Homepage/components/SearchForm/ListContents";
-import ListFanpages from "@/ListFanpages";
+import FanpageRows from "@/components/SpecialFollow/FanpageRows/FanpageRows";
 import { useSelector } from "react-redux";
 import { ImCross } from "react-icons/im";
 import { Link } from "react-router-dom";
@@ -54,7 +54,7 @@ const Suggestions = (props) => {
                                     contents.length === 0 ? "w-full" : "w-1/3"
                                 }`}
                             >
-                                <ListFanpages fanpages={fanpages} />
+                                <FanpageRows fanpages={fanpages} />
                             </div>
                         )}
                     </div>

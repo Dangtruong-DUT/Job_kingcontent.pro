@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { convertWeekdayToString } from "@/utils/utilityFunc";
 import moment from "moment";
 import { useSelector } from "react-redux";
-import auth from "@/../utils/auth";
+import auth from "@/utils/auth";
 
 function WeekPane(props) {
     const totalPerDay = auth.getMaxContentsByRole();

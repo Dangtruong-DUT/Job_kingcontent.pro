@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 import { getTrenddingData } from "@/store/actions/homepage";
 import { actionGetTiktokVideosAll } from "@/store/actions/tiktok";
 import ScheduleSlider from "@/containers/Homepage/components/HomepageScheduleContents/ScheduleSlider";
-import SliderContents from "@/components/HomepageSpecial/SliderContents";
-import SliderFanpages from "@/components/HomepageSpecial/SliderFanpages";
-import VideoTiktoks from "@/components/HomepageSpecial/videoTiktoks";
-import VideoDouYin from "@/components/HomepageSpecial/videoDouyin";
+import SliderContents from "@/containers/Homepage/components/HomepageSpecial/SliderContents";
+import SliderFanpages from "@/containers/Homepage/components/HomepageSpecial/SliderFanpages";
+import VideoTiktoks from "@/containers/Homepage/components/HomepageSpecial/videoTiktoks";
+import VideoDouYin from "@/containers/Homepage/components/HomepageSpecial/videoDouyin";
 
 import ContentDetail from "@/components/CategoriesContent/ContentDetail/ContentDetail";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import { actionGetDouyinVideos } from "@/store/actions/douyin";
-import VideoInstagram from "@/components/HomepageSpecial/VideoInstagram";
+import VideoInstagram from "@/containers/Homepage/components/HomepageSpecial/Videolnstagram";
 import { actionGetHashtagPosts } from "@/store/actions/instagram";
 
 const Homepage = (props) => {

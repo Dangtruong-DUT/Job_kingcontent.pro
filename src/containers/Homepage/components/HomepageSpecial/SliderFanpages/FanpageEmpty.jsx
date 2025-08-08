@@ -1,6 +1,6 @@
 import React from "react";
-import addIcon from "@/../assets/images/icon/add-special.png";
-import noImageIcon from "@/../assets/images/no-image.png";
+import addIcon from "@/assets/images/icon/add-special.png";
+import noImageIcon from "@/assets/images/no-image.png";
 import { Link } from "react-router-dom";
 const FanpageEmpty = () => {
     return (

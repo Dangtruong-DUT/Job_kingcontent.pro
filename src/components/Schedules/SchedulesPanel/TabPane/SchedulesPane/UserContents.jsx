@@ -8,7 +8,7 @@ import {
     getScheduledContents,
     getUserContents,
     getUserPlans,
-} from "@/../store/actions/Schedules";
+} from "@/store/actions/Schedules";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 

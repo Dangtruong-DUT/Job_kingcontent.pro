@@ -1,8 +1,8 @@
 import { Link } from "@mui/material";
-import { numberWithCommas } from "@/../utils/utilityFunc";
+import { numberWithCommas } from "@/utils/utilityFunc";
 import { FaMinusCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { deleteChosenCategories } from "@/../store/actions/homepage";
+import { deleteChosenCategories } from "@/store/actions/homepage";
 import { confirmAlert } from "react-confirm-alert";
 
 const SingleCate = (props) => {

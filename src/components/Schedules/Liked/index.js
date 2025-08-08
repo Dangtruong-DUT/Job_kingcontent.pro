@@ -1,4 +1,4 @@
-﻿import Liked from '@/Liked';
+﻿import Liked from './Liked';
 
 export default Liked;
 

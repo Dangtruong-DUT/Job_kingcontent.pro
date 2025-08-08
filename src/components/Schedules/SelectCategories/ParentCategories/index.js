@@ -1,4 +1,4 @@
-﻿import ParentCategories from '@/ParentCategories';
+﻿import ParentCategories from './ParentCategories';
 
 export default ParentCategories;
 

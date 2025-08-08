@@ -1,3 +1,3 @@
-﻿import FormularTab from '@/FormularTab'
+﻿import FormularTab from './FormularTab'
 
 export default FormularTab;

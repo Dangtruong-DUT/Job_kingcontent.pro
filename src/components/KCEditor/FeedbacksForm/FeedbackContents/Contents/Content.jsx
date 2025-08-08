@@ -1,17 +1,17 @@
 import { useCallback, useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaEye, FaPenAlt, FaRegCommentDots, FaRegShareSquare } from "react-icons/fa";
-import { kFormatter } from "@/../utils/utilityFunc";
-import { setContentDetailToShow } from "@/../store/actions/Contents/contentActions";
+import { kFormatter } from "@/utils/utilityFunc";
+import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import { useDispatch } from "react-redux";
-import { breakWord } from "@/../helpers";
-import { toggleEditorText, updateProps } from "@/../store/actions/createContent";
+import { breakWord } from "@/helpers";
+import { toggleEditorText, updateProps } from "@/store/actions/createContent";
 import { confirmAlert } from "react-confirm-alert";
 import { FiPlayCircle } from "react-icons/fi";
-import Client from "@/../Client";
+import Client from "@/Client";
 import { toast } from "react-toastify";
-import { KEY_HASH_VIDEO_OR_IMAGE } from "@/../reducers/createContent";
-import { OK } from "@/../configs";
+import { KEY_HASH_VIDEO_OR_IMAGE } from "@/reducers/createContent";
+import { OK } from "@/configs";
 
 const Content = (props) => {
     const { content, isIdea = false } = props;

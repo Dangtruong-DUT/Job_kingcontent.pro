@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { HiStar } from "react-icons/hi";
 import { useDispatch } from "react-redux";
-import * as SCHEDULES from "@/../../store/actions/Schedules";
-import logoTikTok from "@/../../assets/images/icon/main-menu/menu-icon-tiktok.png";
-import douyinLogo from "@/../../assets/images/icon/main-menu/douyin.png";
-import InstagramLogo from "@/../../assets/images/icon/main-menu/menu-icon-instagram.png";
-import ThreadsLogo from "@/../../assets/images/threads-thumbnail.png";
+import * as SCHEDULES from "@/store/actions/Schedules";
+import logoTikTok from "@/assets/images/icon/main-menu/menu-icon-tiktok.png";
+import douyinLogo from "@/assets/images/icon/main-menu/douyin.png";
+import InstagramLogo from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
+import ThreadsLogo from "@/assets/images/threads-thumbnail.png";
 import moment from "moment";
 import { toast } from "react-toastify";
 import { FiPlayCircle } from "react-icons/fi";
 import ReactPlayer from "react-player";
-import { convertInstagramLink } from "@/../../helpers";
+import { convertInstagramLink } from "@/helpers";
 import { FaCheck, FaQuestion, FaMinusCircle } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";
 

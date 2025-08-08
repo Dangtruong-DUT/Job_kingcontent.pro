@@ -1,4 +1,4 @@
-﻿import AutoComments from '@/AutoComments';
+﻿import AutoComments from './AutoComments';
 
 export default AutoComments;
 

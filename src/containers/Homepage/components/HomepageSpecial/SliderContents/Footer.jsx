@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegCommentDots, FaRegShareSquare } from "react-icons/fa";
 import { RiHeart3Line } from "react-icons/ri";
-import { kFormatter } from "@/../utils/utilityFunc";
+import { kFormatter } from "@/utils/utilityFunc";
 
 function Footer(props) {
     const {

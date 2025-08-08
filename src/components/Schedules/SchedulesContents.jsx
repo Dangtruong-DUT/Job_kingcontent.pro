@@ -1,20 +1,20 @@
-﻿import Header from "@/Header";
-import SchedulesPanel from "@/SchedulesPanel";
+﻿import Header from "./Header";
+import SchedulesPanel from "./SchedulesPanel";
 import { useSelector } from "react-redux";
 import SuggestionsPopup from "./Popups/SuggestionsPopup";
 import ScheduleItemPopup from "./Popups/ScheduleltemPopup";
 import CreateSchedulePopup from "./Popups/CreateSchedulePopup";
 import SelectSuggestsPopup from "./Popups/SelectSuggestsPopup";
-import ContentDetail from "./CategoriesContent/ContentDetail";
+import ContentDetail from "@/components/CategoriesContent/ContentDetail";
 import SelectCategories from "./SelectCategories";
 import SourceIdeas from "./Sourceldeas/SourceIdeas";
 import React, { useCallback } from "react";
 import FinalStep from "./FinalStep/FinalStep";
 import SourceIdeasAuto from "./SourceldeasAuto/SourceIdeasAuto";
 import FinalStepAuto from "./FinalStepAuto/FinalStepAuto";
-import ScheduleMultipleItemsPopup from "./Popups/ScheduleMultipleItemsPopup";
+import ScheduleMultipleItemsPopup from "./Popups/ScheduleMultipleltemsPopup";
 import ScheduleComments from "./ScheduleComments/ScheduleComments";
-import ManageSchedules from "./ManageSchedules";
+import ManageSchedules from "@/components/Schedules/ManageSchedules/ManageSchedules";
 import ModalEditingContent from "./ModalEditingContent";
 
 const SchedulesContents = () => {
