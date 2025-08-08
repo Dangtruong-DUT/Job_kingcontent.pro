@@ -1,3 +1,4 @@
-import VideoEditor from './VideoEditor';
+﻿import VideoEditor from '@/VideoEditor';
 
 export default VideoEditor;
+

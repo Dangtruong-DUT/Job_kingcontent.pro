@@ -1,27 +1,27 @@
-import { combineReducers } from 'redux';
-import searchAndFilterReducer from './Contents/searchAndFilterReducer';
-import contentsReducer from './Contents/contentReducer';
-import createContentReducer from './editor/createContentReducer';
-import editorReducer from './editor/editorReducer';
-import PopupContentReducer from './PopupContent/popupContentReducer';
-import userReducer from './user/userReducer';
-import trendingReducer from './Contents/trendingReducer';
-import specialReducer from './Contents/specialReducer';
-import homepageReducer from './homepage/homepageReducer';
-import SchedulesReducer from './Schedules';
-import CategoriesReducer from './Categories';
-import HashtagsReducer from './Hashtags';
-import ContentUserLikeReducers from './contentUserLike';
-import runningAdsReducers from './runningAds';
-import tiktokReducers from './tiktok';
-import fanpagesReducers from './Fanpages';
-import createPostReducers from './createContent';
-import loadingReducers from './loadingApp';
-import instagramReducers from './instagram';
-import douyinReducers from './douyin';
-import threadsReducers from './threads/index';
-import textToVideo from './textToVideo';
-import videoEditorReducer from './videoEditor';
+﻿import { combineReducers } from 'redux';
+import searchAndFilterReducer from '@/reducers/Contents/searchAndFilterReducer';
+import contentsReducer from '@/reducers/Contents/contentReducer';
+import createContentReducer from '@/reducers/editor/createContentReducer';
+import editorReducer from '@/reducers/editor/editorReducer';
+import PopupContentReducer from '@/reducers/PopupContent/popupContentReducer';
+import userReducer from '@/reducers/user/userReducer';
+import trendingReducer from '@/reducers/Contents/trendingReducer';
+import specialReducer from '@/reducers/Contents/specialReducer';
+import homepageReducer from '@/reducers/homepage/homepageReducer';
+import SchedulesReducer from '@/reducers/Schedules';
+import CategoriesReducer from '@/reducers/Categories';
+import HashtagsReducer from '@/reducers/Hashtags';
+import ContentUserLikeReducers from '@/reducers/contentUserLike';
+import runningAdsReducers from '@/reducers/runningAds';
+import tiktokReducers from '@/reducers/tiktok';
+import fanpagesReducers from '@/reducers/Fanpages';
+import createPostReducers from '@/reducers/createContent';
+import loadingReducers from '@/reducers/loadingApp';
+import instagramReducers from '@/reducers/instagram';
+import douyinReducers from '@/reducers/douyin';
+import threadsReducers from '@/reducers/threads/index';
+import textToVideo from '@/reducers/textToVideo';
+import videoEditorReducer from '@/reducers/videoEditor';
 
 const rootReducer = combineReducers({
   editor: editorReducer,
@@ -50,3 +50,4 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+

@@ -1,8 +1,8 @@
-import {
+﻿import {
   ACTION_GET_POST_TAB_RIGHT,
   RESET_TRENDING,
-} from '../../store/actions/createContent';
-import * as types from '../../store';
+} from '@/store/actions/createContent';
+import * as types from '@/store/types';
 
 const trendingReducerInitialState = {
   trendings: [],
@@ -27,28 +27,31 @@ const trendingReducer = (state = trendingReducerInitialState, action) => {
       return { ...state, keywords: payload };
 
     case types.GET_TRENDING_WITH_KEYWORDS:
-      const { contents, totalPages, page, fromSchedule = false } = payload;
-      if (page === 1) {
-        return { ...state, trendings: contents, totalPages, page };
-      } else {
-        return {
-          ...state,
-          trendings: fromSchedule
-            ? [...state.trendings, ...contents]
-            : contents,
-          totalPages,
-          page,
-        };
-      }
-      break;
+      {
+        const { contents, totalPages, page, fromSchedule = false } = payload;
+        if (page === 1) {
+          return { ...state, trendings: contents, totalPages, page };
+        } else {
+          return {
+            ...state,
+            trendings: fromSchedule
+              ? [...state.trendings, ...contents]
+              : contents,
+            totalPages,
+            page,
+          };
+        }
 
+      }
     case types.GET__TRENDING_WITH_KEYWORDS:
       return { ...state, _trendings: payload };
 
     case ACTION_GET_POST_TAB_RIGHT:
-      const dataArr = state.trendings.concat(action.payload);
-      return { ...state, trendings: dataArr };
+      {
+        const dataArr = state.trendings.concat(action.payload);
+        return { ...state, trendings: dataArr };
 
+      }
     case RESET_TRENDING:
       return { ...state, trendings: [], totalPages: 0, page: 1 };
 
@@ -58,3 +61,5 @@ const trendingReducer = (state = trendingReducerInitialState, action) => {
 };
 
 export default trendingReducer;
+
+

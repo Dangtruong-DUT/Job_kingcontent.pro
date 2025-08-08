@@ -1,6 +1,6 @@
-import * as types from '../../types';
-import client from '../../../Client';
-import auth from '../../../utils/auth';
+﻿import * as types from '@/../types';
+import client from '@/../../Client';
+import auth from '@/../../utils/auth';
 
 export const getCreatedContents = (userId) => async (dispatch) => {
   try {
@@ -257,3 +257,4 @@ export const setContentType = (state) => (dispatch) => {
     payload: state,
   });
 };
+

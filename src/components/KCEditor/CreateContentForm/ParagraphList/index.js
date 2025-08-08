@@ -1,3 +1,3 @@
-import ParagraphList from './ParagraphList'
+﻿import ParagraphList from '@/ParagraphList'
 
 export default ParagraphList;

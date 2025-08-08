@@ -1,3 +1,4 @@
-import SingleSuggestion from "./SingleSuggestion"
+﻿import SingleSuggestion from '@/SingleSuggestion'
 
 export default SingleSuggestion;
+

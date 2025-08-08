@@ -1,3 +1,3 @@
-import Zalo from './Zalo'
+﻿import Zalo from '@/Zalo'
 
 export default Zalo

@@ -1,4 +1,4 @@
-import * as types from '../../store/types/hashtag';
+﻿import * as types from '@/store/types/hashtag';
 
 const hashtagsInitialState = {
   hashtags: [],
@@ -16,3 +16,4 @@ const HashtagsReducer = (state = hashtagsInitialState, action) => {
 }
 
 export default HashtagsReducer;
+

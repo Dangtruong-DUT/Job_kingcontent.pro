@@ -1,5 +1,5 @@
-import * as types from '../../store/types/user';
-import auth from '../../utils/auth';
+﻿import * as types from '@/store/types/user';
+import auth from '@/utils/auth';
 
 let user = auth.getUserInfo();
 let jwtToken = auth.getToken();
@@ -11,7 +11,7 @@ const userInitialState = {
   likedContents: null,
   likedFanpages: null,
   isSaving: false,
-  isCompleteInformation : {status : false , info : {}},
+  isCompleteInformation: { status: false, info: {} },
 };
 
 const userReducer = (state = userInitialState, action) => {
@@ -21,7 +21,7 @@ const userReducer = (state = userInitialState, action) => {
       auth.setToken(payload.access_token || payload.data.access_token, payload?.rememberMe || false);
       auth.setUserInfo(payload.data, payload?.rememberMe || false);
       // set lastCheck
-      auth.set(new Date().getTime(), 'lastCheck',  payload?.rememberMe || false);
+      auth.set(new Date().getTime(), 'lastCheck', payload?.rememberMe || false);
       return {
         ...state,
         loggedIn: true,
@@ -56,3 +56,4 @@ const userReducer = (state = userInitialState, action) => {
 };
 
 export default userReducer;
+

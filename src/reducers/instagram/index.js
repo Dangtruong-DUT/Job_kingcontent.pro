@@ -1,4 +1,4 @@
-import {
+﻿import {
   INSTAGRAM_GET_COLLECTIONS,
   INSTAGRAM_GET_COLLECTIONS_SUCCESS,
   INSTAGRAM_GET_COLLECTION_DETAIL,
@@ -29,7 +29,7 @@ import {
   INSTAGRAM_SET_ORDER_TYPE,
   INSTAGRAM_SET_SCHEDULE_FILTER,
   INSTAGRAM_UPDATE_CHOSEN_POSTS,
-} from '../../store/actions/instagram';
+} from '@/store/actions/instagram';
 
 const initialState = {
   loadingUsers: false,
@@ -67,37 +67,40 @@ const initialState = {
 const instagramReducers = (state = initialState, { type, payload }) => {
   switch (type) {
     case INSTAGRAM_GET_HASHTAG_POSTS:
-      const { next_page: next_page_hashtag = false, hashtag = '' } = payload;
+      {
+        const { next_page: next_page_hashtag = false, hashtag = '' } = payload;
 
-      return {
-        ...state,
-        currentHashTag: hashtag,
-        loadingFeeds: !next_page_hashtag,
-        nextIsLoading: next_page_hashtag,
-      };
+        return {
+          ...state,
+          currentHashTag: hashtag,
+          loadingFeeds: !next_page_hashtag,
+          nextIsLoading: next_page_hashtag,
+        };
 
-    case INSTAGRAM_GET_HASHTAG_POSTS_SUCCESS:
-      const { data = {}, next_page: next_page_hashtag_success = false, next_cursor: next_cursor_hashtag = '' } =
-        payload;
-      if (next_page_hashtag_success) {
-        let posts = state.posts;
-        // merge new data with old data without duplicate
-        posts.items = [
-          ...posts.items,
-          ...data.items.filter(
-            (item) => !posts.items.some((post) => post.id === item.id)
-          ),
-        ];
-        return { ...state, posts, loadingFeeds: false, nextIsLoading: false, hashTagNextCursor: next_cursor_hashtag };
       }
-      return {
-        ...state,
-        posts: data,
-        loadingFeeds: false,
-        nextIsLoading: false,
-        hashTagNextCursor: next_cursor_hashtag
-      };
-
+    case INSTAGRAM_GET_HASHTAG_POSTS_SUCCESS:
+      {
+        const { data = {}, next_page: next_page_hashtag_success = false, next_cursor: next_cursor_hashtag = '' } =
+          payload;
+        if (next_page_hashtag_success) {
+          let posts = state.posts;
+          // merge new data with old data without duplicate
+          posts.items = [
+            ...posts.items,
+            ...data.items.filter(
+              (item) => !posts.items.some((post) => post.id === item.id)
+            ),
+          ];
+          return { ...state, posts, loadingFeeds: false, nextIsLoading: false, hashTagNextCursor: next_cursor_hashtag };
+        }
+        return {
+          ...state,
+          posts: data,
+          loadingFeeds: false,
+          nextIsLoading: false,
+          hashTagNextCursor: next_cursor_hashtag
+        };
+      }
     case INSTAGRAM_GET_USERS:
       return { ...state, loadingUsers: true, currentHashTag: '' };
 
@@ -105,77 +108,85 @@ const instagramReducers = (state = initialState, { type, payload }) => {
       return { ...state, loadingUsers: false, users: payload };
 
     case INSTAGRAM_GET_USER_POSTS:
-      const { isNext = false } = payload;
-      if (isNext) {
-        return { ...state, nextIsLoading: true, currentHashTag: '' };
-      } else {
-        return { ...state, loadingFeeds: true, currentHashTag: '' };
-      }
+      {
+        const { isNext = false } = payload;
+        if (isNext) {
+          return { ...state, nextIsLoading: true, currentHashTag: '' };
+        } else {
+          return { ...state, loadingFeeds: true, currentHashTag: '' };
+        }
 
+      }
     case INSTAGRAM_GET_USER_POSTS_SUCCESS:
-      const {
-        next_page = false,
-        items = [],
-        has_next = false,
-        next_cursor = '',
-      } = payload;
-      if (next_page) {
-        let posts = state.posts;
-        posts.items = [...posts.items, ...items];
-        posts.has_next = has_next;
-        posts.next_cursor = next_cursor;
-        return {
-          ...state,
-          loadingFeeds: false,
-          posts: posts,
-          nextIsLoading: false,
-        };
-      } else {
-        return {
-          ...state,
-          loadingFeeds: false,
-          posts: payload,
-          nextIsLoading: false,
-        };
-      }
+      {
+        const {
+          next_page = false,
+          items = [],
+          has_next = false,
+          next_cursor = '',
+        } = payload;
+        if (next_page) {
+          let posts = state.posts;
+          posts.items = [...posts.items, ...items];
+          posts.has_next = has_next;
+          posts.next_cursor = next_cursor;
+          return {
+            ...state,
+            loadingFeeds: false,
+            posts: posts,
+            nextIsLoading: false,
+          };
+        } else {
+          return {
+            ...state,
+            loadingFeeds: false,
+            posts: payload,
+            nextIsLoading: false,
+          };
+        }
 
+      }
     case INSTAGRAM_GET_USER_REELS:
-      const { reelsIsNext = false } = payload;
-      if (reelsIsNext) {
-        return { ...state, nextIsLoading: true, currentHashTag: '' };
-      } else {
-        return { ...state, loadingReels: true, currentHashTag: '' };
-      }
+      {
+        const { reelsIsNext = false } = payload;
+        if (reelsIsNext) {
+          return { ...state, nextIsLoading: true, currentHashTag: '' };
+        } else {
+          return { ...state, loadingReels: true, currentHashTag: '' };
+        }
 
+      }
     case INSTAGRAM_GET_USER_REELS_SUCCESS:
-      const {
-        reels_next_page = false,
-        reels_items = [],
-        reels_has_next = false,
-        reels_next_cursor = '',
-      } = payload;
-      if (reels_next_page) {
-        let reels = state.reels;
-        return {
-          ...state,
-          loadingReels: false,
-          reels: {
-            ...reels,
-            items: [...reels.items, ...reels_items],
-            has_next: reels_has_next,
-            next_cursor: reels_next_cursor,
-          },
-          nextIsLoading: false,
-        };
-      } else {
-        return {
-          ...state,
-          loadingReels: false,
-          reels: payload,
-          nextIsLoading: false,
-        };
-      }
+      {
+        const {
+          reels_next_page = false,
+          reels_items = [],
+          reels_has_next = false,
+          reels_next_cursor = '',
+        } = payload;
+        if (reels_next_page) {
+          let reels = state.reels;
+          return {
+            ...state,
+            loadingReels: false,
+            reels: {
+              ...reels,
+              items: [...reels.items, ...reels_items],
+              has_next: reels_has_next,
+              next_cursor: reels_next_cursor,
+            },
+            nextIsLoading: false,
+          };
+        } else {
+          return {
+            ...state,
+            loadingReels: false,
+            reels: payload,
+            nextIsLoading: false,
+          };
+        }
 
+      }
     case INSTAGRAM_GET_REEL_DETAIL:
       return { ...state, loadingDetail: true };
 
@@ -265,3 +276,5 @@ const instagramReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default instagramReducers;
+
+

@@ -1,5 +1,5 @@
-import Client from '../Client';
-import { API_GET_THREADS } from '../configs';
+﻿import Client from '@/Client';
+import { API_GET_THREADS } from '@/configs';
 
 export const threadsService = {
   getThreadsVideos(inputValue, offset = 0) {
@@ -113,3 +113,4 @@ export const threadsService = {
     });
   },
 };
+

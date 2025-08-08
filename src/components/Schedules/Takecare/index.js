@@ -1,3 +1,4 @@
-import Takecare from './Takecare';
+﻿import Takecare from '@/Takecare';
 
 export default Takecare;
+

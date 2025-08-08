@@ -1,11 +1,11 @@
-import {
+﻿import {
   ACTION_CHANGE_STATUS_SEARCH,
   ACTION_GET_ALL_FANPAGE,
   ACTION_IS_LOADING,
   ACTION_SAVE_CATEGORY,
   ACTION_SAVE_PAGE,
   ACTION_SEARCH_FANPAGE,
-} from '../../store/actions/Fanpages';
+} from '@/store/actions/Fanpages';
 const initialState = {
   availableFanpage: [],
   fanpageSearchData: [],
@@ -54,3 +54,5 @@ const fanpagesReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default fanpagesReducers;
+
+

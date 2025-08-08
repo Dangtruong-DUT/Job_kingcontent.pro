@@ -1,4 +1,4 @@
-export const API_USER_LIKED_CONTENT = 'liked-data';
+﻿export const API_USER_LIKED_CONTENT = 'liked-data';
 export const API_HAGTAG = 'hagtah';
 export const API_SEARCH_ADS_RUNNING = 'search-ads';
 export const API_FANPAGES = 'fanpages';
@@ -69,7 +69,7 @@ export const capitalizeFirstLetter = (string) => {
 export const OK = 200;
 export const BAD_REQUEST = 400;
 export const _LIMIT_DEFAULT = 20;
-export const EMPTY_DATA = 'Không có dữ liệu hiển thị';
+export const EMPTY_DATA = 'KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹';
 
 export const uniqueObjInArray = (dataArr, propertyUnique) => {
   const unique = dataArr
@@ -120,4 +120,5 @@ export const nFormatter = (num) => {
 };
 export const PATH_NAME_CONTENT_LIKED = '/content-da-thich';
 export const DEFAULT_TAKE_CARE_CAT = 257;
-export const VIDEO_EDITOR_URL = process.env.VIDEO_EDITOR_URL ?? 'http://localhost:3000';
+import { env } from '@/envConfig';
+export const VIDEO_EDITOR_URL = env.VITE_VIDEO_EDITOR_URL ?? 'http://localhost:3000';

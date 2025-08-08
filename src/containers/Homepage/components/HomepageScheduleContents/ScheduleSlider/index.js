@@ -1,3 +1,3 @@
-import ScheduleSlider from './ScheduleSlider'
+﻿import ScheduleSlider from '@/ScheduleSlider'
 
 export default ScheduleSlider

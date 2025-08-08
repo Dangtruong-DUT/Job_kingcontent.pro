@@ -1,3 +1,4 @@
-import Events from './Events';
+﻿import Events from '@/Events';
 
 export default Events;
+

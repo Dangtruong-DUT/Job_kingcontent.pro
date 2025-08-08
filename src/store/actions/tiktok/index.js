@@ -1,6 +1,6 @@
-import { toast } from 'react-toastify';
-import { OK } from '../../../configs';
-import { tiktokService } from '../../../services/tiktok';
+﻿import { toast } from 'react-toastify';
+import { OK } from '@/../../configs';
+import { tiktokService } from '@/../../services/tiktok';
 
 export const ACTION_GET_TIKTOK_VIDEOS = 'ACTION_GET_TIKTOK_VIDEOS';
 export const ACTION_GET_TIKTOK_VIDEOS_SUCCESS =
@@ -239,7 +239,7 @@ export const actionRemoveChannel = (channelId) => {
     if (res.status === OK) {
       dispatch(actionGetTiktokFollowingChannels());
     } else {
-      toast.error('Xóa kênh thất bại! Vui lòng thử lại sau.');
+      toast.error('XÃ³a kÃªnh tháº¥t báº¡i! Vui lÃ²ng thá»­ láº¡i sau.');
     }
   };
 };
@@ -455,3 +455,4 @@ export const actionGetMyVideos = (nextCursor = '') => {
     }
   };
 };
+

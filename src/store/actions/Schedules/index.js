@@ -1,11 +1,11 @@
-import * as types from '../../types/schedules';
+﻿import * as types from '@/store/types/schedules';
 import { toast } from 'react-toastify';
-import client from '@/Client.js';
-import { userServices } from '../../../services/users';
-import { API_CREATE_PLAN, OK } from '../../../configs';
+import client from '@/Client';
+import { userServices } from '@/services/users';
+import { API_CREATE_PLAN, OK } from '@/configs';
 import moment from 'moment';
-import { threadsService } from '../../../services/threads';
-import { tiktokService } from '../../../services/tiktok';
+import { threadsService } from '@/services/threads';
+import { tiktokService } from '@/services/tiktok';
 const loadLimitPage = 10;
 
 export const setShowSuggestionsPopup = (state) => (dispatch) => {
@@ -294,7 +294,7 @@ export const getScheduleContents =
       query += `&schedule_id=${scheduleId}`;
     }
     try {
-      toast.info('Đang lấy nội dung đã lên lịch, vui lòng chờ trong giây lát');
+      toast.info('Äang láº¥y ná»™i dung Ä‘Ã£ lÃªn lá»‹ch, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
       await client
         .get(`/schedules/contents?${query}`)
         .then((result) => {
@@ -527,7 +527,7 @@ export const manageGetScheduleContents = (scheduleId) => async (dispatch) => {
       payload: res?.data?.data?.contents || [],
     });
   } catch (error) {
-    console.log('🚀 ~ manageGetScheduleContents ~ error:', error);
+    console.log('ðŸš€ ~ manageGetScheduleContents ~ error:', error);
   }
 };
 
@@ -535,12 +535,12 @@ export const removeScheduleContents = (ids) => async (dispatch) => {
   try {
     const res = await userServices.removeScheduleContents(ids);
     if (res.status === OK) {
-      toast.success('Xóa nội dung thành công');
+      toast.success('XÃ³a ná»™i dung thÃ nh cÃ´ng');
     } else {
-      toast.error('Xóa nội dung thất bại');
+      toast.error('XÃ³a ná»™i dung tháº¥t báº¡i');
     }
   } catch (error) {
-    console.log('🚀 ~ removeScheduleContents ~ error:', error);
+    console.log('ðŸš€ ~ removeScheduleContents ~ error:', error);
   }
 };
 
@@ -554,12 +554,12 @@ export const updateScheduleContentsStatus =
         status
       );
       if (res.status === OK) {
-        toast.success('Cập nhật trạng thái thành công');
+        toast.success('Cáº­p nháº­t tráº¡ng thÃ¡i thÃ nh cÃ´ng');
       } else {
-        toast.error('Cập nhật trạng thái thất bại');
+        toast.error('Cáº­p nháº­t tráº¡ng thÃ¡i tháº¥t báº¡i');
       }
     } catch (error) {
-      console.log('🚀 ~ updateScheduleContentsStatus ~ error:', error);
+      console.log('ðŸš€ ~ updateScheduleContentsStatus ~ error:', error);
     }
   };
 
@@ -567,12 +567,12 @@ export const removeSchedule = (id) => async (dispatch) => {
   try {
     const res = await userServices.removeSchedule(id);
     if (res.status === OK) {
-      toast.success('Xóa lịch thành công');
+      toast.success('XÃ³a lá»‹ch thÃ nh cÃ´ng');
     } else {
-      toast.error('Xóa lịch thất bại');
+      toast.error('XÃ³a lá»‹ch tháº¥t báº¡i');
     }
   } catch (error) {
-    console.log('🚀 ~ removeSchedule ~ error:', error);
+    console.log('ðŸš€ ~ removeSchedule ~ error:', error);
   }
 };
 
@@ -580,16 +580,16 @@ export const removeSchedules = (ids) => async (dispatch) => {
   try {
     const res = await userServices.removeSchedules(ids);
     if (res.status === OK) {
-      toast.success('Xóa lịch đã chọn thành công');
+      toast.success('XÃ³a lá»‹ch Ä‘Ã£ chá»n thÃ nh cÃ´ng');
       // reload schedules
       dispatch(getSchedules(1));
     } else {
       toast.error(
-        'Xóa lịch đã chọn thất bại, vui lòng liên hệ với chúng tôi để được hỗ trợ'
+        'XÃ³a lá»‹ch Ä‘Ã£ chá»n tháº¥t báº¡i, vui lÃ²ng liÃªn há»‡ vá»›i chÃºng tÃ´i Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£'
       );
     }
   } catch (error) {
-    console.log('🚀 ~ removeSchedules ~ error:', error);
+    console.log('ðŸš€ ~ removeSchedules ~ error:', error);
   }
 };
 
@@ -639,3 +639,4 @@ export const updateEditingContent = (content) => async (dispatch) => {
     payload: content,
   });
 };
+

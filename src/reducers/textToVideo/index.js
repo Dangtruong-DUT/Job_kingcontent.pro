@@ -1,5 +1,5 @@
-import { CLIP_PACE, HORIZONTAL_ALIGNMENT, MODE, SCREEN_RATIO, STYLES, TABS, VERTICAL_ALIGNMENT } from "../../pages/TextToVideo/Ultils";
-import { textToVideoActions } from "../../store/actions/TextToVideo";
+﻿import { CLIP_PACE, HORIZONTAL_ALIGNMENT, MODE, SCREEN_RATIO, STYLES, TABS, VERTICAL_ALIGNMENT } from '@/pages/TextToVldeo/Ultils';
+import { textToVideoActions } from '@/store/actions/TextToVideo'
 
 const initialState = {
     activeTab: TABS.GENERATE,
@@ -8,7 +8,7 @@ const initialState = {
     prompt: "",
     scriptLanguageCode: "vi",
     scriptLength: 50,
-    scriptStyle: "Kịch tính",
+    scriptStyle: "Ká»‹ch tÃ­nh",
     // Video settings
     generateMode: MODE.GENERATIVE.value,
     videoStyle: STYLES.ANIME.name,
@@ -59,7 +59,7 @@ const textToVideo = (state = initialState, { type, payload }) => {
         case textToVideoActions.SET_COMPLETED_TOTAL_PAGE: return { ...state, completedTotalPage: payload };
         case textToVideoActions.SET_COMPLETED_TOTAL_COUNT: return { ...state, completedTotalCount: payload };
 
-        // Các trường mới
+        // CÃ¡c trÆ°á»ng má»›i
         case textToVideoActions.SET_PROMPT: return { ...state, prompt: payload };
         case textToVideoActions.SET_SCRIPT_LANGUAGE_CODE: return { ...state, scriptLanguageCode: payload };
         case textToVideoActions.SET_SCRIPT_LENGTH: return { ...state, scriptLength: payload };
@@ -96,3 +96,4 @@ const textToVideo = (state = initialState, { type, payload }) => {
     }
 }
 export default textToVideo;
+

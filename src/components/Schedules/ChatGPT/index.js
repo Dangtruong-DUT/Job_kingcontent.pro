@@ -1,3 +1,4 @@
-import ChatGPT from './ChatGPT';
+﻿import ChatGPT from '@/ChatGPT';
 
 export default ChatGPT;
+

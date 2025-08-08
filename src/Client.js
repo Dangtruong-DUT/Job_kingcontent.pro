@@ -1,7 +1,8 @@
-import axios from 'axios';
-import auth from './utils/auth';
+﻿import axios from 'axios';
+import auth from '@/utils/auth';
 
-const baseURL = `${process.env.API_URL}`;
+import { env } from '@/configs/envConfig';
+const baseURL = `${env.VITE_API_URL}`;
 const headers = {
   'Content-Type': 'application/json',
   'Access-Control-Allow-Origin': '*',
@@ -63,3 +64,4 @@ instance.interceptors.response.use(
 );
 
 export default instance;
+

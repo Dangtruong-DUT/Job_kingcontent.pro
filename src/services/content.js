@@ -1,5 +1,5 @@
-import Client from "../Client"
-import { API_USER_LIKED_CONTENT } from "../configs"
+﻿import Client from '@/Client"
+import { API_USER_LIKED_CONTENT } from '@/configs"
 
 export const ContentService = {
     getAllContent(){

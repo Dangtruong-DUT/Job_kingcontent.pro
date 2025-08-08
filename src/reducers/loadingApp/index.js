@@ -1,4 +1,4 @@
-import { IS_LOADING_APP } from "../../store/actions/loading";
+﻿import { IS_LOADING_APP } from '@/store/actions/loading';
 
 const initialState = {
     isLoading : false
@@ -14,3 +14,6 @@ const loadingReducers = (state = initialState, action) => {
   }
 };
 export default loadingReducers
+
+
+

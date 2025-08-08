@@ -3,12 +3,12 @@ import {
   ACTION_GET_MY_TOPIC_HOMEPAGE,
   ACTION_GET_TRENDDING,
   ACTION_SELECY_CATE_HOME_PAGE,
-} from '../../store/actions/homepage';
+} from '@/store/actions/homepage';
 import {
   GET_SCHEDULE_HOME_PAGE,
   GET_SCHEDULE_HOME_PAGE_SUCCESS,
-} from '../../store/actions/Schedules';
-import * as types from '../../store/types/homepage';
+} from '@/store/actions/Schedules';
+import * as types from '@/store/types/homepage';
 
 const homepageInitialState = {
   fanpages: [],

@@ -1,4 +1,4 @@
-import * as types from '../../store';
+﻿import * as types from '@/store/types';
 
 const categoriesContentInitialState = {
   categoriesId: '',
@@ -28,24 +28,26 @@ const contentsReducer = (state = categoriesContentInitialState, action) => {
       };
 
     case types.GET_CONTENTS:
-      const { current_page = 1, from_cate = false } = payload;
-      if (current_page > 1 && !from_cate) {
+      {
+        const { current_page = 1, from_cate = false } = payload;
+        if (current_page > 1 && !from_cate) {
+          return {
+            ...state,
+            contents: [...state.contents, ...payload.data],
+            totalContents: payload.total || 0,
+            currentPage: current_page,
+            totalPagesInCate: payload.last_page || 0,
+          };
+        }
         return {
           ...state,
-          contents: [...state.contents, ...payload.data],
+          contents: payload.data,
           totalContents: payload.total || 0,
           currentPage: current_page,
           totalPagesInCate: payload.last_page || 0,
         };
-      }
-      return {
-        ...state,
-        contents: payload.data,
-        totalContents: payload.total || 0,
-        currentPage: current_page,
-        totalPagesInCate: payload.last_page || 0,
-      };
 
+      }
     case types.GET_TOTAL_CONTENTS:
       return { ...state, totalContents: payload };
     case types.GET_UNIQUE_FANPAGE:
@@ -57,7 +59,7 @@ const contentsReducer = (state = categoriesContentInitialState, action) => {
 
     case types.SET_CONTENT_DETAIL_TO_SHOW:
       return { ...state, contentDetailToShow: payload };
-    
+
     case types.SET_CONTENT_COMPARE:
       return { ...state, contentCompare: payload };
 
@@ -70,3 +72,5 @@ const contentsReducer = (state = categoriesContentInitialState, action) => {
 };
 
 export default contentsReducer;
+
+

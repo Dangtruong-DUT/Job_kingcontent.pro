@@ -1,3 +1,4 @@
-import Trends from './Trends';
+﻿import Trends from '@/Trends';
 
 export default Trends;
+

@@ -26,7 +26,7 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '../../../store/actions/Schedules';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import Me from '../me';
 import { isDevMode } from '../../../utils/utilityFunc';
@@ -35,6 +35,7 @@ import { tiktokService } from '../../../services/tiktok';
 import { setActiveTab, setIsLoadingGenerateScript, setScript } from '../../../store/actions/TextToVideo';
 import { TABS } from '../../../pages/TextToVideo/Ultils';
 import auth from '../../../utils/auth';
+import { env } from '../../../configs/envConfig';
 
 const maxAllowDuration = 300; // 5 minutes
 
@@ -43,7 +44,7 @@ const convertSecondsToReadableFormat = (seconds) => {
   if (seconds >= 60) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    
+
     if (remainingSeconds === 0) {
       return `${minutes} phút`;
     } else {
@@ -92,7 +93,7 @@ const RightPart = (props) => {
 
   const handleAction = async (action, elt, collId = 0) => {
     switch (action) {
-      case 'VIEW_DETAIL_CONTENT':
+      case 'VIEW_DETAIL_CONTENT': {
         const { images = [], videos = [], page_name = '', timestamp } = elt;
         let mediaType = 'image';
         let mediaUrl = '';
@@ -116,8 +117,9 @@ const RightPart = (props) => {
         });
         setOpen(true);
         break;
+      }
 
-      case 'CHOOSE_VIDEO':
+      case 'CHOOSE_VIDEO': {
         const index = chosenVideos.findIndex(
           (item) => item.post_id === elt.post_id
         );
@@ -132,8 +134,9 @@ const RightPart = (props) => {
         }
 
         break;
+      }
 
-      case 'REMOVE_FROM_COLLECTION':
+      case 'REMOVE_FROM_COLLECTION': {
         const collectionId = collId ? collId : elt.collection_id;
         confirmAlert({
           title: 'Thông báo',
@@ -160,7 +163,9 @@ const RightPart = (props) => {
         });
         break;
 
-      case 'SCHEDULE_CONTENT':
+      }
+
+      case 'SCHEDULE_CONTENT': {
         dispatch(
           setSelectedScheduleContent({
             ...elt,
@@ -173,7 +178,9 @@ const RightPart = (props) => {
         history.push('/lich-dang-bai');
         break;
 
-      case 'EDIT_VIDEO':
+      }
+
+      case 'EDIT_VIDEO': {
         const { post_id = '', duration = 0 } = elt;
         if (duration > maxAllowDuration) {
           confirmAlert({
@@ -234,7 +241,7 @@ const RightPart = (props) => {
           });
           return;
         }
-        
+
         confirmAlert({
           title: 'Chọn cách chỉnh sửa',
           message: 'Bạn muốn chỉnh sửa video này như thế nào?',
@@ -270,21 +277,26 @@ const RightPart = (props) => {
           ],
         });
         break;
+      }
+
+
       case "SET_SCRIPT_VIDEO_AI":
-        history.push("/text-to-video");
-        toast.info("Đang lấy kịch bản video, vui lòng chờ trong giây lát");
-        dispatch(setActiveTab(TABS.GENERATE));
-        dispatch(setIsLoadingGenerateScript(true));
-        try {
-          const res = await tiktokService.getVideoScript(elt.post_id);
-          toast.success("Lấy kịch bản video thành công, bạn hãy tuỳ chỉnh và tạo video mới với AI!")
-          dispatch(setScript(res.data?.data));
-        }
-        catch (error) {
-          toast.error("Video này không có giọng đọc kịch bản hoặc giọng đọc kịch bản không rõ ràng, không thể lấy được kịch bản để tạo mới video AI.");
-        }
-        finally {
-          dispatch(setIsLoadingGenerateScript(false));
+        {
+          history.push("/text-to-video");
+          toast.info("Đang lấy kịch bản video, vui lòng chờ trong giây lát");
+          dispatch(setActiveTab(TABS.GENERATE));
+          dispatch(setIsLoadingGenerateScript(true));
+          try {
+            const res = await tiktokService.getVideoScript(elt.post_id);
+            toast.success("Lấy kịch bản video thành công, bạn hãy tuỳ chỉnh và tạo video mới với AI!")
+            dispatch(setScript(res.data?.data));
+          }
+          catch (error) {
+            toast.error("Video này không có giọng đọc kịch bản hoặc giọng đọc kịch bản không rõ ràng, không thể lấy được kịch bản để tạo mới video AI.");
+          }
+          finally {
+            dispatch(setIsLoadingGenerateScript(false));
+          }
         }
         break;
 
@@ -657,7 +669,7 @@ const RightPart = (props) => {
                       onClick={() => {
                         // Check if all chosen videos have valid duration
                         const invalidVideos = chosenVideos.filter(video => video.duration > maxAllowDuration);
-                        
+
                         if (invalidVideos.length > 0) {
                           confirmAlert({
                             title: 'Thông báo',
@@ -669,11 +681,12 @@ const RightPart = (props) => {
                                   // Remove invalid videos and continue with valid ones
                                   const validVideos = chosenVideos.filter(video => video.duration <= maxAllowDuration);
                                   dispatch(actionUpdateChosenVideos(validVideos));
-                                  
+
                                   if (validVideos.length > 0) {
                                     // Open video editor with valid videos only
                                     const editorLink = document.createElement('a');
-                                    const baseEditorUrl = process.env.VIDEO_EDITOR_URL ?? 'http://localhost:3000';
+
+                                    const baseEditorUrl = env.VITE_VIDEO_EDITOR_URL ?? 'http://localhost:3000';
                                     const videoParams = validVideos.map(video => `type=tiktok&id=${video.post_id}&thumbnail=${encodeURIComponent(video.thumbnail)}`).join('&');
                                     editorLink.href = `${baseEditorUrl}?${videoParams}`;
                                     editorLink.target = '_blank';
@@ -687,16 +700,16 @@ const RightPart = (props) => {
                               },
                               {
                                 label: 'Đồng ý',
-                                onClick: () => {},
+                                onClick: () => { },
                               },
                             ],
                           });
                           return;
                         }
-                        
+
                         // Open video editor with all chosen videos (all are valid)
                         const editorLink = document.createElement('a');
-                        const baseEditorUrl = process.env.VIDEO_EDITOR_URL ?? 'http://localhost:3000';
+                        const baseEditorUrl = env.VITE_VIDEO_EDITOR_URL ?? 'http://localhost:3000';
                         const videoParams = chosenVideos.map(video => `type=tiktok&id=${video.post_id}&thumbnail=${encodeURIComponent(video.thumbnail)}`).join('&');
                         editorLink.href = `${baseEditorUrl}?${videoParams}`;
                         editorLink.target = '_blank';

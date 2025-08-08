@@ -1,4 +1,4 @@
-import * as types from '../../store/types/categories';
+﻿import * as types from '@/store/types/categories';
 
 const categoriesInitialState = {
   parentCategories: [],
@@ -26,3 +26,5 @@ const CategoriesReducer = (state = categoriesInitialState, action) => {
 };
 
 export default CategoriesReducer;
+
+

@@ -1,4 +1,4 @@
-import { isArrayEmpty } from "../../../configs"
+﻿import { isArrayEmpty } from '@/../../configs"
 
 export const getObjectTemplateCard = (item) =>{
    return {

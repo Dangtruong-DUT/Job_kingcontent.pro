@@ -1,5 +1,5 @@
-import { getDay } from 'date-fns/esm';
-import Client from '../Client';
+﻿import { getDay } from 'date-fns';
+import Client from '@/Client';
 import moment from 'moment';
 
 export function numberWithCommas(x) {
@@ -51,19 +51,19 @@ export function convertWeekdayToString(date) {
   const dayName = getDay(newDate);
   switch (dayName) {
     case 0:
-      return 'Chủ nhật';
+      return 'Chá»§ nháº­t';
     case 1:
-      return 'Thứ hai';
+      return 'Thá»© hai';
     case 2:
-      return 'Thứ ba';
+      return 'Thá»© ba';
     case 3:
-      return 'Thứ tư';
+      return 'Thá»© tÆ°';
     case 4:
-      return 'Thứ năm';
+      return 'Thá»© nÄƒm';
     case 5:
-      return 'Thứ sáu';
+      return 'Thá»© sÃ¡u';
     case 6:
-      return 'Thứ bảy';
+      return 'Thá»© báº£y';
     default:
       break;
   }
@@ -117,9 +117,8 @@ export const convertBase64ToFiles = async (medias) => {
 
 export function createEmptyContent() {
   const current = new Date();
-  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const date = `${current.getDate()}/${current.getMonth() + 1
+    }/${current.getFullYear()}`;
   const content = {
     content_type: 'Image',
     fb_post_id: '',
@@ -172,7 +171,7 @@ export const getCurrentYear = () => {
 export function isObjEmpty(obj) {
   if (!obj) return true;
   for (let prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       return false;
     }
   }
@@ -301,6 +300,8 @@ export const searchEventByDate = (date, scheduleEvents = []) => {
   return search;
 };
 
+import { env } from '@/configs/envConfig';
 export const isDevMode = () => {
-  return process.env.API_URL.includes('v3.api');
+  return env.VITE_API_URL.includes('v3.api');
 };
+

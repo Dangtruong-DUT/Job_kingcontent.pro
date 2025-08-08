@@ -1,3 +1,4 @@
-import KCEditor from "./KCEditor";
+﻿import KCEditor from '@/KCEditor';
 
 export default KCEditor;
+

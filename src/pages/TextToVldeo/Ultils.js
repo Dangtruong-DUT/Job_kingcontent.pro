@@ -1,28 +1,28 @@
+﻿
+import style1 from '@/assets/images/art_styles/anime.png';
+import style2 from '@/assets/images/art_styles/aztec.png';
+import style3 from '@/assets/images/art_styles/chinese_donghua.png';
+import style4 from '@/assets/images/art_styles/chinese_ink_painting.png';
+import style5 from '@/assets/images/art_styles/cyberpunk.png';
+import style6 from '@/assets/images/art_styles/disney_pixar.png';
+import style7 from '@/assets/images/art_styles/dreamworks.png';
+import style8 from '@/assets/images/art_styles/geometric_style.png';
+import style9 from '@/assets/images/art_styles/ghibli.png';
+import style10 from '@/assets/images/art_styles/illumination.png';
+import style11 from '@/assets/images/art_styles/low_poly.png';
+import style12 from '@/assets/images/art_styles/pencil_drawing.png';
+import style13 from '@/assets/images/art_styles/pixel_art.png';
+import style14 from '@/assets/images/art_styles/sketch.png';
+import style15 from '@/assets/images/art_styles/steampunk.png';
+import style16 from '@/assets/images/art_styles/synthwave.png';
+import style17 from '@/assets/images/art_styles/watercolor.png';
+import style18 from '@/assets/images/art_styles/realperson.png';
 
-import style1 from "../../assets/images/art_styles/anime.png";
-import style2 from "../../assets/images/art_styles/aztec.png";
-import style3 from "../../assets/images/art_styles/chinese_donghua.png";
-import style4 from "../../assets/images/art_styles/chinese_ink_painting.png";
-import style5 from "../../assets/images/art_styles/cyberpunk.png";
-import style6 from "../../assets/images/art_styles/disney_pixar.png";
-import style7 from "../../assets/images/art_styles/dreamworks.png";
-import style8 from "../../assets/images/art_styles/geometric_style.png";
-import style9 from "../../assets/images/art_styles/ghibli.png";
-import style10 from "../../assets/images/art_styles/illumination.png";
-import style11 from "../../assets/images/art_styles/low_poly.png";
-import style12 from "../../assets/images/art_styles/pencil_drawing.png";
-import style13 from "../../assets/images/art_styles/pixel_art.png";
-import style14 from "../../assets/images/art_styles/sketch.png";
-import style15 from "../../assets/images/art_styles/steampunk.png";
-import style16 from "../../assets/images/art_styles/synthwave.png";
-import style17 from "../../assets/images/art_styles/watercolor.png";
-import style18 from "../../assets/images/art_styles/realperson.png";
-
-import VideoGen_Generative_Thumbnail from '../../assets/images/videogen_generative_thumbnail.png';
-import VideoGen_IStock_Thumbnail from '../../assets/images/videogen_istock_thumbnail.png';
-import { OK } from "../../configs";
-import { TextToVideoService } from "../../services/TextToVideo";
-import { setCompletedTotalCount, setCompletedTotalPage, setLoadingCompleted, setLoadingPending, setVideosCompleted, setVideosPending } from "../../store/actions/TextToVideo";
+import VideoGen_Generative_Thumbnail from '@/assets/images/videogen_generative_thumbnail.png';
+import VideoGen_IStock_Thumbnail from '@/assets/images/videogen_istock_thumbnail.png';
+import { OK } from '@/../configs';
+import { TextToVideoService } from '@/../services/TextToVideo';
+import { setCompletedTotalCount, setCompletedTotalPage, setLoadingCompleted, setLoadingPending, setVideosCompleted, setVideosPending } from '@/store/actions/TextToVideo';
 
 export const TABS = {
     GENERATE: "GENERATE",
@@ -33,7 +33,7 @@ export const TABS = {
 export const SCREEN_RATIO = {
     SQUARE: {
         value: 0,
-        name: "Vuông",
+        name: "VuÃ´ng",
     },
     LANDSCAPE: {
         value: 1,
@@ -41,7 +41,7 @@ export const SCREEN_RATIO = {
     },
     PORTRAIT: {
         value: 2,
-        name: "Dọc",
+        name: "Dá»c",
     }
 };
 
@@ -52,37 +52,37 @@ export const CLIP_PACE = {
     },
     MEDIUM: {
         value: 2,
-        name: "Vừa",
+        name: "Vá»«a",
     },
     SLOW: {
         value: 3,
-        name: "Chậm",
+        name: "Cháº­m",
     },
     VERYSLOW: {
         value: 4,
-        name: "Rất chậm",
+        name: "Ráº¥t cháº­m",
     }
 };
 export const FONT_SIZE = {
     TINY: {
         value: 1,
-        name: "Rất nhỏ",
+        name: "Ráº¥t nhá»",
     },
     SMALL: {
         value: 2,
-        name: "Nhỏ",
+        name: "Nhá»",
     },
     MEDIUM: {
         value: 3,
-        name: "Vừa",
+        name: "Vá»«a",
     },
     LARGE: {
         value: 4,
-        name: "Lớn",
+        name: "Lá»›n",
     },
     VERYLARGE: {
         value: 5,
-        name: "Rất lớn",
+        name: "Ráº¥t lá»›n",
     },
 }
 export const VERTICAL_ALIGNMENT = {
@@ -115,17 +115,17 @@ export const HORIZONTAL_ALIGNMENT = {
 }
 export const MODE = {
     STANDARDSTOCK: {
-        name: "Thư viện iStock",
+        name: "ThÆ° viá»‡n iStock",
         value: 0,
         icon: VideoGen_IStock_Thumbnail
     },
     GENERATIVE: {
-        name: "Ảnh hoạt hình AI",
+        name: "áº¢nh hoáº¡t hÃ¬nh AI",
         value: 1,
         icon: VideoGen_Generative_Thumbnail
     },
     // ISTOCK: {
-    //   name: "Thư viện iStock",
+    //   name: "ThÆ° viá»‡n iStock",
     //   value: 2,
     //   icon: VideoGen_IStock_Thumbnail
     // }
@@ -133,13 +133,13 @@ export const MODE = {
 
 export const STYLES = {
     REALPERSON: {
-        name: "Người thật",
-		prompt: "Yêu cầu phong cách giống người thật 100%",
+        name: "NgÆ°á»i tháº­t",
+		prompt: "YÃªu cáº§u phong cÃ¡ch giá»‘ng ngÆ°á»i tháº­t 100%",
         picture: style18,
     },
     ANIME: {
-        name: "Hoạt hình Nhật Bản (Anime)",
-		prompt: "Hoạt hình Nhật Bản (Anime)",
+        name: "Hoáº¡t hÃ¬nh Nháº­t Báº£n (Anime)",
+		prompt: "Hoáº¡t hÃ¬nh Nháº­t Báº£n (Anime)",
         picture: style1,
     },
     AZTEC: {
@@ -148,13 +148,13 @@ export const STYLES = {
         picture: style2,
     },
     CHINESE_DONGHUA: {
-        name: "Hoạt hình Trung Quốc (Donghua)",
-		prompt: "Hoạt hình Trung Quốc (Donghua)",
+        name: "Hoáº¡t hÃ¬nh Trung Quá»‘c (Donghua)",
+		prompt: "Hoáº¡t hÃ¬nh Trung Quá»‘c (Donghua)",
         picture: style3,
     },
     CHINESE_INK_PAINTING: {
-        name: "Tranh thuỷ mặc",
-		prompt: "Tranh thuỷ mặc",
+        name: "Tranh thuá»· máº·c",
+		prompt: "Tranh thuá»· máº·c",
         picture: style4,
     },
     CYBERPUNK: {
@@ -163,28 +163,28 @@ export const STYLES = {
         picture: style5,
     },
     DISNEY_PIXAR: {
-        name: "Hoạt hình Disney/Pixar",
-		prompt: "Hoạt hình Disney/Pixar",
+        name: "Hoáº¡t hÃ¬nh Disney/Pixar",
+		prompt: "Hoáº¡t hÃ¬nh Disney/Pixar",
         picture: style6,
     },
     DREAMWORKS: {
-        name: "Hoạt hình DreamWorks",
-		prompt: "Hoạt hình DreamWorks",
+        name: "Hoáº¡t hÃ¬nh DreamWorks",
+		prompt: "Hoáº¡t hÃ¬nh DreamWorks",
         picture: style7,
     },
     GEOMETRIC_STYLE: {
-        name: "Hình học (Geometric Style)",
-		prompt: "Hình học (Geometric Style)",
+        name: "HÃ¬nh há»c (Geometric Style)",
+		prompt: "HÃ¬nh há»c (Geometric Style)",
         picture: style8,
     },
     GHIBLI: {
-        name: "Hoạt hình Ghibli",
-		prompt: "Hoạt hình Ghibli",
+        name: "Hoáº¡t hÃ¬nh Ghibli",
+		prompt: "Hoáº¡t hÃ¬nh Ghibli",
         picture: style9,
     },
     ILLUMINATION: {
-        name: "Hoạt hình Illumination",
-		prompt: "Hoạt hình Illumination",
+        name: "Hoáº¡t hÃ¬nh Illumination",
+		prompt: "Hoáº¡t hÃ¬nh Illumination",
         picture: style10,
     },
     LOW_POLY: {
@@ -193,18 +193,18 @@ export const STYLES = {
         picture: style11,
     },
     PENCIL_DRAWING: {
-        name: "Vẽ chì",
-		prompt: "Vẽ chì",
+        name: "Váº½ chÃ¬",
+		prompt: "Váº½ chÃ¬",
         picture: style12,
     },
     PIXEL_ART: {
-        name: "Nghệ thuật Pixel",
-		prompt: "Nghệ thuật Pixel",
+        name: "Nghá»‡ thuáº­t Pixel",
+		prompt: "Nghá»‡ thuáº­t Pixel",
         picture: style13,
     },
     SKETCH: {
-        name: "Phác thảo",
-		prompt: "Phác thảo",
+        name: "PhÃ¡c tháº£o",
+		prompt: "PhÃ¡c tháº£o",
         picture: style14,
     },
     STEAMPUNK: {
@@ -218,8 +218,8 @@ export const STYLES = {
         picture: style16,
     },
     WATERCOLOR: {
-        name: "Tranh màu nước",
-		prompt: "Tranh màu nước",
+        name: "Tranh mÃ u nÆ°á»›c",
+		prompt: "Tranh mÃ u nÆ°á»›c",
         picture: style17,
     },
 };
@@ -227,19 +227,19 @@ export const STYLES = {
 export const LOGO_POSITION = {
     TOP_LEFT: {
         value: 1,
-        name: "Trên - Trái",
+        name: "TrÃªn - TrÃ¡i",
     },
     TOP_RIGHT: {
         value: 2,
-        name: "Trên - Phải",
+        name: "TrÃªn - Pháº£i",
     },
     BOT_LEFT: {
         value: 3,
-        name: "Dưới - Trái",
+        name: "DÆ°á»›i - TrÃ¡i",
     },
     BOT_RIGHT: {
         value: 4,
-        name: "Dưới - Phải",
+        name: "DÆ°á»›i - Pháº£i",
     }
 }
 
@@ -298,3 +298,7 @@ export const fetchPendingVideos = async (dispatch, isLoadingEffect) => {
         }
     }
 }
+
+
+
+

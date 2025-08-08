@@ -1,5 +1,5 @@
-import Client from '../Client';
-import { API_SEARCH_ADS_RUNNING } from '../configs';
+﻿import Client from '@/Client';
+import { API_SEARCH_ADS_RUNNING } from '@/configs';
 
 export const runningAdsService = {
   searchAds(inputValue, collectionToken = '', forwardCursor = '') {
@@ -17,3 +17,4 @@ export const runningAdsService = {
     );
   },
 };
+

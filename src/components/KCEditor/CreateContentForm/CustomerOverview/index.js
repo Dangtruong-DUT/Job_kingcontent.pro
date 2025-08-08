@@ -1,3 +1,3 @@
-import CustomerOverview from './CustomerOverview'
+﻿import CustomerOverview from '@/CustomerOverview'
 
 export default CustomerOverview;

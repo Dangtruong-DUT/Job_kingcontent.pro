@@ -1,7 +1,7 @@
-import moment from 'moment';
-import { OK } from '../../../configs';
-import { fanpageService } from '../../../services/fanpages';
-import client from '../../../Client';
+﻿import moment from 'moment';
+import { OK } from '@/../../configs';
+import { fanpageService } from '@/../../services/fanpages';
+import client from '@/../../Client';
 export const ACTION_GET_ALL_FANPAGE = 'ACTION_GET_ALL_FANPAGE';
 export const ACTION_SEARCH_FANPAGE = 'ACTION_SEARCH_FANPAGE';
 export const ACTION_CHANGE_STATUS_SEARCH = 'ACTION_CHANGE_STATUS_SEARCH';
@@ -108,3 +108,4 @@ export const actionSavePageSelect = (page) => {
     });
   };
 };
+

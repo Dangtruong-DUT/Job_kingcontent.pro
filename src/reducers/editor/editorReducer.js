@@ -1,6 +1,6 @@
-import { counter } from '@fortawesome/fontawesome-svg-core';
-import Avatar from '../../assets/images/editor/avatar.jpg';
-import * as types from '../../store';
+﻿import { counter } from '@fortawesome/fontawesome-svg-core';
+import Avatar from '@/assets/images/editor/avatar.jpg';
+import * as types from '@/store/types';
 const defaultFeedbackSettings = {
   branchName: 'Viettel',
   clock: '18:16',
@@ -40,47 +40,49 @@ const editorReducer = (state = editorInitialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.GET_CREATED_CONTENTS:
-      const tempsColumn = [];
-      const contentTypes = [
-        'manual',
-        'formular',
-        'feedback',
-        'special',
-        'trend',
-      ];
-      const column = { title: '', type: '', totalContent: 0, contents: [] };
-      contentTypes.forEach((contentType) => {
-        switch (contentType) {
-          case 'manual':
-            column.title = 'Viết tự do';
-            break;
-          case 'formular':
-            column.title = 'Viết theo công thức';
-            break;
-          case 'feedback':
-            column.title = 'Tạo feedback';
-            break;
-          case 'special':
-            column.title = 'Theo dõi đặc biệt';
-            break;
-          case 'trend':
-            column.title = 'Đu trend';
-            break;
-          default:
-            return;
-        }
-        column.type = contentType;
-        if (payload && payload.length > 0) {
-          column.contents = destructContentType(contentType, payload);
-          column.totalContent = destructContentType(
-            contentType,
-            payload
-          ).length;
-        }
-        tempsColumn.push({ ...column });
-      });
-      return { ...state, createdContents: payload, columnContent: tempsColumn };
+      {
+        const tempsColumn = [];
+        const contentTypes = [
+          'manual',
+          'formular',
+          'feedback',
+          'special',
+          'trend',
+        ];
+        const column = { title: '', type: '', totalContent: 0, contents: [] };
+        contentTypes.forEach((contentType) => {
+          switch (contentType) {
+            case 'manual':
+              column.title = 'Viết tự do';
+              break;
+            case 'formular':
+              column.title = 'Viết theo công thức';
+              break;
+            case 'feedback':
+              column.title = 'Tạo feedback';
+              break;
+            case 'special':
+              column.title = 'Theo dõi đặc biệt';
+              break;
+            case 'trend':
+              column.title = 'Đu trend';
+              break;
+            default:
+              return;
+          }
+          column.type = contentType;
+          if (payload && payload.length > 0) {
+            column.contents = destructContentType(contentType, payload);
+            column.totalContent = destructContentType(
+              contentType,
+              payload
+            ).length;
+          }
+          tempsColumn.push({ ...column });
+        });
+        return { ...state, createdContents: payload, columnContent: tempsColumn };
 
+      }
     case types.GET_FEEDBACK_SUGGESTIONS:
       return { ...state, feedbackContents: payload };
 
@@ -109,7 +111,7 @@ const editorReducer = (state = editorInitialState, action) => {
           childCategories: childCats,
         };
       }
-
+      break;
     case types.CHANGE_STATE_CATEGORIES_POPUP:
       return { ...state, isShowCategories: payload };
 
@@ -126,29 +128,35 @@ const editorReducer = (state = editorInitialState, action) => {
       return { ...state, feedbackSettings: payload };
 
     case types.PUSH_FEEDBACK_MESSAGE:
-      const listMessages = state.listMessages || [];
-      let newPayload = payload;
-      const { id } = newPayload;
-      if (id === 0) {
-        newPayload = { ...payload, id: listMessages.length + 1 };
-      }
-      const newListMessages = [...listMessages, newPayload];
+      {
+        const listMessages = state.listMessages || [];
+        let newPayload = payload;
+        const { id } = newPayload;
+        if (id === 0) {
+          newPayload = { ...payload, id: listMessages.length + 1 };
+        }
+        const newListMessages = [...listMessages, newPayload];
+        return { ...state, listMessages: newListMessages };
 
-      return { ...state, listMessages: newListMessages };
+      }
 
     case types.REMOVE_FEEDBACK_MESSAGE:
-      const newListMessages1 = state.listMessages.filter(function (item) {
-        const { id } = item;
-        if (id !== payload) return item;
-      });
-      return { ...state, listMessages: newListMessages1 };
+      {
+        const newListMessages1 = state.listMessages.filter(function (item) {
+          const { id } = item;
+          if (id !== payload) return item;
+        });
+        return { ...state, listMessages: newListMessages1 };
+      }
 
     case types.UPDATE_FEEDBACK_MESSAGE:
-      const updatedListMessages = state.listMessages.map((el) =>
-        el.id === payload.id ? payload : el
-      );
-      return { ...state, listMessages: updatedListMessages };
+      {
+        const updatedListMessages = state.listMessages.map((el) =>
+          el.id === payload.id ? payload : el
+        );
+        return { ...state, listMessages: updatedListMessages };
 
+      }
     case types.RESET_FEEDBACK_DATA:
       return {
         ...state,
@@ -158,53 +166,60 @@ const editorReducer = (state = editorInitialState, action) => {
       };
 
     case types.SAVE_FEEDBACK_DATA:
-      const {
-        savedFeedbacks = [],
-        currentFeedback = 0,
-        feedbackSettings = defaultFeedbackSettings,
-        feedbacksType = 'meesenger',
-        listMessages: newListMessages2 = [],
-      } = state;
-      if (currentFeedback === 0) {
-        const newSavedFeedbacks = [
-          ...savedFeedbacks,
-          {
-            feedbackSettings,
-            feedbacksType,
-            listMessages: newListMessages2,
-            id: savedFeedbacks.length + 1,
-          },
-        ];
-        return { ...state, savedFeedbacks: newSavedFeedbacks };
-      } else {
-        const newSavedFeedbacks = savedFeedbacks.map((el) =>
-          el.id === currentFeedback
-            ? {
+      {
+        const {
+          savedFeedbacks = [],
+          currentFeedback = 0,
+          feedbackSettings = defaultFeedbackSettings,
+          feedbacksType = 'meesenger',
+          listMessages: newListMessages2 = [],
+        } = state;
+        if (currentFeedback === 0) {
+          const newSavedFeedbacks = [
+            ...savedFeedbacks,
+            {
+              feedbackSettings,
+              feedbacksType,
+              listMessages: newListMessages2,
+              id: savedFeedbacks.length + 1,
+            },
+          ];
+          return { ...state, savedFeedbacks: newSavedFeedbacks };
+        } else {
+          const newSavedFeedbacks = savedFeedbacks.map((el) =>
+            el.id === currentFeedback
+              ? {
                 feedbackSettings,
                 feedbacksType,
                 listMessages: newListMessages2,
               }
-            : el
-        );
-      }
+              : el
+          );
+        }
 
+      }
     case types.CREATED_USER_CONTENT:
-      return { ...state, createdContentSuccess: true };
+      {
+        return { ...state, createdContentSuccess: true };
+        break;
+      }
 
     case types.SET_CURRENT_FEEDBACK:
-      const { savedFeedbacks: savedFeedbacks1 = [] } = state;
-      const feedback = savedFeedbacks1.find((item) => item.id === payload);
-      if (feedback) {
-        return {
-          ...state,
-          feedbackSettings: feedback.feedbackSettings,
-          feedbacksType: feedback.feedbacksType,
-          listMessages: feedback.listMessages,
-          currentFeedback: payload,
-        };
-      }
-      return { ...state, currentFeedback: payload };
+      {
+        const { savedFeedbacks: savedFeedbacks1 = [] } = state;
+        const feedback = savedFeedbacks1.find((item) => item.id === payload);
+        if (feedback) {
+          return {
+            ...state,
+            feedbackSettings: feedback.feedbackSettings,
+            feedbacksType: feedback.feedbacksType,
+            listMessages: feedback.listMessages,
+            currentFeedback: payload,
+          };
+        }
+        return { ...state, currentFeedback: payload };
 
+      }
     case types.SET_CONTENT_TYPE:
       return { ...state, currentContentType: payload };
 
@@ -242,3 +257,4 @@ const destructChildCats = (categories) => {
 };
 
 export default editorReducer;
+

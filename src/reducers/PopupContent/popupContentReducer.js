@@ -1,4 +1,4 @@
-import * as types from '../../store';
+﻿import * as types from '@/store/types';
 
 const PopupContentInitialState = {
   isShowPopupContentForm: true
@@ -16,3 +16,4 @@ const PopupContentReducer = (state = PopupContentInitialState, action) => {
 }
 
 export default PopupContentReducer;
+

@@ -1,5 +1,5 @@
-import * as types from '../..';
-import client from '../../../Client';
+﻿import * as types from '@/..';
+import client from '@/../../Client';
 
 export const changeStateCreateContentForm = (state) => (dispatch) => {
   dispatch({
@@ -110,3 +110,4 @@ export const setSelectFacebookPreset = (preset) => (dispatch) => {
 export const setIsActivePreset = (isActive) => (dispatch) => {
   dispatch({ type: types.SET_IS_ACTIVE_PRESET, payload: isActive });
 };
+

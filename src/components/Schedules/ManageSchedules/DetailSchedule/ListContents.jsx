@@ -1,0 +1,67 @@
+﻿import React, { useEffect, useState } from 'react';
+import SingleContent from '@/SingleContent';
+
+const ListContents = (props) => {
+  const { contents, listSelected, setListSelected } = props;
+  const [isCheckedAll, setIsCheckedAll] = useState(false);
+
+  useEffect(() => {
+    if (
+      listSelected &&
+      contents &&
+      listSelected.length === contents.length &&
+      contents.length > 0
+    ) {
+      setIsCheckedAll(true);
+    } else {
+      setIsCheckedAll(false);
+    }
+  }, [listSelected, contents]);
+
+  const onClickSelectAll = (e) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      setListSelected(contents);
+    } else {
+      setListSelected([]);
+    }
+  };
+  return (
+    <div className="list-contents p-2 border rounded-md border-gray-400">
+      {/* headers */}
+      <div className="flex gap-2 items-center mb-2 p-2 border-b text-center font-bold">
+        <div className="">
+          <input
+            type="checkbox"
+            className="w-5 h-5"
+            title="Chá»n táº¥t cáº£"
+            onClick={onClickSelectAll}
+            checked={isCheckedAll}
+          />
+        </div>
+        <div className="w-3/12">Ná»™i dung</div>
+        <div className="w-2/12">NgÃ y Ä‘Äƒng</div>
+        <div className="w-2/12">Tráº¡ng thÃ¡i</div>
+        <div className="w-2/12">NÆ¡i Ä‘Äƒng</div>
+        <div className="w-1/12">Link bÃ i gá»‘c</div>
+        <div className="w-1/12">Nguá»“n bÃ i viáº¿t</div>
+        <div className="w-1/12 text-right">HÃ nh Ä‘á»™ng</div>
+      </div>
+      <div className="max-h-manage-schedules overflow-auto w-full text-center">
+        {contents &&
+          contents?.map((content, index) => (
+            <SingleContent
+              key={index}
+              content={content}
+              index={index}
+              listSelected={listSelected}
+              setListSelected={setListSelected}
+            />
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default ListContents;
+

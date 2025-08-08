@@ -1,2 +1,3 @@
-import a from './ContentSugesstion';
+﻿import a from '@/ContentSugesstion';
 export default a;
+

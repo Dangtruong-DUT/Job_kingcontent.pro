@@ -1,7 +1,7 @@
-import * as types from '../../types';
-import client from '@/Client.js';
+﻿import * as types from '@/../types';
+import client from '@/Client';
 import moment from 'moment';
-import { OK } from '../../../configs';
+import { OK } from '@/../../configs';
 
 export const setKeywordsSearchTrendings = (keywords) => (dispatch) => {
   dispatch({ type: types.SET_KEYWORDS_SEARCH_TRENDINGS, payload: keywords });
@@ -55,3 +55,4 @@ export const getTotalTrendingContents =
       console.log('Error: ' + error);
     }
   };
+

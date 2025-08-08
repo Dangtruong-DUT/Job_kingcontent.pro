@@ -1,5 +1,5 @@
-import * as hashtagTypes from '../../types/hashtag';
-import client from '@/Client.js';
+﻿import * as hashtagTypes from '@/../types/hashtag';
+import client from '@/Client';
 
 export const setKeywordsSearchHashtags = (keywords) => (dispatch) => {
   dispatch({
@@ -38,3 +38,4 @@ export const createHashtag = async (params) => {
     console.log('Error get hashtags: ' + error);
   }
 };
+

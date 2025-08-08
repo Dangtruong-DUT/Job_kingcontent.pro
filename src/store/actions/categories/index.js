@@ -1,5 +1,5 @@
-import * as categoriesTypes from '../../types/categories';
-import client from '@/Client.js';
+﻿import * as categoriesTypes from '@/../types/categories';
+import client from '@/Client';
 
 export const getParentCategories = () => async (dispatch) => {
   try {
@@ -56,7 +56,7 @@ export const getChildCategoriesSearch =
           const defaultData = [
             {
               value: 'DEFAULT',
-              label: 'Tất cả',
+              label: 'Táº¥t cáº£',
             },
           ].concat(data);
           dispatch({
@@ -100,3 +100,4 @@ export const getTakeCareFbCategories = () => async (dispatch) => {
     console.log('Error get take care FB categories: ' + error);
   }
 };
+

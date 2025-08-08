@@ -1,4 +1,4 @@
-import {
+﻿import {
   ACTION_GET_THREADS_VIDEOS,
   ACTION_GET_THREADS_VIDEOS_SUCCESS,
   ACTION_GET_THREADS_COLLECTIONS,
@@ -30,7 +30,7 @@ import {
   ACTION_GET_THREAD_COMMENTS,
   ACTION_GET_THREAD_COMMENTS_SUCCESS,
   ACTION_POST_THREADS_COMMENT,
-} from '../../store/actions/threads';
+} from '@/store/actions/threads';
 
 const initialState = {
   searchVideos: {
@@ -429,3 +429,5 @@ const threadsReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default threadsReducers;
+
+

@@ -1,4 +1,4 @@
-import Client from '../Client';
+﻿import Client from '@/Client';
 import {
   API_CHANGE_PASSWORD,
   API_CHECK_MULTIPLE_CONTENTS,
@@ -14,7 +14,7 @@ import {
   API_GET_SINGLE_TIKTOK_VIDEO,
   API_REMOVE_SCHEDULE_CONTENT,
   API_FANPAGES,
-} from '../configs';
+} from '@/configs';
 
 export const userServices = {
   getFacebookDestinations() {
@@ -92,3 +92,4 @@ export const userServices = {
     return Client.post(`${API_GET_SCHEDULES}/remove-multiples`, { ids: ids });
   },
 };
+

@@ -1,7 +1,7 @@
-import { toast } from 'react-toastify';
-import { OK } from '../../../configs';
-import { threadsService } from '../../../services/threads';
-// import { ACTION_RESET_THREADS_STORE } from '../../../reducers/tiktok';
+﻿import { toast } from 'react-toastify';
+import { OK } from '@/../../configs';
+import { threadsService } from '@/../../services/threads';
+// import { ACTION_RESET_THREADS_STORE } from '@/../../reducers/tiktok';
 
 export const ACTION_GET_THREADS_VIDEOS = 'ACTION_GET_THREADS_VIDEOS';
 export const ACTION_GET_THREADS_VIDEOS_SUCCESS =
@@ -238,7 +238,7 @@ export const actionRemoveChannel = (channelId) => {
     if (res.status === OK) {
       dispatch(actionGetThreadsFollowingChannels());
     } else {
-      toast.error('Xóa kênh thất bại! Vui lòng thử lại sau.');
+      toast.error('XÃ³a kÃªnh tháº¥t báº¡i! Vui lÃ²ng thá»­ láº¡i sau.');
     }
   };
 };
@@ -389,7 +389,7 @@ export const actionRemoveVideoFromCollection = (collectionId, videoId) => {
     if (res.status === OK) {
       dispatch(actionGetThreadsCollections());
       dispatch(actionGetThreadsVideosByCollection(collectionId));
-      toast.success('Xoá bài viết ra khỏi bộ sưu tập thành công !');
+      toast.success('XoÃ¡ bÃ i viáº¿t ra khá»i bá»™ sÆ°u táº­p thÃ nh cÃ´ng !');
     } else {
       dispatch({
         type: ACTION_REMOVE_VIDEO_FROM_COLLECTION_SUCCESS,
@@ -503,3 +503,4 @@ export const actionPostThreadsComment = (mediaId, text) => {
     });
   };
 }
+

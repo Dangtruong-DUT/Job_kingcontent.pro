@@ -1,3 +1,3 @@
-import FeedbackType from './FeedbackType'
+﻿import FeedbackType from '@/FeedbackType'
 
 export default FeedbackType

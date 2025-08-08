@@ -1,8 +1,8 @@
-import {
+﻿import {
   ACTION_EMPTY_ARR_SEARCH,
   ACTION_SEARCH_ADS,
   ACTION_UPDATE_KEYWORD,
-} from '../../store/actions/runningAds';
+} from '@/store/actions/runningAds';
 
 const initialState = {
   availabelADS: [],
@@ -40,3 +40,5 @@ const runningAdsReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default runningAdsReducers;
+
+
