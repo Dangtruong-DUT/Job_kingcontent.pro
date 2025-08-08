@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { env } from '@/configs'/envConfig';
+import { env } from '@/configs/envConfig';
 import 'primereact/resources/themes/lara-light-cyan/theme.css';
 import ReactFacebookLogin from 'react-facebook-login';
 import { FaTag } from 'react-icons/fa';
