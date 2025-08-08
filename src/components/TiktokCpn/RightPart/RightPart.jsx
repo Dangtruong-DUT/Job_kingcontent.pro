@@ -29,12 +29,12 @@ import {
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import Me from '@/me';
-import { isDevMode } from '@/../utils/utilityFunc';
+import { isDevMode } from '@/utils/utilityFunc';
 import { OK, VIDEO_EDITOR_URL } from '@/configs';
 import { tiktokService } from '@/services/tiktok';
 import { setActiveTab, setIsLoadingGenerateScript, setScript } from '@/store/actions/TextToVideo';
-import { TABS } from '@/../pages/TextToVideo/Ultils';
-import auth from '@/../utils/auth';
+import { TABS } from '@/pages/TextToVideo/Ultils';
+import auth from '@/utils/auth';
 import { env } from '@/configs'/envConfig';
 
 const maxAllowDuration = 300; // 5 minutes

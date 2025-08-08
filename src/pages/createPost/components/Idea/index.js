@@ -1,4 +1,4 @@
-﻿import Idea from '@/idea';
+﻿import Idea from './idea';
 
 export default Idea;
 

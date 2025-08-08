@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { OK } from '@/configs';
 import { threadsService } from '@/services/threads';
-// import { ACTION_RESET_THREADS_STORE } from '@/../reducers/tiktok';
+// import { ACTION_RESET_THREADS_STORE } from '@/reducers/tiktok';
 
 export const ACTION_GET_THREADS_VIDEOS = 'ACTION_GET_THREADS_VIDEOS';
 export const ACTION_GET_THREADS_VIDEOS_SUCCESS =
@@ -479,7 +479,7 @@ export const actionGetThreadComments = (mediaId, cursor = '') => {
       const { data } = res.data;
       dispatch({
         type: ACTION_GET_THREAD_COMMENTS_SUCCESS,
-        payload: {...data, isGetMore: cursor ? true : false},
+        payload: { ...data, isGetMore: cursor ? true : false },
       });
     }
   };

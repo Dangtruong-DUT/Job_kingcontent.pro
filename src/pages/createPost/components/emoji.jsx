@@ -1,11 +1,11 @@
-import React from 'react'
-import MyEmoji from '@/../components/ContentSugesstion/emoji'
+import React from "react";
+import MyEmoji from "@/components/ContentSugesstion/emoji";
 const Emoji = () => {
-  return (
-    <div>
-     <MyEmoji/>
-    </div>
-  )
-}
+    return (
+        <div>
+            <MyEmoji />
+        </div>
+    );
+};
 
-export default Emoji
+export default Emoji;

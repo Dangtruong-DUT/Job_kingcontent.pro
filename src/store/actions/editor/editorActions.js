@@ -1,6 +1,6 @@
 import * as types from '@/store/types';
-import client from '@/../Client';
-import auth from '@/../utils/auth';
+import client from '@/Client';
+import auth from '@/utils/auth';
 
 export const getCreatedContents = (userId) => async (dispatch) => {
   try {

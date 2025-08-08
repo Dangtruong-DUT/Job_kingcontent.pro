@@ -1,4 +1,4 @@
-import * as types from '@/..';
+import * as types from '@/store/types';
 import client from '@/Client';
 
 export const changeStateCreateContentForm = (state) => (dispatch) => {
