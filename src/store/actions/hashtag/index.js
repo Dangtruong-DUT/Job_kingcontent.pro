@@ -1,4 +1,4 @@
-import * as hashtagTypes from '@/types/hashtag';
+import * as types from '@/store/types/hashtag';
 import client from '@/Client';
 
 export const setKeywordsSearchHashtags = (keywords) => (dispatch) => {
@@ -10,25 +10,25 @@ export const setKeywordsSearchHashtags = (keywords) => (dispatch) => {
 
 export const getHashtags =
   (params = {}, limit = 10) =>
-  async (dispatch) => {
-    try {
-      await client
-        .get(
-          `/hashtags/?_limit=${limit}&${Object.keys(params)
-            .map((q) => `${q}=${encodeURIComponent(params[q])}`)
-            .join('&')}`
-        )
-        .then((result) => {
-          dispatch({
-            type: hashtagTypes.GET_HASHTAGS,
-            payload: result.data.data,
-          });
-        })
-        .catch((err) => console.log('Err get hashtags: ' + err));
-    } catch (error) {
-      console.log('Error get hashtags: ' + error);
-    }
-  };
+    async (dispatch) => {
+      try {
+        await client
+          .get(
+            `/hashtags/?_limit=${limit}&${Object.keys(params)
+              .map((q) => `${q}=${encodeURIComponent(params[q])}`)
+              .join('&')}`
+          )
+          .then((result) => {
+            dispatch({
+              type: hashtagTypes.GET_HASHTAGS,
+              payload: result.data.data,
+            });
+          })
+          .catch((err) => console.log('Err get hashtags: ' + err));
+      } catch (error) {
+        console.log('Error get hashtags: ' + error);
+      }
+    };
 
 export const createHashtag = async (params) => {
   try {

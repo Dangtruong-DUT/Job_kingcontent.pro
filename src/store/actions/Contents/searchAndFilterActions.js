@@ -1,4 +1,4 @@
-import * as types from '@/types';
+import * as types from '@/store/types';
 
 export const setValueFbIdToSearch = (value) => dispatch => {
   dispatch({ type: types.SET_VALUE_FBID_TO_SEARCH, payload: value })

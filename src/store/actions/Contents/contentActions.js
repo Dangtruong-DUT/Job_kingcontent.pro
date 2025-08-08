@@ -1,8 +1,8 @@
 import * as types from '@/store/types';
-import client from '@/../Client';
+import client from '@/Client';
 import { isArrayEmpty, uniqueObjInArray } from '@/configs';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import { formatDate } from '@/../helpers/date';
+import { formatDate } from '@/helpers/date';
 
 const pageLimit = 16;
 

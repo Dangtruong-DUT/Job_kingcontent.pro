@@ -4,37 +4,37 @@ import auth from '@/utils/auth';
 import { API_USER_LIKED_CONTENT, OK } from '@/configs';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
-import { actionGetAllContent } from '@/contentUserLiked';
+import { actionGetAllContent } from '@/store/actions/contentUserLiked';
 
 export const loginFunction =
   ({ identifier, password, rememberMe = false }) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: types.SET_COMPLETE_INFORMATION,
-        payload: { status: false, info: {} },
-      });
-      const response = await client.post(`/login`, {
-        email: identifier,
-        password,
-      });
-      if (response) {
-        const { data } = response;
+    async (dispatch) => {
+      try {
         dispatch({
-          type: types.LOGIN_SUCCESS,
-          payload: { ...data, rememberMe: rememberMe },
+          type: types.SET_COMPLETE_INFORMATION,
+          payload: { status: false, info: {} },
         });
-      } else {
-        dispatch({
-          type: types.LOGIN_FAILURE,
-          payload: response,
+        const response = await client.post(`/login`, {
+          email: identifier,
+          password,
         });
+        if (response) {
+          const { data } = response;
+          dispatch({
+            type: types.LOGIN_SUCCESS,
+            payload: { ...data, rememberMe: rememberMe },
+          });
+        } else {
+          dispatch({
+            type: types.LOGIN_FAILURE,
+            payload: response,
+          });
+          toast.error('Đăng nhập không thành công');
+        }
+      } catch (err) {
         toast.error('Đăng nhập không thành công');
       }
-    } catch (err) {
-      toast.error('Đăng nhập không thành công');
-    }
-  };
+    };
 
 export const loginFBFunction = (request) => async (dispatch, history) => {
   try {
@@ -65,15 +65,15 @@ export const loginFBFunction = (request) => async (dispatch, history) => {
 
 export const logoutFunction =
   (noMessage = false) =>
-  async (dispatch) => {
-    try {
-      auth.clearAppStorage();
-      !noMessage && toast.success('Đăng xuất thành công !');
-      dispatch({ type: types.LOGOUT });
-    } catch (err) {
-      console.log('error:', err);
-    }
-  };
+    async (dispatch) => {
+      try {
+        auth.clearAppStorage();
+        !noMessage && toast.success('Đăng xuất thành công !');
+        dispatch({ type: types.LOGOUT });
+      } catch (err) {
+        console.log('error:', err);
+      }
+    };
 
 export const registerFunction = (data, setTypeForm, type, reset) => {
   return async (dispatch) => {
@@ -120,76 +120,76 @@ export const getUserInfo = () => async (dispatch) => {
 
 export const saveLikedData =
   (postData = {}, history, togglePopupTag) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: types.SAVE_LIKED_DATA,
-      });
-      await client
-        .post(API_USER_LIKED_CONTENT, postData)
-        .then((result) => {
-          if (result.status === OK) {
-            const { contents = [], fanpages = [] } = result.data.data;
-            dispatch(actionGetAllContent());
-            dispatch({
-              type: types.SET_LIKED_CONTENTS,
-              payload: contents,
-            });
-            dispatch({
-              type: types.SET_LIKED_FANPAGES,
-              payload: fanpages,
-            });
-            togglePopupTag && togglePopupTag();
-            confirmAlert({
-              title: 'Xác nhận',
-              message: 'Đã chuyển content vào mục yêu thích thành công !',
-              buttons: [
-                {
-                  label: 'Chuyển tới mục yêu thích',
-                  onClick: () => {
-                    if (history) {
-                      history.push('/content-da-thich');
-                    }
+    async (dispatch) => {
+      try {
+        dispatch({
+          type: types.SAVE_LIKED_DATA,
+        });
+        await client
+          .post(API_USER_LIKED_CONTENT, postData)
+          .then((result) => {
+            if (result.status === OK) {
+              const { contents = [], fanpages = [] } = result.data.data;
+              dispatch(actionGetAllContent());
+              dispatch({
+                type: types.SET_LIKED_CONTENTS,
+                payload: contents,
+              });
+              dispatch({
+                type: types.SET_LIKED_FANPAGES,
+                payload: fanpages,
+              });
+              togglePopupTag && togglePopupTag();
+              confirmAlert({
+                title: 'Xác nhận',
+                message: 'Đã chuyển content vào mục yêu thích thành công !',
+                buttons: [
+                  {
+                    label: 'Chuyển tới mục yêu thích',
+                    onClick: () => {
+                      if (history) {
+                        history.push('/content-da-thich');
+                      }
+                    },
                   },
-                },
-                {
-                  label: 'Ok',
-                  onClick: () => {},
-                },
-              ],
-            });
-          }
-        })
-        .catch((err) => console.log('Err get totalFanpage: ' + err));
-      dispatch({
-        type: types.SAVE_LIKED_DATA_SUCCESS,
-      });
-    } catch (error) {
-      console.log('Error get totalFanpage: ' + error);
-    }
-  };
+                  {
+                    label: 'Ok',
+                    onClick: () => { },
+                  },
+                ],
+              });
+            }
+          })
+          .catch((err) => console.log('Err get totalFanpage: ' + err));
+        dispatch({
+          type: types.SAVE_LIKED_DATA_SUCCESS,
+        });
+      } catch (error) {
+        console.log('Error get totalFanpage: ' + error);
+      }
+    };
 export const updateLikedData =
   (id, postData = {}, togglePopupTag, setDeps) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: types.SAVE_LIKED_DATA,
-      });
-      await client
-        .put(`${API_USER_LIKED_CONTENT}/${id}`, postData)
-        .then(() => {
-          setDeps && setDeps();
-          togglePopupTag();
-          toast.success('Cập nhật thành công !');
-        })
-        .catch((err) => console.log('Err get totalFanpage: ' + err));
-      dispatch({
-        type: types.SAVE_LIKED_DATA_SUCCESS,
-      });
-    } catch (error) {
-      console.log('Error get totalFanpage: ' + error);
-    }
-  };
+    async (dispatch) => {
+      try {
+        dispatch({
+          type: types.SAVE_LIKED_DATA,
+        });
+        await client
+          .put(`${API_USER_LIKED_CONTENT}/${id}`, postData)
+          .then(() => {
+            setDeps && setDeps();
+            togglePopupTag();
+            toast.success('Cập nhật thành công !');
+          })
+          .catch((err) => console.log('Err get totalFanpage: ' + err));
+        dispatch({
+          type: types.SAVE_LIKED_DATA_SUCCESS,
+        });
+      } catch (error) {
+        console.log('Error get totalFanpage: ' + error);
+      }
+    };
 
 export const removeLikedData = (typeId) => async (dispatch) => {
   try {

@@ -1,4 +1,3 @@
-﻿import SchedulesContents from '@/SchedulesContents';
+﻿import SchedulesContents from "./SchedulesContents";
 
 export default SchedulesContents;
-
