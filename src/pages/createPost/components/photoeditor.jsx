@@ -1,4 +1,4 @@
-﻿import { fabric } from "fabric";
+import { fabric } from "fabric";
 import { FabricJSCanvas, useFabricJSEditor } from "fabricjs-react";
 import { saveAs } from "file-saver";
 import React, { useEffect, useRef, useState } from "react";
@@ -12,8 +12,8 @@ import { MdDraw, MdInsertEmoticon } from "react-icons/md";
 import { RiImageAddLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { KEY_EDITOR_IMAGE, KEY_ELEMENTS_IMAGES, KEY_INDEX_IMAGE_SELECT } from "@/../../reducers/createContent";
-import { REDUX_NAME_CREATE_POST } from "@/../../utils/utilityFunc";
+import { KEY_EDITOR_IMAGE, KEY_ELEMENTS_IMAGES, KEY_INDEX_IMAGE_SELECT } from "@/reducers/createContent";
+import { REDUX_NAME_CREATE_POST } from "@/utils/utilityFunc";
 
 import { MdOutlinePhotoSizeSelectSmall } from "react-icons/md";
 import {
@@ -32,28 +32,28 @@ import {
     customIconRotation,
     safeSvgEncode,
     ImgCursorRotation,
-} from "@/utility";
+} from "../utility";
 
 import { uniqueId } from "lodash";
 import { confirmAlert } from "react-confirm-alert";
 import { RiCursorFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import WebFont from "webfontloader";
-import { ResourcesService } from "@/../../services/resources";
+import { ResourcesService } from "@/services/resources";
 import { AddElement, DeleteElement, ResetCanvasLayer, updateProps } from "@/store/actions/createContent";
-import ClipPath from "@/tools/clipPath";
-import Draw from "@/tools/draw";
-import Elements from "@/tools/elements";
-import Icon from "@/tools/icon";
-import Images from "@/tools/images";
-import Size from "@/tools/size";
-import Template from "@/tools/template";
-import Text from "@/tools/text";
-import ToolBarBottom from "@/tools/toolBarBottom";
-import ToolBarTopRightButton from "@/tools/toolBarTopRightButton";
-import TopBarTool from "@/tools/topBarTool";
-import Download from "@/tools/download";
-import { OK } from "@/../../configs";
+import ClipPath from "./tools/clipPath";
+import Draw from "./tools/draw";
+import Elements from "./tools/elements";
+import Icon from "./tools/icon";
+import Images from "./tools/images";
+import Size from "./tools/size";
+import Template from "./tools/template";
+import Text from "./tools/text";
+import ToolBarBottom from "./tools/toolBarBottom";
+import ToolBarTopRightButton from "./tools/toolBarTopRightButton";
+import TopBarTool from "./tools/topBarTool";
+import Download from "./tools/download";
+import { OK } from "@/configs";
 // height: ${(p) => p.height && `${p.height}px`};
 const EditorP = styled(FabricJSCanvas)`
     overflow: hidden;
@@ -638,11 +638,11 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
     };
     const resetCanvas = () => {
         confirmAlert({
-            title: "ThÃ´ng bÃ¡o",
-            message: "Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n táº¡o má»›i , dá»¯ liá»‡u cÅ© sáº½ bá»‹ máº¥t ?",
+            title: "Thông báo",
+            message: "Bạn có chắc chắn muốn tạo mới , dữ liệu cũ sẽ bị mất ?",
             buttons: [
                 {
-                    label: "CÃ³",
+                    label: "Có",
                     onClick: () => {
                         if (initalImage) {
                             dispatch(
@@ -659,7 +659,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                     },
                 },
                 {
-                    label: "KhÃ´ng",
+                    label: "Không",
                     onClick: () => {},
                 },
             ],
@@ -679,7 +679,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
 
         // Validate indexImageSelect
         if (indexImageSelect === null || indexImageSelect === undefined || indexImageSelect >= images.length) {
-            toast.error("KhÃ´ng thá»ƒ xÃ¡c Ä‘á»‹nh áº£nh Ä‘á»ƒ cáº­p nháº­t");
+            toast.error("Không thể xác định ảnh để cập nhật");
             setIsSaveImage(false);
             return;
         }
@@ -713,7 +713,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                         ])
                     );
 
-                    toast.success("LÆ°u áº£nh thÃ nh cÃ´ng!");
+                    toast.success("Lưu ảnh thành công!");
                     setIsEditor(false);
                 }
             } catch (error) {
@@ -732,7 +732,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
             };
 
             setImages(_images);
-            toast.success("LÆ°u áº£nh thÃ nh cÃ´ng!");
+            toast.success("Lưu ảnh thành công!");
             setIsSaveImage(false);
             setIsEditor(false);
         }
@@ -978,7 +978,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
             <div className="menu w-1/10 bg-gray-700 text-white px-3 py-3 border-r-2 border-white">
                 <div className="list">
                     <Tooltip target=".cursor-tool">
-                        <span>Con trá»</span>
+                        <span>Con trỏ</span>
                     </Tooltip>
                     <div
                         onClick={changeModeCursor}
@@ -986,12 +986,12 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                             toolSelect === "CURSOR" && "bg-indigo-600"
                         } cursor-tool flex justify-center cursor-pointer mb-5 p-1 hover:bg-indigo-600 rounded-md`}
                         color="#2d1be4"
-                        title="Máº«u"
+                        title="Mẫu"
                     >
                         <RiCursorFill color="#fff" size={35} />
                     </div>
                     <Tooltip target=".template-tool">
-                        <span>Máº«u táº¡o sáºµn</span>
+                        <span>Mẫu tạo sẵn</span>
                     </Tooltip>
                     <div
                         onClick={() => {
@@ -1001,12 +1001,12 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                             toolSelect === TEMPLATE && "bg-indigo-600"
                         } template-tool flex justify-center cursor-pointer mb-5 p-1 hover:bg-indigo-600 rounded-md hidden`}
                         color="#2d1be4"
-                        title="Máº«u"
+                        title="Mẫu"
                     >
                         <CgTemplate color="#fff" size={35} />
                     </div>
                     <Tooltip target=".text-tool">
-                        <span>VÄƒn báº£n</span>
+                        <span>Văn bản</span>
                     </Tooltip>
                     <div
                         onClick={() => {
@@ -1022,7 +1022,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                         <CiText className="" size={35} />
                     </div>
                     <Tooltip target=".size-tool">
-                        <span>KÃ­ch thÆ°á»›c</span>
+                        <span>Kích thước</span>
                     </Tooltip>
                     <div
                         onClick={() => {
@@ -1032,7 +1032,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                             toolSelect === SIZE && "bg-indigo-600"
                         } size-tool flex justify-center cursor-pointer mb-5 p-1 hover:bg-indigo-600 rounded-md`}
                         color="#2d1be4"
-                        title="KÃ­ch thÆ°á»›c"
+                        title="Kích thước"
                     >
                         <MdOutlinePhotoSizeSelectSmall size={35} />
                     </div>
@@ -1052,7 +1052,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                         <MdInsertEmoticon size={35} />
                     </div>
                     <Tooltip target=".draw-tool">
-                        <span>Váº½</span>
+                        <span>Vẽ</span>
                     </Tooltip>
                     <div
                         onClick={() => onChangeToolStatus(DRAW)}
@@ -1060,12 +1060,12 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                             toolSelect === DRAW && "bg-indigo-600"
                         } draw-tool flex justify-center cursor-pointer mb-5 p-1 hover:bg-indigo-600 rounded-md`}
                         color="#2d1be4"
-                        title="Váº½"
+                        title="Vẽ"
                     >
                         <MdDraw size={35} />
                     </div>
                     <Tooltip target=".image-tool">
-                        <span>HÃ¬nh áº£nh</span>
+                        <span>Hình ảnh</span>
                     </Tooltip>
                     <div
                         onClick={() => {
@@ -1080,7 +1080,7 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                         <RiImageAddLine size={35} />
                     </div>
                     <Tooltip target=".path-tool">
-                        <span>Khá»‘i</span>
+                        <span>Khối</span>
                     </Tooltip>
                     <div
                         onClick={() => {
@@ -1097,13 +1097,13 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                     {editor && editor.canvas.getObjects().length > 0 && (
                         <>
                             <Tooltip target=".template-download-tool">
-                                <span>Táº£i xuá»‘ng</span>
+                                <span>Tải xuống</span>
                             </Tooltip>
                             <div
                                 onClick={() => onChangeToolStatus(DOWNLOAD)}
                                 className={`flex template-download-tool justify-center cursor-pointer mb-5 p-1 hover:bg-indigo-600 rounded-md`}
                                 color="#2d1be4"
-                                title="Táº£i xuá»‘ng"
+                                title="Tải xuống"
                             >
                                 <FaFileDownload size={35} />
                             </div>
@@ -1124,23 +1124,23 @@ const PhotoEditor = ({ setIsEditor, images, setImages, isRightImage = false }) =
                     <div className="flex justify-between items-center py-2">
                         <h3 className="font-bold text-base text-white">
                             {toolSelect === SIZE
-                                ? "Thay Ä‘á»•i kÃ­ch thÆ°á»›c"
+                                ? "Thay đổi kích thước"
                                 : toolSelect === TEMPLATE
-                                ? "Máº«u táº¡o sáºµn"
+                                ? "Mẫu tạo sẵn"
                                 : toolSelect === TEXT_TOOL
-                                ? "VÄƒn báº£n"
+                                ? "Văn bản"
                                 : toolSelect === DESIGNS
-                                ? "HÃ¬nh áº£nh"
+                                ? "Hình ảnh"
                                 : toolSelect === LAYER
-                                ? "ThÃ nh pháº§n"
+                                ? "Thành phần"
                                 : toolSelect === DRAW
-                                ? "Váº½"
+                                ? "Vẽ"
                                 : toolSelect === CLIP_PATH
-                                ? "Khá»‘i"
+                                ? "Khối"
                                 : toolSelect === "CURSOR"
-                                ? "Con trá»"
+                                ? "Con trỏ"
                                 : toolSelect === DOWNLOAD
-                                ? "Táº£i xuá»‘ng"
+                                ? "Tải xuống"
                                 : "Icon"}
                         </h3>
                         <button

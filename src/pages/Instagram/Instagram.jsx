@@ -1,16 +1,15 @@
-﻿import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import InstagramCpn from '@/components/InstagramCpn';
+﻿import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import InstagramCpn from "@/components/InstagramCpn";
 
 const Instagram = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  return (
-    <div>
-      <InstagramCpn />
-    </div>
-  );
+    return (
+        <div>
+            <InstagramCpn />
+        </div>
+    );
 };
 
 export default Instagram;
-

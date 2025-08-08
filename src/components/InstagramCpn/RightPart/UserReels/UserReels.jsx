@@ -1,13 +1,13 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleReel from '@/SingleReel';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
   actionGetHashtagPosts,
   actionGetUserReels,
-} from '@/../../../store/actions/instagram';
-import LoadingApp from '@/../../LoadingApp';
-import { applyOrder } from '@/../helpers';
+} from '@/../../store/actions/instagram';
+import LoadingApp from '@/../LoadingApp';
+import { applyOrder } from '@/helpers';
 
 const UserReels = (props) => {
   const {
@@ -110,7 +110,7 @@ const UserReels = (props) => {
         </div>
       ) : (
         <div className="text-center p-5">
-          <p>KhÃ´ng cÃ³ bÃ i viáº¿t nÃ o</p>
+          <p>Không có bài viết nào</p>
         </div>
       )}
       {/* load more */}
@@ -130,7 +130,7 @@ const UserReels = (props) => {
               className="bg-blue-500 text-white px-5 py-3 rounded-md w-1/3"
               onClick={() => onLoadMore()}
             >
-              Láº¥y thÃªm bÃ i viáº¿t
+              Lấy thêm bài viết
             </button>
           </div>
         )}
@@ -141,7 +141,7 @@ const UserReels = (props) => {
             className="bg-blue-500 text-white px-5 py-3 rounded-md w-1/3"
             onClick={() => onLoadMoreHashTag()}
           >
-            Láº¥y thÃªm bÃ i viáº¿t
+            Lấy thêm bài viết
           </button>
         </div>
       )}

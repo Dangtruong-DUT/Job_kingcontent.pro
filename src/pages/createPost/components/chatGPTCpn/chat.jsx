@@ -1,4 +1,4 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {
   FiCheckCircle,
   FiMaximize,
@@ -13,7 +13,7 @@ import {
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import LoadingApp from '@/../../../components/LoadingApp';
+import LoadingApp from '@/../../components/LoadingApp';
 import {
   ACTION_QUESTION_CHAT_GPT,
   actionQuestionChatGPT,
@@ -23,12 +23,12 @@ import {
   toggleEditorText,
   updateHistoryHashtag,
   updateIsSavedChatGPT,
-} from '@/../../../store/actions/createContent';
-import { actionLoadingApp } from '@/../../../store/actions/loading';
+} from '@/../../store/actions/createContent';
+import { actionLoadingApp } from '@/../../store/actions/loading';
 import PopupDetailContentChat from '@/popupDetailContentChat';
 import { toast } from 'react-toastify';
 import PopupTag from '@/popupTag';
-import { TYPE_GO_CHAT } from '@/../../../utils/utilityFunc';
+import { TYPE_GO_CHAT } from '@/../../utils/utilityFunc';
 
 import { confirmAlert } from 'react-confirm-alert';
 
@@ -67,7 +67,7 @@ const Chat = (props) => {
       dispatch(actionQuestionChatGPT({ question: question }));
       return;
     }
-    if (inputValue === '') alert('Vui lÃ²ng nháº­p cÃ¢u há»i !');
+    if (inputValue === '') alert('Vui lòng nhập câu hỏi !');
     if (inputValue !== '') {
       const _newSync = [...syncRequestPedding];
       _newSync.push({
@@ -84,7 +84,7 @@ const Chat = (props) => {
   const handleCoppyToClipBoard = (content, id) => {
     dispatch(toggleEditorText(content));
     setIsCoppied({ status: true, id: id });
-    toast.success('Thao tÃ¡c thÃ nh cÃ´ng');
+    toast.success('Thao tác thành công');
     setTimeout(() => {
       setIsCoppied({ status: false, id: null });
     }, 2000);
@@ -92,11 +92,11 @@ const Chat = (props) => {
 
   const handleReplaceQuestion = (question, id) => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ muá»‘n Ä‘á»•i má»™t content má»›i?',
+      title: 'Xác nhận',
+      message: 'Bạn có muốn đổi một content mới?',
       buttons: [
         {
-          label: 'Thay tháº¿ ná»™i dung cÅ©',
+          label: 'Thay thế nội dung cũ',
           onClick: () => {
             const _newSync = [...syncRequestPedding];
             _newSync.push({
@@ -113,7 +113,7 @@ const Chat = (props) => {
           },
         },
         {
-          label: 'Láº¥y ná»™i dung má»›i',
+          label: 'Lấy nội dung mới',
           onClick: () => {
             const _newSync = [...syncRequestPedding];
             _newSync.push({
@@ -125,7 +125,7 @@ const Chat = (props) => {
           },
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {},
         },
       ],
@@ -134,14 +134,14 @@ const Chat = (props) => {
   };
 
   const handleDeteleQuestion = (id) => {
-    const comfirm = confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ ná»™i dung nÃ y ?');
+    const comfirm = confirm('Bạn có chắc chắn muốn xoá nội dung này ?');
     if (comfirm) {
       const _newData = chatGPTdata.filter((_elt) => _elt.id !== id);
       dispatch({
         type: ACTION_QUESTION_CHAT_GPT,
         payload: _newData,
       });
-      toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+      toast.success('Xoá thành công !');
     }
   };
 
@@ -209,13 +209,13 @@ const Chat = (props) => {
       <div className="flex justify-end gap-5 mt-3">
         <button
           onClick={() => handleReplaceQuestion(question, id)}
-          title="Äá»•i káº¿t quáº£"
+          title="Đổi kết quả"
         >
           <FiRefreshCcw size="25" color="#000" />
         </button>
         <button
           onClick={() => togglePopup(question, answer, id)}
-          title="Xem thÃªm"
+          title="Xem thêm"
         >
           <FiMaximize
             size="25"
@@ -231,7 +231,7 @@ const Chat = (props) => {
           />
         ) : (
           <button
-            title="ÄÆ°a vÃ o trÃ¬nh soáº¡n tháº£o"
+            title="Đưa vào trình soạn thảo"
             onClick={() => handleCoppyToClipBoard(answer, id)}
           >
             <FiEdit
@@ -241,7 +241,7 @@ const Chat = (props) => {
             />
           </button>
         )}
-        <button title="LÆ°u káº¿t quáº£">
+        <button title="Lưu kết quả">
           {isSaved ? (
             <FiCheckCircle
               size="25"
@@ -268,7 +268,7 @@ const Chat = (props) => {
         </button>
         <button
           onClick={() => handleDeteleQuestion(id)}
-          title="XoÃ¡ káº¿t quáº£"
+          title="Xoá kết quả"
         >
           <FiTrash
             size="25"
@@ -287,7 +287,7 @@ const Chat = (props) => {
       <div className="flex">
         <textarea
           className="w-full rounded-md shadow-sm border-gray-100 border-2 outline-none p-2"
-          placeholder="Nháº­p ná»™i dung cÃ¢u há»i ..."
+          placeholder="Nhập nội dung câu hỏi ..."
           rows={2}
           // disabled={isLoading}
           value={inputValue}
@@ -297,9 +297,9 @@ const Chat = (props) => {
           <button
             className="bg-blue-500 px-3 rounded-md hover:bg-gray-400 disabled:bg-gray-400 text-white"
             onClick={handleRenderAnswer}
-            alt="TÃ¬m kiáº¿m"
+            alt="Tìm kiếm"
           >
-            Gá»¬I
+            GỬI
           </button>
         </div>
       </div>
@@ -314,7 +314,7 @@ const Chat = (props) => {
                 <div>
                   <h3 className="font-bold text-base">{_elt.title}</h3>
                   <TextStyled>
-                    <span className="text-gray-400">Äang xá»­ lÃ½ ...</span>
+                    <span className="text-gray-400">Đang xử lý ...</span>
                   </TextStyled>
                 </div>
               </div>
@@ -326,7 +326,7 @@ const Chat = (props) => {
         syncRequestPedding.length === 0 ? (
           <div className="flex justify-center mb-80">
             <span className="text-md font-bold text-center">
-              KhÃ´ng cÃ³ cÃ¢u tráº£ lá»i nÃ o hiá»ƒn thá»‹ táº¡i Ä‘Ã¢y !
+              Không có câu trả lời nào hiển thị tại đây !
             </span>
           </div>
         ) : null}

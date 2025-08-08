@@ -1,7 +1,7 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Summary from '@/Summary';
-import ContentDetail from '@/../CategoriesContent/ContentDetail';
+import ContentDetail from '@/CategoriesContent/ContentDetail';
 import InteractionsChart from '@/Chart';
 import LeftContent from '@/LeftContent';
 import RightContent from '@/RightContent';
@@ -13,7 +13,7 @@ import {
   getTotalContents,
   getTotalFanpages,
 } from '@/store/actions/Contents/contentActions';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 
 const Interactions = (props) => {
   const { contentDetailToShow, totalFanpages, totalContents } = useSelector(
@@ -107,5 +107,6 @@ const Interactions = (props) => {
 };
 
 export default Interactions;
+
 
 

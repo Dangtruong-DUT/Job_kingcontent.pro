@@ -1,9 +1,9 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { FaWindowClose } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import logo from '@/assets/images/logo.jpg';
-import { getFanpageAvatar } from '@/../../helpers';
+import { getFanpageAvatar } from '@/../helpers';
 
 function Header(props) {
   const { user } = useSelector((state) => state.userReducer);
@@ -58,7 +58,7 @@ function Header(props) {
         <h3 className=" text-sm text-blue-700 font-semibold">{destination}</h3>
         <div className="w-full border-b border-gray-200 flex-grow"></div>
         <span className="m-1 px-1 text-gray-700 font-medium bg-blue-50">
-          {created ? moment.unix(created).format('DD/MM/YYYY') : 'Vá»«a xong'}
+          {created ? moment.unix(created).format('DD/MM/YYYY') : 'Vừa xong'}
         </span>
       </div>
     </div>

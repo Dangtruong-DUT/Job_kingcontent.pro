@@ -1,7 +1,7 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import { capitalizeFirstLetter, _LIMIT_DEFAULT } from '@/../configs';
+import { capitalizeFirstLetter, _LIMIT_DEFAULT } from '@/configs';
 import {
   actionChangeStatus,
   actionGetAllFanpage,
@@ -109,5 +109,6 @@ const PaginatioFilter = ({
 };
 
 export default PaginatioFilter;
+
 
 

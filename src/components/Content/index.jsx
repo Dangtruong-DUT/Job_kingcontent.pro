@@ -1,4 +1,4 @@
-﻿import client from '@/Client';
+import client from '@/Client';
 import { useCallback, useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { getChildCategories } from '@/store/actions/categories';
@@ -7,7 +7,7 @@ import {
   getTotalContents,
   getTotalFanpages,
 } from '@/store/actions/Contents/contentActions';
-import * as types from '@/../store/types';
+import * as types from '@/store/types';
 import ContentDetail from '@/CategoriesContent/ContentDetail';
 import LeftContent from '@/LeftContent';
 import RightContent from '@/RightContent';

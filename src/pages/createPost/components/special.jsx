@@ -1,23 +1,23 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PostSugesstion from '@/../../components/ContentSugesstion/PostSugesstion';
+import PostSugesstion from '@/../components/ContentSugesstion/PostSugesstion';
 import { actionGetSpecialContents } from '@/store/actions/createContent';
-import { handleSelectSort } from '@/../../helpers';
-import FreqLikeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
-import FreqCommentSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
-import FreqShareSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
-import FreqTimeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
-import KindOfContentSelect from '@/../../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
+import { handleSelectSort } from '@/../helpers';
+import FreqLikeSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
+import FreqCommentSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
+import FreqShareSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
+import FreqTimeSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
+import KindOfContentSelect from '@/../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
 import { ImSearch } from 'react-icons/im';
-import SelectCustom from '@/../../components/CategoriesContent/SelectCustom';
-import client from '@/../../Client';
+import SelectCustom from '@/../components/CategoriesContent/SelectCustom';
+import client from '@/../Client';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import { SpecialService } from '@/../../services/special';
-import { initHashtagSelect } from '@/../../components/Schedules/FilterForm/constant';
-import { OK } from '@/../../configs';
+import { SpecialService } from '@/services/special';
+import { initHashtagSelect } from '@/../components/Schedules/FilterForm/constant';
+import { OK } from '@/configs';
 
 const initSelectFanpage = {
-  name: 'Chá»n fanpage ...',
+  name: 'Chọn fanpage ...',
   value: '',
   icon: faAddressBook,
 };
@@ -58,7 +58,7 @@ const Special = ({ isMultiSelect = false, allowedContentTypes = null, additional
       return {
         name: name
           ? `${elt?.page_name || elt?.fanpage_id} - ${name}`
-          : `${elt?.page_name || elt?.fanpage_id} (ChÆ°a cÃ³ nhÃ£n)`,
+          : `${elt?.page_name || elt?.fanpage_id} (Chưa có nhãn)`,
         value: elt.fanpage_id,
       };
     });
@@ -117,7 +117,7 @@ const Special = ({ isMultiSelect = false, allowedContentTypes = null, additional
           <input
             type="text"
             id="search"
-            placeholder="TÃ¬m kiáº¿m theo ná»™i dung, fanpage...."
+            placeholder="Tìm kiếm theo nội dung, fanpage...."
             className="border border-gray-300 rounded-md p-2 w-full"
             onChange={(e) => setKeyword(e.target.value)}
           />
@@ -153,7 +153,7 @@ const Special = ({ isMultiSelect = false, allowedContentTypes = null, additional
             className=" text-sm font-semibold text-gray-800 filter drop-shadow-md"
             htmlFor="sort"
           >
-            Sáº¯p xáº¿p dá»¯ liá»‡u:
+            Sắp xếp dữ liệu:
           </label>
           <div className="mt-1 mb-3 grid grid-cols-2 gap-3" id="sort">
             <FreqLikeSelect
@@ -191,5 +191,6 @@ const Special = ({ isMultiSelect = false, allowedContentTypes = null, additional
 };
 
 export default Special;
+
 
 

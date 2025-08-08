@@ -1,8 +1,8 @@
-﻿import Medias from '@/Medias'
+import Medias from '@/Medias'
 import Content from '@/Content"
 import Fanpage from '@/Fanpage"
 import Reactions from '@/Reactions"
-import DateCreated from '@/../SingleContent/DateCreated";
+import DateCreated from '@/SingleContent/DateCreated";
 import { useCallback } from 'react';
 
 const SingleSuggestion = (props) => {

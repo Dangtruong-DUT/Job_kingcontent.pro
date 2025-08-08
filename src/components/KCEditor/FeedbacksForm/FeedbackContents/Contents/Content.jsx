@@ -1,4 +1,4 @@
-﻿import { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { AiOutlineLike } from 'react-icons/ai';
 import {
   FaEye,
@@ -6,20 +6,20 @@ import {
   FaRegCommentDots,
   FaRegShareSquare,
 } from 'react-icons/fa';
-import { kFormatter } from '@/../../../../utils/utilityFunc';
-import { setContentDetailToShow } from '@/../../../../store/actions/Contents/contentActions';
+import { kFormatter } from '@/../../../utils/utilityFunc';
+import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
 import { useDispatch } from 'react-redux';
-import { breakWord } from '@/../../../../helpers';
+import { breakWord } from '@/../../../helpers';
 import {
   toggleEditorText,
   updateProps,
-} from '@/../../../../store/actions/createContent';
+} from '@/../../../store/actions/createContent';
 import { confirmAlert } from 'react-confirm-alert';
 import { FiPlayCircle } from 'react-icons/fi';
-import Client from '@/../../../../Client';
+import Client from '@/../../../Client';
 import { toast } from 'react-toastify';
-import { KEY_HASH_VIDEO_OR_IMAGE } from '@/../../../../reducers/createContent';
-import { OK } from '@/../../../../configs';
+import { KEY_HASH_VIDEO_OR_IMAGE } from '@/../../../reducers/createContent';
+import { OK } from '@/../../../configs';
 
 const Content = (props) => {
   const { content, isIdea = false } = props;
@@ -46,11 +46,11 @@ const Content = (props) => {
 
   const handleSelectContent = () => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n muá»‘n Ä‘Æ°a nhá»¯ng ná»™i dung nÃ o tá»« bÃ i viáº¿t nÃ y ?',
+      title: 'Xác nhận',
+      message: 'Bạn muốn đưa những nội dung nào từ bài viết này ?',
       buttons: [
         {
-          label: 'Chá»‰ chá»n ná»™i dung',
+          label: 'Chỉ chọn nội dung',
           color: 'green',
           onClick: () => {
             dispatch(toggleEditorText(postText, true));
@@ -59,8 +59,8 @@ const Content = (props) => {
         {
           label:
             media_type === 'video'
-              ? 'Chá»n cáº£ ná»™i dung vÃ  video'
-              : 'Chá»n cáº£ ná»™i dung vÃ  hÃ¬nh áº£nh',
+              ? 'Chọn cả nội dung và video'
+              : 'Chọn cả nội dung và hình ảnh',
           color: 'blue',
           onClick: async () => {
             dispatch(toggleEditorText(postText, true));
@@ -74,7 +74,7 @@ const Content = (props) => {
             );
             // get video url
             if (media_type === 'video') {
-              toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+              toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
               let mediass = [];
               if (media_url) {
                 const res = await Client.get(`/get-video-link/${media_url}`);
@@ -119,7 +119,7 @@ const Content = (props) => {
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -186,7 +186,7 @@ const Content = (props) => {
             >
               <FaEye className="w-10 h-10 px-2 py-1 bg-gray-50 border border-black rounded-md " />
               <a className="ml-4 no-underline text-base font-medium text-gray-50 transition-all duration-200 ease-linear">
-                Xem chi tiáº¿t
+                Xem chi tiết
               </a>
             </li>
             {isIdea && (
@@ -196,7 +196,7 @@ const Content = (props) => {
               >
                 <FaPenAlt className="w-10 h-10 px-2 py-1 bg-gray-50 border border-black rounded-md " />
                 <a className="ml-4 no-underline text-base font-medium text-gray-50 transition-all duration-200 ease-linear">
-                  ÄÆ°a vÃ o trÃ¬nh soáº¡n tháº£o
+                  Đưa vào trình soạn thảo
                 </a>
               </li>
             )}

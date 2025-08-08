@@ -1,10 +1,10 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { AiFillLike } from 'react-icons/ai';
 import { FaCommentDots, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { numberWithCommas } from '@/../../../utils/utilityFunc';
-import * as SCHEDULES from '@/../../../store/actions/Schedules';
-import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
+import { numberWithCommas } from '@/../../utils/utilityFunc';
+import * as SCHEDULES from '@/../../store/actions/Schedules';
+import { setContentDetailToShow } from '@/../../store/actions/Contents/contentActions';
 import moment from 'moment';
 
 function SuggestionItem(props) {
@@ -94,7 +94,7 @@ function SuggestionItem(props) {
             onClick={handleCreateSchedulePopup}
             className="block py-1 px-2 mx-1 font-bold rounded-md bg-gray-200 text-gray-700 hover:bg-red-400 hover:text-gray-50 transition-all duration-200 ease-linear min-w-70px"
           >
-            LÃªn lá»‹ch
+            Lên lịch
           </button>
         </div>
       </div>

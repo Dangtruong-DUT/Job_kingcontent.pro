@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getFacebookDestinations,
@@ -12,13 +12,13 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert';
 import Destinations from '@/Destinations';
 import { toast } from 'react-toastify';
-import { userServices } from '@/../../services/users';
+import { userServices } from '@/services/users';
 import Settings from '@/Settings';
 import ListSchedules from '@/FinalStep/ListSchedules';
 import CheckResults from '@/CheckResults';
 // add custom css for this component
 import './FinalStepAuto.css';
-import { breakWord } from '@/../../helpers';
+import { breakWord } from '@/../helpers';
 
 const FinalStepAuto = (props) => {
   const [localSettings, setLocalSettings] = useState(null);
@@ -64,11 +64,11 @@ const FinalStepAuto = (props) => {
     // check if localSettings is different from autoWaitingList
     if (localSettings !== autoWaitingList) {
       confirmAlert({
-        title: 'XÃ¡c nháº­n',
-        message: 'Báº¡n Ä‘Ã£ thay Ä‘á»•i cÃ i Ä‘áº·t, báº¡n cÃ³ muá»‘n lÆ°u khÃ´ng?',
+        title: 'Xác nhận',
+        message: 'Bạn đã thay đổi cài đặt, bạn có muốn lưu không?',
         buttons: [
           {
-            label: 'LÆ°u vÃ  quay láº¡i',
+            label: 'Lưu và quay lại',
             onClick: () => {
               dispatch(setScheduleWaitingList(localSettings));
               dispatch(setIsShowFinalStepAuto(false));
@@ -78,7 +78,7 @@ const FinalStepAuto = (props) => {
             },
           },
           {
-            label: 'Quay láº¡i',
+            label: 'Quay lại',
             onClick: () => {
               dispatch(setIsShowFinalStepAuto(false));
               dispatch(setShowSourceIdeasAutoPopup(true));
@@ -87,7 +87,7 @@ const FinalStepAuto = (props) => {
             },
           },
           {
-            label: 'Tiáº¿p tá»¥c lÃªn lá»‹ch',
+            label: 'Tiếp tục lên lịch',
             onClick: () => {},
           },
         ],
@@ -148,11 +148,11 @@ const FinalStepAuto = (props) => {
     let message = '';
     if (!scheduleName && !selectedSchedule) {
       isError = true;
-      message = 'Vui lÃ²ng chá»n hoáº·c thÃªm lá»‹ch má»›i';
+      message = 'Vui lòng chọn hoặc thêm lịch mới';
     } else {
       if (!selectedDestinations || selectedDestinations.length === 0) {
         isError = true;
-        message = 'Vui lÃ²ng chá»n má»™t nÆ¡i Ä‘á»ƒ lÃªn bÃ i viáº¿t';
+        message = 'Vui lòng chọn một nơi để lên bài viết';
       }
     }
     const {
@@ -163,11 +163,11 @@ const FinalStepAuto = (props) => {
     } = localSettings || {};
     if (!start_date) {
       isError = true;
-      message = 'Vui lÃ²ng kiá»ƒm tra láº¡i ngÃ y lÃªn lá»‹ch';
+      message = 'Vui lòng kiểm tra lại ngày lên lịch';
     }
     if (post_per_day === 0) {
       isError = true;
-      message = 'Vui lÃ²ng chá»n sá»‘ lÆ°á»£ng bÃ i Ä‘Äƒng trong ngÃ y';
+      message = 'Vui lòng chọn số lượng bài đăng trong ngày';
     }
     if (isError) {
       toast.error(message, {
@@ -245,7 +245,7 @@ const FinalStepAuto = (props) => {
             <div className="flex items-start justify-between px-2 py-4 border-b border-solid border-gray-300 rounded-t">
               <div className="bg-gray-50  text-sm overflow-hidden pt-3 pb-3 flex1 justify-between border-l-4 border-green-500 pl-2 w-full">
                 <p className="font-bold uppercase text-base">
-                  LÃªn lá»‹ch Ä‘Äƒng bÃ i tá»± Ä‘á»™ng
+                  Lên lịch đăng bài tự động
                 </p>
               </div>
             </div>
@@ -296,20 +296,20 @@ const FinalStepAuto = (props) => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickGoBack()}
               >
-                Huá»·
+                Huỷ
               </button>
               <button
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickGoBack()}
               >
-                Quay láº¡i
+                Quay lại
               </button>
               <button
                 className="border-2 border-gray-200 bg-blue-800 hover:bg-blue-400 py-3 px-4 text-white rounded-md"
                 onClick={() => onCheckSchedule()}
                 disabled={isDisableSubmit}
               >
-                Kiá»ƒm tra káº¿t quáº£
+                Kiểm tra kết quả
               </button>
             </div>
           </div>
@@ -331,5 +331,6 @@ const FinalStepAuto = (props) => {
 };
 
 export default FinalStepAuto;
+
 
 

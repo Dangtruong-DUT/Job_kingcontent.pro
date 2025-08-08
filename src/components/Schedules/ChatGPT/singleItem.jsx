@@ -1,4 +1,4 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {
   FiCheckCircle,
   FiEdit,
@@ -22,7 +22,7 @@ import {
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
 import { useDispatch, useSelector } from 'react-redux';
-import PopupDetailContentChat from '@/../../pages/createPost/components/popupDetailContentChat';
+import PopupDetailContentChat from '@/../pages/createPost/components/popupDetailContentChat';
 
 const SingleItem = (props) => {
   const { item, isAuto, handleAddToWaitingList, onClickShowDetail } = props;
@@ -30,7 +30,7 @@ const SingleItem = (props) => {
 
   const convertedTitle = question.replace(
     `${defaultThreadsPrompt} `,
-    'Ná»™i dung gá»‘c: '
+    'Nội dung gốc: '
   );
   const dispatch = useDispatch();
 
@@ -154,7 +154,7 @@ const SingleItem = (props) => {
               onClick={() => handleEditContent(item)}
             >
               <FaPencilAlt />
-              <span>Chá»‰nh sá»­a</span>
+              <span>Chỉnh sửa</span>
             </div>
             <div
               className="cursor-pointer flex items-center gap-2 rounded-md p-2 border border-gray-300 bg-blue-800 hover:bg-blue-400 text-white"
@@ -166,7 +166,7 @@ const SingleItem = (props) => {
               }
             >
               <FiEye />
-              <span>Xem chi tiáº¿t</span>
+              <span>Xem chi tiết</span>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@ const SingleItem = (props) => {
       {isScheduled && (
         <span
           className="absolute bottom-1 right-1 text-red-500"
-          title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+          title="Bài viết đã được lên lịch"
         >
           <FaExclamation />
         </span>

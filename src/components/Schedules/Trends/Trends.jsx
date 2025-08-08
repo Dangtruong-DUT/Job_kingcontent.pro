@@ -1,7 +1,7 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetTrendingContent } from '@/store/actions/createContent';
-import PostSugesstion from '@/../ContentSugesstion/PostSugesstion';
+import PostSugesstion from '@/ContentSugesstion/PostSugesstion';
 import FilterForm from '@/FilterForm';
 import SingleContent from '@/SingleContent';
 import DialogDetailPost from '@/SingleContent/dialogPostDetail';
@@ -70,7 +70,7 @@ const Trends = (props) => {
       <FilterForm onSearch={onSearch} />
       {!showFilter && !isLoading ? (
         <div className="flex justify-center">
-          <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+          <span className="font-bold">Không có dữ liệu hiển thị</span>
         </div>
       ) : isLoading ? (
         <LoadingApp />
@@ -95,7 +95,7 @@ const Trends = (props) => {
               }`}
               onClick={(e) => getMoreContents()}
             >
-              Xem thÃªm
+              Xem thêm
             </button>
           </div>
         </div>

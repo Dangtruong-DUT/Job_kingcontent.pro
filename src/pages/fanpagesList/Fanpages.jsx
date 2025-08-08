@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiFacebook } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '@/../components/Trendings/Header';
-import { _LIMIT_DEFAULT, OK } from '@/../configs';
+import Header from '@/components/Trendings/Header';
+import { _LIMIT_DEFAULT, OK } from '@/configs';
 import {
   getChildCategories,
   getChildCategoriesSearch,
@@ -15,8 +15,8 @@ import PaginatioFilter from '@/PaginatioFilter';
 import Pagination from '@/Pagination';
 import { AMOUNT_SORT, FANPAGE_SORT, SAVED_SORT } from '@/utility';
 import SpecialFollowPopupNotsave from '@/Popup';
-import SpecialFollowPopup from '@/../components/SpecialFollow/Popup';
-import Client from '@/../Client';
+import SpecialFollowPopup from '@/components/SpecialFollow/Popup';
+import Client from '@/Client';
 
 const Fanpages = () => {
   const pageLimit = 12;
@@ -66,7 +66,7 @@ const Fanpages = () => {
     <div className="fanpagesListing">
       <Header
         totalTrendingContents={totalTrendingContents}
-        title="Danh sÃ¡ch Fanpage"
+        title="Danh sách Fanpage"
         icon={<FiFacebook className="h-7 w-7 text-gray-50 font-semibold" />}
       />
       <Filter
@@ -92,7 +92,7 @@ const Fanpages = () => {
           } px-4 py-2 font-medium  bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white rounded-md`}
           onClick={() => setIsShowSaved(false)}
         >
-          Táº¥t cáº£
+          Tất cả
         </button>
         <button
           type="button"
@@ -101,19 +101,19 @@ const Fanpages = () => {
           } px-4 py-2 font-medium  bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white rounded-md`}
           onClick={() => setIsShowSaved(true)}
         >
-          ÄÃ£ lÆ°u
+          Đã lưu
         </button>
       </div>
 
       {isLoading ? (
         <div className="flex justify-center">
-          <p className="text-sm font-bold">Äang táº£i ...</p>
+          <p className="text-sm font-bold">Đang tải ...</p>
         </div>
       ) : (
         <div>
           {fanpageSearchData.length === 0 ? (
             <div className="flex items-center h-80 w-full justify-center">
-              <div className="text-base">KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£</div>
+              <div className="text-base">Không tìm thấy kết quả</div>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-5 mb-5 md:grid-cols-2 gap-8">
@@ -148,7 +148,7 @@ const Fanpages = () => {
                     setSaveSelect={setSaveSelect}
                   />
                   <p className="text-center font-bold text-base mt-2 text-gray-400 pb-5">
-                    Tá»•ng sá»‘ trang : {totalPages}
+                    Tổng số trang : {totalPages}
                   </p>
                 </>
               )
@@ -174,5 +174,6 @@ const Fanpages = () => {
 };
 
 export default Fanpages;
+
 
 

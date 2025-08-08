@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { IoIosSearch } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
-import { AddElement } from '@/../../../store/actions/createContent';
+import { AddElement } from '@/../../store/actions/createContent';
 import { uniqueId } from 'lodash';
 
 const Images = ({ onUploadImage, fabric, editor }) => {
@@ -64,7 +64,7 @@ const Images = ({ onUploadImage, fabric, editor }) => {
           >
             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
           </svg>
-          <span className="ml-1  text-sm leading-normal">Táº£i áº£nh lÃªn</span>
+          <span className="ml-1  text-sm leading-normal">Tải ảnh lên</span>
           <input
             type="file"
             className="hidden"
@@ -77,7 +77,7 @@ const Images = ({ onUploadImage, fabric, editor }) => {
       <div className="flex items-center gap-2 mb-5">
         <input
           type="text"
-          placeholder="TÃ¬m kiáº¿m hÃ¬nh áº£nh..."
+          placeholder="Tìm kiếm hình ảnh..."
           onChange={(e) => setTextValue(e.target.value)}
           className="w-full rounded-md text-black"
         />

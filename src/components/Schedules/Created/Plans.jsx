@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchForm from '@/SearchForm';
 import SingleContent from '@/SingleContent';
@@ -9,7 +9,7 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import { lineGadientReg } from '@/../../pages/createPost/utility';
+import { lineGadientReg } from '@/../pages/createPost/utility';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import Created from '@/Created';
 import { FiSearch } from 'react-icons/fi';
@@ -71,10 +71,10 @@ const Plans = (props) => {
       {!isShowContents && (
         <div className="plans">
           <h3 className="uppercase font-bold text-center text-base mb-1">
-            Danh sÃ¡ch káº¿ hoáº¡ch cá»§a báº¡n
+            Danh sách kế hoạch của bạn
           </h3>
           <p className="italic text-center mb-2">
-            HÃ£y chá»n 1 káº¿ hoáº¡ch bÃªn dÆ°á»›i Ä‘á»ƒ xem bÃ i viáº¿t
+            Hãy chọn 1 kế hoạch bên dưới để xem bài viết
           </p>
           {/* TOP BAR  */}
           <div className="flex items-center">
@@ -82,7 +82,7 @@ const Plans = (props) => {
               <div className="flex items-center cursor-text rounded-lg h-12  border-2 px-1 border-blue-300 bg-white text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                 <input
                   type="text"
-                  placeholder="TÃ¬m theo tÃªn hoáº·c hashtag#"
+                  placeholder="Tìm theo tên hoặc hashtag#"
                   defaultValue={inputValue}
                   onChange={handleSearchPlan}
                   className="border-none bg-none rounded-lg w-96"
@@ -97,7 +97,7 @@ const Plans = (props) => {
           {listPlans.length === 0 ? (
             <div className="flex justify-center">
               <span className="font-bold">
-                Báº¡n chÆ°a láº­p káº¿ hoáº¡ch nÃ o hoáº·c khÃ´ng tÃ¬m tháº¥y káº¿ hoáº¡ch nÃ o
+                Bạn chưa lập kế hoạch nào hoặc không tìm thấy kế hoạch nào
               </span>
             </div>
           ) : (

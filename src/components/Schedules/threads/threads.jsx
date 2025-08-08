@@ -1,6 +1,6 @@
-﻿import React from 'react';
-import SearchBox from '@/../Threads/SearchBox';
-import Manage from '@/../Threads/Manage';
+import React from 'react';
+import SearchBox from '@/Threads/SearchBox';
+import Manage from '@/Threads/Manage';
 
 const Threads = (props) => {
   const { isAuto = false, handleAddToWaitingList = () => {} } = props;

@@ -1,6 +1,6 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { API_EDIT_SUGGEST_KEYWORD_GG } from '@/../configs';
+import { API_EDIT_SUGGEST_KEYWORD_GG } from '@/configs';
 import { actionGetPostByKeyword } from '@/store/actions/createContent';
 import ContentSugestion from '.'
 const TabLeft = ({api , query ,typeSug }) => {
@@ -15,4 +15,5 @@ const TabLeft = ({api , query ,typeSug }) => {
 }
 
 export default TabLeft
+
 

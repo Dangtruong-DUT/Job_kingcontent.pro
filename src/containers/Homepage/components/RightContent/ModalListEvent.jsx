@@ -1,17 +1,17 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SingleContent from '@/../../../components/Schedules/SingleContent';
+import SingleContent from '@/../../components/Schedules/SingleContent';
 import {
   getEventContents,
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
-} from '@/../../../store/actions/Schedules';
-import { TYPE_GO_CHAT } from '@/../../../utils/utilityFunc';
+} from '@/../../store/actions/Schedules';
+import { TYPE_GO_CHAT } from '@/../../utils/utilityFunc';
 import { useHistory } from 'react-router-dom';
-import DialogDetailPost from '@/../../../components/Schedules/SingleContent/dialogPostDetail';
-import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
+import DialogDetailPost from '@/../../components/Schedules/SingleContent/dialogPostDetail';
+import { setContentDetailToShow } from '@/../../store/actions/Contents/contentActions';
 const ModalListEvent = (props) => {
   const {
     event,
@@ -107,7 +107,7 @@ const ModalListEvent = (props) => {
                     className="bg-blue-600 text-white rounded-lg shadow-md p-3"
                     onClick={() => setIsShowModal(false)}
                   >
-                    ÄÃ³ng
+                    Đóng
                   </button>
                 </div>
               </Dialog.Panel>

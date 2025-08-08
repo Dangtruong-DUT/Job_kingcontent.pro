@@ -1,5 +1,5 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
-import LoadingApp from '@/../LoadingApp';
+import React, { Fragment, useEffect, useState } from 'react';
+import LoadingApp from '@/LoadingApp';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetMyPosts } from '@/store/actions/threads';
 import Filter from '@/me/FilterNew';
@@ -87,10 +87,10 @@ const Me = (props) => {
           {/* quick filter here */}
           <Filter {...{ search, setSearch, setMediaType, setDateOrder, setLikesOrder }} />
           <div className="flex flex-row font-bold border-b-2 border-gray-200 p-2 gap-3">
-            <div className="w-28 text-center">Loáº¡i bÃ i viáº¿t</div>
-            <div className="w-2/5 text-center">Ná»™i dung</div>
-            <div className="w-1/5 text-center">NgÃ y Ä‘Äƒng</div>
-            <div className="w-1/5 text-center">HÃ nh Ä‘á»™ng</div>
+            <div className="w-28 text-center">Loại bài viết</div>
+            <div className="w-2/5 text-center">Nội dung</div>
+            <div className="w-1/5 text-center">Ngày đăng</div>
+            <div className="w-1/5 text-center">Hành động</div>
           </div>
           {myPosts ? (
             <div className="myPosts">
@@ -108,7 +108,7 @@ const Me = (props) => {
                       className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                       onClick={() => getMorePosts()}
                     >
-                      Xem thÃªm
+                      Xem thêm
                     </button>
                   )}
                 </div>

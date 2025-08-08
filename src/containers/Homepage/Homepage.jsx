@@ -1,4 +1,4 @@
-﻿import RightContent from '@/components/RightContent';
+import RightContent from '@/components/RightContent';
 import SearchForm from '@/components/SearchForm';
 
 import { useEffect } from 'react';
@@ -13,7 +13,7 @@ import SliderFanpages from '@/components/HomepageSpecial/SliderFanpages';
 import VideoTiktoks from '@/components/HomepageSpecial/videoTiktoks';
 import VideoDouYin from '@/components/HomepageSpecial/videoDouyin';
 
-import ContentDetail from '@/../components/CategoriesContent/ContentDetail/ContentDetail';
+import ContentDetail from '@/components/CategoriesContent/ContentDetail/ContentDetail';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import { actionGetDouyinVideos } from '@/store/actions/douyin';
 import VideoInstagram from '@/components/HomepageSpecial/VideoInstagram';
@@ -65,12 +65,12 @@ const Homepage = (props) => {
             <div className="homeScheduleContents rounded-lg shadow-md p-5 bg-white mb-5">
               <div className="flex items-center justify-between py-2 px-5">
                 <h2 className="font-bold uppercase text-base">
-                  Lá»‹ch Ä‘Äƒng bÃ i hÃ´m nay
+                  Lịch đăng bài hôm nay
                 </h2>
                 <span className="text-blue-500 underline font-bold">
                   {' '}
                   <Link to="/lich-dang-bai" className="italic ml-auto mr-5">
-                    LÃªn lá»‹ch Ä‘Äƒng bÃ i
+                    Lên lịch đăng bài
                   </Link>
                 </span>
               </div>
@@ -80,12 +80,12 @@ const Homepage = (props) => {
             <div className="homeSpecialFanpages rounded-lg shadow-md p-5 bg-white mb-5">
               <div className="flex items-center justify-between py-2 px-5">
                 <h2 className="font-bold uppercase text-base">
-                  Äang theo dÃµi Ä‘áº·c biá»‡t
+                  Đang theo dõi đặc biệt
                 </h2>
                 <span className="text-blue-500 underline font-bold">
                   {' '}
                   <Link to="/theo-doi-dac-biet" className="italic ml-auto mr-5">
-                    Xem táº¥t cáº£
+                    Xem tất cả
                   </Link>
                 </span>
               </div>
@@ -96,11 +96,11 @@ const Homepage = (props) => {
             <div className="trendingTikTok rounded-lg shadow-md p-5 mt-5 bg-white mb-5">
               <div className="flex items-center justify-between py-2 px-5">
                 <h2 className="font-bold uppercase text-base">
-                  Video Tiktok Ä‘ang thá»‹nh hÃ nh
+                  Video Tiktok đang thịnh hành
                 </h2>
                 <span className="text-blue-500 underline font-bold">
                   <Link to="/quan-ly-tiktok" className="italic ml-auto mr-5">
-                    Xem táº¥t cáº£
+                    Xem tất cả
                   </Link>
                 </span>
               </div>
@@ -111,11 +111,11 @@ const Homepage = (props) => {
             <div className="trendingDouyin rounded-lg shadow-md p-5 mt-5 bg-white mb-5">
               <div className="flex items-center justify-between py-2 px-5">
                 <h2 className="font-bold uppercase text-base">
-                  Video Douyin Ä‘ang thá»‹nh hÃ nh
+                  Video Douyin đang thịnh hành
                 </h2>
                 <span className="text-blue-500 underline font-bold">
                   <Link to="/quan-ly-douyin" className="italic ml-auto mr-5">
-                    Xem táº¥t cáº£
+                    Xem tất cả
                   </Link>
                 </span>
               </div>
@@ -126,11 +126,11 @@ const Homepage = (props) => {
             <div className="trendingInstagram rounded-lg shadow-md p-5 mt-5 bg-white mb-5">
               <div className="flex items-center justify-between py-2 px-5">
                 <h2 className="font-bold uppercase text-base">
-                  BÃ i viáº¿t Instagram Ä‘ang thá»‹nh hÃ nh
+                  Bài viết Instagram đang thịnh hành
                 </h2>
                 <span className="text-blue-500 underline font-bold">
                   <Link to="/quan-ly-instagram" className="italic ml-auto mr-5">
-                    Xem táº¥t cáº£
+                    Xem tất cả
                   </Link>
                 </span>
               </div>

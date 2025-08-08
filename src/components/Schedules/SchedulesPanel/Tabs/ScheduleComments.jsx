@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { VscCalendar } from 'react-icons/vsc';
-import { setShowScheduleCommentsPopup } from '@/../../../store/actions/Schedules';
+import { setShowScheduleCommentsPopup } from '@/../../store/actions/Schedules';
 
 const ScheduleComments = (props) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const ScheduleComments = (props) => {
     >
       <div className="flex items-center gap-2">
         <VscCalendar className="h-6 w-6" />
-        <span>LÃªn lá»‹ch comment</span>
+        <span>Lên lịch comment</span>
       </div>
     </div>
   );

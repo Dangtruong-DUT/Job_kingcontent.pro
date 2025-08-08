@@ -1,8 +1,8 @@
-﻿import styled from '@emotion/styled';
+import styled from '@emotion/styled';
 import React from 'react';
 import Picker from 'emoji-picker-react';
 import { useDispatch } from 'react-redux';
-import { AddElement } from '@/../../../store/actions/createContent';
+import { AddElement } from '@/../../store/actions/createContent';
 import { uniqueId } from 'lodash';
 
 const EmojiStyled = styled.div`

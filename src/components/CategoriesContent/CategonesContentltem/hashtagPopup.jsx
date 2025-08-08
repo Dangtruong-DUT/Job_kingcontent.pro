@@ -1,14 +1,14 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { actionGetAllContent } from '@/store/actions/contentUserLiked';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   REDUX_NAME_CONTENT_USER_LIKED,
   REDUX_NAME_CREATE_POST,
-} from '@/../../utils/utilityFunc';
+} from '@/../utils/utilityFunc';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { FiEdit, FiTrash } from 'react-icons/fi';
-import { CreateContent } from '@/../../services/createContent';
+import { CreateContent } from '@/services/createContent';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert';
@@ -47,7 +47,7 @@ const PopupTag = ({
       )
       .then(
         axios.spread((user, repos, followers, following) => {
-          toast.success('Cáº­p nháº­t tháº» thÃ nh cÃ´ng !');
+          toast.success('Cập nhật thẻ thành công !');
           dispatch(actionGetAllContent());
           setInputValue('');
           setHashtagEdit('');
@@ -61,12 +61,12 @@ const PopupTag = ({
       .filter((_elt) => _elt.hashtag === hashtag)
       .map((_hash) => _hash.type_id);
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
+      title: 'Thông báo',
       message:
-        'Khi xÃ³a tháº» cÃ¡c bÃ i viáº¿t cÃ³ thá»ƒ sáº½ khÃ´ng Ä‘Æ°á»£c phÃ¢n loáº¡i. Báº¡n cÃ³ cháº¯c muá»‘n xÃ³a khÃ´ng?',
+        'Khi xóa thẻ các bài viết có thể sẽ không được phân loại. Bạn có chắc muốn xóa không?',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: async () => {
             axios
               .all(
@@ -76,14 +76,14 @@ const PopupTag = ({
               )
               .then(
                 axios.spread((user, repos, followers, following) => {
-                  toast.success('XoÃ¡ tháº» thÃ nh cÃ´ng !');
+                  toast.success('Xoá thẻ thành công !');
                   dispatch(actionGetAllContent());
                 })
               );
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -134,14 +134,14 @@ const PopupTag = ({
                   <input
                     value={inputValue}
                     className="w-full h-14 rounded-md shadow-sm border-gray-100 border-2 outline-none p-2"
-                    placeholder="Nháº­p tÃªn tháº» ..."
+                    placeholder="Nhập tên thẻ ..."
                     onChange={(e) => {
                       setInputValue(e.target.value);
                       // setIsContent({ ...isContent, tag: e.target.value })
                     }}
                   />
                   <h4 className="font-bold text-base uppercase mt-2">
-                    Tháº» gá»£i Ã½
+                    Thẻ gợi ý
                   </h4>
                   <PerfectScrollbar
                     className=" w-full mt-1"
@@ -166,13 +166,13 @@ const PopupTag = ({
                               size={25}
                               color="green"
                               onClick={() => handleEditHashTag(tag.hashtag)}
-                              title={'Chá»‰nh sá»­a tháº»'}
+                              title={'Chỉnh sửa thẻ'}
                             />
                             <FiTrash
                               size={25}
                               color="red"
                               onClick={() => handleDeleteHashtag(tag.hashtag)}
-                              title={'XoÃ¡ tháº»'}
+                              title={'Xoá thẻ'}
                             />
                           </div>
                         </li>
@@ -185,7 +185,7 @@ const PopupTag = ({
                     onClick={() => toggle()}
                     className="bg-red-400 px-3 h-10 rounded-md text-white"
                   >
-                    ÄÃ³ng
+                    Đóng
                   </button>
                   <button
                     onClick={() =>
@@ -196,7 +196,7 @@ const PopupTag = ({
                     disabled={inputValue === ''}
                     className="bg-blue-400 h-10 px-10 rounded-md text-white"
                   >
-                    {isEditMultil ? 'Cáº­p nháº­t' : 'LÆ°u'}
+                    {isEditMultil ? 'Cập nhật' : 'Lưu'}
                   </button>
                 </div>
               </Dialog.Panel>
@@ -209,5 +209,6 @@ const PopupTag = ({
 };
 
 export default PopupTag;
+
 
 

@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import VideoEmpty from '@/VideoEmpty';
-import instagramIcon from '@/../../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import VideoGenIcon from '@/../../../../assets/images/icon/main-menu/menu-icon-videogen.png';
+import instagramIcon from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import VideoGenIcon from '@/../../../assets/images/icon/main-menu/menu-icon-videogen.png';
 
 import moment from 'moment';
 import {
@@ -17,13 +17,13 @@ import {
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
-} from '@/../../../../store/actions/Schedules';
+} from '@/../../../store/actions/Schedules';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { kFormatter } from '@/../../../../utils/utilityFunc';
-import { convertInstagramLink } from '@/../../../../helpers';
-import ContentDetail from '@/../../../../components/InstagramCpn/ContentDetail';
-import { actionSetCurrentContent } from '@/../../../../store/actions/instagram';
+import { kFormatter } from '@/../../../utils/utilityFunc';
+import { convertInstagramLink } from '@/../../../helpers';
+import ContentDetail from '@/../../../components/InstagramCpn/ContentDetail';
+import { actionSetCurrentContent } from '@/../../../store/actions/instagram';
 
 const VideoInstagram = ({ searchPosts = null }) => {
   const { currentContent = null } = useSelector((state) => state.instagram);
@@ -153,9 +153,9 @@ const VideoInstagram = ({ searchPosts = null }) => {
                           size={30}
                           color="#fff"
                           className="hover:scale-125 cursor-pointer"
-                          title="Nháº¥p Ä‘á»ƒ xem"
+                          title="Nhấp để xem"
                         />
-                        <span>Xem chi tiáº¿t</span>
+                        <span>Xem chi tiết</span>
                       </div>
                       {/* schedule */}
                       <div
@@ -166,11 +166,11 @@ const VideoInstagram = ({ searchPosts = null }) => {
                           size={30}
                           color="#fff"
                           className="hover:scale-125 cursor-pointer"
-                          title="LÃªn lá»‹ch"
+                          title="Lên lịch"
                         />
-                        <span>LÃªn lá»‹ch</span>
+                        <span>Lên lịch</span>
                       </div>
-                      {/* Táº¡o Video AI */}
+                      {/* Tạo Video AI */}
                       <div
                         className="flex items-center gap-2 cursor-pointer hover:bg-black bg-opacity-60 p-2 rounded whitespace-nowrap"
                         onClick={() => {
@@ -179,7 +179,7 @@ const VideoInstagram = ({ searchPosts = null }) => {
                         }}
                       >
                         <img src={VideoGenIcon} style={{ width: "32px" }}></img>
-                        <span>Táº¡o Video AI</span>
+                        <span>Tạo Video AI</span>
                       </div>
                     </div>
                   </div>

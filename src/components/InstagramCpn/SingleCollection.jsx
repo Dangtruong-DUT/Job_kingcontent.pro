@@ -1,4 +1,4 @@
-﻿import { FaMinusCircle, FaPencilAlt } from 'react-icons/fa';
+import { FaMinusCircle, FaPencilAlt } from 'react-icons/fa';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert';
@@ -11,7 +11,7 @@ import {
   actionSetCurrentCollection,
 } from '@/store/actions/instagram';
 import InstagramIcon from '@/assets/images/icon/main-menu/menu-icon-instagram.png';
-import { convertInstagramLink } from '@/../helpers';
+import { convertInstagramLink } from '@/helpers';
 
 const SingleCollection = ({ collection, isSchedule = false }) => {
   const {
@@ -43,18 +43,18 @@ const SingleCollection = ({ collection, isSchedule = false }) => {
   const onClickRemoveCollection = useCallback(
     (id) => {
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
+        title: 'Thông báo',
         message:
-          'Khi xÃ³a bá»™ sÆ°u táº­p, cÃ¡c video Ä‘Ã£ lÆ°u sáº½ bá»‹ xoÃ¡ theo. Báº¡n cÃ³ cháº¯c muá»‘n thá»±c hiá»‡n khÃ´ng?',
+          'Khi xóa bộ sưu tập, các video đã lưu sẽ bị xoá theo. Bạn có chắc muốn thực hiện không?',
         buttons: [
           {
-            label: 'Cháº¯c cháº¯n',
+            label: 'Chắc chắn',
             onClick: async () => {
               dispatch(actionRemoveCollection(id));
             },
           },
           {
-            label: 'Äá»•i Ã½',
+            label: 'Đổi ý',
             onClick: () => {},
           },
         ],
@@ -75,7 +75,7 @@ const SingleCollection = ({ collection, isSchedule = false }) => {
         <button
           className="btn btn-danger btn-sm btn-remove-channel"
           data-id={id}
-          title="XoÃ¡ bá»™ sÆ°u táº­p"
+          title="Xoá bộ sưu tập"
           onClick={() => onClickRemoveCollection(id)}
         >
           <FaMinusCircle size={32} color="red" />
@@ -95,7 +95,7 @@ const SingleCollection = ({ collection, isSchedule = false }) => {
           <div className="name">
             <span>{name}</span>
             <br />
-            <strong>{posts_count}</strong> bÃ i viáº¿t
+            <strong>{posts_count}</strong> bài viết
           </div>
         </div>
       </div>

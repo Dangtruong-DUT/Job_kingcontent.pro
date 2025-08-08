@@ -1,22 +1,22 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import VideoEmpty from '@/VideoEmpty';
-import tiktokIcon from '@/../../../../assets/images/tiktok_logo.png';
+import tiktokIcon from '@/../../../assets/images/tiktok_logo.png';
 
 import moment from 'moment';
 import { FiCalendar, FiClock, FiPlay } from 'react-icons/fi';
-import { nFormatter } from '@/../../../../configs';
+import { nFormatter } from '@/../../../configs';
 import {
   setCurrentDateTime,
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
-} from '@/../../../../store/actions/Schedules';
+} from '@/../../../store/actions/Schedules';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import DetailDouyin from '@/../../../../components/Schedules/douyin/detailDouyin';
-import { setScript } from '@/../../../../store/actions/TextToVideo';
+import DetailDouyin from '@/../../../components/Schedules/douyin/detailDouyin';
+import { setScript } from '@/../../../store/actions/TextToVideo';
 
 const VideoDouYin = ({ searchVideos = null }) => {
   const [videos, setVideos] = useState([]);
@@ -127,9 +127,9 @@ const VideoDouYin = ({ searchVideos = null }) => {
                           size={30}
                           color="#fff"
                           className="hover:scale-125 cursor-pointer"
-                          title="Nháº¥p Ä‘á»ƒ xem"
+                          title="Nhấp để xem"
                         />
-                        <span>Xem chi tiáº¿t</span>
+                        <span>Xem chi tiết</span>
                       </div>
                       {/* schedule */}
                       <div
@@ -140,9 +140,9 @@ const VideoDouYin = ({ searchVideos = null }) => {
                           size={30}
                           color="#fff"
                           className="hover:scale-125 cursor-pointer"
-                          title="LÃªn lá»‹ch"
+                          title="Lên lịch"
                         />
-                        <span>LÃªn lá»‹ch</span>
+                        <span>Lên lịch</span>
                       </div>
                     </div>
                   </div>

@@ -1,20 +1,20 @@
-﻿import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import { BsEye } from 'react-icons/bs';
 import { TiDelete } from 'react-icons/ti';
-import HashtagsSearch from '@/../ContentLiked/HashtagsSearch';
-import { formatDate } from '@/../../helpers/date';
-import client from '@/../../Client';
+import HashtagsSearch from '@/ContentLiked/HashtagsSearch';
+import { formatDate } from '@/../helpers/date';
+import client from '@/../Client';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
-import { isObjEmpty } from '@/../../utils/utilityFunc';
+import { isObjEmpty } from '@/../utils/utilityFunc';
 import CreatableSelect from 'react-select/creatable';
 import PopupSelectTag from '@/popupSelectTag';
 import PopoverTag from '@/popoverTag';
 import { Dialog } from 'primereact/dialog';
 import Fanpage from '@/Fanpage';
-import { userServices } from '@/../../services/users';
-import { OK } from '@/../../configs';
+import { userServices } from '@/services/users';
+import { OK } from '@/configs';
 
 const FanpageRows = (props) => {
   const {
@@ -47,7 +47,7 @@ const FanpageRows = (props) => {
   const updateContent = async (fanpage) => {
     const { is_queue = false, fanpage_id } = fanpage;
     if (!is_queue) {
-      toast.info('Äang thÃªm trang vÃ o hÃ ng Ä‘á»£i....');
+      toast.info('Đang thêm trang vào hàng đợi....');
       const postData = {
         feed_id: fanpage_id,
       };
@@ -55,7 +55,7 @@ const FanpageRows = (props) => {
       if (res.status === OK) {
         toast.dismiss();
         toast.success(
-          'Vui lÃ²ng Ä‘á»£i trong Ã­t phÃºt Ä‘á»ƒ há»‡ thá»‘ng tiáº¿n hÃ nh cáº­p nháº­t'
+          'Vui lòng đợi trong ít phút để hệ thống tiến hành cập nhật'
         );
         setFanpages(res?.data?.data || []);
       }
@@ -64,26 +64,26 @@ const FanpageRows = (props) => {
 
   const deleteContent = async (fanpage) => {
     confirmAlert({
-      title: 'Cáº£nh bÃ¡o !',
+      title: 'Cảnh báo !',
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ trang nÃ y khÃ´ng?
+          Bạn có chắc chắn muốn xoá trang này không?
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
             const res = await client.delete(`/fanpages/${fanpage.fanpage_id}`);
             if (res.status === OK) {
-              toast.success('XoÃ¡ trang thÃ nh cÃ´ng !');
+              toast.success('Xoá trang thành công !');
               getFanpages &&
                 getFanpages().then(setFanpages).catch(console.error);
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -119,7 +119,7 @@ const FanpageRows = (props) => {
         reRenderList={reRenderList}
       />
       <Dialog
-        header="Chá»‰nh sá»­a nhÃ£n"
+        header="Chỉnh sửa nhãn"
         visible={visible}
         style={{ width: '50vw' }}
         onHide={() => setVisible(false)}
@@ -137,4 +137,5 @@ const FanpageRows = (props) => {
 };
 
 export default FanpageRows;
+
 

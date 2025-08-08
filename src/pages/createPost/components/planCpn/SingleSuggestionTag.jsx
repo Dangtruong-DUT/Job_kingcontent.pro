@@ -1,8 +1,8 @@
-﻿import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { BiPencil } from 'react-icons/bi';
 import { FiTrash2 } from 'react-icons/fi';
 import { Checkbox } from 'rsuite';
-import auth from '@/../../../utils/auth';
+import auth from '@/../../utils/auth';
 
 const SingleSuggestionTag = (props) => {
   const {
@@ -45,7 +45,7 @@ const SingleSuggestionTag = (props) => {
         disabled={isUserTag}
         id={`checkbox${index}`}
         type="checkbox"
-        title={`Chá»n ká»‹ch báº£n "${tag.name}"`}
+        title={`Chọn kịch bản "${tag.name}"`}
         className="hidden"
       />
       <label
@@ -58,7 +58,7 @@ const SingleSuggestionTag = (props) => {
               ? 'border-red-300 border-2'
               : ''
           } hover:border-red-300 border-2`}
-          title={`Chá»n ká»‹ch báº£n "${tag.name}"`}
+          title={`Chọn kịch bản "${tag.name}"`}
         >
           <Checkbox
             checked={isChecked || isUserTag}
@@ -66,7 +66,7 @@ const SingleSuggestionTag = (props) => {
             onChange={onCheck}
             id={`checkbox${index}`}
             type="checkbox"
-            title={`Chá»n ká»‹ch báº£n "${tag.name}"`}
+            title={`Chọn kịch bản "${tag.name}"`}
           />
           <span className="font-bold uppercase">{tag.name}</span>
         </div>

@@ -1,6 +1,6 @@
-﻿import { useDispatch, useSelector } from 'react-redux';
-import SearchBox from '@/../TiktokCpn/SearchBox';
-import Card from '@/../TiktokCpn/Card';
+import { useDispatch, useSelector } from 'react-redux';
+import SearchBox from '@/TiktokCpn/SearchBox';
+import Card from '@/TiktokCpn/Card';
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import SingleTiktokContent from '@/SingleContent/SingleTiktokContent';
 import DetailTiktok from '@/DetailTiktok';
@@ -17,9 +17,9 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import { listDefaultKws } from '@/../TiktokCpn/constants';
-import LoadingApp from '@/../LoadingApp';
-import SingleChannel from '@/../TiktokCpn/SingleChannel';
+import { listDefaultKws } from '@/TiktokCpn/constants';
+import LoadingApp from '@/LoadingApp';
+import SingleChannel from '@/TiktokCpn/SingleChannel';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import Select from 'react-select';
 
@@ -431,7 +431,7 @@ const Tiktok = (props) => {
       {filteredContents.length === 0 && channels.length === 0 && !isLoading ? (
         <div className="flex justify-center h-60 items-center">
           <span className="font-bold">
-            Nháº­p tá»« khoÃ¡ Ä‘á»ƒ cÃ³ Ä‘Æ°á»£c káº¿t quáº£ chÃ­nh xÃ¡c
+            Nhập từ khoá để có được kết quả chính xác
           </span>
         </div>
       ) : isLoading ? (
@@ -445,7 +445,7 @@ const Tiktok = (props) => {
                 }`}
               onClick={handleChangeChannels}
             >
-              <span>KÃªnh</span>
+              <span>Kênh</span>
             </div>
             <div
               className={`tab_video cursor-pointer ${isShowVideos ? 'underline text-blue-500' : ''
@@ -459,19 +459,19 @@ const Tiktok = (props) => {
               <div className="flex gap-3 items-center justify-center ml-auto">
                 <Select
                   options={[
-                    { value: 'latest', label: 'Má»›i nháº¥t' },
-                    { value: 'popular', label: 'Phá»• biáº¿n nháº¥t' },
-                    { value: 'oldest', label: 'CÅ© nháº¥t' },
+                    { value: 'latest', label: 'Mới nhất' },
+                    { value: 'popular', label: 'Phổ biến nhất' },
+                    { value: 'oldest', label: 'Cũ nhất' },
                   ]}
-                  defaultValue={{ value: 'latest', label: 'Má»›i nháº¥t' }}
+                  defaultValue={{ value: 'latest', label: 'Mới nhất' }}
                   value={{
                     value: currentChannelOrderType,
                     label:
                       currentChannelOrderType === 'latest'
-                        ? 'Má»›i nháº¥t'
+                        ? 'Mới nhất'
                         : currentChannelOrderType === 'popular'
-                          ? 'Phá»• biáº¿n nháº¥t'
-                          : 'CÅ© nháº¥t',
+                          ? 'Phổ biến nhất'
+                          : 'Cũ nhất',
                   }}
                   onChange={(selected) => onOrderTypeChange(selected.value)}
                   className="w-40"
@@ -506,14 +506,14 @@ const Tiktok = (props) => {
                         )
                       }
                     >
-                      Xem thÃªm
+                      Xem thêm
                     </button>
                   )}
                 </div>
               </PerfectScrollbar>
             ) : (
               <div className="text-base text-center p-4">
-                Vui lÃ²ng chá»n má»™t kÃªnh hoáº·c tÃ¬m tá»« khoÃ¡ á»Ÿ trÃªn
+                Vui lòng chọn một kênh hoặc tìm từ khoá ở trên
               </div>
             )
           ) : null}
@@ -524,17 +524,17 @@ const Tiktok = (props) => {
                   className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                   onClick={() => onSelectAll()}
                 >
-                  Chá»n toÃ n bá»™
+                  Chọn toàn bộ
                 </button>
                 <button
                   className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                   onClick={() => onUnSelectAll()}
                 >
-                  Bá» chá»n
+                  Bỏ chọn
                 </button>
               </div>
               <div className="summary mb-2 ml-auto text-base">
-                <span>Sá»‘ video Ä‘Ã£ chá»n: </span>
+                <span>Số video đã chọn: </span>
                 <span className="font-bold">
                   {autoWaitingList?.contents?.length || 0}
                 </span>
@@ -555,7 +555,7 @@ const Tiktok = (props) => {
                     className={`rounded-md text-white bg-blue-400 p-3 m-3 w-1/2`}
                     onClick={(e) => getMoreVideos()}
                   >
-                    Xem thÃªm
+                    Xem thêm
                   </button>
                 ) : null}
                 {additionalButton ? (additionalButton) : null}

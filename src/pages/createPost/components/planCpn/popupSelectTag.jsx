@@ -1,24 +1,24 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { FiCheck, FiEdit, FiX } from 'react-icons/fi';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { _dashed_border, _input_style, _text_title } from '@/../utility';
+import { _dashed_border, _input_style, _text_title } from '@/utility';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   KEY_HASH_TAG_PLANS,
   KEY_LABELS,
   KEY_LABEL_SELECT,
   KEY_PLAN_SELECT,
-} from '@/../../../reducers/createContent';
+} from '@/../../reducers/createContent';
 import {
   actionGetLabels,
   actionGetPlan,
   actionSelectLabel,
-} from '@/../../../store/actions/createContent';
-import { CreateContent } from '@/../../../services/createContent';
+} from '@/../../store/actions/createContent';
+import { CreateContent } from '@/../../services/createContent';
 import { toast } from 'react-toastify';
-import { isObjEmpty } from '@/../../../utils/utilityFunc';
-import { OK } from '@/../../../configs';
+import { isObjEmpty } from '@/../../utils/utilityFunc';
+import { OK } from '@/../../configs';
 
 const PopupSelectTag = ({
   isOpen,
@@ -45,7 +45,7 @@ const PopupSelectTag = ({
     const isHasTag = labels.some((_elt) => _elt.name === inputValue);
     if (isHasTag && !isEdit && !isEditInList) {
       toast.error(
-        'PhÃ¢n loáº¡i Ä‘Ã£ tá»“n táº¡i trong há»‡ thÃ´ng . Vui lÃ²ng Ä‘áº·t tÃªn khÃ¡c !'
+        'Phân loại đã tồn tại trong hệ thông . Vui lòng đặt tên khác !'
       );
       return;
     }
@@ -56,7 +56,7 @@ const PopupSelectTag = ({
         user_id: user.id,
       });
       if (res.status === OK) {
-        toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+        toast.success('Cập nhật thành công !');
         dispatch(actionGetLabels());
         setInputValue('');
         setColorSelect('');
@@ -74,7 +74,7 @@ const PopupSelectTag = ({
         user_id: user.id,
       });
       if (res.status === OK) {
-        toast.success('Táº¡o má»›i thÃ nh cÃ´ng !');
+        toast.success('Tạo mới thành công !');
         setInputValue('');
         setColorSelect('');
         dispatch(actionGetLabels());
@@ -133,7 +133,7 @@ const PopupSelectTag = ({
                   style={{ height: '80%', width: '500px' }}
                 >
                   <div className="flex justify-between items-center">
-                    <h2 className="font-bold  uppercase">Chá»n tháº»</h2>
+                    <h2 className="font-bold  uppercase">Chọn thẻ</h2>
                     <div>
                       <button
                         className="rounded-full p-1 bg-gray-400"
@@ -145,14 +145,14 @@ const PopupSelectTag = ({
                   </div>
                   <div className={_dashed_border}></div>
                   <div>
-                    <span className={_text_title}>TÃªn phÃ¢n loáº¡i</span>
+                    <span className={_text_title}>Tên phân loại</span>
                     <input
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       className={`${_input_style} mb-3`}
                     />
-                    <span className={_text_title}>MÃ u phÃ¢n loáº¡i</span>
+                    <span className={_text_title}>Màu phân loại</span>
                     <input
                       type="color"
                       className={`${_input_style} mb-3`}
@@ -162,7 +162,7 @@ const PopupSelectTag = ({
                     {!isEditInList && (
                       <>
                         {' '}
-                        <span className={_text_title}>Gá»£i Ã½</span>
+                        <span className={_text_title}>Gợi ý</span>
                         <PerfectScrollbar
                           className=" w-full mt-1"
                           style={{ height: '400px' }}
@@ -204,7 +204,7 @@ const PopupSelectTag = ({
                           className="p-3 rounded-md bg-blue-500 text-white w-full hover:bg-gray-500"
                           type="submit"
                         >
-                          {isEdit ? 'Cáº­p nháº­t' : 'Táº¡o má»›i'}{' '}
+                          {isEdit ? 'Cập nhật' : 'Tạo mới'}{' '}
                         </button>
                       </div>
                     ) : null}

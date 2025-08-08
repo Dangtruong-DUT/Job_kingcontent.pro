@@ -1,9 +1,9 @@
-﻿import React, { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { FaCalendarAlt, FaComment, FaComments, FaEye, FaHeart, FaPencilAlt, FaPlayCircle } from 'react-icons/fa';
-import { getNoImage } from '@/../../../helpers';
-import { nFormatter } from '@/../../../configs';
+import { getNoImage } from '@/../../helpers';
+import { nFormatter } from '@/../../configs';
 import { FiRefreshCcw } from 'react-icons/fi';
-import { formatUnixDate } from '@/../../../helpers/date';
+import { formatUnixDate } from '@/../../helpers/date';
 import { Link } from '@mui/material';
 
 const SinglePost = (props) => {

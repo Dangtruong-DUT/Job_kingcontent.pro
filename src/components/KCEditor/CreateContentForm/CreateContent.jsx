@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useState, useEffect, useContext } from 'react';
+import React, { useCallback, useState, useEffect, useContext } from 'react';
 import Header from '@/Header';
 import Input from '@/Input';
 import Options from '@/Options';
@@ -7,11 +7,11 @@ import FormularTab from '@/FormularTab';
 import { ChartPieIcon, DocumentTextIcon } from '@heroicons/react/outline';
 import { getContentSuggestions } from '@/store/actions/editor/createContentActions';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
-import * as types from '@/../../store/types';
+import * as types from '@/../store/types';
 import { useSelector } from 'react-redux';
 import { EditorState, SelectionState, Modifier } from 'draft-js';
-import ContentDetail from '@/../CategoriesContent/ContentDetail';
-import { createEmptyContent } from '@/../../utils/utilityFunc';
+import ContentDetail from '@/CategoriesContent/ContentDetail';
+import { createEmptyContent } from '@/../utils/utilityFunc';
 import { saveUserContent } from '@/store/actions/editor/editorActions';
 
 function CreateContent(props) {
@@ -176,7 +176,7 @@ function CreateContent(props) {
                 onClick={showCustomerTab}
               >
                 <ChartPieIcon className="w-6 h-6 mr-1.5" />
-                <span className="text-base">ChÃ¢n dung khÃ¡ch hÃ ng</span>
+                <span className="text-base">Chân dung khách hàng</span>
               </div>
               <div
                 className={`tabCustomer cursor-pointer inline-flex items-center justify-center flex-1 text-center border border-solid border-gray-500 rounded p-2 ${
@@ -185,7 +185,7 @@ function CreateContent(props) {
                 onClick={showFormularTab}
               >
                 <DocumentTextIcon className="w-6 h-6 mr-1.5" />
-                <span className="text-base">Viáº¿t theo cÃ´ng thá»©c</span>
+                <span className="text-base">Viết theo công thức</span>
               </div>
             </div>
             <div className="tabsContent">

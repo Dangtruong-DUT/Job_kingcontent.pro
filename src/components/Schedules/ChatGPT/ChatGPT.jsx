@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLoadingApp } from '@/store/actions/loading';
 import { getHistory } from '@/store/actions/createContent';
@@ -6,7 +6,7 @@ import { FaSpinner } from 'react-icons/fa';
 import SingleItem from '@/singleItem';
 import { setScheduleWaitingList } from '@/store/actions/Schedules';
 import { useHistory } from 'react-router-dom';
-import PopupDetailContentChat from '@/../../pages/createPost/components/popupDetailContentChat';
+import PopupDetailContentChat from '@/../pages/createPost/components/popupDetailContentChat';
 
 const ChatGPT = (props) => {
   const dispatch = useDispatch();
@@ -66,13 +66,13 @@ const ChatGPT = (props) => {
         <div className="ChatGPT">
           {historyQuestionList.length === 0 ? (
             <div className="text-center mt-4 h-80 flex items-center justify-center text-base">
-              Báº¡n chÆ°a lÆ°u ná»™i dung tá»« ChatGPT, hÃ£y sá»­ dá»¥ng tÃ­nh nÄƒng nÃ y trong
-              trÃ¬nh soáº¡n tháº£o{' '}
+              Bạn chưa lưu nội dung từ ChatGPT, hãy sử dụng tính năng này trong
+              trình soạn thảo{' '}
               <span
                 className="underline cursor-pointer font-bold uppercase"
                 onClick={() => onClickLink()}
               >
-                táº¡i Ä‘Ã¢y
+                tại đây
               </span>
             </div>
           ) : (
@@ -84,17 +84,17 @@ const ChatGPT = (props) => {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                       onClick={() => onSelectAll()}
                     >
-                      Chá»n toÃ n bá»™
+                      Chọn toàn bộ
                     </button>
                     <button
                       className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                       onClick={() => onUnSelectAll()}
                     >
-                      Bá» chá»n
+                      Bỏ chọn
                     </button>
                   </div>
                   <div className="summary mb-2 ml-auto text-base">
-                    <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                    <span>Số bài viết đã chọn: </span>
                     <span className="font-bold">
                       {autoWaitingList?.contents?.length || 0}
                     </span>

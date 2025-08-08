@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { convertWeekdayToString } from '@/utils/utilityFunc';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
-import auth from '@/../../../../utils/auth';
+import auth from '@/../../../utils/auth';
 
 function WeekPane(props) {
   const totalPerDay = auth.getMaxContentsByRole();
@@ -48,7 +48,7 @@ function WeekPane(props) {
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-gray-600 font-bold">
-                  CÃ²n {totalPerDay - countContentsByDate(dateKey)}/{totalPerDay}
+                  Còn {totalPerDay - countContentsByDate(dateKey)}/{totalPerDay}
                 </span>
               </div>
             </div>

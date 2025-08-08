@@ -1,13 +1,13 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import InstagramIcon from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import { convertInstagramLink } from '@/../../../helpers';
+import InstagramIcon from '@/../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import { convertInstagramLink } from '@/../../helpers';
 import { FiPlay } from 'react-icons/fi';
 import {
   checkInInstagramCollection,
   kFormatter,
-} from '@/../../../utils/utilityFunc';
+} from '@/../../utils/utilityFunc';
 import { FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
 import {
   actionGetCollectionPosts,
@@ -17,7 +17,7 @@ import {
   actionSaveUser,
   actionSetCurrentContent,
   actionUpdateChosenPosts,
-} from '@/../../../store/actions/instagram';
+} from '@/../../store/actions/instagram';
 import {
   FaClock,
   FaCheck,
@@ -33,59 +33,59 @@ import { ImEye, ImPlay } from 'react-icons/im';
 import { useHistory } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import { toast } from 'react-toastify';
-import addIcons from '@/../../../assets/images/icon/create-content/add.png';
+import addIcons from '@/../../assets/images/icon/create-content/add.png';
 import {
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
   setCurrentDateTime,
   setCurrentEditingContent,
-} from '@/../../../store/actions/Schedules';
-import { actionPushContentToCreateContentScreen } from '@/../../../store/actions/homepage';
+} from '@/../../store/actions/Schedules';
+import { actionPushContentToCreateContentScreen } from '@/../../store/actions/homepage';
 import {
   actionUpdateStep1,
   createContentToHomepage,
   resetCreateContent,
-} from '@/../../../store/actions/createContent';
-import { isArrayEmpty, OK } from '@/../../../configs';
-import { instagramService } from '@/../../../services/instagram';
-import { formatUnixDate } from '@/../../../helpers/date';
+} from '@/../../store/actions/createContent';
+import { isArrayEmpty, OK } from '@/../../configs';
+import { instagramService } from '@/../../services/instagram';
+import { formatUnixDate } from '@/../../helpers/date';
 
 const defaultActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT' },
-  { icon: FaRegSquare, title: 'Chá»n', action: 'CHOOSE_POST' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT' },
+  { icon: FaRegSquare, title: 'Chọn', action: 'CHOOSE_POST' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const actionFollowChannel = {
   icon: FaPlusCircle,
-  title: 'Theo dÃµi kÃªnh',
+  title: 'Theo dõi kênh',
   action: 'FOLLOW_USER',
 };
 
 const collectionActions = [
   {
     icon: ImEye,
-    title: 'Xem chi tiáº¿t',
+    title: 'Xem chi tiết',
     action: 'VIEW_DETAIL_CONTENT_COLLECTION',
   },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT_COLLECTION' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT_COLLECTION' },
   {
     icon: FaTimesCircle,
-    title: 'XoÃ¡ khá»i BST',
+    title: 'Xoá khỏi BST',
     action: 'REMOVE_FROM_COLLECTION',
   },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const collectionScheduleActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'ADD_TO_SCHEDULE' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaClock, title: 'Lên lịch', action: 'ADD_TO_SCHEDULE' },
 ];
 
 const collectionScheduleAutoActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
 ];
 
 const SinglePost = (props) => {
@@ -211,10 +211,10 @@ const SinglePost = (props) => {
       case 'FOLLOW_USER':
         // check if user is already followed
         if (isSavedUser) {
-          toast.info('KÃªnh nÃ y Ä‘Ã£ Ä‘Æ°á»£c theo dÃµi');
+          toast.info('Kênh này đã được theo dõi');
           return;
         }
-        toast.info('Äang theo dÃµi kÃªnh, vui lÃ²ng chá» trong giÃ¢y lÃ¡t...');
+        toast.info('Đang theo dõi kênh, vui lòng chờ trong giây lát...');
         const channelData = {
           id: user_id,
           username: username,
@@ -232,7 +232,7 @@ const SinglePost = (props) => {
         break;
 
       case 'VIEW_DETAIL_CONTENT_COLLECTION':
-        toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+        toast.info('Đang lấy thông tin bài viết, vui lòng chờ trong giây lát');
         const res = await instagramService.getReelDetail(id, code);
         const { status = 0, data } = res;
         if (status === OK) {
@@ -240,7 +240,7 @@ const SinglePost = (props) => {
         } else {
           toast.error(
             data?.message ||
-              'Vui lÃ²ng liÃªn há»‡ nhÃ¢n viÃªn Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£ tá»‘t hÆ¡n!'
+              'Vui lòng liên hệ nhân viên để được hỗ trợ tốt hơn!'
           );
         }
         toast.dismiss();
@@ -249,11 +249,11 @@ const SinglePost = (props) => {
       case 'CREATE_CONTENT_COLLECTION':
         if (isVideo) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
-            message: 'Vui lÃ²ng chá»n má»™t hÃ¬nh thá»©c soáº¡n tháº£o bÃ i viáº¿t:',
+            title: 'Thông báo',
+            message: 'Vui lòng chọn một hình thức soạn thảo bài viết:',
             buttons: [
               {
-                label: 'Chá»‰ láº¥y vÄƒn báº£n',
+                label: 'Chỉ lấy văn bản',
                 onClick: async () => {
                   dispatch(actionUpdateStep1(true));
                   dispatch(resetCreateContent());
@@ -269,10 +269,10 @@ const SinglePost = (props) => {
                 },
               },
               {
-                label: 'Láº¥y vÄƒn báº£n & video',
+                label: 'Lấy văn bản & video',
                 onClick: async () => {
                   toast.info(
-                    'Äang láº¥y thÃ´ng tin bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t'
+                    'Đang lấy thông tin bài viết, vui lòng chờ trong giây lát'
                   );
                   const res = await instagramService.getReelDetail(id, code);
                   const { status = 0, data } = res;
@@ -300,14 +300,14 @@ const SinglePost = (props) => {
                   } else {
                     toast.error(
                       data?.message ||
-                        'Vui lÃ²ng liÃªn há»‡ nhÃ¢n viÃªn Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£ tá»‘t hÆ¡n!'
+                        'Vui lòng liên hệ nhân viên để được hỗ trợ tốt hơn!'
                     );
                   }
                   toast.dismiss();
                 },
               },
               {
-                label: 'Huá»·',
+                label: 'Huỷ',
                 onClick: () => {},
               },
             ],
@@ -315,7 +315,7 @@ const SinglePost = (props) => {
           });
           return;
         }
-        toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+        toast.info('Đang lấy thông tin bài viết, vui lòng chờ trong giây lát');
         const res1 = await instagramService.getReelDetail(id, code);
         const { status: status1 = 0, data: data1 } = res1;
         const {
@@ -342,11 +342,11 @@ const SinglePost = (props) => {
       case 'CREATE_CONTENT':
         if (isVideo) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
-            message: 'Vui lÃ²ng chá»n má»™t hÃ¬nh thá»©c soáº¡n tháº£o bÃ i viáº¿t:',
+            title: 'Thông báo',
+            message: 'Vui lòng chọn một hình thức soạn thảo bài viết:',
             buttons: [
               {
-                label: 'Chá»‰ láº¥y vÄƒn báº£n',
+                label: 'Chỉ lấy văn bản',
                 onClick: async () => {
                   dispatch(actionUpdateStep1(true));
                   dispatch(resetCreateContent());
@@ -362,9 +362,9 @@ const SinglePost = (props) => {
                 },
               },
               {
-                label: 'Láº¥y vÄƒn báº£n & video',
+                label: 'Lấy văn bản & video',
                 onClick: async () => {
-                  toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+                  toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
                   const videoUrl = videos[0].source || '';
                   const medias = [
                     {
@@ -387,7 +387,7 @@ const SinglePost = (props) => {
                 },
               },
               {
-                label: 'Huá»·',
+                label: 'Huỷ',
                 onClick: () => {},
               },
             ],
@@ -426,11 +426,11 @@ const SinglePost = (props) => {
       case 'REMOVE_FROM_COLLECTION':
         const collectionId = collId ? collId : currentCollection.id;
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ bÃ i viáº¿t nÃ y khá»i BST khÃ´ng?',
+          title: 'Thông báo',
+          message: 'Bạn có chắc chắn muốn xoá bài viết này khỏi BST không?',
           buttons: [
             {
-              label: 'Cháº¯c cháº¯n',
+              label: 'Chắc chắn',
               onClick: async () => {
                 dispatch(actionRemovePostsFromCollection(collectionId, id));
                 dispatch(actionGetCollections());
@@ -438,7 +438,7 @@ const SinglePost = (props) => {
               },
             },
             {
-              label: 'Äá»•i Ã½',
+              label: 'Đổi ý',
               onClick: () => {},
             },
           ],
@@ -564,7 +564,7 @@ const SinglePost = (props) => {
           {isScheduled && (
             <span
               className="absolute bottom-3 right-1 text-red-500"
-              title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+              title="Bài viết đã được lên lịch"
             >
               <FaExclamation />
             </span>
@@ -613,7 +613,7 @@ const SinglePost = (props) => {
             </div>
             <div className="created">
               <span className="text-xs text-gray-500">
-                NgÃ y táº¡o: {formatUnixDate(created)}
+                Ngày tạo: {formatUnixDate(created)}
               </span>
             </div>
             <div className="flex items-center gap-4 mt-2">
@@ -682,7 +682,7 @@ const SinglePost = (props) => {
             </div>
             <div className="created">
               <span className="text-xs text-gray-500">
-                NgÃ y táº¡o: {formatUnixDate(created)}
+                Ngày tạo: {formatUnixDate(created)}
               </span>
             </div>
             <div className="flex items-center gap-5 mt-3">
@@ -726,9 +726,9 @@ const SinglePost = (props) => {
                     )}
                     <a className="no-underline text-base font-medium text-gray-100 hover:text-white transition-all duration-200 ease-linear whitespace-nowrap">
                       {item.action === 'CHOOSE_POST' && isChosen
-                        ? 'Bá» chá»n'
+                        ? 'Bỏ chọn'
                         : item.action === 'FOLLOW_USER' && isSavedUser
-                        ? 'ÄÃ£ theo dÃµi'
+                        ? 'Đã theo dõi'
                         : item.title}
                     </a>
                   </li>

@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { breakWord } from '@/../../helpers';
-import { _dashed_border } from '@/../../pages/createPost/utility';
+import { breakWord } from '@/../helpers';
+import { _dashed_border } from '@/../pages/createPost/utility';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import Footer from '@/Footer';
 import Header from '@/Header';

@@ -1,10 +1,10 @@
-﻿import { useCallback, useEffect, useState } from 'react';
-import { getChildCategories } from '@/../../../store/actions/categories';
+import { useCallback, useEffect, useState } from 'react';
+import { getChildCategories } from '@/../../store/actions/categories';
 import { useDispatch, useSelector } from 'react-redux';
 import ByItemsSelect from '@/Select';
-import { getContents } from '@/../../../store/actions/Contents/contentActions';
+import { getContents } from '@/../../store/actions/Contents/contentActions';
 import Contents from '@/Contents';
-import ContentDetail from '@/../../CategoriesContent/ContentDetail';
+import ContentDetail from '@/../CategoriesContent/ContentDetail';
 
 const FeedbackContents = (props) => {
   const [catId, setCatId] = useState(0);
@@ -31,11 +31,11 @@ const FeedbackContents = (props) => {
 
   return (
     <div className="w-full bg-white p-3 rounded-md">
-      <h4 className="font-bold text-base">Máº«u feedback</h4>
+      <h4 className="font-bold text-base">Mẫu feedback</h4>
       <div className="searchBar flex my-3 gap-2 items-center">
         <input
           type="text"
-          placeholder="TÃ¬m kiáº¿m"
+          placeholder="Tìm kiếm"
           className="w-full border border-gray-300 rounded-md p-2"
         />
         <ByItemsSelect
@@ -44,7 +44,7 @@ const FeedbackContents = (props) => {
           selectedCatId={catId}
         />
         <button className="bg-blue-500 text-white rounded-md p-2 w-1/6">
-          TÃ¬m
+          Tìm
         </button>
       </div>
       <div className="contents">

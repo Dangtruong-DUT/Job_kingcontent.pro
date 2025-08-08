@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import Messenger from '@/Messenger';
 import Zalo from '@/Zalo';
@@ -8,8 +8,8 @@ import ModalNewTime from '@/ModalNewTime';
 import SettingsForm from '@/SettingsForm';
 import { toPng } from 'html-to-image';
 import FeedbackContents from '@/FeedbackContents';
-import { actionAddImage } from '@/../../../store/actions/createContent';
-import { saveFeedbackData } from '@/../../../store/actions/editor/editorActions';
+import { actionAddImage } from '@/../../store/actions/createContent';
+import { saveFeedbackData } from '@/../../store/actions/editor/editorActions';
 
 const FeedbackType = (props) => {
   const { setIsShowTypes, setFeebackImage, setIsShowSingleType, reset } = props;

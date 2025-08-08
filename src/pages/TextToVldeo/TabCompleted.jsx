@@ -1,9 +1,9 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import React from 'react';
-import { TextToVideoService } from '@/../services/TextToVideo';
+import { TextToVideoService } from '@/services/TextToVideo';
 import { confirmAlert } from 'react-confirm-alert';
 import { toast } from 'react-toastify';
-import LoadingApp from '@/../components/LoadingApp';
+import LoadingApp from '@/components/LoadingApp';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import { setCurrentDateTime, setIsShowFinalStep, setScheduleWaitingList, setSelectedScheduleContent, setShowSourceIdeasPopup } from '@/store/actions/Schedules';
@@ -87,20 +87,20 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
 
     const handleDeleteVideo = async (id) => {
         confirmAlert({
-            title: `Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a video nÃ y? #${id}`,
-            message: 'Video Ä‘Ã£ xÃ³a sáº½ khÃ´ng thá»ƒ khÃ´i phá»¥c!',
+            title: `Bạn có chắc chắn muốn xóa video này? #${id}`,
+            message: 'Video đã xóa sẽ không thể khôi phục!',
             buttons: [
                 {
-                    label: 'Huá»·',
+                    label: 'Huỷ',
                     color: 'green',
                     onClick: () => { },
                 },
                 {
-                    label: 'XoÃ¡',
+                    label: 'Xoá',
                     color: 'red',
                     onClick: async () => {
                         await TextToVideoService.deleteVideos(id);
-                        toast.success("XoÃ¡ thÃ nh cÃ´ng");
+                        toast.success("Xoá thành công");
                         fetchCompletedVideos(dispatch, completedCurrentPage, true);
                     },
                 },
@@ -115,13 +115,13 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
         console.log(videosCompleted)
     }, [])
 
-    /* Fetch dá»¯ liá»‡u khi paging COMPLETED*/
+    /* Fetch dữ liệu khi paging COMPLETED*/
     useEffect(() => {
         fetchCompletedVideos(dispatch, completedCurrentPage, true);
     }, [completedCurrentPage]);
     return (
         <div>
-            {/* Chá»n táº¥t cáº£ vÃ  bá» chá»n cho lÃªn lá»‹ch tá»± Ä‘á»™ng */}
+            {/* Chọn tất cả và bỏ chọn cho lên lịch tự động */}
             {parent === ParentType.SourceIdeasAuto &&
                 <div className="flex gap-2 items-center mb-2 z-10 bg-white py-2 sticky border-b top-0">
                     <div className="actions">
@@ -129,31 +129,31 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                             className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                             onClick={() => handleScheduleSelectAll()}
                         >
-                            Chá»n toÃ n bá»™
+                            Chọn toàn bộ
                         </button>
                         <button
                             className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                             onClick={() => handleScheduleUnSelectAll()}
                         >
-                            Bá» chá»n
+                            Bỏ chọn
                         </button>
                     </div>
                     <div className="summary mb-2 ml-auto text-base">
-                        <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                        <span>Số bài viết đã chọn: </span>
                         <span className="font-bold">
                             {autoWaitingList?.contents?.length || 0}
                         </span>
                     </div>
                 </div>
             }
-            {/* Táº¡m thá»i khÃ´ng xoÃ¡ */}
+            {/* Tạm thời không xoá */}
             {/* <div className="w-full flex items-center">
-                <span className="w-full text-center text-base italic font-bold text-red-500">Vui lÃ²ng Táº¢I VIDEO vá» mÃ¡y cá»§a báº¡n, video sáº½ tá»± Ä‘á»™ng xÃ³a sau khi táº¡o 10 ngÃ y</span>
+                <span className="w-full text-center text-base italic font-bold text-red-500">Vui lòng TẢI VIDEO về máy của bạn, video sẽ tự động xóa sau khi tạo 10 ngày</span>
             </div> */}
 
             {(!isLoadingCompleted && videosCompleted.length == 0) &&
                 <div className="mt-6 w-full flex items-center">
-                    <span className="w-full text-center text-base italic font-bold text-gray-800">ChÆ°a cÃ³ video nÃ o!</span>
+                    <span className="w-full text-center text-base italic font-bold text-gray-800">Chưa có video nào!</span>
                 </div>
             }
             <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
@@ -180,7 +180,7 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                                             <button className="gap-2 p-2 flex items-center cursor-pointer text-base font-medium text-white bg-black bg-opacity-0 hover:bg-opacity-100 transition-all duration-200 ease-linear rounded-md"
                                                 onClick={() => handleScheduleVideo(item)}>
                                                 <FiCalendar className="text-white text-2xl" />
-                                                <span className="text-xs">LÃªn lá»‹ch</span>
+                                                <span className="text-xs">Lên lịch</span>
                                             </button>
                                         </li>
                                     </ul>
@@ -195,10 +195,10 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                                     <p className="absolute left-2 bottom-2 text-xs italic text-gray-600">
                                         {new Date(item.created_at).toLocaleString()}
                                     </p>
-                                    {/* Táº¡m thá»i khÃ´ng xoÃ¡ */}
-                                    {/* Thá»i gian cÃ²n láº¡i */}
+                                    {/* Tạm thời không xoá */}
+                                    {/* Thời gian còn lại */}
                                     {/* <p className="text-xs font-bold italic text-red-500">
-                                        {`CÃ²n láº¡i ${Math.max(0, Math.ceil((new Date(item.created_at).getTime() + 10 * 24 * 60 * 60 * 1000 - Date.now()) / (24 * 60 * 60 * 1000)))} ngÃ y`}
+                                        {`Còn lại ${Math.max(0, Math.ceil((new Date(item.created_at).getTime() + 10 * 24 * 60 * 60 * 1000 - Date.now()) / (24 * 60 * 60 * 1000)))} ngày`}
                                     </p> */}
                                 </div>
                             </div>
@@ -212,7 +212,7 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                                 {parent === ParentType.SourceIdeasAuto &&
                                     <button className={`px-2 py-1 text-base text-white rounded-md hover:bg-gray-500 ${isSelected ? "bg-yellow-400" : "bg-green-500"}`}
                                         onClick={() => handleAddToWaitingList('video_ai', parseVideoToPost(item))}>
-                                        {isSelected ? "Huá»·" : "Chá»n"}
+                                        {isSelected ? "Huỷ" : "Chọn"}
                                     </button>
                                 }
                                 {parent === ParentType.TextToVideo &&
@@ -237,7 +237,7 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                     disabled={completedCurrentPage === 1}
                     onClick={() => dispatch(setCompletedCurrentPage(completedCurrentPage - 1))}
                 >
-                    TrÆ°á»›c
+                    Trước
                 </button>
                 <span className="px-4 py-2 text-gray-700">
                     Trang {completedCurrentPage} / {completedTotalPage}
@@ -247,7 +247,7 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
                     disabled={completedCurrentPage >= completedTotalPage}
                     onClick={() => dispatch(setCompletedCurrentPage(completedCurrentPage + 1))}
                 >
-                    Tiáº¿p
+                    Tiếp
                 </button>
             </div>
         </div>
@@ -255,6 +255,7 @@ const TabCompleted = ({ parent, handleAddToWaitingList = null }) => {
     );
 }
 export default TabCompleted;
+
 
 
 

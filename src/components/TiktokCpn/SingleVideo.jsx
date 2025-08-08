@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import {
   FaComment,
   FaHeart,
@@ -12,12 +12,12 @@ import {
 import {
   checkInCollection,
   fancyTimeFormat,
-} from '@/../utils/utilityFunc';
+} from '@/utils/utilityFunc';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ImPlay, ImVideoCamera } from 'react-icons/im';
-import { nFormatter } from '@/../configs';
-import auth from '@/../utils/auth';
+import { nFormatter } from '@/configs';
+import auth from '@/utils/auth';
 import VideoGenIcon from '@/assets/images/icon/main-menu/menu-icon-videogen.png';
 
 
@@ -34,27 +34,27 @@ const defaultActions = [
   { icon: ImPlay, title: 'Xem video', action: 'VIEW_DETAIL_CONTENT' },
   /*{
     icon: FaHeart,
-    title: 'ThÃªm vÃ o BST',
+    title: 'Thêm vào BST',
     action: 'ADD_TO_COLLECTION',
   },*/
-  { icon: FaRegSquare, title: 'Chá»n', action: 'CHOOSE_VIDEO' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
-  { icon: renderVideoGenIcon, title: 'Táº¡o Video AI', action: 'SET_SCRIPT_VIDEO_AI' },
+  { icon: FaRegSquare, title: 'Chọn', action: 'CHOOSE_VIDEO' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
+  { icon: renderVideoGenIcon, title: 'Tạo Video AI', action: 'SET_SCRIPT_VIDEO_AI' },
 ];
 
 const actionsForEditor = [
-  { icon: ImVideoCamera, title: 'Sá»­a video', action: 'EDIT_VIDEO' },
+  { icon: ImVideoCamera, title: 'Sửa video', action: 'EDIT_VIDEO' },
 ];
 
 const collectionActions = [
   { icon: ImPlay, title: 'Xem video', action: 'VIEW_DETAIL_CONTENT' },
   {
     icon: FaTimesCircle,
-    title: 'XoÃ¡ khá»i BST',
+    title: 'Xoá khỏi BST',
     action: 'REMOVE_FROM_COLLECTION',
   },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
-  { icon: renderVideoGenIcon, title: 'Táº¡o Video AI', action: 'SET_SCRIPT_VIDEO_AI' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
+  { icon: renderVideoGenIcon, title: 'Tạo Video AI', action: 'SET_SCRIPT_VIDEO_AI' },
 ];
 
 const SingleVideo = ({ video, handleAction = () => {}, isChosen = false }) => {
@@ -170,7 +170,7 @@ const SingleVideo = ({ video, handleAction = () => {}, isChosen = false }) => {
                 )}
                 <a className="no-underline text-base font-medium text-gray-100 hover:text-white transition-all duration-200 ease-linear">
                   {item.action === 'CHOOSE_VIDEO' && isChosen
-                    ? 'Bá» chá»n'
+                    ? 'Bỏ chọn'
                     : item.title}
                 </a>
               </li>
@@ -183,5 +183,6 @@ const SingleVideo = ({ video, handleAction = () => {}, isChosen = false }) => {
 };
 
 export default SingleVideo;
+
 
 

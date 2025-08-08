@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSpinner, FaThList } from 'react-icons/fa';
 import { FiEdit3, FiPlayCircle, FiTag, FiX } from 'react-icons/fi';
 import {
@@ -13,8 +13,8 @@ import imgIcon from '@/assets/images/icon/create-content/cloud-computing.png';
 import dkIcon from '@/assets/images/icon/diskette.png';
 import fbIcon from '@/assets/images/icon/facebook.png';
 import prIcon from '@/assets/images/icon/preview.png';
-import ContentDetail from '@/../components/CategoriesContent/ContentDetail/ContentDetail';
-import MyEditor from '@/../components/ContentSugesstion/Editor';
+import ContentDetail from '@/components/CategoriesContent/ContentDetail/ContentDetail';
+import MyEditor from '@/components/ContentSugesstion/Editor';
 
 import {
   KEY_EDITOR_IMAGE,
@@ -24,9 +24,9 @@ import {
   KEY_LABELS,
   KEY_LABEL_SELECT,
   KEY_NOTE,
-} from '@/../reducers/createContent';
+} from '@/reducers/createContent';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { ResourcesService } from '@/../services/resources';
+import { ResourcesService } from '@/services/resources';
 import {
   actionSelectCategory,
   createPost,
@@ -34,19 +34,19 @@ import {
   openScreenPlan,
   updateProps,
 } from '@/store/actions/createContent';
-import { isObjEmpty } from '@/../utils/utilityFunc';
+import { isObjEmpty } from '@/utils/utilityFunc';
 import PopupSelectTag from '@/components/planCpn/popupSelectTag';
 import { UPLOAD, UPLOAD_TYPE_IMAGE, UPLOAD_TYPE_VIDEO } from '@/utility';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
-import { isArrayEmpty, OK } from '@/../configs';
-import FeedbacksForm from '@/../components/KCEditor/FeedbacksForm';
+import { isArrayEmpty, OK } from '@/configs';
+import FeedbacksForm from '@/components/KCEditor/FeedbacksForm';
 import {
   changeStateFeedbacksForm,
   setCurrentFeedback,
 } from '@/store/actions/editor/editorActions';
 import _ from 'lodash';
 import ScheduleSettings from '@/components/ScheduleSettings';
-import DialogImage from '@/../components/ContentSugesstion/DialogImage';
+import DialogImage from '@/components/ContentSugesstion/DialogImage';
 import {
   setIsActivePreset,
   setSelectFacebookPreset,
@@ -127,7 +127,7 @@ const Editor = ({
       const res = await ResourcesService.deleteFile(item.id);
       if (res.status === OK) {
         dispatch(deleteImage(newArr));
-        toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+        toast.success('Xoá thành công !');
         if (newArr.length === 0) {
           dispatch(
             updateProps([
@@ -142,7 +142,7 @@ const Editor = ({
     } else {
       const newArr = imageSelect.filter((_elt) => _elt !== item);
       dispatch(deleteImage(newArr));
-      toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+      toast.success('Xoá thành công !');
       if (newArr.length === 0) {
         dispatch(
           updateProps([
@@ -158,7 +158,7 @@ const Editor = ({
 
   const handleCreatePost = async () => {
     if (labelId === null) {
-      toast.error('Vui lÃ²ng chá»n phÃ¢n loáº¡i !');
+      toast.error('Vui lòng chọn phân loại !');
       return;
     }
     const isReels = imageSelect.some(
@@ -170,7 +170,7 @@ const Editor = ({
 
   const handleSchedule = () => {
     if (labelId === null) {
-      toast.error('Vui lÃ²ng chá»n phÃ¢n loáº¡i !');
+      toast.error('Vui lòng chọn phân loại !');
       return;
     }
     // check if current medias has video
@@ -341,7 +341,7 @@ const Editor = ({
           <div className="p-5 bg-white rounded-lg flex gap-3 items-center">
             <FaSpinner size={50} color="green" className="animate-spin" />
             <p className="text-black text-xl">
-              Äang lÆ°u bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t !
+              Đang lưu bài viết, vui lòng chờ trong giây lát !
             </p>
           </div>
         </div>
@@ -351,26 +351,26 @@ const Editor = ({
           <div>
             <div className="flex justify-between items-center">
               <p className="font-bold border-l-4 border-yellow-500 uppercase text-base mb-5 mt-5">
-                TrÃ¬nh soáº¡n tháº£o content
+                Trình soạn thảo content
               </p>
               <div className="pr-3 flex gap-3">
                 <button onClick={() => dispatch(openScreenPlan())}>
                   <FaThList
                     size={25}
                     color="green"
-                    title="Danh sÃ¡ch káº¿ hoáº¡ch"
+                    title="Danh sách kế hoạch"
                   />
                 </button>
                 {collapse ? (
                   <button
-                    title="Hiá»‡n cÃ´ng cá»¥ há»— trá»£"
+                    title="Hiện công cụ hỗ trợ"
                     onClick={() => setCollapse(false)}
                   >
                     <TbLayoutSidebarLeftCollapse size={30} color="green" />
                   </button>
                 ) : (
                   <button
-                    title="áº¨n cÃ´ng cá»¥ há»— trá»£"
+                    title="Ẩn công cụ hỗ trợ"
                     onClick={() => setCollapse(true)}
                   >
                     <TbLayoutSidebarRightCollapse size={30} color="green" />
@@ -384,12 +384,12 @@ const Editor = ({
                 className="bg-blue-500 rounded-md text-white hover:bg-red-600 p-1 ml-3"
                 onClick={() => setCollapse(!collapse)}
               >
-                {!collapse ? "áº¨n cÃ´ng cá»¥ há»— trá»£" : 'CÃ´ng cá»¥ há»— trá»£'}
+                {!collapse ? "Ẩn công cụ hỗ trợ" : 'Công cụ hỗ trợ'}
               </button> */}
               {/* <button
                 className="bg-green-800 rounded-md text-white hover:bg-red-600 p-1 ml-3"
               >
-                Danh sÃ¡ch content
+                Danh sách content
               </button> */}
             </div>
           </div>
@@ -397,7 +397,7 @@ const Editor = ({
 
         {textContent.length > 0 ? (
           <div className="text-right py-3 text-base font-bold">
-            ( {textContent.length} kÃ­ tá»± )
+            ( {textContent.length} kí tự )
           </div>
         ) : null}
 
@@ -405,8 +405,8 @@ const Editor = ({
         {isActivePreset && textContent.length > 130 ? (
           <div className="bg-red-500 text-white p-2 text-center my-2">
             <p>
-              Báº¡n Ä‘ang vÆ°á»£t quÃ¡ {textContent.length}/130 kÃ­ tá»±, áº£nh ná»n trÃªn
-              Facebook cÃ³ thá»ƒ sáº½ bá»‹ má»
+              Bạn đang vượt quá {textContent.length}/130 kí tự, ảnh nền trên
+              Facebook có thể sẽ bị mờ
             </p>
           </div>
         ) : null}
@@ -421,13 +421,13 @@ const Editor = ({
         {isActivePreset && textContent.length > 130 && (
           <div className="bg-red-500 text-white p-2 text-center my-2">
             <p>
-              Báº¡n Ä‘ang vÆ°á»£t quÃ¡ {textContent.length}/130 kÃ­ tá»±, áº£nh ná»n trÃªn
-              Facebook cÃ³ thá»ƒ sáº½ bá»‹ má»
+              Bạn đang vượt quá {textContent.length}/130 kí tự, ảnh nền trên
+              Facebook có thể sẽ bị mờ
             </p>
           </div>
         )}
 
-        {/* =============================== HÃŒNH áº¢NH ===================== */}
+        {/* =============================== HÌNH ẢNH ===================== */}
         {imageSelect.length > 6 ? (
           <PerfectScrollbar style={{ height: '370px' }}>
             <div className={`mx-2 grid  grid-cols-3 gap-2 mt-3 mb-2`}>
@@ -461,13 +461,13 @@ const Editor = ({
                         className="bg-blue-500 p-3 text-white rounded-md text-center w-24"
                         onClick={() => handleShowImage(_elt)}
                       >
-                        Xem áº£nh
+                        Xem ảnh
                       </button>
                       <button
                         className="bg-blue-500 p-3 text-white rounded-md text-center w-24"
                         onClick={() => handleEditImage(_elt, index)}
                       >
-                        Chá»‰nh sá»­a
+                        Chỉnh sửa
                       </button>
                     </div>
                   </div>
@@ -558,13 +558,13 @@ const Editor = ({
                             className="bg-blue-500 p-3 text-white rounded-md text-center w-24"
                             onClick={() => handleShowImage(_elt)}
                           >
-                            Xem áº£nh
+                            Xem ảnh
                           </button>
                           <button
                             className="bg-blue-500 p-3 text-white rounded-md text-center w-24"
                             onClick={() => handleEditImage(_elt, index)}
                           >
-                            Chá»‰nh sá»­a
+                            Chỉnh sửa
                           </button>
                         </div>
                       </div>
@@ -578,7 +578,7 @@ const Editor = ({
                   src={imgIcon}
                   onClick={() => setTitleType(UPLOAD)}
                   className="cursor-pointer"
-                  title="Táº£i áº£nh hoáº·c video lÃªn"
+                  title="Tải ảnh hoặc video lên"
                 />
               </>
             )}
@@ -591,7 +591,7 @@ const Editor = ({
           <input
             type="text"
             className="w-full border-none pl-14 h-10"
-            placeholder="Äiá»n ghi chÃº quan trá»ng vÃ o Ä‘Ã¢y ..."
+            placeholder="Điền ghi chú quan trọng vào đây ..."
             value={note}
             onChange={(e) =>
               dispatch(updateProps([{ prop: KEY_NOTE, value: e.target.value }]))
@@ -612,7 +612,7 @@ const Editor = ({
             <FiTag size={25} />
             <span className="font-bold">
               {labelId === null
-                ? ' PhÃ¢n loáº¡i content'
+                ? ' Phân loại content'
                 : labels.find((_elt) => _elt.id === labelId)?.name}
             </span>
           </div>
@@ -625,7 +625,7 @@ const Editor = ({
                 className="bg-blue-500 p-3 text-white rounded-lg shadow-lg flex gap-2 items-center hover:bg-red-600 transform transition-all"
               >
                 <img src={prIcon} className="w-4" />
-                <span>Xem trÆ°á»›c</span>
+                <span>Xem trước</span>
               </button>
             )}
             {!textContent || /^\s*$/.test(textContent) ? null : (
@@ -634,7 +634,7 @@ const Editor = ({
                 className="bg-blue-500 p-3 text-white rounded-lg shadow-lg flex gap-2 items-center hover:bg-red-600 transform transition-all"
               >
                 <img src={fbIcon} className="w-4" />
-                <span>LÆ°u</span>
+                <span>Lưu</span>
               </button>
             )}
 
@@ -644,7 +644,7 @@ const Editor = ({
                 onClick={() => handleSchedule()}
               >
                 <img src={dkIcon} className="w-4" />
-                <span>ÄÄƒng bÃ i</span>
+                <span>Đăng bài</span>
               </button>
             )}
           </div>
@@ -686,6 +686,7 @@ const Editor = ({
 };
 
 export default Editor;
+
 
 
 

@@ -1,10 +1,10 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSkipBack, FiSkipForward } from 'react-icons/fi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { isArrayEmpty } from '@/../../configs';
+import { isArrayEmpty } from '@/configs';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-import { convertInstagramLink } from '@/../../helpers';
+import { convertInstagramLink } from '@/../helpers';
 const ImageStyled = styled.img`
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
@@ -122,4 +122,5 @@ function Medias(props) {
 }
 
 export default Medias;
+
 

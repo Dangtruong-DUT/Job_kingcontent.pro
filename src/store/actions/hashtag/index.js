@@ -1,4 +1,4 @@
-﻿import * as hashtagTypes from '@/../types/hashtag';
+import * as hashtagTypes from '@/types/hashtag';
 import client from '@/Client';
 
 export const setKeywordsSearchHashtags = (keywords) => (dispatch) => {

@@ -1,4 +1,4 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useCallback, useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import {
@@ -15,9 +15,9 @@ import {
 } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import { Checkbox, DatePicker, Input } from 'rsuite';
-import { userServices } from '@/../../../../services/users';
+import { userServices } from '@/../../../services/users';
 import { confirmAlert } from 'react-confirm-alert';
-import { getScheduleContents } from '@/../../../../store/actions/Schedules';
+import { getScheduleContents } from '@/../../../store/actions/Schedules';
 import { useDispatch, useSelector } from 'react-redux';
 
 const defaultCommentItem = {
@@ -74,11 +74,11 @@ const Comments = (props) => {
       content_id = 0,
     } = comment;
     if (message === '') {
-      toast.error('Vui lÃ²ng nháº­p ná»™i dung comment');
+      toast.error('Vui lòng nhập nội dung comment');
       return;
     }
     if (date_publish === null) {
-      toast.error('Vui lÃ²ng chá»n ngÃ y Ä‘Äƒng');
+      toast.error('Vui lòng chọn ngày đăng');
       return;
     }
     // convert date_publish to string
@@ -110,7 +110,7 @@ const Comments = (props) => {
               newListComments[index] = currComment;
               setListScheduleComments(newListComments);
             }
-            toast.success('LÆ°u comment thÃ nh cÃ´ng');
+            toast.success('Lưu comment thành công');
           }
         },
         [index, listScheduleComments]
@@ -122,11 +122,11 @@ const Comments = (props) => {
 
   const onRemoveComment = useCallback((index, id) => {
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯c muá»‘n xoÃ¡ comment nÃ y khÃ´ng ?',
+      title: 'Thông báo',
+      message: 'Bạn có chắc chắc muốn xoá comment này không ?',
       buttons: [
         {
-          label: 'Cháº¯c cháº¯n',
+          label: 'Chắc chắn',
           onClick: async () => {
             if (id === 0) {
               // remove comment in list
@@ -152,7 +152,7 @@ const Comments = (props) => {
                       const toDate = moment(valueSunday).format('YYYY-MM-DD');
                       dispatch(getScheduleContents(0, '', fromDate, toDate, currentSchedule));
                       dispatch(getScheduleContents());
-                      toast.success('XoÃ¡ comment thÃ nh cÃ´ng');
+                      toast.success('Xoá comment thành công');
                     }
                   },
                   [index, listScheduleComments, dispatch]
@@ -164,7 +164,7 @@ const Comments = (props) => {
           },
         },
         {
-          label: 'Xem láº¡i',
+          label: 'Xem lại',
           onClick: () => {},
         },
       ],
@@ -175,19 +175,19 @@ const Comments = (props) => {
     switch (status) {
       case 1:
         return (
-          <p title='ThÃ nh cÃ´ng' className='text-center'>
+          <p title='Thành công' className='text-center'>
             <FiCheckCircle size={20} color="green" className="inline-block" />
           </p>
         )
       case 2:
         return (
-          <p title='Äang chá»' className='text-center'>
+          <p title='Đang chờ' className='text-center'>
             <FiClock size={20} color="orange" className="inline-block" />
           </p>
         )
       case 3:
         return (
-          <p title='ÄÃ£ huá»·' className='text-center'>
+          <p title='Đã huỷ' className='text-center'>
             <FiPauseCircle size={20} color="red" className="inline-block" />
           </p>
         )
@@ -252,7 +252,7 @@ const Comments = (props) => {
         <FiEdit
           size={25}
           color="green"
-          title={'Chá»‰nh sá»­a Comment'}
+          title={'Chỉnh sửa Comment'}
           className="cursor-pointer"
           onClick={() => {
             const newListComments = [...listScheduleComments];
@@ -263,7 +263,7 @@ const Comments = (props) => {
         <FiTrash
           size={25}
           color="red"
-          title={'XoÃ¡ Comment'}
+          title={'Xoá Comment'}
           className="cursor-pointer"
           onClick={() =>
             onRemoveComment(index, listScheduleComments[index]?.id)
@@ -278,11 +278,11 @@ const Comments = (props) => {
       {!fromAuto && (
         <div className="w-1/4 border rounded-md p-3">
           <h4 className="font-bold mb-2">
-            Loáº¡i tá»± Ä‘á»™ng lÃªn sau khi bÃ i viáº¿t lÃªn thÃ nh cÃ´ng
+            Loại tự động lên sau khi bài viết lên thành công
           </h4>
           {listComments && listComments.length > 0 && (
             <div className="flex gap-3 p-2 text-center font-bold uppercase border-b items-center">
-              Ná»™i dung
+              Nội dung
             </div>
           )}
           {listComments &&
@@ -294,31 +294,31 @@ const Comments = (props) => {
               );
             })}
           {listComments && listComments.length === 0 && (
-            <p>Báº¡n chÆ°a lÃªn lá»‹ch comment tá»± Ä‘á»™ng sau khi Ä‘Äƒng bÃ i</p>
+            <p>Bạn chưa lên lịch comment tự động sau khi đăng bài</p>
           )}
         </div>
       )}
       <div className={`${fromAuto ? 'w-full' : 'w-3/4'} border rounded-md p-3`}>
         <h4 className="font-bold mb-2">
           {fromAuto
-            ? 'Danh sÃ¡ch comment Ä‘Ã£ lÃªn lá»‹ch'
-            : 'Loáº¡i lÃªn lá»‹ch theo ngÃ y'}
+            ? 'Danh sách comment đã lên lịch'
+            : 'Loại lên lịch theo ngày'}
         </h4>
         {listScheduleComments && listScheduleComments.length > 0 && (
           <div className="flex gap-3 p-2 text-center font-bold uppercase border-b items-center">
             <div className="w-4/12">Comment</div>
-            <div className="w-2/12">NgÃ y Ä‘Äƒng</div>
-            <div className="w-1/12">ThÃªm kÃ½ tá»±</div>
-            <div className="w-1/12">ThÃªm Icon</div>
-            <div className="w-1/12">Tráº¡ng thÃ¡i</div>
-            <div className="w-1/12">Káº¿t quáº£</div>
-            {!fromAuto && <div className="w-2/12">Thao tÃ¡c</div>}
+            <div className="w-2/12">Ngày đăng</div>
+            <div className="w-1/12">Thêm ký tự</div>
+            <div className="w-1/12">Thêm Icon</div>
+            <div className="w-1/12">Trạng thái</div>
+            <div className="w-1/12">Kết quả</div>
+            {!fromAuto && <div className="w-2/12">Thao tác</div>}
           </div>
         )}
         {is_posted === false && (
           <p className="font-bold text-red-500">
-            BÃ i viáº¿t chÆ°a Ä‘Æ°á»£c Ä‘Äƒng thÃ nh cÃ´ng hoáº·c chÆ°a tá»›i giá» Ä‘Äƒng bÃ i, vui
-            lÃ²ng quay láº¡i sau.
+            Bài viết chưa được đăng thành công hoặc chưa tới giờ đăng bài, vui
+            lòng quay lại sau.
           </p>
         )}
         {is_posted === true &&
@@ -348,7 +348,7 @@ const Comments = (props) => {
                           newListComments[index].message = value;
                           setListScheduleComments(newListComments);
                         }}
-                        placeholder={`Ná»™i dung comment ...\nCÃ³ thá»ƒ chá»n ngáº«u nhiÃªn comment theo cáº¥u trÃºc A | B | C`}
+                        placeholder={`Nội dung comment ...\nCó thể chọn ngẫu nhiên comment theo cấu trúc A | B | C`}
                         componentClass={'textarea'}
                         className="w-full rounded-md"
                       />
@@ -409,7 +409,7 @@ const Comments = (props) => {
                         <FiSave
                           size={25}
                           color="green"
-                          title={'LÆ°u Comment'}
+                          title={'Lưu Comment'}
                           className="cursor-pointer"
                           onClick={() => onSaveComment(index, item)}
                         />
@@ -417,7 +417,7 @@ const Comments = (props) => {
                       <FiX
                         size={25}
                         color="red"
-                        title={'Huá»· Comment'}
+                        title={'Huỷ Comment'}
                         className="cursor-pointer"
                         onClick={() => {
                           const newListComments = [...listScheduleComments];
@@ -459,14 +459,14 @@ const Comments = (props) => {
         {is_posted === true &&
           listScheduleComments &&
           listScheduleComments.length === 0 && (
-            <p>Báº¡n chÆ°a lÃªn lá»‹ch comment, báº¥m nÃºt bÃªn dÆ°á»›i Ä‘á»ƒ thÃªm má»›i</p>
+            <p>Bạn chưa lên lịch comment, bấm nút bên dưới để thêm mới</p>
           )}
         {fromAuto ? (
           <button
             className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md mt-4"
             onClick={() => setIsShowCommented(false)}
           >
-            Quay láº¡i
+            Quay lại
           </button>
         ) : is_posted === true ? (
           <button className="mt-4" onClick={() => onAddComment()}>

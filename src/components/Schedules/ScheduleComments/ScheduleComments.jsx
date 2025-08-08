@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import SuccessContents from '@/SuccessContents';
@@ -11,7 +11,7 @@ import {
   commentSetCurrentSchedule,
   setShowScheduleCommentsPopup,
 } from '@/store/actions/Schedules';
-import { formatDate } from '@/../../helpers/date';
+import { formatDate } from '@/../helpers/date';
 import SearchBox from '@/ManageSchedules/SearchBox';
 import { FaAngleLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -45,7 +45,7 @@ const ScheduleComments = () => {
     const { id, success_contents_count = 0 } = schedule;
     if (success_contents_count === 0 && false) {
       toast.info(
-        'Lá»‹ch nÃ y chÆ°a cÃ³ bÃ i viáº¿t nÃ o Ä‘Äƒng thÃ nh cÃ´ng trÃªn Facebook. Vui lÃ²ng chá»n lá»‹ch khÃ¡c!'
+        'Lịch này chưa có bài viết nào đăng thành công trên Facebook. Vui lòng chọn lịch khác!'
       );
       return;
     }
@@ -67,19 +67,19 @@ const ScheduleComments = () => {
                     onClick={(e) => {
                       handleClickGoBack();
                     }}
-                    title="Quay láº¡i"
+                    title="Quay lại"
                   >
                     <FaAngleLeft fontSize={20} />
                   </button>
                   <p className="font-bold uppercase text-base">
-                    LÃªn comment cho bÃ i viáº¿t cá»§a lá»‹ch:{' '}
+                    Lên comment cho bài viết của lịch:{' '}
                     {commentsCurrentSchedule?.name}
                   </p>
                 </div>
               ) : (
                 <div className="bg-gray-50  text-sm overflow-hidden pt-3 pb-3 border-l-4 border-green-500 pl-2 w-full">
                   <p className="font-bold uppercase text-base">
-                    Chá»n lá»‹ch Ä‘á»ƒ comment
+                    Chọn lịch để comment
                   </p>
                 </div>
               )}
@@ -95,8 +95,8 @@ const ScheduleComments = () => {
                 {filteredSchedules?.length === 0 ? (
                   <div className="flex justify-center items-center h-32 border rounded-md w-full pr-2">
                     <p>
-                      KhÃ´ng cÃ³ lá»‹ch nÃ o phÃ¹ há»£p vá»›i tá»« khoÃ¡ hoáº·c chÆ°a cÃ³ lá»‹ch
-                      nÃ o Ä‘Æ°á»£c táº¡o
+                      Không có lịch nào phù hợp với từ khoá hoặc chưa có lịch
+                      nào được tạo
                     </p>
                   </div>
                 ) : (
@@ -138,9 +138,9 @@ const ScheduleComments = () => {
                               onClick={() => onClickSchedule(schedule)}
                             >
                               <p className="font-bold">{name}</p>
-                              <p>NgÃ y táº¡o: {formatDate(created)}</p>
+                              <p>Ngày tạo: {formatDate(created)}</p>
                               <p>
-                                Sá»‘ bÃ i Ä‘Äƒng thÃ nh cÃ´ng:{' '}
+                                Số bài đăng thành công:{' '}
                                 <span className="font-bold">
                                   {success_contents_count}
                                 </span>
@@ -186,7 +186,7 @@ const ScheduleComments = () => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickBg()}
               >
-                Huá»·
+                Huỷ
               </button>
             </div>
           </div>

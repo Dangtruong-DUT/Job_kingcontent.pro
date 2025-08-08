@@ -1,4 +1,4 @@
-﻿import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SingleCategory from '@/SingleCategory';
 import CategoriesTitle from '@/CategoriesTitle';
@@ -9,8 +9,8 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import { getChildCategories } from '@/store/actions/categories';
 import { getTotalContents, getTotalFanpages } from '@/store/actions/Contents/contentActions';
-import { shuffleArray } from '@/../utils/utilityFunc';
-import { DEFAULT_TAKE_CARE_CAT } from '@/../configs';
+import { shuffleArray } from '@/utils/utilityFunc';
+import { DEFAULT_TAKE_CARE_CAT } from '@/configs';
 
 const Categories = () => {
     const dispatch = useDispatch();
@@ -172,6 +172,7 @@ const Categories = () => {
 };
 
 export default Categories;
+
 
 
 

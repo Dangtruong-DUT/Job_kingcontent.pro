@@ -1,4 +1,4 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import Select from 'react-select';
 import { toast } from 'react-toastify';
 import { FiX } from 'react-icons/fi';
 import AutoComments from '@/AutoComments';
-import { CalendarLocaleVn } from '@/../../helpers/date';
+import { CalendarLocaleVn } from '@/../helpers/date';
 
 const listTypeHasReels = ['tiktok', 'instagram', 'threads', 'douyin', 'user', 'video_editor', 'video_ai'];
 
@@ -30,8 +30,8 @@ const buildListHours = (max) => {
     const minutes = (index % 1) * 60;
     const label =
       minutes === 0
-        ? `${hours} giá»`
-        : `${hours > 0 ? hours + ' giá» ' : ''}${minutes} phÃºt`;
+        ? `${hours} giờ`
+        : `${hours > 0 ? hours + ' giờ ' : ''}${minutes} phút`;
     listHours.push({
       label: label,
       value: index * 60, // value in minutes
@@ -39,7 +39,7 @@ const buildListHours = (max) => {
   }
   // add 15 minutes at first
   listHours.unshift({
-    label: '15 phÃºt',
+    label: '15 phút',
     value: 15,
   });
   return listHours;
@@ -54,7 +54,7 @@ const Settings = (props) => {
   const [postPerDay, setPostPerDay] = useState(null);
   const [timeSpace, setTimeSpace] = useState(120);
   const [sourceType, setSourceType] = useState('');
-  console.log('ðŸš€ ~ Settings ~ sourceType:', sourceType)
+  console.log('🚀 ~ Settings ~ sourceType:', sourceType)
   const [isReels, setIsReels] = useState(0);
   const [listSearchReplace, setListSearchReplace] = useState([]);
   const [search, setSearch] = useState('');
@@ -166,7 +166,7 @@ const Settings = (props) => {
 
   const onAddSearchReplace = () => {
     if (!search || !replace) {
-      toast.error('Vui lÃ²ng nháº­p tá»« khoÃ¡ tÃ¬m kiáº¿m vÃ  thay tháº¿');
+      toast.error('Vui lòng nhập từ khoá tìm kiếm và thay thế');
     } else {
       // push to list
       listSearchReplace.push({
@@ -233,9 +233,9 @@ const Settings = (props) => {
       const totalContents = autoWaitingList?.contents?.length || 0;
       const totalDays = Math.ceil(totalContents / postPerDay);
       const endDate = moment(startDate).add(totalDays, 'days');
-      const summaryMessage = `Há»‡ thá»‘ng sáº½ Ä‘Äƒng liÃªn tá»¥c ${totalContents} bÃ i viáº¿t trong ${totalDays} ngÃ y, báº¯t Ä‘áº§u tá»« ngÃ y ${moment(
+      const summaryMessage = `Hệ thống sẽ đăng liên tục ${totalContents} bài viết trong ${totalDays} ngày, bắt đầu từ ngày ${moment(
         startDate
-      ).format('DD-MM-YYYY')} Ä‘áº¿n ngÃ y ${endDate.format('DD-MM-YYYY')}`;
+      ).format('DD-MM-YYYY')} đến ngày ${endDate.format('DD-MM-YYYY')}`;
       setSummaryMessage(summaryMessage);
     } else {
       setSummaryMessage('');
@@ -248,7 +248,7 @@ const Settings = (props) => {
         className="title p-3 font-bold text-base uppercase mb-2 cursor-pointer border rounded-md flex items-center"
         onClick={() => onClickShowBody()}
       >
-        <h5>LÃªn thá»i khoÃ¡ biá»ƒu</h5>
+        <h5>Lên thời khoá biểu</h5>
         {isShowBody ? (
           <FaAngleUp className="ml-auto" />
         ) : (
@@ -261,18 +261,18 @@ const Settings = (props) => {
         }`}
       >
         <div className="summary my-2">
-          <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+          <span>Số bài viết đã chọn: </span>
           <span className="font-bold">
             {autoWaitingList?.contents?.length || 0}
           </span>
         </div>
         {/* ROW day range */}
         <div className="settingRow my-2 flex gap-2 items-center">
-          <h5 className="font-bold w-1/3">Chá»n ngÃ y:</h5>
+          <h5 className="font-bold w-1/3">Chọn ngày:</h5>
           <div className="w-2/3 my-2 grid grid-cols-2">
             <div className="startDate flex items-center gap-2">
               <Label htmlFor="startDate" className="whitespace-nowrap">
-                NgÃ y báº¯t Ä‘áº§u:
+                Ngày bắt đầu:
               </Label>
               <DatePicker
                 format="DD-MM-YYYY"
@@ -286,7 +286,7 @@ const Settings = (props) => {
             </div>
             <div className="flex gap-2 items-center flex-nowrap">
               <Label className="whitespace-nowrap">
-                Thá»i gian báº¯t Ä‘áº§u Ä‘Äƒng má»—i ngÃ y:
+                Thời gian bắt đầu đăng mỗi ngày:
               </Label>
               <DatePicker
                 format="HH:mm"
@@ -302,12 +302,12 @@ const Settings = (props) => {
 
         {/* ROW post per day */}
         <div className="settingRow my-2 flex gap-2 items-center">
-          <h5 className="font-bold w-1/3">Chá»n sá»‘ lÆ°á»£ng bÃ i viáº¿t má»—i ngÃ y:</h5>
+          <h5 className="font-bold w-1/3">Chọn số lượng bài viết mỗi ngày:</h5>
           <Select
             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4"
             onChange={(selected) => onChangePostPerDay(selected.value)}
             options={postPerDayOptions}
-            placeholder="--- Chá»n sá»‘ lÆ°á»£ng ---"
+            placeholder="--- Chọn số lượng ---"
             defaultValue={postPerDay}
           />
         </div>
@@ -315,7 +315,7 @@ const Settings = (props) => {
         {/* ROW temp summary */}
         {summaryMessage ? (
           <div className="settingRow my-2 flex gap-2 items-center">
-            <h5 className="font-bold w-1/3">Thá»‘ng kÃª táº¡m thá»i:</h5>
+            <h5 className="font-bold w-1/3">Thống kê tạm thời:</h5>
             <p className="text-black font-bold">{summaryMessage}</p>
           </div>
         ) : null}
@@ -323,19 +323,19 @@ const Settings = (props) => {
         {/* ROW time space */}
         <div className="settingRow my-2">
           <div className="flex gap-2 flex-nowrap items-center">
-            <h5 className="font-bold w-1/3">Thá»i gian Ä‘Äƒng giÃ£n cÃ¡ch:</h5>
+            <h5 className="font-bold w-1/3">Thời gian đăng giãn cách:</h5>
             <Select
               className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4"
               // @ts-ignore
               onChange={(selected) => onChangeTimeSpace(selected.value)}
               // @ts-ignore
               options={buildListHours(24)}
-              placeholder="--- Chá»n thá»i gian ---"
+              placeholder="--- Chọn thời gian ---"
               defaultValue={timeSpace}
             />
             <p className="notice text-red-500 w-1/3 ml-auto">
-              Khuyáº¿n cÃ¡o: Chá»‰ nÃªn Ä‘Äƒng 3-4 bÃ i / ngÃ y, má»—i bÃ i cÃ¡ch nhau 3-4 giá»
-              Ä‘á»ƒ cÃ³ hiá»‡u quáº£ tá»‘t nháº¥t
+              Khuyến cáo: Chỉ nên đăng 3-4 bài / ngày, mỗi bài cách nhau 3-4 giờ
+              để có hiệu quả tốt nhất
             </p>
           </div>
         </div>
@@ -343,7 +343,7 @@ const Settings = (props) => {
         {/* ROW is add Source from when publish */}
         <div className="rowIsAddSource settingRow my-2 flex gap-2 items-center">
           <h5 className="font-bold w-1/3">
-            Chá»n Ä‘á»ƒ tá»± Ä‘á»™ng thÃªm Nguá»“n bÃ i viáº¿t á»Ÿ cuá»‘i
+            Chọn để tự động thêm Nguồn bài viết ở cuối
           </h5>
           <div className="w-2/3 grid items-center">
             <Checkbox
@@ -355,7 +355,7 @@ const Settings = (props) => {
                 onChangeRandom('isAddSource', checked)
               }
             >
-              KÃ­ch hoáº¡t
+              Kích hoạt
             </Checkbox>
           </div>
         </div>
@@ -363,7 +363,7 @@ const Settings = (props) => {
         {canBeReels && (
           <div className="rowIsReels settingRow my-2 flex gap-2 items-center">
             <h5 className="font-bold w-1/3">
-              HÃ¬nh thá»©c Ä‘Äƒng: (chá»‰ dÃ nh cho bÃ i viáº¿t dáº¡ng video)
+              Hình thức đăng: (chỉ dành cho bài viết dạng video)
             </h5>
             <RadioGroup
               name="isReels"
@@ -372,10 +372,10 @@ const Settings = (props) => {
               value={isReels}
             >
               <Radio value={0} className="w-full whitespace-nowrap">
-                ÄÄƒng thÆ°á»ng
+                Đăng thường
               </Radio>
               <Radio value={1} className="w-full whitespace-nowrap">
-                ÄÄƒng Reels
+                Đăng Reels
               </Radio>
             </RadioGroup>
           </div>
@@ -384,7 +384,7 @@ const Settings = (props) => {
         {/* ROW random character and emoji*/}
         <div className="settingRow my-2 flex gap-2 items-center">
           <h5 className="font-bold w-1/3">
-            ThÃªm ngáº«u nhiÃªn vÃ o cuá»‘i bÃ i viáº¿t:
+            Thêm ngẫu nhiên vào cuối bài viết:
           </h5>
           <div className="w-1/3 grid grid-cols-2 items-center">
             <Checkbox
@@ -396,7 +396,7 @@ const Settings = (props) => {
                 onChangeRandom('character', checked)
               }
             >
-              3-5 KÃ½ tá»±
+              3-5 Ký tự
             </Checkbox>
             <Checkbox
               name="randomEmojies"
@@ -405,7 +405,7 @@ const Settings = (props) => {
               // @ts-ignore
               onChange={(value, checked) => onChangeRandom('emoji', checked)}
             >
-              3-5 Biá»ƒu tÆ°á»£ng
+              3-5 Biểu tượng
             </Checkbox>
           </div>
         </div>
@@ -413,13 +413,13 @@ const Settings = (props) => {
         {/* ROW before content */}
         <div className="settingRow my-2 flex gap-2 items-center">
           <h5 className="font-bold w-1/3">
-            ThÃªm ná»™i dung vÃ o Ä‘áº§u cá»§a toÃ n bá»™ bÃ i viáº¿t:
+            Thêm nội dung vào đầu của toàn bộ bài viết:
           </h5>
           <div className="w-2/3 grid grid-cols-2 items-center">
             <Input
               componentClass="textarea"
               rows={3}
-              placeholder="Ná»™i dung Ä‘áº§u bÃ i viáº¿t...."
+              placeholder="Nội dung đầu bài viết...."
               onChange={(value) => onChangeBeforeAfter('before', value)}
             />
           </div>
@@ -428,13 +428,13 @@ const Settings = (props) => {
         {/* ROW after content */}
         <div className="settingRow my-2 flex gap-2 items-center">
           <h5 className="font-bold w-1/3">
-            ThÃªm ná»™i dung vÃ o cuá»‘i cá»§a toÃ n bá»™ bÃ i viáº¿t:
+            Thêm nội dung vào cuối của toàn bộ bài viết:
           </h5>
           <div className="w-2/3 grid grid-cols-2 items-center">
             <Input
               componentClass="textarea"
               rows={3}
-              placeholder="Ná»™i dung cuá»‘i bÃ i viáº¿t...."
+              placeholder="Nội dung cuối bài viết...."
               onChange={(value) => onChangeBeforeAfter('after', value)}
             />
           </div>
@@ -442,7 +442,7 @@ const Settings = (props) => {
 
         {/* ROW advance settings */}
         <div className="settingRow my-2 flex gap-2 items-center">
-          <h5 className="font-bold w-1/3">XoÃ¡ ná»™i dung gá»‘c:</h5>
+          <h5 className="font-bold w-1/3">Xoá nội dung gốc:</h5>
           <div className="w-2/3 grid grid-cols-2 items-center">
             <Checkbox
               name="removeOldContent"
@@ -450,7 +450,7 @@ const Settings = (props) => {
               // @ts-ignore
               onChange={(value, checked) => onChangeRandom('text', checked)}
             >
-              Chá»n Ä‘á»ƒ xoÃ¡ toÃ n bá»™ ná»™i dung á»Ÿ bÃ i gá»‘c
+              Chọn để xoá toàn bộ nội dung ở bài gốc
             </Checkbox>
             <Checkbox
               name="removeHashtag"
@@ -458,7 +458,7 @@ const Settings = (props) => {
               // @ts-ignore
               onChange={(value, checked) => onChangeRandom('hashtag', checked)}
             >
-              Chá»n Ä‘á»ƒ xoÃ¡ toÃ n bá»™ hashtag á»Ÿ bÃ i gá»‘c
+              Chọn để xoá toàn bộ hashtag ở bài gốc
             </Checkbox>
           </div>
         </div>
@@ -467,12 +467,12 @@ const Settings = (props) => {
         <div className="settingRow my-2 flex gap-2">
           <div className="w-1/3">
             <h5>
-              <span className="font-bold">TÃ¬m kiáº¿m vÃ  thay tháº¿:</span> (Thay tháº¿
-              tá»« cÃ³ sáºµn á»Ÿ bÃ i viáº¿t gá»‘c thÃ nh tá»« má»›i cá»§a báº¡n)
+              <span className="font-bold">Tìm kiếm và thay thế:</span> (Thay thế
+              từ có sẵn ở bài viết gốc thành từ mới của bạn)
             </h5>
             <p className="italic">
-              VÃ­ dá»¥: BÃ i viáº¿t gá»‘c cÃ³ SÄT lÃ  A, báº¡n cÃ³ thá»ƒ sá»­a tá»± Ä‘á»™ng thÃ nh B
-              trÃªn hÃ ng loáº¡t bÃ i viáº¿t gá»‘c
+              Ví dụ: Bài viết gốc có SĐT là A, bạn có thể sửa tự động thành B
+              trên hàng loạt bài viết gốc
             </p>
           </div>
 
@@ -480,14 +480,14 @@ const Settings = (props) => {
             <Input
               name="search"
               className="w-full mb-2"
-              placeholder="TÃ¬m kiáº¿m ..."
+              placeholder="Tìm kiếm ..."
               value={search}
               onChange={(value) => onChangeSearchReplace('search', value)}
             />
             <Input
               name="replace"
               className="w-full mb-2"
-              placeholder="Thay tháº¿ ..."
+              placeholder="Thay thế ..."
               value={replace}
               onChange={(value) => onChangeSearchReplace('replace', value)}
             />
@@ -495,12 +495,12 @@ const Settings = (props) => {
               className="bg-blue-700 text-white rounded-lg p-2"
               onClick={onAddSearchReplace}
             >
-              ThÃªm vÃ o danh sÃ¡ch
+              Thêm vào danh sách
             </Button>
           </div>
           {listSearchReplace && listSearchReplace.length > 0 && (
             <div className="results w-1/3 max-h-24 overflow-y-auto">
-              <h6>Danh sÃ¡ch tá»« khoÃ¡ tÃ¬m kiáº¿m / thay tháº¿:</h6>
+              <h6>Danh sách từ khoá tìm kiếm / thay thế:</h6>
               {listSearchReplace.map((item, idx) => {
                 const { search = '', replace = '' } = item;
                 return (

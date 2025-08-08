@@ -1,9 +1,9 @@
-﻿import React from 'react';
+import React from 'react';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import MenuItem from '@/MenuItem';
 import { mainMenu } from '@/listMenu';
-import auth from '@/../utils/auth';
+import auth from '@/utils/auth';
 
 class SideMenu extends React.Component {
   render() {

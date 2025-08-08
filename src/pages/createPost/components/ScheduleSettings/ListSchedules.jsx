@@ -1,9 +1,9 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import Select from 'react-select';
 import { Input, Label } from 'reactstrap';
-import { getSchedules } from '@/../../../store/actions/Schedules';
+import { getSchedules } from '@/../../store/actions/Schedules';
 
 const style = {
   control: (base) => ({
@@ -37,7 +37,7 @@ const ListSchedules = (props) => {
     } else {
       const listOptions = [
         {
-          label: '--- Chá»n hoáº·c thÃªm bÃªn dÆ°á»›i Ä‘á»ƒ táº¡o má»›i ---',
+          label: '--- Chọn hoặc thêm bên dưới để tạo mới ---',
           value: 0,
         },
       ];
@@ -70,7 +70,7 @@ const ListSchedules = (props) => {
         className="title p-3 font-bold text-base uppercase mb-2 cursor-pointer border rounded-md flex items-center"
         onClick={() => onClickShowBody()}
       >
-        <h4>Chá»n lá»‹ch</h4>
+        <h4>Chọn lịch</h4>
         {isShowBody ? (
           <FaAngleUp className="ml-auto" />
         ) : (
@@ -87,17 +87,17 @@ const ListSchedules = (props) => {
           className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full mb-3"
           onChange={(selected) => onChangeSchedule(selected.value)}
           options={scheduleOptions}
-          placeholder="--- Chá»n hoáº·c thÃªm bÃªn dÆ°á»›i Ä‘á»ƒ táº¡o má»›i ---"
+          placeholder="--- Chọn hoặc thêm bên dưới để tạo mới ---"
           value={scheduleOptions.find((obj) => obj.value === selectedSchedule)}
         />
         <div className="newSchedule">
           <Label className="p-2 mb-2 font-bold" htmlFor="schedule_name">
-            ThÃªm lá»‹ch má»›i
+            Thêm lịch mới
           </Label>
           <Input
             name="schedule_name"
             id="schedule_name"
-            placeholder="TÃªn lá»‹ch má»›i"
+            placeholder="Tên lịch mới"
             className="w-full p-3 border rounded-md"
             onChange={(evt) => onChangeScheduleName(evt.target.value)}
             value={scheduleName}

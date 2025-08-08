@@ -1,10 +1,10 @@
-﻿import FontFaceObserver from 'fontfaceobserver';
+import FontFaceObserver from 'fontfaceobserver';
 import { uniqueId } from 'lodash';
 import React, { useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useDispatch } from 'react-redux';
-import { AddElement } from '@/../../../store/actions/createContent';
+import { AddElement } from '@/../../store/actions/createContent';
 
 const Text = ({ editor, allFonts, googleFonts, setGoogleFonts }) => {
 
@@ -27,7 +27,7 @@ const Text = ({ editor, allFonts, googleFonts, setGoogleFonts }) => {
       return
     }
     const id = uniqueId()
-    const textbox = new fabric.IText('Nháº­p vÄƒn báº£n', {
+    const textbox = new fabric.IText('Nhập văn bản', {
       fontFamily: font,
       fill: '#000000',
       customId: id,
@@ -47,7 +47,7 @@ const Text = ({ editor, allFonts, googleFonts, setGoogleFonts }) => {
      
       {/* =============SEARCH ============== */}
       <div className='flex items-center gap-2 mb-5'>
-        <input type="text" placeholder='TÃ¬m kiáº¿m font...' onChange={(e) => setTextValue(e.target.value)} className='w-full rounded-md text-black' />
+        <input type="text" placeholder='Tìm kiếm font...' onChange={(e) => setTextValue(e.target.value)} className='w-full rounded-md text-black' />
         <button onClick={handleSearchFont}>
           <IoIosSearch size={15} className='bg-blue-500 rounded-md hover:bg-red-500 h-full w-10 duration-200 transition-all ease-out' color='#fff' />
         </button>

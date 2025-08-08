@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { FiEdit } from 'react-icons/fi';
@@ -9,10 +9,10 @@ import { IoMdAdd } from 'react-icons/io';
 import { MdOutlineEditOff } from 'react-icons/md';
 import { FaRegCheckCircle } from 'react-icons/fa';
 import { OverlayPanel } from 'primereact/overlaypanel';
-import { SpecialService } from '@/../services/special';
+import { SpecialService } from '@/services/special';
 import styled from 'styled-components';
-import client from '@/../Client';
-import { OK } from '@/../configs';
+import client from '@/Client';
+import { OK } from '@/configs';
 
 const OverlayPanelStyled = styled(OverlayPanel)`
   button.p-overlaypanel-close.p-link {
@@ -45,7 +45,7 @@ const PopoverTag = ({
   };
   const addHasgtag = async () => {
     if (!nameTag) {
-      toast.error('Vui lÃ²ng nháº­p tÃªn tháº» !');
+      toast.error('Vui lòng nhập tên thẻ !');
       return;
     }
     if (idEdit) {
@@ -54,7 +54,7 @@ const PopoverTag = ({
       };
       const res = await SpecialService.editTag(idEdit, data);
       if (res.status === OK) {
-        toast.success('Cáº­p nháº­t tháº» thÃ nh cÃ´ng !');
+        toast.success('Cập nhật thẻ thành công !');
         setNameTag('');
         reActiceAPi();
       }
@@ -64,7 +64,7 @@ const PopoverTag = ({
       };
       const res = await SpecialService.creatTag(data);
       if (res.status === OK) {
-        toast.success('Táº¡o tháº» thÃ nh cÃ´ng !');
+        toast.success('Tạo thẻ thành công !');
         setNameTag(null);
         reActiceAPi();
       }
@@ -77,19 +77,19 @@ const PopoverTag = ({
   };
   const deleteTag = async (id) => {
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ tháº» ?',
+      title: 'Thông báo',
+      message: 'Bạn có chắc chắn muốn xoá thẻ ?',
       buttons: [
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
         {
-          label: 'XoÃ¡',
+          label: 'Xoá',
           onClick: async () => {
             const res = await SpecialService.deleteTag(id);
             if (res.status === OK) {
-              toast.success('XoÃ¡ tháº» thÃ nh cÃ´ng !');
+              toast.success('Xoá thẻ thành công !');
               reActiceAPi();
             }
           },
@@ -109,7 +109,7 @@ const PopoverTag = ({
     const res = await client.put(`/saved-fanpages/${item.id}`, data);
     if (res.status === OK) {
       setVisible(false);
-      toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+      toast.success('Cập nhật thành công !');
       reRenderList && reRenderList();
     }
   };
@@ -162,12 +162,12 @@ const PopoverTag = ({
     <div>
       <div>
         {idEdit && (
-          <span className="mb-2 font-bold">Báº¡n Ä‘ang sá»­a tháº» : {nameTag}</span>
+          <span className="mb-2 font-bold">Bạn đang sửa thẻ : {nameTag}</span>
         )}
         <div className="flex items-center gap-2">
           <input
             className="border outline-none rounded-md p-2 w-full"
-            placeholder="Nháº­p tÃªn nhÃ£n..."
+            placeholder="Nhập tên nhãn..."
             value={nameTag || ''}
             ref={inpRef}
             onChange={(e) => setNameTag(e.target.value)}
@@ -194,10 +194,10 @@ const PopoverTag = ({
             paginator
             rows={5}
           >
-            <Column field="name" header="TÃªn tháº»" style={{ width: '70%' }} />
+            <Column field="name" header="Tên thẻ" style={{ width: '70%' }} />
             <Column
-              field="HÃ nh Ä‘á»™ng"
-              header="HÃ nh Ä‘á»™ng"
+              field="Hành động"
+              header="Hành động"
               body={actionTemplate}
             />
           </DataTable>
@@ -208,12 +208,12 @@ const PopoverTag = ({
     <OverlayPanelStyled ref={op} showCloseIcon closeOnEscape dismissable={true}>
       <div style={{ width: '400px' }}>
         {idEdit && (
-          <span className="mb-2 font-bold">Báº¡n Ä‘ang sá»­a tháº» : {nameTag}</span>
+          <span className="mb-2 font-bold">Bạn đang sửa thẻ : {nameTag}</span>
         )}
         <div className="flex items-center gap-2">
           <input
             className="border outline-none rounded-md p-2 w-full"
-            placeholder="Nháº­p tÃªn nhÃ£n..."
+            placeholder="Nhập tên nhãn..."
             value={nameTag}
             ref={inpRef}
             onChange={(e) => setNameTag(e.target.value)}
@@ -240,10 +240,10 @@ const PopoverTag = ({
             paginator
             rows={5}
           >
-            <Column field="name" header="TÃªn tháº»" style={{ width: '70%' }} />
+            <Column field="name" header="Tên thẻ" style={{ width: '70%' }} />
             <Column
-              field="HÃ nh Ä‘á»™ng"
-              header="HÃ nh Ä‘á»™ng"
+              field="Hành động"
+              header="Hành động"
               body={actionTemplate}
             />
           </DataTable>
@@ -254,4 +254,5 @@ const PopoverTag = ({
 };
 
 export default PopoverTag;
+
 

@@ -1,23 +1,23 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreateContent } from '@/../../../services/createContent';
-import defaultImage from '@/../../../assets/images/category_default_loading.png';
+import { CreateContent } from '@/../../services/createContent';
+import defaultImage from '@/../../assets/images/category_default_loading.png';
 import {
   actionSelectCategory,
   actionTogglePopupSelectCate,
-} from '@/../../../store/actions/createContent';
-import { isObjEmpty } from '@/../../../utils/utilityFunc';
+} from '@/../../store/actions/createContent';
+import { isObjEmpty } from '@/../../utils/utilityFunc';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { actionLoadingApp } from '@/../../../store/actions/loading';
-import LoadingApp from '@/../../../components/LoadingApp';
-import { resetState } from '@/../../../store/actions/Contents/contentActions';
-import { DEFAULT_TAKE_CARE_CAT, OK } from '@/../../../configs';
+import { actionLoadingApp } from '@/../../store/actions/loading';
+import LoadingApp from '@/../../components/LoadingApp';
+import { resetState } from '@/../../store/actions/Contents/contentActions';
+import { DEFAULT_TAKE_CARE_CAT, OK } from '@/../../configs';
 import Select from 'react-select';
 
 const listOptions = [
-  { value: 'all', label: 'Táº¥t cáº£' },
-  { value: 'takeCare', label: 'Content nuÃ´i dÆ°á»¡ng' },
-  { value: 'theRest', label: 'Content bÃ¡n hÃ ng' },
+  { value: 'all', label: 'Tất cả' },
+  { value: 'takeCare', label: 'Content nuôi dưỡng' },
+  { value: 'theRest', label: 'Content bán hàng' },
 ];
 
 const IdeaCategories = () => {
@@ -154,7 +154,7 @@ const IdeaCategories = () => {
           </div>
         ) : (
           <div className="flex justify-center">
-            <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+            <span className="font-bold">Không có dữ liệu hiển thị</span>
           </div>
         )}
       </PerfectScrollbar>
@@ -178,12 +178,12 @@ const IdeaCategories = () => {
       ) : (
         <>
           <p className="bold italic mb-2">
-            * Chá»n chá»§ Ä‘á» báº¡n muá»‘n tham kháº£o Ã½ tÆ°á»Ÿng
+            * Chọn chủ đề bạn muốn tham khảo ý tưởng
           </p>
           <div className="flex gap-2 p-1">
             <input
               className="w-full p-2 rounded-md border-gray-300 outline-none"
-              placeholder="TÃ¬m kiáº¿m nhanh ..."
+              placeholder="Tìm kiếm nhanh ..."
               onChange={(e) => setKeyword(e.target.value)}
             />
             <Select
@@ -199,7 +199,7 @@ const IdeaCategories = () => {
               className="bg-blue-500 text-white rounded-md py-2 px-5 float-right mr-2 mt-3 hover:bg-blue-700 transition-all"
               onClick={() => handleChosenCategory(selectedCat)}
             >
-              Chá»n
+              Chọn
             </button>
           </div>
         </>

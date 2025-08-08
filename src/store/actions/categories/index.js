@@ -1,4 +1,4 @@
-﻿import * as categoriesTypes from '@/../types/categories';
+import * as categoriesTypes from '@/types/categories';
 import client from '@/Client';
 
 export const getParentCategories = () => async (dispatch) => {
@@ -56,7 +56,7 @@ export const getChildCategoriesSearch =
           const defaultData = [
             {
               value: 'DEFAULT',
-              label: 'Táº¥t cáº£',
+              label: 'Tất cả',
             },
           ].concat(data);
           dispatch({

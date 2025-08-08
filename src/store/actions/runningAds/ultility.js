@@ -1,4 +1,4 @@
-﻿import { isArrayEmpty } from '@/../../configs"
+﻿import { isArrayEmpty } from '@/configs'"
 
 export const getObjectTemplateCard = (item) =>{
    return {
@@ -10,3 +10,4 @@ export const getObjectTemplateCard = (item) =>{
         media_type : !isArrayEmpty(item.images) ? 'image' : 'video'
     }
 }
+

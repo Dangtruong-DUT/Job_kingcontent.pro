@@ -1,10 +1,10 @@
-﻿import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import NewComments from '@/NewComments';
 import Settings from '@/Settings';
 import { useDispatch, useSelector } from 'react-redux';
-import { setScheduleCommentsWaitingList } from '@/../../../store/actions/Schedules';
+import { setScheduleCommentsWaitingList } from '@/../../store/actions/Schedules';
 import { toast } from 'react-toastify';
-import { userServices } from '@/../../../services/users';
+import { userServices } from '@/../../services/users';
 import moment from 'moment';
 
 const Comments = () => {
@@ -28,15 +28,15 @@ const Comments = () => {
     let message = '';
     if (content_ids.length === 0) {
       isError = true;
-      message = 'Vui lÃ²ng chá»n Ã­t nháº¥t 1 bÃ i viáº¿t';
+      message = 'Vui lòng chọn ít nhất 1 bài viết';
     } else {
       if (comments.length === 0) {
         isError = true;
-        message = 'Vui lÃ²ng thÃªm ná»™i dung bÃ¬nh luáº­n';
+        message = 'Vui lòng thêm nội dung bình luận';
       } else {
         if (!begin_date || !start_time || !multiple_timespace) {
           isError = true;
-          message = 'Vui lÃ²ng nháº­p Ä‘áº§y Ä‘á»§ thÃ´ng tin thá»i gian';
+          message = 'Vui lòng nhập đầy đủ thông tin thời gian';
         }
       }
     }
@@ -82,7 +82,7 @@ const Comments = () => {
           onClick={() => onConfirmSchedule()}
           disabled={isDisableSubmit}
         >
-          LÃªn lá»‹ch
+          Lên lịch
         </button>
       </div>
     </div>

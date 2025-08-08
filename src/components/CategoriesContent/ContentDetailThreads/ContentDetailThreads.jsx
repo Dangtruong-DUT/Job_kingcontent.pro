@@ -1,10 +1,10 @@
-﻿import { Dialog } from 'primereact/dialog';
+import { Dialog } from 'primereact/dialog';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Client from '@/../../Client';
-import { breakWord } from '@/../../helpers';
-import { _dashed_border } from '@/../../pages/createPost/utility';
+import Client from '@/../Client';
+import { breakWord } from '@/../helpers';
+import { _dashed_border } from '@/../pages/createPost/utility';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import {
   actionUpdateStep1,
@@ -14,7 +14,7 @@ import { actionPushContentToCreateContentScreen } from '@/store/actions/homepage
 import Footer from '@/Footer';
 import Header from '@/Header';
 import Medias from '@/Medias';
-import { getPathVideo } from '@/../../utils/utilityFunc';
+import { getPathVideo } from '@/../utils/utilityFunc';
 
 function ContentDetailThreads(props) {
   const dispatch = useDispatch();
@@ -139,14 +139,14 @@ function ContentDetailThreads(props) {
                 className=" bg-primary p-5 rounded-md text-white font-bold mr-2 hover:bg-gray-700 duration-300"
                 onClick={handelWritePost}
               >
-                Viáº¿t bÃ i
+                Viết bài
               </button>
             )}
             <button
               className="bottom-5 bg-red-500 p-5 rounded-md text-white font-bold hover:bg-gray-700 duration-300"
               onClick={() => closePopup()}
             >
-              ÄÃ³ng
+              Đóng
             </button>
           </div> */}
             </div>

@@ -1,22 +1,22 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Body from '@/../CategoriesContent/CategoriesContentItem/Body';
-import Header from '@/../CategoriesContent/CategoriesContentItem/Header';
-import Image from '@/../CategoriesContent/CategoriesContentItem/Image';
+import Body from '@/CategoriesContent/CategoriesContentItem/Body';
+import Header from '@/CategoriesContent/CategoriesContentItem/Header';
+import Image from '@/CategoriesContent/CategoriesContentItem/Image';
 import logo from '@/assets/images/logo.jpg';
 import logoTikTok from '@/assets/images/icon/main-menu/menu-icon-tiktok.png';
-import { userServices } from '@/../../services/users';
+import { userServices } from '@/services/users';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import DetailTiktok from '@/Tiktok/DetailTiktok';
-import { ResourcesService } from '@/../../services/resources';
+import { ResourcesService } from '@/services/resources';
 import { setSelectedScheduleContent } from '@/store/actions/Schedules';
-import { convertInstagramLink } from '@/../../helpers';
+import { convertInstagramLink } from '@/../helpers';
 import { toast } from 'react-toastify';
 import DetailDouyin from '@/douyin/detailDouyin';
-import Images from '@/../Threads/Images';
-import ContentDetailThreads from '@/../CategoriesContent/ContentDetailThreads/ContentDetailThreads';
+import Images from '@/Threads/Images';
+import ContentDetailThreads from '@/CategoriesContent/ContentDetailThreads/ContentDetailThreads';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
-import { OK } from '@/../../configs';
+import { OK } from '@/configs';
 
 const listTypesHasUpload = ['event'];
 
@@ -138,7 +138,7 @@ const PreviewContent = (props) => {
     const files = e.target.files;
     const filesArr = [...files];
     if (filesArr.length > 10 || selectedScheduleContent.medias.length === 10) {
-      toast.error('Chá»‰ Ä‘Æ°á»£c phÃ©p táº£i lÃªn tá»‘i Ä‘a 10 áº£nh cho content sá»± kiá»‡n');
+      toast.error('Chỉ được phép tải lên tối đa 10 ảnh cho content sự kiện');
       return;
     }
     const formData = new FormData();
@@ -202,13 +202,13 @@ const PreviewContent = (props) => {
       setPreviewContent(replaceContent);
       // add source
       if (isAddSource) {
-        setPreviewContent(`${replaceContent} \n\nNguá»“n: ${sourceName}`);
+        setPreviewContent(`${replaceContent} \n\nNguồn: ${sourceName}`);
       }
     } else {
       setPreviewContent(post_text);
       // add source
       if (isAddSource) {
-        setPreviewContent(`${post_text} \n\nNguá»“n: ${sourceName}`);
+        setPreviewContent(`${post_text} \n\nNguồn: ${sourceName}`);
       }
     }
   }, [replaceContent, post_text, isAddSource, sourceName]);
@@ -236,7 +236,7 @@ const PreviewContent = (props) => {
                   className=" text-sm w-full text-gray-500 font-semibold mb-2 max-w-md mx-auto flex flex-col items-center border-2 border-dashed border-gray-400 p-3"
                   style={{ width: '100%' }}
                 >
-                  {isUploadImage ? 'Äang táº£i lÃªn ...' : 'Táº£i áº£nh lÃªn'}
+                  {isUploadImage ? 'Đang tải lên ...' : 'Tải ảnh lên'}
                   <input
                     disabled={isUploadImage}
                     accept="image/*"
@@ -311,6 +311,7 @@ const PreviewContent = (props) => {
 };
 
 export default PreviewContent;
+
 
 
 

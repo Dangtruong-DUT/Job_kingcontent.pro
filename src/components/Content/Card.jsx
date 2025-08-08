@@ -1,4 +1,4 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useDispatch } from 'react-redux';
@@ -12,7 +12,7 @@ import CalendarIcon from '@/assets/images/option-icon/calendar.png';
 import EditIcon from '@/assets/images/option-icon/edit.png';
 import UnfollowIcon from '@/assets/images/option-icon/unfollow.png';
 import ViewIcon from '@/assets/images/option-icon/view.png';
-import PopupDetailContentPlan from '@/../pages/createPost/components/planCpn/popupDetail';
+import PopupDetailContentPlan from '@/pages/createPost/components/planCpn/popupDetail';
 import {
   setCurrentDateTime,
   setIsShowFinalStep,
@@ -20,10 +20,10 @@ import {
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
 import { actionPushContentToCreateContentScreen } from '@/store/actions/homepage';
-import Client from '@/../Client';
+import Client from '@/Client';
 import { actionGetAllContent } from '@/store/actions/contentUserLiked';
 import Image from '@/CategoriesContent/CategoriesContentItem/Image';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 export const CardStyled = styled.div`
   .divide-title {
     height: 1px;
@@ -92,21 +92,21 @@ const Card = ({ contents, setIsOpen, setItem }) => {
 
   const handelDislike = (id) => {
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
-      message: 'Báº¡n cÃ³ muá»‘n bá» thÃ­ch content nÃ y?',
+      title: 'Thông báo',
+      message: 'Bạn có muốn bỏ thích content này?',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: async () => {
             const res = await Client.delete(`/liked-data/${id}`);
             if (res.status === OK) {
               dispatch(actionGetAllContent());
-              toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+              toast.success('Thao tác thành công !');
             }
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -186,7 +186,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
                         className="w-12 bg-white rounded-full"
                       />
                     </span>
-                    <button className="">Xem chi tiáº¿t</button>
+                    <button className="">Xem chi tiết</button>
                   </div>
                   <div
                     className="flex gap-2 items-center text-base mb-3 cursor-pointer hover:text-red-500"
@@ -198,7 +198,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
                       className="w-12 bg-white rounded-full"
                     />
 
-                    <button className="">Soáº¡n tháº£o</button>
+                    <button className="">Soạn thảo</button>
                   </div>
                   <div
                     className="flex gap-2 items-center text-base mb-3 cursor-pointer hover:text-red-500"
@@ -209,7 +209,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
                       alt=""
                       className="w-12 bg-white rounded-full"
                     />
-                    <button className="">LÃªn lá»‹ch</button>
+                    <button className="">Lên lịch</button>
                   </div>
                   <div
                     className="flex gap-2 items-center text-base mb-3 cursor-pointer hover:text-red-500"
@@ -220,7 +220,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
                       alt=""
                       className="w-12 bg-white rounded-full"
                     />
-                    <button>Bá» thÃ­ch</button>
+                    <button>Bỏ thích</button>
                   </div>
                   {/* <div
                     className="flex gap-2 items-center text-base  cursor-pointer hover:text-red-500"
@@ -231,7 +231,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
                         alt=""
                         className="w-12 bg-white rounded-full"
                       />
-                    <button>Thay Ä‘á»•i Hashtag</button>
+                    <button>Thay đổi Hashtag</button>
                   </div> */}
                 </div>
               </div>
@@ -250,6 +250,7 @@ const Card = ({ contents, setIsOpen, setItem }) => {
 };
 
 export default Card;
+
 
 
 

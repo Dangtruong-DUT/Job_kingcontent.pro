@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
 import {
   actionSaveCollection,
@@ -10,7 +10,7 @@ import {
 } from '@/store/actions/douyin';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import ModalOverlay from '@/../CategoriesContent/CategoriesContentItem/ModalOverlay';
+import ModalOverlay from '@/CategoriesContent/CategoriesContentItem/ModalOverlay';
 import { Button } from 'rsuite';
 import { Dialog, Transition } from '@headlessui/react';
 import { FiX } from 'react-icons/fi';
@@ -18,7 +18,7 @@ import Select from 'react-select';
 import { toast } from 'react-toastify';
 import { FaSpinner } from 'react-icons/fa';
 import { confirmAlert } from 'react-confirm-alert';
-import { COLLECTION_MAX_ITEMS_WARNING } from '@/../../configs';
+import { COLLECTION_MAX_ITEMS_WARNING } from '@/configs';
 
 const ModalCollection = () => {
   const {
@@ -46,17 +46,17 @@ const ModalCollection = () => {
   useEffect(() => {
     switch (modalCollectionType) {
       case 'add':
-        setModalTile('ThÃªm bá»™ sÆ°u táº­p');
+        setModalTile('Thêm bộ sưu tập');
         setIsShowSelection(false);
         break;
 
       case 'edit':
-        setModalTile('Sá»­a bá»™ sÆ°u táº­p');
+        setModalTile('Sửa bộ sưu tập');
         setIsShowSelection(false);
         break;
 
       case 'addVideo':
-        setModalTile('ThÃªm video vÃ o bá»™ sÆ°u táº­p');
+        setModalTile('Thêm video vào bộ sưu tập');
         if (colOptions.length > 0) setIsShowSelection(true);
         break;
 
@@ -94,7 +94,7 @@ const ModalCollection = () => {
             name: collectionName,
           })
         );
-        toast.success('Bá»™ sÆ°u táº­p Ä‘Ã£ Ä‘Æ°á»£c thÃªm thÃ nh cÃ´ng');
+        toast.success('Bộ sưu tập đã được thêm thành công');
         onClose();
         setIsLoading(false);
         break;
@@ -107,14 +107,14 @@ const ModalCollection = () => {
             name: collectionName,
           })
         );
-        toast.success('TÃªn bá»™ sÆ°u táº­p Ä‘Ã£ Ä‘Æ°á»£c sá»­a thÃ nh cÃ´ng');
+        toast.success('Tên bộ sưu tập đã được sửa thành công');
         onClose();
         setIsLoading(false);
         break;
 
       case 'addVideo':
         if (!collectionName && !selectedCollection) {
-          toast.error('Vui lÃ²ng chá»n hoáº·c nháº­p tÃªn bá»™ sÆ°u táº­p');
+          toast.error('Vui lòng chọn hoặc nhập tên bộ sưu tập');
           return;
         }
 
@@ -127,11 +127,11 @@ const ModalCollection = () => {
 
           if (totalCount > COLLECTION_MAX_ITEMS_WARNING) {
             confirmAlert({
-              title: 'Cáº£nh bÃ¡o sá»‘ lÆ°á»£ng video',
-              message: `Má»—i bá»™ sÆ°u táº­p cÃ³ nhiá»u hÆ¡n ${COLLECTION_MAX_ITEMS_WARNING} video cÃ³ thá»ƒ lÃ m cháº­m tá»‘c Ä‘á»™ xá»­ lÃ½. Báº¡n Ä‘ang thÃªm ${newVideoCount} video vÃ o BST "${selectedCol?.name}" cÃ³ ${currentVideoCount} video. Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n thÃªm?`,
+              title: 'Cảnh báo số lượng video',
+              message: `Mỗi bộ sưu tập có nhiều hơn ${COLLECTION_MAX_ITEMS_WARNING} video có thể làm chậm tốc độ xử lý. Bạn đang thêm ${newVideoCount} video vào BST "${selectedCol?.name}" có ${currentVideoCount} video. Bạn có chắc chắn muốn thêm?`,
               buttons: [
                 {
-                  label: 'Tiáº¿p tá»¥c',
+                  label: 'Tiếp tục',
                   onClick: async () => {
                     setIsLoading(true);
                     await dispatch(
@@ -143,12 +143,12 @@ const ModalCollection = () => {
                     );
                     dispatch(actionUpdateChosenVideos([]));
                     setIsLoading(false);
-                    toast.success('LÆ°u video vÃ o BST thÃ nh cÃ´ng');
+                    toast.success('Lưu video vào BST thành công');
                     onClose();
                   },
                 },
                 {
-                  label: 'Há»§y',
+                  label: 'Hủy',
                   onClick: () => {},
                 },
               ],
@@ -168,11 +168,11 @@ const ModalCollection = () => {
           
           if (newVideoCount > COLLECTION_MAX_ITEMS_WARNING) {
             confirmAlert({
-              title: 'Cáº£nh bÃ¡o sá»‘ lÆ°á»£ng video',
-              message: `Báº¡n Ä‘ang táº¡o bá»™ sÆ°u táº­p má»›i vá»›i ${newVideoCount} video. Má»—i bá»™ sÆ°u táº­p cÃ³ nhiá»u hÆ¡n ${COLLECTION_MAX_ITEMS_WARNING} video cÃ³ thá»ƒ lÃ m cháº­m tá»‘c Ä‘á»™ xá»­ lÃ½. Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n táº¡o?`,
+              title: 'Cảnh báo số lượng video',
+              message: `Bạn đang tạo bộ sưu tập mới với ${newVideoCount} video. Mỗi bộ sưu tập có nhiều hơn ${COLLECTION_MAX_ITEMS_WARNING} video có thể làm chậm tốc độ xử lý. Bạn có chắc chắn muốn tạo?`,
               buttons: [
                 {
-                  label: 'Tiáº¿p tá»¥c',
+                  label: 'Tiếp tục',
                   onClick: async () => {
                     setIsLoading(true);
                     await dispatch(
@@ -180,12 +180,12 @@ const ModalCollection = () => {
                     );
                     dispatch(actionUpdateChosenVideos([]));
                     setIsLoading(false);
-                    toast.success('ÄÃ£ táº¡o vÃ o lÆ°u video vÃ o BST thÃ nh cÃ´ng');
+                    toast.success('Đã tạo vào lưu video vào BST thành công');
                     onClose();
                   },
                 },
                 {
-                  label: 'Há»§y',
+                  label: 'Hủy',
                   onClick: () => {},
                 },
               ],
@@ -199,7 +199,7 @@ const ModalCollection = () => {
           );
           dispatch(actionUpdateChosenVideos([]));
           setIsLoading(false);
-          toast.success('ÄÃ£ táº¡o vÃ o lÆ°u video vÃ o BST thÃ nh cÃ´ng');
+          toast.success('Đã tạo vào lưu video vào BST thành công');
           onClose();
         } else {
           // save video to collection
@@ -213,7 +213,7 @@ const ModalCollection = () => {
           // clear chosen videos
           dispatch(actionUpdateChosenVideos([]));
           setIsLoading(false);
-          toast.success('LÆ°u video vÃ o BST thÃ nh cÃ´ng');
+          toast.success('Lưu video vào BST thành công');
           onClose();
         }
         break;
@@ -285,12 +285,12 @@ const ModalCollection = () => {
                   <div className="mt-4">
                     <label className="block font-bold mb-2">
                       {isShowSelection
-                        ? 'ThÃªm má»›i bá»™ sÆ°u táº­p'
-                        : 'TÃªn bá»™ sÆ°u táº­p'}
+                        ? 'Thêm mới bộ sưu tập'
+                        : 'Tên bộ sưu tập'}
                     </label>
                     <input
                       type="text"
-                      placeholder="Nháº­p tÃªn bá»™ sÆ°u táº­p"
+                      placeholder="Nhập tên bộ sưu tập"
                       className="w-full border border-gray-300 rounded-md p-2"
                       value={collectionName}
                       name="collection_name"
@@ -302,12 +302,12 @@ const ModalCollection = () => {
                     {isShowSelection && (
                       <div className="mt-2">
                         <label className="block font-bold mb-2">
-                          Hoáº·c chá»n BST Ä‘Ã£ cÃ³
+                          Hoặc chọn BST đã có
                         </label>
                         <div className="mt-4">
                           <Select
                             options={colOptions}
-                            placeholder="Chá»n bá»™ sÆ°u táº­p"
+                            placeholder="Chọn bộ sưu tập"
                             value={selectedCollection}
                             onChange={(e) => setSelectedCollection(e)}
                           />
@@ -322,10 +322,10 @@ const ModalCollection = () => {
                       className="mr-2"
                       onClick={() => onSave()}
                     >
-                      LÆ°u
+                      Lưu
                     </Button>
                     <Button color="red" onClick={onClose}>
-                      Há»§y
+                      Hủy
                     </Button>
                   </div>
                 </div>
@@ -339,5 +339,6 @@ const ModalCollection = () => {
 };
 
 export default ModalCollection;
+
 
 

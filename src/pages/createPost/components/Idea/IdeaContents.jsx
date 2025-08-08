@@ -1,15 +1,15 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Contents from '@/../../../components/KCEditor/FeedbacksForm/FeedbackContents/Contents';
-import ContentDetail from '@/../../../components/CategoriesContent/ContentDetail';
-import { getContents } from '@/../../../store/actions/Contents/contentActions';
-import KindOfContentSelect from '@/../../../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
-import FreqLikeSelect from '@/../../../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
-import FreqCommentSelect from '@/../../../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
-import FreqShareSelect from '@/../../../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
-import FreqTimeSelect from '@/../../../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
+import Contents from '@/../../components/KCEditor/FeedbacksForm/FeedbackContents/Contents';
+import ContentDetail from '@/../../components/CategoriesContent/ContentDetail';
+import { getContents } from '@/../../store/actions/Contents/contentActions';
+import KindOfContentSelect from '@/../../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
+import FreqLikeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
+import FreqCommentSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
+import FreqShareSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
+import FreqTimeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
 import { ImSearch } from 'react-icons/im';
-import { handleSelectSort } from '@/../../../helpers';
+import { handleSelectSort } from '@/../../helpers';
 
 const IdeaContents = (props) => {
   const { setShowCats, setShowContents } = props;
@@ -85,14 +85,14 @@ const IdeaContents = (props) => {
             className=" text-sm font-semibold text-gray-800 filter drop-shadow-md"
             htmlFor="sort"
           >
-            TÃ¬m kiáº¿m:
+            Tìm kiếm:
           </label>
           <div className="flex flex-nowrap items-center px-2">
             <div className="pr-2 w-1/2">
               <input
                 type="text"
                 id="search"
-                placeholder="TÃ¬m kiáº¿m theo ná»™i dung, fanpage...."
+                placeholder="Tìm kiếm theo nội dung, fanpage...."
                 className="border border-gray-300 rounded-md py-1 px-2 w-full leading-7"
                 onChange={(e) => setKeyword(e.target.value)}
               />
@@ -112,7 +112,7 @@ const IdeaContents = (props) => {
             className=" text-sm font-semibold text-gray-800 filter drop-shadow-md"
             htmlFor="sort"
           >
-            Sáº¯p xáº¿p dá»¯ liá»‡u:
+            Sắp xếp dữ liệu:
           </label>
           <div className="mt-1 mb-3 grid grid-cols-2 gap-3" id="sort">
             <FreqLikeSelect
@@ -149,7 +149,7 @@ const IdeaContents = (props) => {
           onClick={handleClickGoBack}
           disabled={contents.length === 0}
         >
-          Quay láº¡i
+          Quay lại
         </button>
         <button
           className={`bg-blue-500 text-white rounded-md p-2 whitespace-nowrap hover:bg-blue-600 ${
@@ -157,7 +157,7 @@ const IdeaContents = (props) => {
           }`}
           onClick={handleClickGetMore}
         >
-          Xem thÃªm gá»£i Ã½
+          Xem thêm gợi ý
         </button>
       </div>
     </div>

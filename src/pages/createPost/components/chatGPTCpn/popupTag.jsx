@@ -1,11 +1,11 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteHistory,
   getHistory,
   removeHistoryHashtag,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import { toast } from 'react-toastify';
 import { FiEdit, FiTrash } from 'react-icons/fi';
 import { confirmAlert } from 'react-confirm-alert';
@@ -31,19 +31,19 @@ const PopupTag = ({
 
   const handleEditHashTag = (tag) => {
     confirmAlert({
-      title: 'Chá»‰nh sá»­a tháº»',
+      title: 'Chỉnh sửa thẻ',
       message:
-        'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n chá»‰nh sá»­a tháº» nÃ y khÃ´ng? ToÃ n bá»™ káº¿t quáº£ Ä‘Ã£ lÆ°u sáº½ Ä‘Æ°á»£c cáº­p nháº­t theo tháº» má»›i !',
+        'Bạn có chắc chắn muốn chỉnh sửa thẻ này không? Toàn bộ kết quả đã lưu sẽ được cập nhật theo thẻ mới !',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             setInputValue(tag);
             setEditHashTag(tag);
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -52,18 +52,18 @@ const PopupTag = ({
 
   const handleDeleteHashtag = (tag) => {
     confirmAlert({
-      title: 'XoÃ¡ tháº»',
+      title: 'Xoá thẻ',
       message:
-        'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ tháº» nÃ y khÃ´ng? ChÃºng tÃ´i sáº½ chá»‰ xoÃ¡ tháº» cá»§a toÃ n bá»™ káº¿t quáº£ Ä‘Ã£ lÆ°u !',
+        'Bạn có chắc chắn muốn xoá thẻ này không? Chúng tôi sẽ chỉ xoá thẻ của toàn bộ kết quả đã lưu !',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             dispatch(removeHistoryHashtag(tag));
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -121,7 +121,7 @@ const PopupTag = ({
                   <input
                     value={inputValue}
                     className="w-full h-14 rounded-md shadow-sm border-gray-100 border-2 outline-none p-2"
-                    placeholder="Vui lÃ²ng Ä‘iá»n má»™t tháº» phÃ¢n loáº¡i Ä‘á»ƒ lÆ°u content gá»£i Ã½ nÃ y"
+                    placeholder="Vui lòng điền một thẻ phân loại để lưu content gợi ý này"
                     onChange={(e) => {
                       setInputValue(e.target.value);
                       setIsContent({ ...isContent, tag: e.target.value });
@@ -129,14 +129,14 @@ const PopupTag = ({
                   />
                   {editHashTag && (
                     <span className="text-xs text-red-500">
-                      Báº¡n Ä‘ang chá»‰nh sá»­a tháº»: {editHashTag}
+                      Bạn đang chỉnh sửa thẻ: {editHashTag}
                     </span>
                   )}
                 </div>
                 {tagList.length === 0 ? null : (
                   <div className="relative">
                     <span className="uppercase text-md font-bold">
-                      Tháº» gá»£i Ã½
+                      Thẻ gợi ý
                     </span>
                     <div
                       className="w-full h-1 bg-gray-600 mb-3 mt-2"
@@ -164,7 +164,7 @@ const PopupTag = ({
                                   className="w-full"
                                   onClick={() => {
                                     if (inputValue === _elt) {
-                                      toast.warning('Báº¡n Ä‘ang chá»n tháº» nÃ y !');
+                                      toast.warning('Bạn đang chọn thẻ này !');
                                       return;
                                     }
                                     setInputValue(_elt);
@@ -178,13 +178,13 @@ const PopupTag = ({
                                     size={25}
                                     color="green"
                                     onClick={() => handleEditHashTag(_elt)}
-                                    title={'Chá»‰nh sá»­a tháº»'}
+                                    title={'Chỉnh sửa thẻ'}
                                   />
                                   <FiTrash
                                     size={25}
                                     color="red"
                                     onClick={() => handleDeleteHashtag(_elt)}
-                                    title={'XoÃ¡ tháº»'}
+                                    title={'Xoá thẻ'}
                                   />
                                 </div>
                               </li>
@@ -198,14 +198,14 @@ const PopupTag = ({
                     onClick={() => toggle()}
                     className="bg-red-400 px-3 h-10 rounded-md text-white"
                   >
-                    ÄÃ³ng
+                    Đóng
                   </button>
                   <button
                     onClick={() => onSaveHistory()}
                     disabled={inputValue === ''}
                     className="bg-blue-400 h-10 px-10 rounded-md text-white"
                   >
-                    {isEdit ? 'Cáº­p nháº­t' : 'LÆ°u'}
+                    {isEdit ? 'Cập nhật' : 'Lưu'}
                   </button>
                 </div>
               </Dialog.Panel>

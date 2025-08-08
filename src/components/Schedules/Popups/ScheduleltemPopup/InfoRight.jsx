@@ -1,4 +1,4 @@
-﻿import { Link } from '@mui/material';
+import { Link } from '@mui/material';
 import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -6,16 +6,16 @@ import { AiFillLike } from 'react-icons/ai';
 import { FaCommentDots, FaEye, FaShare } from 'react-icons/fa';
 import { ImFacebook } from 'react-icons/im';
 import styled from 'styled-components';
-import { kFormatter } from '@/../../../utils/utilityFunc';
-import Client from '@/../../../Client';
-import logoTikTok from '@/../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
-import douyinLogo from '@/../../../assets/images/icon/main-menu/douyin.png';
-import InstagramLogo from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import ThreadsLogo from '@/../../../assets/images/threads-thumbnail.png';
-import threadsIcon from '@/../../../assets/images/icon/threads-black-icon.png';
-import FacebookIcon from '@/../../../assets/images/icon/facebook.png';
-import { getScheduleSourceLink } from '@/../../../helpers';
-import { OK } from '@/../../../configs';
+import { kFormatter } from '@/../../utils/utilityFunc';
+import Client from '@/../../Client';
+import logoTikTok from '@/../../assets/images/icon/main-menu/menu-icon-tiktok.png';
+import douyinLogo from '@/../../assets/images/icon/main-menu/douyin.png';
+import InstagramLogo from '@/../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import ThreadsLogo from '@/../../assets/images/threads-thumbnail.png';
+import threadsIcon from '@/../../assets/images/icon/threads-black-icon.png';
+import FacebookIcon from '@/../../assets/images/icon/facebook.png';
+import { getScheduleSourceLink } from '@/../../helpers';
+import { OK } from '@/../../configs';
 
 const TextStyle = styled.p`
   max-height: 70px;
@@ -109,7 +109,7 @@ function InfoRight(props) {
         return (
           <div className="flex gap-2 items-center">
             <span className="bg-greenSuccess px-2 my-0.5 max-w-max rounded-md font-medium text-white">
-              ÄÄƒng thÃ nh cÃ´ng
+              Đăng thành công
             </span>
           </div>
         );
@@ -121,11 +121,11 @@ function InfoRight(props) {
             className="bg-red-500 px-2 my-0.5 max-w-max rounded-md font-medium cursor-pointer text-white"
             title={reason}
           >
-            ÄÃ£ cÃ³ lá»—i
+            Đã có lỗi
           </span>
         ) : (
           <span className="bg-yellowLabel px-2 my-0.5 max-w-max rounded-md font-medium">
-            Äang chá» Ä‘Äƒng
+            Đang chờ đăng
           </span>
         );
         break;
@@ -133,7 +133,7 @@ function InfoRight(props) {
       case 3:
         return (
           <span className="bg-red-500 px-2 my-0.5 max-w-max rounded-md font-medium">
-            ÄÃ£ huá»·
+            Đã huỷ
           </span>
         );
         break;
@@ -142,7 +142,7 @@ function InfoRight(props) {
         return (
           <div className="flex gap-2 items-center">
             <span className="bg-greenSuccess px-2 my-0.5 max-w-max rounded-md font-medium">
-              ÄÄƒng thÃ nh cÃ´ng dÆ°á»›i dáº¡ng video thÆ°á»ng
+              Đăng thành công dưới dạng video thường
             </span>
           </div>
         );
@@ -152,7 +152,7 @@ function InfoRight(props) {
         return (
           <div className="flex gap-2 items-center">
             <span className="bg-editor-formular px-2 my-0.5 max-w-max rounded-md font-medium">
-              Äang chá» duyá»‡t tá»« Threads
+              Đang chờ duyệt từ Threads
             </span>
           </div>
         );
@@ -173,7 +173,7 @@ function InfoRight(props) {
   return (
     <div className="flex flex-col p-2 mx-1 w-full relative">
       <div className=" text-sm font-bold mr-1 gap-2 items-center hidden">
-        <span>NÆ¡i Ä‘Äƒng:</span>
+        <span>Nơi đăng:</span>
         <Link
           href={`https://facebook.com/${destination_id}`}
           target="_blank"
@@ -185,11 +185,11 @@ function InfoRight(props) {
       </div>
       {renderStatus(status, publish_url, error_count, reason)}
       <div className="scheduleName  text-sm flex gap-2 pt-1">
-        <span>Lá»‹ch Ä‘Äƒng:</span>
+        <span>Lịch đăng:</span>
         <span className="italic">{schedule?.name}</span>
       </div>
       <span className="italic pt-1  text-sm">
-        {`NgÃ y Ä‘Äƒng: ${moment(date_publish).format('HH:mm:ss DD-MM-YYYY')}`}
+        {`Ngày đăng: ${moment(date_publish).format('HH:mm:ss DD-MM-YYYY')}`}
       </span>
       <TextStyle
         className="mb-2 line-clamp-3"
@@ -199,7 +199,7 @@ function InfoRight(props) {
       ></TextStyle>
       {loading && (
         <p className="italic text-blue-500">
-          Äang láº¥y dá»¯ liá»‡u thá»‘ng kÃª, vui lÃ²ng chá» trong giÃ¢y lÃ¡t
+          Đang lấy dữ liệu thống kê, vui lòng chờ trong giây lát
         </p>
       )}
       {!loading && (status === 1 || status === 5) && (

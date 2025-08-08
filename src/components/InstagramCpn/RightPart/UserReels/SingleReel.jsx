@@ -1,14 +1,14 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // @ts-ignore
-import InstagramIcon from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import InstagramIcon from '@/../../assets/images/icon/main-menu/menu-icon-instagram.png';
 // @ts-ignore
-import addIcons from '@/../../../assets/images/icon/create-content/add.png';
+import addIcons from '@/../../assets/images/icon/create-content/add.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertInstagramLink } from '@/../../../helpers';
+import { convertInstagramLink } from '@/../../helpers';
 import {
   checkInInstagramCollection,
   kFormatter,
-} from '@/../../../utils/utilityFunc';
+} from '@/../../utils/utilityFunc';
 import { FiMessageCircle, FiThumbsUp, FiPlay } from 'react-icons/fi';
 import {
   actionGetCollectionPosts,
@@ -16,9 +16,9 @@ import {
   actionRemovePostsFromCollection,
   actionSetCurrentContent,
   actionUpdateChosenPosts,
-} from '@/../../../store/actions/instagram';
+} from '@/../../store/actions/instagram';
 import { toast } from 'react-toastify';
-import { instagramService } from '@/../../../services/instagram';
+import { instagramService } from '@/../../services/instagram';
 import { ImEye } from 'react-icons/im';
 import {
   FaCheckSquare,
@@ -35,42 +35,42 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
   setCurrentDateTime,
-} from '@/../../../store/actions/Schedules';
+} from '@/../../store/actions/Schedules';
 import { confirmAlert } from 'react-confirm-alert';
 import {
   actionUpdateStep1,
   createContentToHomepage,
   resetCreateContent,
-} from '@/../../../store/actions/createContent';
-import { actionPushContentToCreateContentScreen } from '@/../../../store/actions/homepage';
-import { OK } from '@/../../../configs';
+} from '@/../../store/actions/createContent';
+import { actionPushContentToCreateContentScreen } from '@/../../store/actions/homepage';
+import { OK } from '@/../../configs';
 
 const defaultActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT' },
-  { icon: FaRegSquare, title: 'Chá»n', action: 'CHOOSE_POST' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT' },
+  { icon: FaRegSquare, title: 'Chọn', action: 'CHOOSE_POST' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const collectionActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT' },
   {
     icon: FaTimesCircle,
-    title: 'XoÃ¡ khá»i BST',
+    title: 'Xoá khỏi BST',
     action: 'REMOVE_FROM_COLLECTION',
   },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const scheduleActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULING' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULING' },
 ];
 
 const scheduleAutoActions = [
-  { icon: ImEye, title: 'Xem chi tiáº¿t', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegSquare, title: 'Chá»n', action: 'SCHEDULE_CHOOSE_POST' },
+  { icon: ImEye, title: 'Xem chi tiết', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegSquare, title: 'Chọn', action: 'SCHEDULE_CHOOSE_POST' },
 ];
 
 const SingleReel = (props) => {
@@ -193,7 +193,7 @@ const SingleReel = (props) => {
   const handleAction = async (action, collId = 0) => {
     switch (action) {
       case 'VIEW_DETAIL_CONTENT':
-        toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+        toast.info('Đang lấy thông tin bài viết, vui lòng chờ trong giây lát');
         const res = await instagramService.getReelDetail(id, code);
         const { status = 0, data } = res;
         if (status === OK) {
@@ -201,7 +201,7 @@ const SingleReel = (props) => {
         } else {
           toast.error(
             data?.message ||
-              'Vui lÃ²ng liÃªn há»‡ nhÃ¢n viÃªn Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£ tá»‘t hÆ¡n!'
+              'Vui lòng liên hệ nhân viên để được hỗ trợ tốt hơn!'
           );
         }
         toast.dismiss();
@@ -209,11 +209,11 @@ const SingleReel = (props) => {
 
       case 'CREATE_CONTENT':
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Vui lÃ²ng chá»n má»™t hÃ¬nh thá»©c soáº¡n tháº£o bÃ i viáº¿t:',
+          title: 'Thông báo',
+          message: 'Vui lòng chọn một hình thức soạn thảo bài viết:',
           buttons: [
             {
-              label: 'Chá»‰ láº¥y vÄƒn báº£n',
+              label: 'Chỉ lấy văn bản',
               onClick: async () => {
                 dispatch(actionUpdateStep1(true));
                 dispatch(resetCreateContent());
@@ -229,7 +229,7 @@ const SingleReel = (props) => {
               },
             },
             {
-              label: 'Láº¥y vÄƒn báº£n & video',
+              label: 'Lấy văn bản & video',
               onClick: async () => {
                 const videoUrl = videos[0].source || '';
                 const medias = [
@@ -253,7 +253,7 @@ const SingleReel = (props) => {
               },
             },
             {
-              label: 'Huá»·',
+              label: 'Huỷ',
               onClick: () => {},
             },
           ],
@@ -281,11 +281,11 @@ const SingleReel = (props) => {
       case 'REMOVE_FROM_COLLECTION':
         const collectionId = collId ? collId : currentCollection.id;
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ video nÃ y khá»i BST khÃ´ng?',
+          title: 'Thông báo',
+          message: 'Bạn có chắc chắn muốn xoá video này khỏi BST không?',
           buttons: [
             {
-              label: 'Cháº¯c cháº¯n',
+              label: 'Chắc chắn',
               onClick: async () => {
                 dispatch(actionRemovePostsFromCollection(collectionId, id));
                 dispatch(actionGetCollections());
@@ -293,7 +293,7 @@ const SingleReel = (props) => {
               },
             },
             {
-              label: 'Äá»•i Ã½',
+              label: 'Đổi ý',
               onClick: () => {},
             },
           ],
@@ -353,14 +353,14 @@ const SingleReel = (props) => {
   };
 
   const handleOnClickContent = async () => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+    toast.info('Đang lấy thông tin bài viết, vui lòng chờ trong giây lát');
     const res = await instagramService.getReelDetail(id, code);
     const { status = 0, data } = res;
     if (status === OK) {
       dispatch(actionSetCurrentContent(data?.data));
     } else {
       toast.error(
-        data?.message || 'Vui lÃ²ng liÃªn há»‡ nhÃ¢n viÃªn Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£ tá»‘t hÆ¡n!'
+        data?.message || 'Vui lòng liên hệ nhân viên để được hỗ trợ tốt hơn!'
       );
     }
     toast.dismiss();
@@ -431,7 +431,7 @@ const SingleReel = (props) => {
                   )}
                   <a className="no-underline text-base font-medium text-gray-100 hover:text-white transition-all duration-200 ease-linear whitespace-nowrap">
                     {item.action === 'CHOOSE_POST' && isChosen
-                      ? 'Bá» chá»n'
+                      ? 'Bỏ chọn'
                       : item.title}
                   </a>
                 </li>
@@ -453,7 +453,7 @@ const SingleReel = (props) => {
       {isScheduled && (
         <span
           className="absolute bottom-3 right-1 text-red-500"
-          title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+          title="Bài viết đã được lên lịch"
         >
           <FaExclamation />
         </span>

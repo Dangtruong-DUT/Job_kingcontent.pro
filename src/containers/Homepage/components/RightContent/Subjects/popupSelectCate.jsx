@@ -1,19 +1,19 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreateContent } from '@/../../../../services/createContent';
-import defaultImage from '@/../../../../assets/images/category_default_loading.png';
-import { actionLoadingApp } from '@/../../../../store/actions/loading';
+import { CreateContent } from '@/../../../services/createContent';
+import defaultImage from '@/../../../assets/images/category_default_loading.png';
+import { actionLoadingApp } from '@/../../../store/actions/loading';
 import { FiFacebook } from 'react-icons/fi';
 import {
   actionGetMyTopic,
   actionSelectMyTopic,
   saveChosenCategories,
-} from '@/../../../../store/actions/homepage';
-import LoadingApp from '@/../../../../components/LoadingApp';
+} from '@/../../../store/actions/homepage';
+import LoadingApp from '@/../../../components/LoadingApp';
 import { toast } from 'react-toastify';
 import { id } from 'date-fns/locale';
-import { OK } from '@/../../../../configs';
+import { OK } from '@/../../../configs';
 const PopupSelectCate = ({ isOpen, toggle }) => {
   const [loading, setLoading] = useState(false);
   const [parentListArr, setParentListArr] = useState([]);
@@ -62,7 +62,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
       (element) => element.cate_id === item.cate_id
     );
     if (isChosen) {
-      toast.info('Chá»§ Ä‘á» nÃ y Ä‘Ã£ Ä‘Æ°á»£c theo dÃµi');
+      toast.info('Chủ đề này đã được theo dõi');
     } else {
       dispatch(saveChosenCategories({ id: item.cate_id }));
       toggle();
@@ -115,9 +115,9 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
                         >
                           <FiFacebook />
                           {isChosen ? (
-                            <span>ÄÃ£ theo dÃµi</span>
+                            <span>Đã theo dõi</span>
                           ) : (
-                            <span>Theo dÃµi</span>
+                            <span>Theo dõi</span>
                           )}
                         </button>
                       </div>
@@ -127,7 +127,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
               </div>
             ) : (
               <div className="flex justify-center">
-                <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+                <span className="font-bold">Không có dữ liệu hiển thị</span>
               </div>
             )}
           </>
@@ -145,7 +145,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
           }`}
           onClick={() => handleGetAll()}
         >
-          Táº¥t cáº£
+          Tất cả
         </div>
         {parentListArr.map((_elt, index) => (
           <div
@@ -224,7 +224,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
                 >
                   <div className="mt-2">
                     <h1 className="font-bold uppercase text-base">
-                      Danh sÃ¡ch chá»§ Ä‘á»
+                      Danh sách chủ đề
                     </h1>
                     <div className="flex mt-3">
                       <div className="w-1/3 max-h-70 overflow-y-scroll overflow-x-hidden">
@@ -234,7 +234,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
                         <div className="flex gap-1 p-1">
                           <input
                             className="w-full p-2 rounded-md border-2 border-blue-300 outline-none"
-                            placeholder="Nháº­p tá»« khoÃ¡ tÃ¬m kiáº¿m ..."
+                            placeholder="Nhập từ khoá tìm kiếm ..."
                             onChange={(e) =>
                               handleChangeSearchCate(e.target.value)
                             }
@@ -251,7 +251,7 @@ const PopupSelectCate = ({ isOpen, toggle }) => {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold"
                       onClick={() => toggle()}
                     >
-                      Quay láº¡i
+                      Quay lại
                     </button>
                   </div>
                 </Dialog.Panel>

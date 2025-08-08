@@ -1,5 +1,5 @@
-﻿import React from 'react'
-import tiktokIcon from '@/../../../../assets/images/tiktok_logo.png';
+import React from 'react'
+import tiktokIcon from '@/../../../assets/images/tiktok_logo.png';
 
 const VideoEmpty = () => {
   return (

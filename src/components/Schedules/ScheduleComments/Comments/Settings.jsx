@@ -1,10 +1,10 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Label } from 'reactstrap';
 import { DatePicker } from 'rsuite';
-import { CalendarLocaleVn } from '@/../../../helpers/date';
+import { CalendarLocaleVn } from '@/../../helpers/date';
 import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
-import { setScheduleCommentsWaitingList } from '@/../../../store/actions/Schedules';
+import { setScheduleCommentsWaitingList } from '@/../../store/actions/Schedules';
 
 // generate time options from 5 minutes to 2 hours
 const generateTimeOptions = () => {
@@ -13,10 +13,10 @@ const generateTimeOptions = () => {
     timeOptions.push({
       label: `${
         index >= 60
-          ? `${Math.floor(index / 60)} giá» ${
-              index % 60 === 0 ? '' : (index % 60) + ' phÃºt'
+          ? `${Math.floor(index / 60)} giờ ${
+              index % 60 === 0 ? '' : (index % 60) + ' phút'
             }`
-          : `${index} phÃºt`
+          : `${index} phút`
       }`,
       value: index,
     });
@@ -32,12 +32,12 @@ const Settings = () => {
   );
   const dispatch = useDispatch();
 
-  // State local cho cÃ¡c trÆ°á»ng form
+  // State local cho các trường form
   const [beginDate, setBeginDate] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
   const [multipleTimeSpace, setMultipleTimeSpace] = useState(null);
 
-  // Reset form náº¿u scheduleCommentsWaitingList rá»—ng
+  // Reset form nếu scheduleCommentsWaitingList rỗng
   useEffect(() => {
     const isEmpty =
       !scheduleCommentsWaitingList ||
@@ -107,7 +107,7 @@ const Settings = () => {
     <div className="settingsContainer mt-4 flex items-center gap-2">
       <div className="beginDate w-4/12 flex flex-wrap items-center gap-2">
         <Label htmlFor="beginDate" className="whitespace-nowrap w-full">
-          Chá»n ngÃ y Ä‘Äƒng:
+          Chọn ngày đăng:
         </Label>
         <DatePicker
           format="DD-MM-YYYY"
@@ -121,7 +121,7 @@ const Settings = () => {
       </div>
       <div className="startTime flex flex-wrap items-center gap-2">
         <Label htmlFor="startTime" className="whitespace-nowrap w-full">
-          Chá»n thá»i gian báº¯t Ä‘áº§u:
+          Chọn thời gian bắt đầu:
         </Label>
         <DatePicker
           format="HH:mm"
@@ -134,7 +134,7 @@ const Settings = () => {
       </div>
       <div className="multipleTimeSpace flex flex-wrap items-center gap-2">
         <Label htmlFor="multipleTimeSpace" className="whitespace-nowrap w-full">
-          Thá»i gian cÃ¡ch nhau:
+          Thời gian cách nhau:
         </Label>
         <Select
           className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
@@ -147,7 +147,7 @@ const Settings = () => {
               : null
           }
           options={postPerDayOptions}
-          placeholder="--- Chá»n thá»i gian ---"
+          placeholder="--- Chọn thời gian ---"
         />
       </div>
     </div>

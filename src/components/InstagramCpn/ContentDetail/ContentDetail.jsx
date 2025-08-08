@@ -1,11 +1,11 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Medias from '@/Medias';
 import Header from '@/Header';
 import Footer from '@/Footer';
 import { useHistory } from 'react-router-dom';
-import { _dashed_border } from '@/../../pages/createPost/utility';
-import { breakWord } from '@/../../helpers';
+import { _dashed_border } from '@/../pages/createPost/utility';
+import { breakWord } from '@/../helpers';
 import { actionSetCurrentContent } from '@/store/actions/instagram';
 
 function ContentDetail(props) {
@@ -75,14 +75,14 @@ function ContentDetail(props) {
                       className=" bg-primary p-5 rounded-md text-white font-bold mr-2 hover:bg-gray-700 duration-300"
                       onClick={handelWritePost}
                     >
-                      Viáº¿t bÃ i
+                      Viết bài
                     </button>
 
                     <button
                       className="bottom-5 bg-red-500 p-5 rounded-md text-white font-bold hover:bg-gray-700 duration-300 mt-3"
                       onClick={() => closePopup()}
                     >
-                      ÄÃ³ng
+                      Đóng
                     </button>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-﻿import { formatDate } from '@/helpers/date';
+import { formatDate } from '@/helpers/date';
 import { get } from 'lodash';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { connect, useDispatch } from 'react-redux';
@@ -25,9 +25,9 @@ import {
 } from '@/store/actions/Schedules';
 import moment from 'moment';
 import { FiPlayCircle } from 'react-icons/fi';
-import { kFormatter } from '@/../utils/utilityFunc';
-import Client from '@/../Client';
-import { OK } from '@/../configs';
+import { kFormatter } from '@/utils/utilityFunc';
+import Client from '@/Client';
+import { OK } from '@/configs';
 import { setScript } from '@/store/actions/TextToVideo';
 
 const LeftContent = (props) => {
@@ -39,7 +39,7 @@ const LeftContent = (props) => {
     const { post_text, medias, media_type, media_url } = item;
     let mediass = medias;
     if (media_type === 'video' && media_url) {
-      toast.info('Äang táº£i video, vui lÃ²ng chá» trong giÃ¢y lÃ¡t...');
+      toast.info('Đang tải video, vui lòng chờ trong giây lát...');
       // remove last character of media_url if it is not a number
       let mediaUrl = media_url;
       const lastChar = mediaUrl[mediaUrl.length - 1];
@@ -85,21 +85,21 @@ const LeftContent = (props) => {
 
   const data = [
     {
-      title: 'Top 20 bÃ i viáº¿t nhiá»u Like nháº¥t 10 ngÃ y qua',
+      title: 'Top 20 bài viết nhiều Like nhất 10 ngày qua',
       type: 'likes',
       icon: LikeIcon,
       items: topLikeContents,
       id: 1,
     },
     {
-      title: 'Top 20 bÃ i viáº¿t nhiá»u bÃ¬nh luáº­n nháº¥t 10 ngÃ y qua',
+      title: 'Top 20 bài viết nhiều bình luận nhất 10 ngày qua',
       type: 'comments',
       icon: CommentIcon,
       items: topCommentContents,
       id: 2,
     },
     {
-      title: 'Top 20 bÃ i viáº¿t nhiá»u chia sáº» nháº¥t 10 ngÃ y qua',
+      title: 'Top 20 bài viết nhiều chia sẻ nhất 10 ngày qua',
       type: 'shares',
       icon: ShareIcon,
       items: topShareContents,
@@ -170,7 +170,7 @@ const LeftContent = (props) => {
               </div>
               <div className="w-1/4 pt-3 text-right">
                 <span className="pt-0.5">
-                  {formatDate(item.updated, 'DD t\\hÃ¡ng MM')}
+                  {formatDate(item.updated, 'DD t\\háng MM')}
                 </span>
               </div>
               <div className="w-1/4 pt-3 text-right">
@@ -227,6 +227,7 @@ const LeftContent = (props) => {
 };
 
 export default LeftContent;
+
 
 
 

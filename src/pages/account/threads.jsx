@@ -1,15 +1,15 @@
-﻿import { DataView } from 'primereact/dataview';
+import { DataView } from 'primereact/dataview';
 import 'primereact/resources/themes/lara-light-cyan/theme.css';
 import React, { useEffect, useState } from 'react';
 import ReactFacebookLogin from 'react-facebook-login';
-import { LoginFBService } from '@/../services/loginFB';
-import { userServices } from '@/../services/users';
+import { LoginFBService } from '@/services/loginFB';
+import { userServices } from '@/services/users';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginThreads } from '@/../helpers/threads';
-import { threadsService } from '@/../services/threads';
-import { OK } from '@/../configs';
-import { convertInstagramLink } from '@/../helpers';
-import auth from '@/../utils/auth';
+import { loginThreads } from '@/helpers/threads';
+import { threadsService } from '@/services/threads';
+import { OK } from '@/configs';
+import { convertInstagramLink } from '@/helpers';
+import auth from '@/utils/auth';
 import { toast } from 'react-toastify';
 
 const Threads = () => {
@@ -49,7 +49,7 @@ const Threads = () => {
       userInfo.threads_access_token = '';
       userInfo.threads_id = '';
       auth.setUserInfo(userInfo, true);
-      toast.success('Ngáº¯t káº¿t ná»‘i thÃ nh cÃ´ng');
+      toast.success('Ngắt kết nối thành công');
     }
   };
 
@@ -58,7 +58,7 @@ const Threads = () => {
       <div className="flex flex-col items-center justify-center mb-2">
         {isLoadingThreadsInfo ? (
           <h3 className="mb-4 text-base font-extrabold leading-none tracking-tight text-gray-900  dark:text-white">
-            Äang kiá»ƒm tra thÃ´ng tin tÃ i khoáº£n Threads...
+            Đang kiểm tra thông tin tài khoản Threads...
           </h3>
         ) : (
           <div>
@@ -71,13 +71,13 @@ const Threads = () => {
                     className="bg-red-500 text-white px-4 py-2 rounded-3xl uppercase font-bold text-sm"
                     onClick={onClickDisconnect}
                   >
-                    Ngáº¯t káº¿t ná»‘i
+                    Ngắt kết nối
                   </button>
                   <button
                     className="text-white px-4 py-5 rounded-3xl uppercase font-bold bg-black text-sm"
                     onClick={loginThreads}
                   >
-                    Káº¿t ná»‘i láº¡i
+                    Kết nối lại
                   </button>
                 </div>
                 <div
@@ -126,7 +126,7 @@ const Threads = () => {
                   onClick={loginThreads}
                   className="text-white px-6 py-4 rounded-3xl uppercase bg-black text-sm"
                 >
-                  ÄÄƒng nháº­p Threads
+                  Đăng nhập Threads
                 </button>
               </div>
             )}
@@ -138,4 +138,5 @@ const Threads = () => {
 };
 
 export default Threads;
+
 

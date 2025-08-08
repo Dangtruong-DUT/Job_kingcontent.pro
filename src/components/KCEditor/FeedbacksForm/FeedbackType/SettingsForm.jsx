@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { XIcon } from '@heroicons/react/outline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,7 +8,7 @@ import {
   faSave,
 } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
-import { changeFeedbackSettings } from '@/../../../store/actions/editor/editorActions';
+import { changeFeedbackSettings } from '@/../../store/actions/editor/editorActions';
 
 const SettingsForm = (props) => {
   const { setIsShowSettingsForm, feedbackSettings, changeFeedbackSettings } =
@@ -110,7 +110,7 @@ const SettingsForm = (props) => {
           />
         </div>
 
-        <h5 className="w-full uppercase mb-3">Thanh tráº¡ng thÃ¡i</h5>
+        <h5 className="w-full uppercase mb-3">Thanh trạng thái</h5>
         <div className="barStatus grid grid-cols-3 gap-3">
           <div className="flex items-center rounded-lg border border-gray-300">
             <FontAwesomeIcon className="text-base w-10 mx-2" icon={faSignal} />
@@ -144,7 +144,7 @@ const SettingsForm = (props) => {
           </div>
         </div>
 
-        <h5 className="w-full uppercase my-3">Cuá»™c trÃ² chuyá»‡n</h5>
+        <h5 className="w-full uppercase my-3">Cuộc trò chuyện</h5>
         <div className="customer flex">
           <form className="some-container hidden">
             <input
@@ -184,7 +184,7 @@ const SettingsForm = (props) => {
           }}
         >
           <FontAwesomeIcon className="text-base w-10 mx-2" icon={faSave} />
-          <span>LÆ°u láº¡i</span>
+          <span>Lưu lại</span>
         </button>
       </div>
     </div>

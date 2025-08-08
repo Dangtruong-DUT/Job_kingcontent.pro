@@ -1,4 +1,4 @@
-﻿import { DATE_TIME_FORMAT, formatDate } from '@/../../../helpers/date';
+import { DATE_TIME_FORMAT, formatDate } from '@/../../helpers/date';
 
 const SingleComment = ({comment}) => {
   

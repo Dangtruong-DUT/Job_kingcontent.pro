@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -6,14 +6,14 @@ import {
   actionAddImage,
   createContentToHomepage,
   toggleEditorText,
-} from '@/../../../store/actions/createContent';
-import { TYPE_GO_CONTENT, TYPE_GO_PAGE } from '@/../../../utils/utilityFunc';
+} from '@/../../store/actions/createContent';
+import { TYPE_GO_CONTENT, TYPE_GO_PAGE } from '@/../../utils/utilityFunc';
 import CalendarEvents from '@/CalendarEvents';
 import { Link } from 'react-router-dom';
 import ModalEvent from '@/ModalEvent';
 import Subjects from '@/Subjects';
 import SingleSubject from '@/Subjects/SingleSubject';
-import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
+import { setContentDetailToShow } from '@/../../store/actions/Contents/contentActions';
 const RightContent = () => {
   const { trendding, topicSelected } = useSelector((state) => state.homepage);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -44,10 +44,10 @@ const RightContent = () => {
       <CalendarEvents />
       <div className="w-full border-2 border-gray-300 border-dashed mt-2 mb-2"></div>
       <div className="flex justify-between items-center">
-        <h2 className="font-bold uppercase text-base">Äang thá»‹nh hÃ nh</h2>
+        <h2 className="font-bold uppercase text-base">Đang thịnh hành</h2>
         <span className="text-blue-500 underline font-bold">
           <Link to="/dang-thinh-hanh" className="italic ml-auto mr-5">
-            Xem táº¥t cáº£
+            Xem tất cả
           </Link>
         </span>
       </div>

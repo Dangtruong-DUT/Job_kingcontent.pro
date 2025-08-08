@@ -1,8 +1,8 @@
-﻿import { Link } from '@mui/material';
-import { numberWithCommas } from '@/../../../../utils/utilityFunc';
+import { Link } from '@mui/material';
+import { numberWithCommas } from '@/../../../utils/utilityFunc';
 import { FaMinusCircle } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { deleteChosenCategories } from '@/../../../../store/actions/homepage';
+import { deleteChosenCategories } from '@/../../../store/actions/homepage';
 import { confirmAlert } from 'react-confirm-alert';
 
 const SingleCate = (props) => {
@@ -22,15 +22,15 @@ const SingleCate = (props) => {
 
   const removeCate = (cate_id) => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a chá»§ Ä‘á» nÃ y khÃ´ng ?',
+      title: 'Xác nhận',
+      message: 'Bạn có chắc chắn muốn xóa chủ đề này không ?',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => dispatch(deleteChosenCategories(cate_id)),
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -49,7 +49,7 @@ const SingleCate = (props) => {
       <div className="detail p-2" onClick={onClickCate}>
         <h5 className="font-bold mb-2">{cate_name}</h5>
         <div className="text-left text-gray-500 origin-center group-hover:text-gray-600 transition-all">
-          <span>{numberWithCommas(posts_count)} máº«u quáº£ng cÃ¡o</span>
+          <span>{numberWithCommas(posts_count)} mẫu quảng cáo</span>
         </div>
       </div>
       {/* icon to remove cate */}

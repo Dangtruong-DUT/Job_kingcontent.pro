@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getEventContents,
@@ -8,7 +8,7 @@ import {
   setShowSourceIdeasPopup,
   setSelectedEvent,
 } from '@/store/actions/Schedules';
-import PostSugesstion from '@/../ContentSugesstion/PostSugesstion';
+import PostSugesstion from '@/ContentSugesstion/PostSugesstion';
 import SingleContent from '@/SingleContent';
 import DialogDetailPost from '@/SingleContent/dialogPostDetail';
 import { FaAngleLeft } from 'react-icons/fa';
@@ -124,10 +124,10 @@ const Contents = (props) => {
           }}
         >
           <FaAngleLeft fontSize={20} />
-          <span>Xem táº¥t cáº£ sá»± kiá»‡n</span>
+          <span>Xem tất cả sự kiện</span>
         </button>
         <h4 className="mb-2">
-          Báº¡n Ä‘Ã£ chá»n sá»± kiá»‡n{' '}
+          Bạn đã chọn sự kiện{' '}
           <span className="text-red-500">{event?.title || ''}</span>
         </h4>
       </div>
@@ -139,17 +139,17 @@ const Contents = (props) => {
               className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
               onClick={() => onSelectAll()}
             >
-              Chá»n toÃ n bá»™
+              Chọn toàn bộ
             </button>
             <button
               className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
               onClick={() => onUnSelectAll()}
             >
-              Bá» chá»n
+              Bỏ chọn
             </button>
           </div>
           <div className="summary mb-2 ml-auto text-base">
-            <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+            <span>Số bài viết đã chọn: </span>
             <span className="font-bold">
               {autoWaitingList?.contents?.length || 0}
             </span>
@@ -159,7 +159,7 @@ const Contents = (props) => {
       <div className={`max-h-schedule-contents overflow-auto mt-3`}>
         {!showFilter && !isLoading ? (
           <div className="flex justify-center">
-            <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+            <span className="font-bold">Không có dữ liệu hiển thị</span>
           </div>
         ) : (
           <>
@@ -184,7 +184,7 @@ const Contents = (props) => {
                   className={`rounded-md text-white bg-blue-400 p-3 w-1/2`}
                   onClick={(e) => getMoreContents()}
                 >
-                  Xem thÃªm
+                  Xem thêm
                 </button>
               </div>
             )}

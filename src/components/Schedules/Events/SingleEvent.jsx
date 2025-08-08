@@ -1,9 +1,9 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import defaultCatImg from '@/assets/images/default-cat-thumbnail.jpg';
-import { numberWithCommas } from '@/../../utils/utilityFunc';
+import { numberWithCommas } from '@/../utils/utilityFunc';
 import { setSelectedEvent } from '@/store/actions/Schedules';
 
 const SingleEvent = (props) => {

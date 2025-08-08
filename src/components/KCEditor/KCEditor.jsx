@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Column from '@/Column/index';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ import {
   get100DonCharts,
   get100DonDetails
 } from '@/store/actions/editor/editorActions';
-import auth from '@/../utils/auth';
+import auth from '@/utils/auth';
 
 const KCEditor = (props) => {
   const {   

@@ -1,6 +1,6 @@
-﻿import React from 'react'
-import addIcon from '@/../../../../assets/images/icon/add-special.png';
-import noImageIcon from '@/../../../../assets/images/no-image.png';
+import React from 'react'
+import addIcon from '@/../../../assets/images/icon/add-special.png';
+import noImageIcon from '@/../../../assets/images/no-image.png';
 import { Link } from 'react-router-dom';
 const FanpageEmpty = () => {
     return (
@@ -16,7 +16,7 @@ const FanpageEmpty = () => {
             <div className='absolute w-full '>
                 <div className='flex mt-2 justify-center'>
                     <Link to={'/danh-sach-page'}>
-                        <button title='Click Ä‘á»ƒ táº¡o lá»‹ch Ä‘Äƒng bÃ i má»›i'><img src={addIcon} width={40} height={40} alt="" /></button></Link>
+                        <button title='Click để tạo lịch đăng bài mới'><img src={addIcon} width={40} height={40} alt="" /></button></Link>
 
                 </div>
             </div>

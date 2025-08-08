@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Tab } from '@headlessui/react';
 import { FiCheckSquare, FiEdit2, FiImage, FiX } from 'react-icons/fi';
 import ImageUploading from 'react-images-uploading';
@@ -8,11 +8,11 @@ import {
   resetImagesSelect,
   updateProps,
 } from '@/store/actions/createContent';
-import { ResourcesService } from '@/../../services/resources';
+import { ResourcesService } from '@/services/resources';
 import { toast } from 'react-toastify';
 import { UPLOAD_TYPE_IMAGE, UPLOAD_TYPE_VIDEO, hasVideo } from '@/utility';
 import { useState } from 'react';
-import { isArrayEmpty, OK } from '@/../../configs';
+import { isArrayEmpty, OK } from '@/configs';
 import { confirmAlert } from 'react-confirm-alert';
 import {
   KEY_EDITOR_IMAGE,
@@ -20,8 +20,8 @@ import {
   KEY_IMAGE_SELECT,
   KEY_INDEX_IMAGE_SELECT,
   KEY_ITEM_EDIT,
-} from '@/../../reducers/createContent';
-import { REDUX_NAME_CREATE_POST } from '@/../../utils/utilityFunc';
+} from '@/../reducers/createContent';
+import { REDUX_NAME_CREATE_POST } from '@/../utils/utilityFunc';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -60,7 +60,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
   const upload = async () => {
     if (hashVideoOrImage === UPLOAD_TYPE_VIDEO && !isArrayEmpty(imageSelect)) {
       toast.warning(
-        'KhÃ´ng thá»ƒ sá»­ dá»¥ng nhiá»u video trong cÃ¹ng má»™t content, vui lÃ²ng xÃ³a video cÅ©'
+        'Không thể sử dụng nhiều video trong cùng một content, vui lòng xóa video cũ'
       );
       return;
     }
@@ -117,7 +117,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
         ])
       );
       setUploading(false);
-      toast.success('Táº£i dá»¯ liá»‡u thÃ nh cÃ´ng !');
+      toast.success('Tải dữ liệu thành công !');
       setResources(resCreateResources?.data?.data || []);
     }
   };
@@ -131,7 +131,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
     if (file.size > maxSize) {
       const currentSize = (file.size / (1024 * 1024)).toFixed(2);
       toast.error(
-        `Báº¡n Ä‘ang táº£i lÃªn video dung lÆ°á»£ng ${currentSize}MB, vui lÃ²ng chá»n video cÃ³ dung lÆ°á»£ng nhá» hÆ¡n 20MB`
+        `Bạn đang tải lên video dung lượng ${currentSize}MB, vui lòng chọn video có dung lượng nhỏ hơn 20MB`
       );
       return;
     }
@@ -139,7 +139,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
     if (file) {
       if (videos.length === 1) {
         toast.warning(
-          'Há»‡ thá»‘ng táº¡m thá»i chÆ°a há»— trá»£ sá»­ dá»¥ng nhiá»u video trong cÃ¹ng má»™t bÃ i viáº¿t, vui lÃ²ng xÃ³a video cÅ©'
+          'Hệ thống tạm thời chưa hỗ trợ sử dụng nhiều video trong cùng một bài viết, vui lòng xóa video cũ'
         );
         return;
       }
@@ -153,12 +153,12 @@ const Upload = ({ setIsEditor, images, setImages }) => {
       (type === 1 && !isArrayEmpty(images))
     ) {
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
+        title: 'Thông báo',
         message:
-          'KhÃ´ng thá»ƒ sá»­ dá»¥ng cáº£ áº£nh vÃ  video trong cÃ¹ng má»™t content, vui lÃ²ng xÃ³a háº¿t áº£nh !',
+          'Không thể sử dụng cả ảnh và video trong cùng một content, vui lòng xóa hết ảnh !',
         buttons: [
           {
-            label: 'XoÃ¡ háº¿t áº£nh',
+            label: 'Xoá hết ảnh',
             onClick: async () => {
               dispatch(resetImagesSelect());
               setImages([]);
@@ -166,7 +166,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
             },
           },
           {
-            label: 'KhÃ´ng',
+            label: 'Không',
             onClick: () => {},
           },
         ],
@@ -178,12 +178,12 @@ const Upload = ({ setIsEditor, images, setImages }) => {
       (type === 0 && !isArrayEmpty(videos))
     ) {
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
+        title: 'Thông báo',
         message:
-          'KhÃ´ng thá»ƒ sá»­ dá»¥ng cáº£ áº£nh vÃ  video trong cÃ¹ng má»™t content, vui lÃ²ng xÃ³a háº¿t video !',
+          'Không thể sử dụng cả ảnh và video trong cùng một content, vui lòng xóa hết video !',
         buttons: [
           {
-            label: 'XoÃ¡ háº¿t video',
+            label: 'Xoá hết video',
             onClick: async () => {
               dispatch(resetImagesSelect());
               setVideos([]);
@@ -191,7 +191,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
             },
           },
           {
-            label: 'KhÃ´ng',
+            label: 'Không',
             onClick: () => {},
           },
         ],
@@ -239,7 +239,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
     if (resource.type === 'image') {
       if (hasVideo(imageSelect)) {
         toast.warning(
-          'KhÃ´ng thá»ƒ sá»­ dá»¥ng video vÃ  áº£nh trong cÃ¹ng má»™t content, vui lÃ²ng xÃ³a video cÅ©'
+          'Không thể sử dụng video và ảnh trong cùng một content, vui lòng xóa video cũ'
         );
         return;
       }
@@ -257,7 +257,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
       // only 1 video selected
       if (!isArrayEmpty(imageSelect)) {
         toast.warning(
-          'KhÃ´ng thá»ƒ sá»­ dá»¥ng nhiá»u video hoáº·c cáº£ video vÃ  áº£nh trong cÃ¹ng má»™t content, vui lÃ²ng xÃ³a áº£nh/video cÅ©'
+          'Không thể sử dụng nhiều video hoặc cả video và ảnh trong cùng một content, vui lòng xóa ảnh/video cũ'
         );
         return;
       }
@@ -276,30 +276,30 @@ const Upload = ({ setIsEditor, images, setImages }) => {
   const handleOnRemoveResource = async (resource) => {
     const { id, type = 'image' } = resource;
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
-      message: `Báº¡n cÃ³ cháº¯c muá»‘n xoÃ¡ ${
-        type === 'image' ? 'áº£nh' : 'video'
-      } nÃ y khÃ´ng ?`,
+      title: 'Thông báo',
+      message: `Bạn có chắc muốn xoá ${
+        type === 'image' ? 'ảnh' : 'video'
+      } này không ?`,
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: async () => {
-            toast.info('Äang xoÃ¡ dá»¯ liá»‡u ...');
+            toast.info('Đang xoá dữ liệu ...');
             const res = await ResourcesService.deleteFile(id);
             if (res.status === OK) {
               toast.dismiss();
-              toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+              toast.success('Xoá thành công !');
               // remove this item from resources
               const newResources = resources.filter((_elt) => _elt.id !== id);
               setResources(newResources);
             } else {
               toast.dismiss();
-              toast.error('Äang cÃ³ lá»—i xáº£y ra, vui lÃ²ng thá»­ láº¡i sau !');
+              toast.error('Đang có lỗi xảy ra, vui lòng thử lại sau !');
             }
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -390,11 +390,11 @@ const Upload = ({ setIsEditor, images, setImages }) => {
                   </svg>
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
                     <span className="font-semibold">
-                      Nháº¥n hoáº·c kÃ©o tháº£ hÃ¬nh áº£nh Ä‘á»ƒ táº£i lÃªn
+                      Nhấn hoặc kéo thả hình ảnh để tải lên
                     </span>
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    * Äá»‹nh dáº¡ng yÃªu cáº§u : SVG, PNG, JPG or JPEG
+                    * Định dạng yêu cầu : SVG, PNG, JPG or JPEG
                   </p>
                 </div>
               </label>
@@ -449,10 +449,10 @@ const Upload = ({ setIsEditor, images, setImages }) => {
                 ></path>
               </svg>
               <p className="mb-2 text-gray-500 dark:text-gray-400">
-                <span className="font-semibold">Nháº¥n Ä‘á»ƒ táº£i lÃªn video</span>
+                <span className="font-semibold">Nhấn để tải lên video</span>
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                * Äá»‹nh dáº¡ng yÃªu cáº§u : .mp4 <br />* Dung lÆ°á»£ng tá»‘i Ä‘a : 20MB
+                * Định dạng yêu cầu : .mp4 <br />* Dung lượng tối đa : 20MB
               </p>
             </div>
             <input
@@ -491,7 +491,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
                 ></path>
               </svg>
               <p className="mb-2 text-gray-500 dark:text-gray-400">
-                <span className="font-semibold">Äang táº£i dá»¯ liá»‡u ...</span>
+                <span className="font-semibold">Đang tải dữ liệu ...</span>
               </p>
             </div>
           </div>
@@ -579,7 +579,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
               )
             }
           >
-            HÃ¬nh áº£nh
+            Hình ảnh
           </Tab>
           <Tab
             // disabled={hashVideoOrImage === UPLOAD_TYPE_IMAGE}
@@ -606,7 +606,7 @@ const Upload = ({ setIsEditor, images, setImages }) => {
               )
             }
           >
-            ÄÃ£ táº£i lÃªn
+            Đã tải lên
           </Tab>
         </Tab.List>
         <Tab.Panels className="mt-2 overflow-scroll overflow-x-hidden max-h-screen">
@@ -626,11 +626,11 @@ const Upload = ({ setIsEditor, images, setImages }) => {
           {uploading ? (
             <span className="text-white font-bold">
               {uploadProgress === 100
-                ? 'Äang táº£i dá»¯ liá»‡u lÃªn há»‡ thá»‘ng, vui lÃ²ng Ä‘á»£i trong giÃ¢y lÃ¡t ...'
+                ? 'Đang tải dữ liệu lên hệ thống, vui lòng đợi trong giây lát ...'
                 : `${uploadProgress}%`}
             </span>
           ) : (
-            'Táº£i lÃªn táº¥t cáº£'
+            'Tải lên tất cả'
           )}
         </button>
       )}
@@ -639,5 +639,6 @@ const Upload = ({ setIsEditor, images, setImages }) => {
 };
 
 export default Upload;
+
 
 

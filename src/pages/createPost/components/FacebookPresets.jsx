@@ -1,11 +1,11 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getFacebookPresets,
   setIsActivePreset,
   setSelectFacebookPreset,
 } from '@/store/actions/editor/createContentActions';
-import LoadingApp from '@/../../components/LoadingApp';
+import LoadingApp from '@/../components/LoadingApp';
 import { Checkbox } from 'rsuite';
 
 const checkLink = async (url) => {
@@ -88,20 +88,20 @@ const FacebookPresets = (props) => {
               checked={isActivePreset}
               onChange={() => onChangeIsActivePreset(!isActivePreset)}
             >
-              Báº­t/táº¯t cháº¿ Ä‘á»™ Ä‘Äƒng mÃ u ná»n
+              Bật/tắt chế độ đăng màu nền
             </Checkbox>
           </div>
           {isActivePreset && (
             <p className="font-bold italic text-sm">
-              * Náº¿u báº¡n muá»‘n chá»n ngáº«u nhiÃªn áº£nh ná»n, vui lÃ²ng khÃ´ng chá»n biá»ƒu
-              tÆ°á»£ng nÃ o
+              * Nếu bạn muốn chọn ngẫu nhiên ảnh nền, vui lòng không chọn biểu
+              tượng nào
             </p>
           )}
           <div className="max-h-screen overflow-y-auto p-2 relative">
             {!isActivePreset && (
               <div className="cursor-not-allowed text-center absolute z-20 bg-white opacity-75 w-full h-full flex items-center justify-center">
                 <p className="text-xl font-bold text-gray-500">
-                  Vui lÃ²ng báº­t cháº¿ Ä‘á»™ Ä‘Äƒng mÃ u ná»n Ä‘á»ƒ chá»n máº«u
+                  Vui lòng bật chế độ đăng màu nền để chọn mẫu
                 </p>
               </div>
             )}
@@ -121,7 +121,7 @@ const FacebookPresets = (props) => {
                     dispatch(getFacebookPresets(facebookPresetsCurrentPage + 1))
                   }
                 >
-                  Xem thÃªm
+                  Xem thêm
                 </button>
               )}
             </div>

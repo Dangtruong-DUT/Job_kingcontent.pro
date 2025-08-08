@@ -1,7 +1,7 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { FiSkipBack, FiSkipForward } from 'react-icons/fi';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { isArrayEmpty } from '@/../../configs';
+import { isArrayEmpty } from '@/configs';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 const ImageStyled = styled.img`
@@ -98,4 +98,5 @@ function Medias(props) {
 }
 
 export default Medias;
+
 

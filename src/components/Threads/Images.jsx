@@ -1,4 +1,4 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { FiPlayCircle } from 'react-icons/fi';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +6,7 @@ import { MdOutlineClear } from 'react-icons/md';
 import MenuIconThreads from '@/assets/images/threads-thumbnail.png';
 
 import ReactPlayer from 'react-player';
-import { convertInstagramLink, getNoImage } from '@/../helpers';
+import { convertInstagramLink, getNoImage } from '@/helpers';
 import styled from 'styled-components';
 
 const VideoThumnail = styled.div`

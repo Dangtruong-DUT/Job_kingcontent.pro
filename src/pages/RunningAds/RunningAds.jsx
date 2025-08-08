@@ -1,5 +1,5 @@
-﻿import React from 'react'
-import RunningAdsCpn from '@/../components/RunningAdsCpn'
+import React from 'react'
+import RunningAdsCpn from '@/components/RunningAdsCpn'
 
 const RunningAds = () => {
   

@@ -1,14 +1,14 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
-import { env } from '@/../configs/envConfig';
+import React, { Fragment, useEffect, useState } from 'react';
+import { env } from '@/configs'/envConfig';
 import 'primereact/resources/themes/lara-light-cyan/theme.css';
 import ReactFacebookLogin from 'react-facebook-login';
 import { FaTag } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
-import { LoginFBService } from '@/../services/loginFB';
-import { userServices } from '@/../services/users';
-import auth from '@/../utils/auth';
-import { OK } from '@/../configs';
+import { LoginFBService } from '@/services/loginFB';
+import { userServices } from '@/services/users';
+import auth from '@/utils/auth';
+import { OK } from '@/configs';
 const ButtonLoginFB = styled.div`
   .kep-login-facebook {
     border-radius: 24px !important;
@@ -41,7 +41,7 @@ const Facebook = (props) => {
   const responseFacebook = async (response) => {
     const { error = null, status = null } = response;
     if (error || (status && status === 'unknown')) {
-      toast.error('ÄÄƒng nháº­p khÃ´ng thÃ nh cÃ´ng');
+      toast.error('Đăng nhập không thành công');
     } else {
       const newUserInfo = {
         fb_email: response.email,
@@ -58,9 +58,9 @@ const Facebook = (props) => {
         currentUserInfo.fb_name = response.name;
         auth.setUserInfo(currentUserInfo, true);
         getFangpageAndGroup();
-        toast.success('Káº¿t ná»‘i vá»›i Facebook thÃ nh cÃ´ng !');
+        toast.success('Kết nối với Facebook thành công !');
       } else {
-        toast.success('Káº¿t ná»‘i vá»›i Facebook tháº¥t báº¡i , vui lÃ²ng thá»­ láº¡i !');
+        toast.success('Kết nối với Facebook thất bại , vui lòng thử lại !');
       }
     }
   };
@@ -122,7 +122,7 @@ const Facebook = (props) => {
       userInfo.fb_name = '';
       auth.setUserInfo(userInfo, true);
       setIsAccessTokenFb(false);
-      toast.success('Ngáº¯t káº¿t ná»‘i thÃ nh cÃ´ng');
+      toast.success('Ngắt kết nối thành công');
     }
   };
 
@@ -139,7 +139,7 @@ const Facebook = (props) => {
                 className="bg-red-500 text-white px-4 py-2 rounded-3xl uppercase font-bold text-sm"
                 onClick={onClickDisconnect}
               >
-                Ngáº¯t káº¿t ná»‘i
+                Ngắt kết nối
               </button>
               <ButtonLoginFB>
                 <ReactFacebookLogin
@@ -149,7 +149,7 @@ const Facebook = (props) => {
                   scope={`${env.VITE_FB_APP_SCOPE}`}
                   version={`${env.VITE_FB_APP_API_VERSION}`}
                   callback={responseFacebook}
-                  textButton="Káº¿t ná»‘i láº¡i"
+                  textButton="Kết nối lại"
                 />
               </ButtonLoginFB>
             </div>
@@ -161,7 +161,7 @@ const Facebook = (props) => {
               {fanpages.length === 0 && (
                 <div className="flex justify-center items-center h-40">
                   <span className="text-sm font-bold">
-                    Báº¡n chÆ°a lÃ m quáº£n trá»‹ viÃªn cá»§a trang nÃ o
+                    Bạn chưa làm quản trị viên của trang nào
                   </span>
                 </div>
               )}
@@ -172,7 +172,7 @@ const Facebook = (props) => {
         <div className="flex flex-col items-center justify-center mb-2">
           <div>
             <h3 className="mb-4 text-base font-extrabold leading-none tracking-tight text-gray-900  dark:text-white">
-              Äang táº£i dá»¯ liá»‡u tá»« Facebook...
+              Đang tải dữ liệu từ Facebook...
             </h3>
           </div>
         </div>
@@ -180,7 +180,7 @@ const Facebook = (props) => {
         <div className="flex flex-col items-center justify-center mb-2">
           <div>
             <h3 className="mb-3 text-base font-extrabold leading-none tracking-tight text-gray-900  dark:text-white">
-              Sá»­ dá»¥ng dá»¥ng tÃ i khoáº£n Facebook Ä‘á»ƒ Ä‘Äƒng nháº­p !
+              Sử dụng dụng tài khoản Facebook để đăng nhập !
             </h3>
           </div>
           <ButtonLoginFB>
@@ -191,7 +191,7 @@ const Facebook = (props) => {
               scope={`${env.VITE_FB_APP_SCOPE}`}
               version={`${env.VITE_FB_APP_API_VERSION}`}
               callback={responseFacebook}
-              textButton="Káº¿t ná»‘i vá»›i Facebook"
+              textButton="Kết nối với Facebook"
             />
           </ButtonLoginFB>
         </div>
@@ -201,4 +201,5 @@ const Facebook = (props) => {
 };
 
 export default Facebook;
+
 

@@ -1,9 +1,9 @@
-﻿import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { Label } from 'reactstrap';
 import { Checkbox, DatePicker, Input } from 'rsuite';
 // import 'rsuite/dist/styles/rsuite-default.min.css';
-import { CalendarLocaleVn } from '@/../../../helpers/date';
+import { CalendarLocaleVn } from '@/../../helpers/date';
 import { useSelector } from 'react-redux';
 
 const CustomizeContent = (props) => {
@@ -50,7 +50,7 @@ const CustomizeContent = (props) => {
         className="title p-3 font-bold text-base uppercase mb-2 cursor-pointer border rounded-md flex items-center"
         onClick={() => onClickShowBody()}
       >
-        <h4>Chá»‰nh sá»­a bÃ i viáº¿t trÆ°á»›c khi Ä‘Äƒng</h4>
+        <h4>Chỉnh sửa bài viết trước khi đăng</h4>
         {isShowBody ? (
           <FaAngleUp className="ml-auto" />
         ) : (
@@ -66,7 +66,7 @@ const CustomizeContent = (props) => {
           <div className="border rounded-md w-full p-3">
             <div className="date flex gap-3 items-center">
               <Label htmlFor="startDate" className="whitespace-nowrap">
-                Thá»i gian Ä‘Äƒng bÃ i:
+                Thời gian đăng bài:
               </Label>
               <DatePicker
                 format="DD-MM-YYYY HH:mm"
@@ -85,8 +85,8 @@ const CustomizeContent = (props) => {
                 checked={isRandomPresets}
                 onChange={() => setIsRandomPresets(!isRandomPresets)}
               >
-                Chá»n Ä‘á»ƒ tá»± Ä‘á»™ng thÃªm mÃ u ná»n (Chá»‰ Ã¡p dá»¥ng cho bÃ i viáº¿t khÃ´ng cÃ³
-                áº£nh / video)
+                Chọn để tự động thêm màu nền (Chỉ áp dụng cho bài viết không có
+                ảnh / video)
               </Checkbox> */}
               {canBeReel && (
                 <Checkbox
@@ -95,7 +95,7 @@ const CustomizeContent = (props) => {
                   checked={isReels}
                   onChange={() => onChangeIsReels()}
                 >
-                  ÄÄƒng dáº¡ng reels
+                  Đăng dạng reels
                 </Checkbox>
               )}
             </div>

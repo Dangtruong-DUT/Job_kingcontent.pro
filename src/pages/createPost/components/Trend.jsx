@@ -1,14 +1,14 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PostSugesstion from '@/../../components/ContentSugesstion/PostSugesstion';
+import PostSugesstion from '@/../components/ContentSugesstion/PostSugesstion';
 import { actionGetTrendingContent } from '@/store/actions/createContent';
-import KindOfContentSelect from '@/../../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
+import KindOfContentSelect from '@/../components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
 import { ImSearch } from 'react-icons/im';
-import FreqLikeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
-import FreqCommentSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
-import FreqShareSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
-import FreqTimeSelect from '@/../../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
-import { handleSelectSort } from '@/../../helpers';
+import FreqLikeSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqLikeSelect';
+import FreqCommentSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqCommentSelect';
+import FreqShareSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqShareSelect';
+import FreqTimeSelect from '@/../components/CategoriesContent/SearchAndFilter/FreqTimeSelect';
+import { handleSelectSort } from '@/../helpers';
 const Trend = () => {
   const { trendings, page } = useSelector((state) => state.trendings);
 
@@ -60,14 +60,14 @@ const Trend = () => {
             className=" text-sm font-semibold text-gray-800 filter drop-shadow-md"
             htmlFor="sort"
           >
-            TÃ¬m kiáº¿m:
+            Tìm kiếm:
           </label>
           <div className="flex flex-nowrap items-center px-2">
             <div className="pr-2 w-1/2">
               <input
                 type="text"
                 id="search"
-                placeholder="TÃ¬m kiáº¿m theo ná»™i dung, fanpage...."
+                placeholder="Tìm kiếm theo nội dung, fanpage...."
                 className="border border-gray-300 rounded-md py-1 px-2 w-full leading-7"
                 onChange={(e) => setKeyword(e.target.value)}
               />
@@ -87,7 +87,7 @@ const Trend = () => {
             className=" text-sm font-semibold text-gray-800 filter drop-shadow-md"
             htmlFor="sort"
           >
-            Sáº¯p xáº¿p dá»¯ liá»‡u:
+            Sắp xếp dữ liệu:
           </label>
           <div className="mt-1 mb-3 grid grid-cols-2 gap-3" id="sort">
             <FreqLikeSelect

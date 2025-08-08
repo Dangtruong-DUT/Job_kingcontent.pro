@@ -1,10 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { isArrayEmpty, OK, VIDEO_EDITOR_URL } from '@/../../configs';
+import { isArrayEmpty, OK, VIDEO_EDITOR_URL } from '@/configs';
 import {
   ACTION_CHANGE_LOADING_APP,
   ACTION_FILTER_STATUS_DOUYIN_VIDEOS_SUCCESS,
@@ -18,7 +18,7 @@ import {
   actionUpdateCollectionModalOpen,
   actionUpdateCollectionModalType,
 } from '@/store/actions/douyin/index';
-import { douyinService } from '@/../../services/douyin';
+import { douyinService } from '@/services/douyin';
 import {
   setCurrentDateTime,
   setIsShowFinalStep,
@@ -26,11 +26,11 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import LoadingApp from '@/../LoadingApp';
-import DetailDouyin from '@/../Schedules/douyin/detailDouyin';
+import LoadingApp from '@/LoadingApp';
+import DetailDouyin from '@/Schedules/douyin/detailDouyin';
 import SingleChannel from '@/SingleChannel';
 import SingleVideo from '@/SingleVideo';
-import auth from '@/../../utils/auth';
+import auth from '@/../utils/auth';
 
 const renderTitle = (type, name) => {
   return (
@@ -39,23 +39,23 @@ const renderTitle = (type, name) => {
       {type === 'channel' ? (
         <span>
           {' '}
-          Danh sÃ¡ch video cá»§a kÃªnh:
+          Danh sách video của kênh:
           <span className="font-bold">{name}</span>
         </span>
       ) : type === 'collection' ? (
         <span>
           {' '}
-          Danh sÃ¡ch video cá»§a bá»™ sÆ°u táº­p:
+          Danh sách video của bộ sưu tập:
           <span className="font-bold">{name}</span>
         </span>
       ) : type === 'keyword' ? (
         <span>
           {' '}
-          Káº¿t quáº£ tÃ¬m kiáº¿m theo tá»« khoÃ¡:
+          Kết quả tìm kiếm theo từ khoá:
           <span className="font-bold">{name}</span>
         </span>
       ) : (
-        <span> Danh sÃ¡ch video Ä‘ang thá»‹nh hÃ nh</span>
+        <span> Danh sách video đang thịnh hành</span>
       )}
     </h3>
   );
@@ -74,12 +74,12 @@ const convertSecondsToReadableFormat = (seconds) => {
     const remainingSeconds = seconds % 60;
     
     if (remainingSeconds === 0) {
-      return `${minutes} phÃºt`;
+      return `${minutes} phút`;
     } else {
-      return `${minutes} phÃºt ${remainingSeconds} giÃ¢y`;
+      return `${minutes} phút ${remainingSeconds} giây`;
     }
   }
-  return `${seconds} giÃ¢y`;
+  return `${seconds} giây`;
 };
 
 const RightPart = (props) => {
@@ -178,22 +178,22 @@ const RightPart = (props) => {
       case 'REMOVE_FROM_COLLECTION':
         const collectionId = collId ? collId : elt.collection_id;
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ video nÃ y khá»i BST khÃ´ng?',
+          title: 'Thông báo',
+          message: 'Bạn có chắc chắn muốn xoá video này khỏi BST không?',
           buttons: [
             {
-              label: 'Cháº¯c cháº¯n',
+              label: 'Chắc chắn',
               onClick: async () => {
                 await dispatch(
                   actionRemoveVideoFromCollection(collectionId, elt.video_id)
                 );
                 await dispatch(actionGetDouyinCollections());
                 await dispatch(actionGetDouyinVideosByCollection(collectionId));
-                toast.success('XoÃ¡ video ra khá»i bá»™ sÆ°u táº­p thÃ nh cÃ´ng !');
+                toast.success('Xoá video ra khỏi bộ sưu tập thành công !');
               },
             },
             {
-              label: 'Äá»•i Ã½',
+              label: 'Đổi ý',
               onClick: () => {},
             },
           ],
@@ -215,12 +215,12 @@ const RightPart = (props) => {
           history.push('/lich-dang-bai');
         } else {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
+            title: 'Thông báo',
             message:
-              'Kingcontent chá»‰ há»— trá»£ Ä‘Äƒng video dÃ i tá»‘i Ä‘a 5 phÃºt. Vui lÃ²ng chá»n video khÃ¡c',
+              'Kingcontent chỉ hỗ trợ đăng video dài tối đa 5 phút. Vui lòng chọn video khác',
             buttons: [
               {
-                label: 'Äá»“ng Ã½',
+                label: 'Đồng ý',
                 onClick: () => {},
               },
             ],
@@ -238,7 +238,7 @@ const RightPart = (props) => {
           link.click();
           document.body.removeChild(link); // Clean up
         } else {
-          toast.info('Video Ä‘ang Ä‘Æ°á»£c táº£i vá», vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+          toast.info('Video đang được tải về, vui lòng chờ trong giây lát');
           const res = await douyinService.getDetailVideo(video_id);
           if (res.status === OK) {
             toast.dismiss();
@@ -252,7 +252,7 @@ const RightPart = (props) => {
             link.click();
             document.body.removeChild(link); // Clean up
           } else {
-            toast.error('CÃ³ lá»—i xáº£y ra, vui lÃ²ng thá»­ láº¡i sau');
+            toast.error('Có lỗi xảy ra, vui lòng thử lại sau');
           }
         }
         break;
@@ -260,11 +260,11 @@ const RightPart = (props) => {
       case 'EDIT_VIDEO':
         if (elt.duration > maxAllowDuration) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
-            message: `Hiá»‡n táº¡i Kingcontent chá»‰ há»— trá»£ chá»‰nh sá»­a video dÃ i tá»‘i Ä‘a ${convertSecondsToReadableFormat(maxAllowDuration)}. Vui lÃ²ng nháº¥n nÃºt táº£i video nÃ y vá» vÃ  upload trá»±c tiáº¿p lÃªn trÃ¬nh chá»‰nh sá»­a video (tá»‘i Ä‘a 200MB)`,
+            title: 'Thông báo',
+            message: `Hiện tại Kingcontent chỉ hỗ trợ chỉnh sửa video dài tối đa ${convertSecondsToReadableFormat(maxAllowDuration)}. Vui lòng nhấn nút tải video này về và upload trực tiếp lên trình chỉnh sửa video (tối đa 200MB)`,
             buttons: [
               {
-                label: 'Táº£i vá»',
+                label: 'Tải về',
                 onClick: async () => {
                   // Download action - same as DOWNLOAD case
                   const { video = null, video_id = '' } = elt;
@@ -276,7 +276,7 @@ const RightPart = (props) => {
                     link.click();
                     document.body.removeChild(link); // Clean up
                   } else {
-                    toast.info('Video Ä‘ang Ä‘Æ°á»£c táº£i vá», vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+                    toast.info('Video đang được tải về, vui lòng chờ trong giây lát');
                     const res = await douyinService.getDetailVideo(video_id);
                     if (res.status === OK) {
                       toast.dismiss();
@@ -290,7 +290,7 @@ const RightPart = (props) => {
                       link.click();
                       document.body.removeChild(link); // Clean up
                     } else {
-                      toast.error('CÃ³ lá»—i xáº£y ra, vui lÃ²ng thá»­ láº¡i sau');
+                      toast.error('Có lỗi xảy ra, vui lòng thử lại sau');
                     }
                   }
                 },
@@ -315,11 +315,11 @@ const RightPart = (props) => {
         }
         
         confirmAlert({
-          title: 'Chá»n cÃ¡ch chá»‰nh sá»­a',
-          message: 'Báº¡n muá»‘n chá»‰nh sá»­a video nÃ y nhÆ° tháº¿ nÃ o?',
+          title: 'Chọn cách chỉnh sửa',
+          message: 'Bạn muốn chỉnh sửa video này như thế nào?',
           buttons: [
             {
-              label: 'Chá»‰ video nÃ y',
+              label: 'Chỉ video này',
               onClick: () => {
                 // Edit single video immediately
                 const editorLink = document.createElement('a');
@@ -332,7 +332,7 @@ const RightPart = (props) => {
               },
             },
             {
-              label: 'ÄÆ°a vÃ o danh sÃ¡ch',
+              label: 'Đưa vào danh sách',
               onClick: () => {
                 // Add to chosen videos list for batch editing
                 const index = chosenVideos.findIndex(
@@ -340,9 +340,9 @@ const RightPart = (props) => {
                 );
                 if (index === -1) {
                   dispatch(actionUpdateChosenVideos([...chosenVideos, elt]));
-                  toast.success('ÄÃ£ thÃªm vÃ o hÃ ng chá» á»ž TRÃŠN CÃ™NG');
+                  toast.success('Đã thêm vào hàng chờ Ở TRÊN CÙNG');
                 } else {
-                  toast.info('Video Ä‘Ã£ cÃ³ trong danh sÃ¡ch');
+                  toast.info('Video đã có trong danh sách');
                 }
               },
             },
@@ -480,7 +480,7 @@ const RightPart = (props) => {
       dispatch(actionUpdateCollectionModalOpen(true));
       dispatch(actionUpdateCollectionModalType('addVideo'));
     } else {
-      toast.error('Vui lÃ²ng chá»n video');
+      toast.error('Vui lòng chọn video');
     }
   }, [chosenVideos]);
 
@@ -570,7 +570,7 @@ const RightPart = (props) => {
         <LoadingApp />
       ) : !isLoading && isFilter && isArrayEmpty(videos) ? (
         <div className="text-base text-center p-4">
-          KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ phÃ¹ hÆ¡p
+          Không tìm thấy kết quả phù hơp
         </div>
       ) : (
         <>
@@ -595,7 +595,7 @@ const RightPart = (props) => {
                 }`}
                 onClick={handleChangeChannels}
               >
-                KÃªnh
+                Kênh
               </div>
             </div>
 
@@ -604,7 +604,7 @@ const RightPart = (props) => {
               <div className="flex gap-2 items-center justify-center ml-auto">
                 {chosenVideos.length > 0 ? (
                   <div className="summary">
-                    <span>Báº¡n Ä‘Ã£ chá»n </span>
+                    <span>Bạn đã chọn </span>
                     <span className="font-bold">
                       {chosenVideos?.length || 0}
                     </span>
@@ -613,7 +613,7 @@ const RightPart = (props) => {
                   </div>
                 ) : (
                   <div className="summary hidden">
-                    <span>Chá»n video bÃªn dÆ°á»›i Ä‘á»ƒ lÆ°u vÃ o bá»™ sÆ°u táº­p</span>
+                    <span>Chọn video bên dưới để lưu vào bộ sưu tập</span>
                   </div>
                 )}
                 <div className="actions flex gap-3 whitespace-nowrap">
@@ -623,7 +623,7 @@ const RightPart = (props) => {
                       disabled={chosenVideos.length === 0}
                       onClick={() => dispatch(actionUpdateChosenVideos([]))}
                     >
-                      Bá» chá»n
+                      Bỏ chọn
                     </button>
                   )}
 
@@ -635,7 +635,7 @@ const RightPart = (props) => {
                       chosenVideos.length === videos.length
                     }
                   >
-                    Chá»n toÃ n bá»™
+                    Chọn toàn bộ
                   </button>
                   
                   <button
@@ -643,7 +643,7 @@ const RightPart = (props) => {
                     onClick={() => showCollectionModal()}
                     disabled={chosenVideos.length === 0}
                   >
-                    LÆ°u vÃ o bá»™ sÆ°u táº­p
+                    Lưu vào bộ sưu tập
                   </button>
                   {auth.isHasVip3() && !isArrayEmpty(chosenVideos) && (
                     <button
@@ -654,11 +654,11 @@ const RightPart = (props) => {
                         
                         if (invalidVideos.length > 0) {
                           confirmAlert({
-                            title: 'ThÃ´ng bÃ¡o',
-                            message: `CÃ³ ${invalidVideos.length} video vÆ°á»£t quÃ¡ thá»i lÆ°á»£ng cho phÃ©p (${convertSecondsToReadableFormat(maxAllowDuration)}). Vui lÃ²ng bá» chá»n cÃ¡c video nÃ y trÆ°á»›c khi chá»‰nh sá»­a táº¥t cáº£.`,
+                            title: 'Thông báo',
+                            message: `Có ${invalidVideos.length} video vượt quá thời lượng cho phép (${convertSecondsToReadableFormat(maxAllowDuration)}). Vui lòng bỏ chọn các video này trước khi chỉnh sửa tất cả.`,
                             buttons: [
                               {
-                                label: 'Bá» video lá»—i vÃ  tiáº¿p tá»¥c',
+                                label: 'Bỏ video lỗi và tiếp tục',
                                 onClick: () => {
                                   // Remove invalid videos and continue with valid ones
                                   const validVideos = chosenVideos.filter(video => video.duration <= maxAllowDuration);
@@ -675,12 +675,12 @@ const RightPart = (props) => {
                                     editorLink.click();
                                     document.body.removeChild(editorLink);
                                   } else {
-                                    toast.error('KhÃ´ng cÃ³ video há»£p lá»‡ Ä‘á»ƒ chá»‰nh sá»­a');
+                                    toast.error('Không có video hợp lệ để chỉnh sửa');
                                   }
                                 },
                               },
                               {
-                                label: 'Äá»“ng Ã½',
+                                label: 'Đồng ý',
                                 onClick: () => {},
                               },
                             ],
@@ -700,7 +700,7 @@ const RightPart = (props) => {
                       }}
                       disabled={chosenVideos.length === 0}
                     >
-                      Sá»­a video Ä‘ang chá»
+                      Sửa video đang chờ
                     </button>
                   )}
                 </div>
@@ -734,7 +734,7 @@ const RightPart = (props) => {
                         className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                         onClick={() => getMoreChannels()}
                       >
-                        Xem thÃªm
+                        Xem thêm
                       </button>
                     )}
                   </div>
@@ -743,7 +743,7 @@ const RightPart = (props) => {
                 <LoadingApp />
               ) : (
                 <div className="text-base text-center p-4">
-                  KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ phÃ¹ há»£p
+                  Không tìm thấy kết quả phù hợp
                 </div>
               )
             ) : (
@@ -767,17 +767,17 @@ const RightPart = (props) => {
                             className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                             onClick={() => onSelectAll()}
                           >
-                            Chá»n toÃ n bá»™
+                            Chọn toàn bộ
                           </button>
                           <button
                             className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                             onClick={() => onUnSelectAll()}
                           >
-                            Bá» chá»n
+                            Bỏ chọn
                           </button>
                         </div>
                         <div className="summary mb-2 ml-auto text-base">
-                          <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                          <span>Số bài viết đã chọn: </span>
                           <span className="font-bold">
                             {autoWaitingList?.contents?.length || 0}
                           </span>
@@ -817,7 +817,7 @@ const RightPart = (props) => {
                             className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                             onClick={() => getMoreVideos()}
                           >
-                            Xem thÃªm
+                            Xem thêm
                           </button>
                         ) : null
                       ) : hasMore ? (
@@ -825,7 +825,7 @@ const RightPart = (props) => {
                           className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                           onClick={() => getMoreVideos()}
                         >
-                          Xem thÃªm
+                          Xem thêm
                         </button>
                       ) : null}
                     </div>
@@ -834,7 +834,7 @@ const RightPart = (props) => {
                   <LoadingApp />
                 ) : (
                   <div className="text-base text-center p-4">
-                    KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ phÃ¹ hÆ¡p
+                    Không tìm thấy kết quả phù hơp
                   </div>
                 )}
               </div>
@@ -857,6 +857,7 @@ const RightPart = (props) => {
 };
 
 export default RightPart;
+
 
 
 

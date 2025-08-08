@@ -1,4 +1,4 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import moment from 'moment';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import {
@@ -19,7 +19,7 @@ import trashIcon from '@/assets/images/icon/plan/bin.png';
 import editIcon from '@/assets/images/icon/plan/draw.png';
 import eyeIcon from '@/assets/images/icon/plan/eyeBg.png';
 import compareIcon from '@/assets/images/icon/plan/compareIcon.png';
-import Select from '@/../components/select';
+import Select from '@/components/select';
 import noImage from '@/assets/images/pictures.png';
 import {
   actionAddImage,
@@ -53,26 +53,26 @@ import {
   KEY_PLANS,
   KEY_PLAN_DATA,
   KEY_PLAN_SELECT,
-} from '@/../reducers/createContent';
-import { CreateContent } from '@/../services/createContent';
+} from '@/reducers/createContent';
+import { CreateContent } from '@/services/createContent';
 import PopupDetailContentPlan from '@/components/planCpn/popupDetail';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert';
 import { BsFillPinAngleFill } from 'react-icons/bs';
 import ReactPlayer from 'react-player';
-import ContentDetail from '@/../components/CategoriesContent/ContentDetail/ContentDetail';
+import ContentDetail from '@/components/CategoriesContent/ContentDetail/ContentDetail';
 import { setContentCompare, setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import { BiPlus } from 'react-icons/bi';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { isArrayEmpty, OK } from '@/../configs';
+import { isArrayEmpty, OK } from '@/configs';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { actionPushContentToCreateContentScreen } from '@/store/actions/homepage';
 import { is } from 'immutable';
-import { breakWord } from '@/../helpers';
+import { breakWord } from '@/helpers';
 import { Tooltip } from 'primereact/tooltip';
 import PopupCompareContent from '@/components/PopupCompareContent';
-import LoadingApp from '@/../components/LoadingApp';
-import { tiktokService } from '@/../services/tiktok';
+import LoadingApp from '@/components/LoadingApp';
+import { tiktokService } from '@/services/tiktok';
 const PopupStyled = styled.div`
   /*
 
@@ -360,11 +360,11 @@ const PopupListContentPlan = ({ isOpen = true }) => {
   const filterList = [
     {
       id: 1,
-      name: 'Theo thá»i gian (CÅ© , má»›i)',
+      name: 'Theo thời gian (Cũ , mới)',
       unavailable: false,
       type: 'NEW',
     },
-    { id: 2, name: 'Nhiá»u content nháº¥t', unavailable: false, type: 'OLD' },
+    { id: 2, name: 'Nhiều content nhất', unavailable: false, type: 'OLD' },
   ];
   const [selected, setSelected] = useState(filterList[0]);
 
@@ -484,7 +484,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
     if (resUpdate.status === OK) {
       setInputValue('');
       setItemSelect(null);
-      toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+      toast.success('Thao tác thành công !');
     }
   };
 
@@ -517,20 +517,20 @@ const PopupListContentPlan = ({ isOpen = true }) => {
 
     if (hasAIContent && checkHasOtherAIContents(id)) {
       confirmAlert({
-        title: 'Cáº£nh bÃ¡o !',
+        title: 'Cảnh báo !',
         message: (
           <span className="warning-content">
-            Vui lÃ²ng nháº¥n vÃ o biá»ƒu tÆ°á»£ng SAVE Ä‘á»ƒ lÆ°u láº¡i káº¿t quáº£ gá»£i Ã½ trÆ°á»›c khi
-            thoÃ¡t khá»i mÃ n hÃ¬nh nÃ y Ä‘á»ƒ táº¡o content má»›i
+            Vui lòng nhấn vào biểu tượng SAVE để lưu lại kết quả gợi ý trước khi
+            thoát khỏi màn hình này để tạo content mới
           </span>
         ),
         buttons: [
           {
-            label: 'Xem láº¡i',
+            label: 'Xem lại',
             onClick: () => { },
           },
           {
-            label: 'Tiáº¿p tá»¥c',
+            label: 'Tiếp tục',
             onClick: () => {
               let mediass = medias;
               if (media_type === 'video' && media_url) {
@@ -623,18 +623,18 @@ const PopupListContentPlan = ({ isOpen = true }) => {
   const handleBack = () => {
     if (hasAIContent) {
       confirmAlert({
-        title: 'Cáº¢NH BÃO',
+        title: 'CẢNH BÁO',
         message: (
           <span>
             <span className="font-bold text-red-500">
-              Vui lÃ²ng nháº¥n nÃºt LÆ¯U
+              Vui lòng nhấn nút LƯU
             </span>{' '}
-            bÃªn dÆ°á»›i tá»«ng content Ä‘á»ƒ giá»¯ láº¡i káº¿t quáº£ gá»£i Ã½!
+            bên dưới từng content để giữ lại kết quả gợi ý!
           </span>
         ),
         buttons: [
           {
-            label: 'THOÃT',
+            label: 'THOÁT',
             className: 'whitespace-nowrap w-auto',
             onClick: async () => {
               dispatch(actionUpdateStep1(true));
@@ -642,7 +642,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
             },
           },
           {
-            label: 'KIá»‚M TRA Láº I',
+            label: 'KIỂM TRA LẠI',
             className: 'whitespace-nowrap w-auto',
             onClick: () => { },
           },
@@ -656,15 +656,15 @@ const PopupListContentPlan = ({ isOpen = true }) => {
 
   const handleSavePost = async (post, labelId, planId, id) => {
     confirmAlert({
-      title: 'Cáº£nh bÃ¡o !',
+      title: 'Cảnh báo !',
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n lÆ°u ná»™i dÃ¹ng nÃ y !
+          Bạn có chắc chắn muốn lưu nội dùng này !
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
             const res = await CreateContent.createPost(
               getObject_create_post(
@@ -695,12 +695,12 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                   },
                 ])
               );
-              toast.success('LÆ°u bÃ i viáº¿t thÃ nh cÃ´ng');
+              toast.success('Lưu bài viết thành công');
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => { },
         },
       ],
@@ -709,15 +709,15 @@ const PopupListContentPlan = ({ isOpen = true }) => {
 
   const handleDeleteContent = async (parentIdex, id, saved) => {
     confirmAlert({
-      title: 'Cáº£nh bÃ¡o !',
+      title: 'Cảnh báo !',
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ ná»™i dÃ¹ng nÃ y !
+          Bạn có chắc chắn muốn xoá nội dùng này !
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
             if (saved) {
               const copyListItems = [...contentInPlan.labels];
@@ -733,7 +733,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                   },
                 ])
               );
-              toast.success('XoÃ¡ ná»™i dung thÃ nh cÃ´ng !');
+              toast.success('Xoá nội dung thành công !');
             } else {
               const res = await CreateContent.deleteContent(id);
               if (res.status === OK) {
@@ -750,13 +750,13 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                     },
                   ])
                 );
-                toast.success('XoÃ¡ ná»™i dung thÃ nh cÃ´ng !');
+                toast.success('Xoá nội dung thành công !');
               }
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => { },
         },
       ],
@@ -909,20 +909,20 @@ const PopupListContentPlan = ({ isOpen = true }) => {
   const createNewContentByLabelId = (id) => {
     if (hasAIContent) {
       confirmAlert({
-        title: 'Cáº£nh bÃ¡o !',
+        title: 'Cảnh báo !',
         message: (
           <span className="warning-content">
-            Vui lÃ²ng nháº¥n vÃ o biá»ƒu tÆ°á»£ng SAVE Ä‘á»ƒ lÆ°u láº¡i káº¿t quáº£ gá»£i Ã½ trÆ°á»›c khi
-            thoÃ¡t khá»i mÃ n hÃ¬nh nÃ y Ä‘á»ƒ táº¡o content má»›i
+            Vui lòng nhấn vào biểu tượng SAVE để lưu lại kết quả gợi ý trước khi
+            thoát khỏi màn hình này để tạo content mới
           </span>
         ),
         buttons: [
           {
-            label: 'Xem láº¡i',
+            label: 'Xem lại',
             onClick: () => { },
           },
           {
-            label: 'Tiáº¿p tá»¥c',
+            label: 'Tiếp tục',
             onClick: () => {
               setHasAIContent(false);
               createContent();
@@ -951,8 +951,8 @@ const PopupListContentPlan = ({ isOpen = true }) => {
   }, [isOpen, plan?.id]);
 
 
-  // Náº¿u cÃ³ má»™t cá»™t content cÃ³ "is_generating == true" thÃ¬ má»—i 5s fetch data má»›i 1 láº§n
-  // ÄÃ¢y lÃ  cá»™t cÃ³ content Ä‘ang Ä‘á»£i táº¡o má»›i vá»›i AI
+  // Nếu có một cột content có "is_generating == true" thì mỗi 5s fetch data mới 1 lần
+  // Đây là cột có content đang đợi tạo mới với AI
   var intervalAutoRefresh = null;
   useEffect(() => {
     if (contentInPlan?.labels.some((item) => item.is_generating)) {
@@ -1063,8 +1063,8 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                             </div>
                             <div>
                               <p className="mt-2 font-bold px-5 text-center">
-                                Vui lÃ²ng chá» chÃºt Ä‘á»ƒ mÃ¡y tÃ­nh gá»£i Ã½ káº¿t quáº£ cho
-                                báº¡n
+                                Vui lòng chờ chút để máy tính gợi ý kết quả cho
+                                bạn
                               </p>
                             </div>
                           </div>
@@ -1122,7 +1122,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                         <div
                           draggable="true"
                           id={`${id}`}
-                          title="Di chuyá»ƒn tháº» báº±ng cÃ¡ch kÃ©o tháº£ chuá»™t !"
+                          title="Di chuyển thẻ bằng cách kéo thả chuột !"
                           className={`border-2 mb-2 p-4 rounded-md shadow-sm cursor-move bg-white ${post_text === 'ADMIN_SUGGESTION' ? 'hidden' : ''
                             }`}
                           onDragStart={(e) =>
@@ -1199,7 +1199,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                           <div className="flex justify-end gap-2 mt-2">
                             {saved && (
                               <button
-                                title="LÆ°u bÃ i viáº¿t"
+                                title="Lưu bài viết"
                                 className="p-1 rounded-full text-center"
                                 style={{
                                   backgroundColor: '#bac8d3',
@@ -1220,7 +1220,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                             )}
                             {is_ai_generated ?
                               (
-                                <button title="So sÃ¡nh ná»™i dung gá»‘c">
+                                <button title="So sánh nội dung gốc">
                                   <img
                                     src={compareIcon}
                                     alt=""
@@ -1238,7 +1238,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                                 </button>
                               ) : (<></>)
                             }
-                            <button title="Xem thÃ´ng tin">
+                            <button title="Xem thông tin">
                               <img
                                 src={eyeIcon}
                                 alt=""
@@ -1260,7 +1260,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                               />
                             </button>
                             <button
-                              title="Sá»­a ná»™i dung"
+                              title="Sửa nội dung"
                               onClick={() =>
                                 handleEditContent(
                                   {
@@ -1287,7 +1287,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                               />
                             </button>
                             <button
-                              className="XoÃ¡ ná»™i dung"
+                              className="Xoá nội dung"
                               onClick={() =>
                                 handleDeleteContent(parentIndex, id, saved)
                               }
@@ -1323,8 +1323,8 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                         {syncRequestPedding.some(
                           (_elt) => _elt.label_id === labelId
                         )
-                          ? 'Äang láº¥y gá»£i Ã½ ...'
-                          : 'Táº¡o content vá»›i AI'}
+                          ? 'Đang lấy gợi ý ...'
+                          : 'Tạo content với AI'}
                       </button>
                     </>
                   )}
@@ -1333,7 +1333,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                       className="bg-blue-500 text-white p-3 hover:bg-gray-400 w-full rounded-md shadow-md"
                       onClick={() => createNewContentByLabelId(labelId)}
                     >
-                      Táº¡o content thá»§ cÃ´ng
+                      Tạo content thủ công
                     </button>
                   )}
                 </div>
@@ -1389,16 +1389,16 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                             <span
                               onClick={() => dispatch(backEditorScreen())}
                               className="bg-white border-2 font-bold border-blue-500 rounded-full shadow-md cursor-pointer p-2 hover:bg-blue-500 hover:text-white"
-                              title="Tiáº¿p tá»¥c soáº¡n tháº£o"
+                              title="Tiếp tục soạn thảo"
                             >
                               {/* <AiOutlineEdit color='green' size={25} /> */}
-                              Tiáº¿p tá»¥c soáº¡n tháº£o
+                              Tiếp tục soạn thảo
                             </span>
                           )}
                         <button
                           onClick={() => handleBack()}
                           className="bg-white rounded-full shadow-md p-3"
-                          title={`ThoÃ¡t`}
+                          title={`Thoát`}
                         >
                           <RiArrowGoBackLine color="red" size={25} />
                         </button>
@@ -1410,7 +1410,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                         className="bg-blue-500 rounded-md shadow-md h-12 text-white flex w-1/5 items-center gap-2 p-2"
                       >
                         <FiPlusCircle size={25} color="#fff" />
-                        <span>Táº¡o content má»›i</span>
+                        <span>Tạo content mới</span>
                       </button>
                       <div
                         className="flex items-center relative"
@@ -1418,7 +1418,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                       >
                         <input
                           type="text"
-                          placeholder="TÃ¬m theo ná»™i dung content, hashtag#"
+                          placeholder="Tìm theo nội dung content, hashtag#"
                           value={inputValue}
                           onChange={(e) => handleSearchContent(e)}
                           className={`${_input_style}`}
@@ -1442,7 +1442,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
                     {contentInPlan?.labels.length === 0 && (
                       <div className="flex justify-center">
                         <span className="font-bold text-base text-center uppercase">
-                          KhÃ´ng cÃ³ ná»™i dung nÃ o á»Ÿ Ä‘Ã¢y
+                          Không có nội dung nào ở đây
                         </span>
                       </div>
                     )}
@@ -1471,6 +1471,7 @@ const PopupListContentPlan = ({ isOpen = true }) => {
 };
 
 export default PopupListContentPlan;
+
 
 
 

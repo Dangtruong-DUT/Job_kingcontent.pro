@@ -1,11 +1,11 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import FilterAndSort from '@/FilterAndSort';
 import Header from '@/Header';
 import SearchBar from '@/SearchBar';
 import SuggestionsList from '@/SuggestionsList';
-import * as SCHEDULES from '@/../../../store/actions/Schedules';
+import * as SCHEDULES from '@/../../store/actions/Schedules';
 
 function SuggestionsPopup(props) {
   const [showSortPanel, setShowSortPanel] = useState(false);

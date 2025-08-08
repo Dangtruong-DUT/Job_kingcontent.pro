@@ -1,8 +1,8 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import NewComment from '@/NewComment';
 import { FaPlusCircle } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { setScheduleCommentsWaitingList } from '@/../../../../store/actions/Schedules';
+import { setScheduleCommentsWaitingList } from '@/../../../store/actions/Schedules';
 const defaultNewComment = {
   id: 1,
   message: '',
@@ -69,9 +69,9 @@ const NewComments = () => {
     <div className="newCommentsContainer">
       <div className="commentsHeader flex gap-3 items-center text-center mb-2 font-bold">
         <div className="w-6/12">Comment</div>
-        <div className="w-2/12">ThÃªm kÃ½ tá»±</div>
-        <div className="w-2/12">ThÃªm biá»ƒu tÆ°á»£ng</div>
-        <div className="w-2/12">Thao tÃ¡c</div>
+        <div className="w-2/12">Thêm ký tự</div>
+        <div className="w-2/12">Thêm biểu tượng</div>
+        <div className="w-2/12">Thao tác</div>
       </div>
       <div className="listComments">
         {scheduleCommentsWaitingList.comments &&
@@ -94,7 +94,7 @@ const NewComments = () => {
         </button>
       ) : (
         <div className="mt-4 text-red-500 font-bold uppercase text-base">
-          Äá»ƒ háº¡n cháº¿ Facebook gáº¯n nhÃ£n Spam, vui lÃ²ng chá»‰ lÃªn lá»‹ch Ä‘Äƒng tá»‘i Ä‘a 3 bÃ¬nh luáº­n/1 bÃ i viáº¿t/ngÃ y
+          Để hạn chế Facebook gắn nhãn Spam, vui lòng chỉ lên lịch đăng tối đa 3 bình luận/1 bài viết/ngày
         </div>
       )}
     </div>

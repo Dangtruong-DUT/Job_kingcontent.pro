@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 // import SearchAndFilter from '@/CategoriesContent/SearchAndFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,13 +9,13 @@ import {
 // import Pagination from '@/CategoriesContent/Pagination';
 // import GridLayoutContent from '@/CategoriesContent/GridLayoutContent';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import ContentDetail from '@/../components/CategoriesContent/ContentDetail';
-import client from '@/../Client';
+import ContentDetail from '@/components/CategoriesContent/ContentDetail';
+import client from '@/Client';
 import { toast } from 'react-toastify';
-import GridLayoutContent from '@/../components/CategoriesContent/GridLayoutContent';
-import SearchAndFilter from '@/../components/CategoriesContent/SearchAndFilter';
-import Pagination from '@/../components/CategoriesContent/Pagination';
-import { OK } from '@/../configs';
+import GridLayoutContent from '@/components/CategoriesContent/GridLayoutContent';
+import SearchAndFilter from '@/components/CategoriesContent/SearchAndFilter';
+import Pagination from '@/components/CategoriesContent/Pagination';
+import { OK } from '@/configs';
 
 const pageLimit = 16;
 const pageNeighbours = 1;
@@ -35,7 +35,7 @@ function SpecialFollowPopupNotsave(props) {
   const handleSearch = useCallback(async (newQuery, page = 1) => {
     setSaveQuery(newQuery);
     try {
-      toast.warning('Äang tÃ¬m ...');
+      toast.warning('Đang tìm ...');
       const query = newQuery.replace('&', '?');
       const res = await client.get(
         `categories/${
@@ -46,10 +46,10 @@ function SpecialFollowPopupNotsave(props) {
         setListPosts(res?.data?.data?.data || []);
         setTotalPages(res?.data?.data?.last_page || 0);
         setLoading(false);
-        toast.success('Láº¥y káº¿t quáº£ thÃ nh cÃ´ng !');
+        toast.success('Lấy kết quả thành công !');
       }
     } catch (error) {
-      toast.error('KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ !');
+      toast.error('Không tìm thấy kết quả !');
     }
   }, []);
 
@@ -89,7 +89,7 @@ function SpecialFollowPopupNotsave(props) {
         </>
       );
     } else {
-      return <span className="text-xl">KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£</span>;
+      return <span className="text-xl">Không tìm thấy kết quả</span>;
     }
   };
 
@@ -131,7 +131,7 @@ function SpecialFollowPopupNotsave(props) {
         />
         <h2 className="text-base font-bold">{`${
           fanpage.user_screenname || 'page name here'
-        } (${totalContent || 0} bÃ i viáº¿t)`}</h2>
+        } (${totalContent || 0} bài viết)`}</h2>
         <SearchAndFilter
           handleSearch={handleSearch}
           fanpage_id={fanpage.feed_id}
@@ -147,5 +147,6 @@ function SpecialFollowPopupNotsave(props) {
 }
 
 export default React.memo(SpecialFollowPopupNotsave);
+
 
 

@@ -1,13 +1,13 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaLayerGroup, FaTrash } from 'react-icons/fa';
 import {
   KEY_EDITOR_IMAGE,
   KEY_INDEX_IMAGE_SELECT,
-} from '@/../../../reducers/createContent';
-import { REDUX_NAME_CREATE_POST } from '@/../../../utils/utilityFunc';
+} from '@/../../reducers/createContent';
+import { REDUX_NAME_CREATE_POST } from '@/../../utils/utilityFunc';
 import { useSelector } from 'react-redux';
 import { IoSaveSharp } from 'react-icons/io5';
-import { isArrayEmpty } from '@/../../../configs';
+import { isArrayEmpty } from '@/../../configs';
 import { MdLibraryAdd } from 'react-icons/md';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
@@ -39,7 +39,7 @@ const ToolBarTopRightButton = ({
             tooltip="Remove"
           >
             <FaTrash size={20} />
-            <span>XoÃ¡</span>
+            <span>Xoá</span>
           </div>
         </>
       )}
@@ -53,7 +53,7 @@ const ToolBarTopRightButton = ({
             }}
           >
             <IoMdArrowRoundBack size={20} />
-            <span>Trá»Ÿ vá» trÃ¬nh soáº¡n tháº£o</span>
+            <span>Trở về trình soạn thảo</span>
           </button>
         </div>
       )}
@@ -64,7 +64,7 @@ const ToolBarTopRightButton = ({
           color="#2d1be4"
         >
           <MdLibraryAdd size={20} />
-          <span>Táº¡o má»›i</span>
+          <span>Tạo mới</span>
         </button>
       )}
       {indexImageSelect !== null ? (
@@ -72,21 +72,21 @@ const ToolBarTopRightButton = ({
           className="bg-gray-500 p-2 text-white download-tool rounded-md hover:bg-indigo-600 font-bold flex items-center gap-2 hover:text-white"
           onClick={() => handleSaveEdit()}
           color="#2d1be4"
-          title="LÆ°u áº£nh"
+          title="Lưu ảnh"
           disabled={isSaveImage}
         >
           <IoSaveSharp size={20} />
-          <span>{isSaveImage ? 'Äang lÆ°u ...' : 'LÆ°u hÃ¬nh áº£nh'} </span>
+          <span>{isSaveImage ? 'Đang lưu ...' : 'Lưu hình ảnh'} </span>
         </button>
       ) : (
         <button
           className="bg-gray-500 p-2 text-white rounded-md hover:bg-indigo-600 font-bold flex items-center gap-2 hover:text-white"
           onClick={() => handleAddToEditor()}
           color="#2d1be4"
-          title="ÄÆ°a vÃ o trÃ¬nh soáº¡n tháº£o"
+          title="Đưa vào trình soạn thảo"
         >
           <IoSaveSharp size={20} />
-          <span>LÆ°u hÃ¬nh áº£nh</span>
+          <span>Lưu hình ảnh</span>
         </button>
       )}
       {!layerStatus && (
@@ -98,7 +98,7 @@ const ToolBarTopRightButton = ({
           color="#2d1be4"
         >
           <FaLayerGroup size={20} />
-          {/* <span>ThÃ nh pháº§n</span> */}
+          {/* <span>Thành phần</span> */}
         </button>
       )}
     </div>

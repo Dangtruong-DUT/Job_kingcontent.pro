@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -41,7 +41,7 @@ import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
 import ChatGPT from '@/ChatGPT';
 import VideoEditor from '@/VideoEditor';
-import TabCompleted, { ParentType } from '@/../../pages/TextToVideo/TabCompleted';
+import TabCompleted, { ParentType } from '@/../pages/TextToVideo/TabCompleted';
 
 const SourceIdeasAuto = (props) => {
   const { autoWaitingList, currentScheduleContentType = DEFAULT } = useSelector(
@@ -240,7 +240,7 @@ const SourceIdeasAuto = (props) => {
   const onConfirmSchedule = () => {
     const totalSelected = autoWaitingList?.contents?.length || 0;
     if (totalSelected === 0) {
-      toast.error('Vui lÃ²ng chá»n Ã­t nháº¥t 1 content');
+      toast.error('Vui lòng chọn ít nhất 1 content');
       return;
     } else {
       const { source_type, contents } = autoWaitingList;
@@ -252,16 +252,16 @@ const SourceIdeasAuto = (props) => {
         // if (countNotReels > 0) {
         if (countDurationLargerThan5Min > 0) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
+            title: 'Thông báo',
             overlayClassName: 'large-confirmation',
-            message: `Kingcontent chá»‰ há»— trá»£ Ä‘Äƒng video dÃ i tá»‘i Ä‘a 5 phÃºt. Vui lÃ²ng bá» ${countDurationLargerThan5Min} video khÃ´ng phÃ¹ há»£p vÃ  chá»n video khÃ¡c! (Video khÃ´ng phÃ¹ há»£p Ä‘Æ°á»£c Ä‘Ã¡nh dáº¥u trÃ²n mÃ u Ä‘á»)`,
+            message: `Kingcontent chỉ hỗ trợ đăng video dài tối đa 5 phút. Vui lòng bỏ ${countDurationLargerThan5Min} video không phù hợp và chọn video khác! (Video không phù hợp được đánh dấu tròn màu đỏ)`,
             buttons: [
               {
-                label: 'Chá»n láº¡i',
+                label: 'Chọn lại',
                 onClick: () => {},
               },
               {
-                label: 'Tá»± Ä‘á»™ng bá» video khÃ´ng phÃ¹ há»£p',
+                label: 'Tự động bỏ video không phù hợp',
                 className: 'bg-red-500 text-white whitespace-nowrap w-auto',
                 onClick: () => {
                   const newContents = contents.filter(
@@ -340,7 +340,7 @@ const SourceIdeasAuto = (props) => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickBg()}
               >
-                Huá»·
+                Huỷ
               </button>
               {titleType !== DEFAULT && (
                 <>
@@ -348,14 +348,14 @@ const SourceIdeasAuto = (props) => {
                     className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                     onClick={() => handleClickGoBack()}
                   >
-                    Quay láº¡i
+                    Quay lại
                   </button>
                   <button
                     className="border-2 border-gray-200 bg-blue-800 hover:bg-blue-400 py-3 px-4 text-white rounded-md"
                     onClick={() => onConfirmSchedule()}
                     disabled={isDisableSubmit}
                   >
-                    XÃ¡c nháº­n
+                    Xác nhận
                   </button>
                 </>
               )}

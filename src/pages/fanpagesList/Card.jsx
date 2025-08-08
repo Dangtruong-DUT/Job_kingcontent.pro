@@ -1,12 +1,12 @@
-﻿import React from 'react';
+import React from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { FaHeart } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import Client from '@/../Client';
+import Client from '@/Client';
 import { useDispatch } from 'react-redux';
 import { ACTION_SEARCH_FANPAGE } from '@/store/actions/Fanpages';
 import defaultAvatar from '@/assets/images/default_fb_avatar.jpg';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 
 const Card = (props) => {
   const {
@@ -20,18 +20,18 @@ const Card = (props) => {
   const dispatch = useDispatch();
   const handleSaveFanpage = (link) => {
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
+      title: 'Thông báo',
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ muá»‘n Ä‘Æ°a trang nÃ y vÃ o má»¥c theo dÃµi Ä‘áº·c biá»‡t Ä‘á»ƒ tá»± Ä‘á»™ng láº¥y vá»
-          nhá»¯ng bÃ i viáº¿t má»›i nháº¥t khÃ´ng ?
+          Bạn có muốn đưa trang này vào mục theo dõi đặc biệt để tự động lấy về
+          những bài viết mới nhất không ?
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
-            toast.warning('Äang lÆ°u ...');
+            toast.warning('Đang lưu ...');
             const postingData = {
               fanpage: link,
               from_system: true,
@@ -53,13 +53,13 @@ const Card = (props) => {
                   type: ACTION_SEARCH_FANPAGE,
                   payload: newArray || [],
                 });
-                toast.success('LÆ°u fanpage thÃ nh cÃ´ng !');
+                toast.success('Lưu fanpage thành công !');
               }
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -67,15 +67,15 @@ const Card = (props) => {
   };
   const handleDisFanpage = (link, page_name) => {
     confirmAlert({
-      title: 'ThÃ´ng bÃ¡o',
+      title: 'Thông báo',
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ muá»‘n bá» thÃ­ch trang nÃ y khÃ´ng ?
+          Bạn có muốn bỏ thích trang này không ?
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
             const res = await Client.delete(`/fanpages/${link}`);
             if (res.status === OK) {
@@ -93,13 +93,13 @@ const Card = (props) => {
                   type: ACTION_SEARCH_FANPAGE,
                   payload: newArray || [],
                 });
-                toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+                toast.success('Thao tác thành công !');
               }
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -150,7 +150,7 @@ const Card = (props) => {
                     ) : (
                       <FaHeart color="#f9595f" size="30" />
                     )}
-                    {/* <span>{_elt.isSaved  ? 'ÄÃ£ lÆ°u' : 'LÆ°u'} </span> */}
+                    {/* <span>{_elt.isSaved  ? 'Đã lưu' : 'Lưu'} </span> */}
                   </button>
                 </div>
               ) : (
@@ -163,7 +163,7 @@ const Card = (props) => {
                     }
                   >
                     <FaHeart color="#f9595f" size="30" />
-                    {/* <span>Bá» lÆ°u</span> */}
+                    {/* <span>Bỏ lưu</span> */}
                   </button>
                 </div>
               )}
@@ -176,6 +176,7 @@ const Card = (props) => {
 };
 
 export default Card;
+
 
 
 

@@ -1,12 +1,12 @@
-﻿import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SinglePost from '@/SinglePost';
 import {
   actionGetHashtagPosts,
   actionGetUserPosts,
-} from '@/../../../store/actions/instagram';
-import LoadingApp from '@/../../LoadingApp';
-import { applyOrder } from '@/../helpers';
+} from '@/../../store/actions/instagram';
+import LoadingApp from '@/../LoadingApp';
+import { applyOrder } from '@/helpers';
 
 const UserPosts = (props) => {
   const {
@@ -108,7 +108,7 @@ const UserPosts = (props) => {
         </div>
       ) : (
         <div className="text-center p-5">
-          <p>KhÃ´ng cÃ³ bÃ i viáº¿t nÃ o</p>
+          <p>Không có bài viết nào</p>
         </div>
       )}
       {/* load more */}
@@ -127,7 +127,7 @@ const UserPosts = (props) => {
               className="bg-blue-500 text-white px-5 py-3 rounded-md w-1/3"
               onClick={() => onLoadMore()}
             >
-              Láº¥y thÃªm bÃ i viáº¿t
+              Lấy thêm bài viết
             </button>
           </div>
         )}
@@ -138,7 +138,7 @@ const UserPosts = (props) => {
             className="bg-blue-500 text-white px-5 py-3 rounded-md w-1/3"
             onClick={() => onLoadMoreHashTag()}
           >
-            Láº¥y thÃªm bÃ i viáº¿t
+            Lấy thêm bài viết
           </button>
         </div>
       )}

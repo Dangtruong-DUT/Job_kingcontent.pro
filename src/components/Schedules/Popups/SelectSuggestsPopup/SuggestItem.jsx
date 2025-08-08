@@ -1,7 +1,7 @@
-﻿import React, { useCallback } from 'react';
-import { numberWithCommas, randomColor } from '@/../../../utils/utilityFunc';
+import React, { useCallback } from 'react';
+import { numberWithCommas, randomColor } from '@/../../utils/utilityFunc';
 import { useDispatch } from 'react-redux';
-import * as SCHEDULES from '@/../../../store/actions/Schedules';
+import * as SCHEDULES from '@/../../store/actions/Schedules';
 
 function SuggestItem(props) {
   const { suggestItem } = props;

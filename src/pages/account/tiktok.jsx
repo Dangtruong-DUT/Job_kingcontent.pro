@@ -1,8 +1,8 @@
-﻿import { useEffect, useState } from 'react';
-import { connectTikTokAccount } from '@/../helpers/tiktok';
+import { useEffect, useState } from 'react';
+import { connectTikTokAccount } from '@/helpers/tiktok';
 import { useSelector } from 'react-redux';
-import { tiktokService } from '@/../services/tiktok';
-import { OK } from '@/../configs';
+import { tiktokService } from '@/services/tiktok';
+import { OK } from '@/configs';
 
 const TikTokAccount = () => {
   const { user } = useSelector((state) => state.userReducer);
@@ -35,7 +35,7 @@ const TikTokAccount = () => {
       const userInfo = auth.getUserInfo();
       userInfo.tiktok_access_token = '';
       auth.setUserInfo(userInfo, true);
-      toast.success('Ngáº¯t káº¿t ná»‘i thÃ nh cÃ´ng');
+      toast.success('Ngắt kết nối thành công');
     }
   };
 
@@ -47,7 +47,7 @@ const TikTokAccount = () => {
     <div>
       {isLoadingTiktokInfo ? (
         <h3 className="mb-4 text-base font-extrabold leading-none tracking-tight text-gray-900  dark:text-white">
-          Äang kiá»ƒm tra thÃ´ng tin tÃ i khoáº£n TikTok...
+          Đang kiểm tra thông tin tài khoản TikTok...
         </h3>
       ) : (
         <div>
@@ -60,13 +60,13 @@ const TikTokAccount = () => {
                   className="bg-red-500 text-white px-4 py-2 rounded-3xl uppercase font-bold text-sm"
                   onClick={onClickDisconnect}
                 >
-                  Ngáº¯t káº¿t ná»‘i
+                  Ngắt kết nối
                 </button>
                 <button
                   className="text-white px-4 py-5 rounded-3xl uppercase font-bold bg-black text-sm"
                   onClick={connectTikTokAccount}
                 >
-                  Káº¿t ná»‘i láº¡i
+                  Kết nối lại
                 </button>
               </div>
               <div
@@ -113,7 +113,7 @@ const TikTokAccount = () => {
                 className="text-white px-4 py-5 rounded-3xl uppercase font-bold bg-black text-sm"
                 onClick={connectTikTokAccount}
               >
-                Káº¿t ná»‘i TikTok
+                Kết nối TikTok
               </button>
             </div>
           )}
@@ -124,4 +124,5 @@ const TikTokAccount = () => {
 };
 
 export default TikTokAccount;
+
 

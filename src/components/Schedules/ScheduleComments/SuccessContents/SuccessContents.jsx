@@ -1,9 +1,9 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import SingleSuccessContent from '@/SingleSuccessContent';
-import { commentSetCurrentSchedule, setScheduleCommentsWaitingList } from '@/../../../store/actions/Schedules';
-import LoadingApp from '@/../../LoadingApp';
+import { commentSetCurrentSchedule, setScheduleCommentsWaitingList } from '@/../../store/actions/Schedules';
+import LoadingApp from '@/../LoadingApp';
 import SearchBox from '@/SearchBox';
 import { FaAngleLeft } from 'react-icons/fa';
 
@@ -98,22 +98,22 @@ const SuccessContents = (props) => {
               onClick={(e) => {
                 handleClickGoBack();
               }}
-              title="Quay láº¡i"
+              title="Quay lại"
             >
               <FaAngleLeft fontSize={20} />
-              <span>Quay láº¡i</span>
+              <span>Quay lại</span>
             </button>
             <button
               className="bg-blue-400 px-3 py-2 rounded-md text-white hover:bg-blue-600"
               onClick={onClickSelectAll}
             >
-              Chá»n toÃ n bá»™
+              Chọn toàn bộ
             </button>
             <button
               className="bg-gray-500 px-3 py-2 rounded-md text-white hover:bg-gray-700"
               onClick={onClickSelectNone}
             >
-              Bá» chá»n
+              Bỏ chọn
             </button>
           </div>
           <SearchBox contents={successContents} setFilteredContents={setFilteredContents} />

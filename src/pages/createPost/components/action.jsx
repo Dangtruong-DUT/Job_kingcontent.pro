@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContentSugestion from '@/../../components/ContentSugesstion';
-import { API_EDIT_SUGGEST_KEYWORD } from '@/../../configs';
+import ContentSugestion from '@/../components/ContentSugesstion';
+import { API_EDIT_SUGGEST_KEYWORD } from '@/configs';
 import {
   actionGetPostByKeyword,
   actionResetState
@@ -19,5 +19,6 @@ const Action = () => {
 };
 
 export default Action;
+
 
 

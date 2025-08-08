@@ -1,6 +1,6 @@
-﻿import SuggestTitles from '@/SuggestTitles'
+import SuggestTitles from '@/SuggestTitles'
 import Subjects from '@/Subjects'
-import SuggestionContents from '@/../Column/SuggestionContents'
+import SuggestionContents from '@/Column/SuggestionContents'
 import { connect } from 'react-redux'
 import { useCallback, useState } from 'react'
 import { MenuAlt1Icon, DocumentIcon } from '@heroicons/react/outline';
@@ -34,14 +34,14 @@ const FormularTab = (props) => {
                   <button className={`inline-flex items-center justify-center cursor-pointer p-2 border rounded border-solid border-gray-400 ${isParagraph ? 'bg-blue-100' : 'bg-white'}`}
                   onClick={() => {showParagraph(true)}}>
                     <MenuAlt1Icon className="w-6 h-6 mr-1" />
-                    <span>Tá»«ng cÃ¢u</span>
+                    <span>Từng câu</span>
                   </button>
                 </li>
                 <li className="">
                   <button className={`inline-flex items-center justify-center cursor-pointer p-2 border rounded border-solid border-gray-400 ${!isParagraph ? 'bg-blue-100' : 'bg-white'}`}
                   onClick={() => {showParagraph(false)}}>
                     <DocumentIcon className="w-6 h-6 mr-1" />
-                    <span>BÃ i hoÃ n chá»‰nh</span>
+                    <span>Bài hoàn chỉnh</span>
                   </button>
                 </li>
               </ul>

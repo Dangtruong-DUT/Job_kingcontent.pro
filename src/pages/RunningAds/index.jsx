@@ -1,2 +1,2 @@
-﻿import a from '@/RunningAds'
-export default a
+﻿import a from "./RunningAds";
+export default a;

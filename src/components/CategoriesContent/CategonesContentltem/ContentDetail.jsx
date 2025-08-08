@@ -1,19 +1,19 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import Medias from '@/Medias';
 import Header from '@/Header';
 import Footer from '@/Footer';
-import { isArrayEmpty } from '@/../../configs';
+import { isArrayEmpty } from '@/configs';
 import {
   actionUpdateStep1,
   resetCreateContent,
 } from '@/store/actions/createContent';
 import { actionPushContentToCreateContentScreen } from '@/store/actions/homepage';
 import { useHistory } from 'react-router-dom';
-import { _dashed_border } from '@/../../pages/createPost/utility';
-import { breakWord } from '@/../../helpers';
-import { getPathVideo } from '@/../../utils/utilityFunc';
+import { _dashed_border } from '@/../pages/createPost/utility';
+import { breakWord } from '@/../helpers';
+import { getPathVideo } from '@/../utils/utilityFunc';
 import { toast } from 'react-toastify';
 
 function ContentDetail() {
@@ -80,7 +80,7 @@ function ContentDetail() {
       setUrlCalled(urlVideo);
     } else {
       if (urlVideo && media_type === 'video' && urlVideo.includes('|')) {
-        toast.info('Äang táº£i video...');
+        toast.info('Đang tải video...');
         getPathVideo(urlVideo).then((_url) => {
           setUrlCalled(_url);
           toast.dismiss();
@@ -130,7 +130,7 @@ function ContentDetail() {
                         className=" bg-primary p-5 rounded-md text-white font-bold mr-2 hover:bg-gray-700 duration-300"
                         onClick={handelWritePost}
                       >
-                        Viáº¿t bÃ i
+                        Viết bài
                       </button>
                     )}
 
@@ -138,7 +138,7 @@ function ContentDetail() {
                       className="bottom-5 bg-red-500 p-5 rounded-md text-white font-bold hover:bg-gray-700 duration-300 mt-3"
                       onClick={() => closePopup()}
                     >
-                      ÄÃ³ng
+                      Đóng
                     </button>
                   </div>
                 </div>
@@ -178,22 +178,22 @@ function ContentDetail() {
                 {videogen_settings && (
                   <div className="flex flex-col mb-4 bg-gray-100 p-4 rounded-md shadow-md">
                     <div className="text-sm font-bold text-gray-700 mb-2">
-                      Cáº¥u hÃ¬nh Video AI
+                      Cấu hình Video AI
                     </div>
                     <div className="text-sm text-gray-600 gap-1">
                       <p>
-                        <strong>TiÃªu Ä‘á»: </strong>{videogen_settings.title}
+                        <strong>Tiêu đề: </strong>{videogen_settings.title}
                       </p>
                       <p>
-                        <strong>Chá»§ Ä‘á»: </strong>{videogen_settings.prompt || "Tá»± soáº¡n"}{". "}
-                        {videogen_settings.style && <strong>Phong cÃ¡ch: </strong>}{videogen_settings.style && (videogen_settings.style + ". ")}
+                        <strong>Chủ đề: </strong>{videogen_settings.prompt || "Tự soạn"}{". "}
+                        {videogen_settings.style && <strong>Phong cách: </strong>}{videogen_settings.style && (videogen_settings.style + ". ")}
                       </p>
                       <p>
-                        <strong>Äá»‹nh dáº¡ng video: </strong>
+                        <strong>Định dạng video: </strong>
                         {videogen_settings.clip_source === 1
-                          ? "áº¢nh táº¡o bá»Ÿi AI"
-                          : "ThÆ° viá»‡n istock"}{". "}
-                        <strong>{videogen_settings.caption_visible === 1 ? "CÃ³" : "KhÃ´ng"} </strong>{"hiá»ƒn thá»‹ phá»¥ Ä‘á»."}
+                          ? "Ảnh tạo bởi AI"
+                          : "Thư viện istock"}{". "}
+                        <strong>{videogen_settings.caption_visible === 1 ? "Có" : "Không"} </strong>{"hiển thị phụ đề."}
                       </p>
                     </div>
                   </div>
@@ -213,14 +213,14 @@ function ContentDetail() {
                       className=" bg-primary p-5 rounded-md text-white font-bold mr-2 hover:bg-gray-700 duration-300"
                       onClick={handelWritePost}
                     >
-                      Viáº¿t bÃ i
+                      Viết bài
                     </button>
                   )}
                   <button
                     className="bottom-5 bg-red-500 p-5 rounded-md text-white font-bold hover:bg-gray-700 duration-300"
                     onClick={() => closePopup()}
                   >
-                    ÄÃ³ng
+                    Đóng
                   </button>
                 </div> */}
               </div>
@@ -233,5 +233,6 @@ function ContentDetail() {
 }
 
 export default ContentDetail;
+
 
 

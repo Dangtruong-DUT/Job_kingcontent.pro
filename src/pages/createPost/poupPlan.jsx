@@ -1,4 +1,4 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { FiEdit, FiSearch, FiTrash, FiX } from 'react-icons/fi';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 // @ts-ignore
 import menuIcon from '@/assets/images/icon/plan/menu.png';
-import Select from '@/../components/select';
+import Select from '@/components/select';
 import {
   KEY_PLANS,
   KEY_PLAN_SELECT,
-} from '@/../reducers/createContent';
+} from '@/reducers/createContent';
 import {
   actionGetPlans,
   actionUpdateStep1,
@@ -22,12 +22,12 @@ import {
 } from '@/store/actions/createContent';
 import PopupCreatePlan from '@/components/planCpn/popCreatePlan';
 import PopupListContentPlan from '@/popupListContentPlan';
-import { CreateContent } from '@/../services/createContent';
+import { CreateContent } from '@/services/createContent';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert';
 import { toast } from 'react-toastify';
 import { lineGadientReg } from '@/utility';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 // @ts-ignore
 const PoupPlan = ({ isOpen = true }) => {
   const {
@@ -42,8 +42,8 @@ const PoupPlan = ({ isOpen = true }) => {
   // @ts-ignore
   } = useSelector((state) => state.createPost);
   const filterList = [
-    { id: 2, name: 'CÅ© nháº¥t', unavailable: false, type: 'OLD' },
-    { id: 1, name: 'Má»›i nháº¥t', unavailable: false, type: 'NEW' },
+    { id: 2, name: 'Cũ nhất', unavailable: false, type: 'OLD' },
+    { id: 1, name: 'Mới nhất', unavailable: false, type: 'NEW' },
   ];
   const [inputValue, setInputValue] = useState('');
   const history = useHistory();
@@ -54,10 +54,10 @@ const PoupPlan = ({ isOpen = true }) => {
   const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
   const rightPlanList = [
-    'Báº¥t Ä‘á»™ng sáº£n',
-    'NhÃ ',
-    'Xe cÃ¡c loáº¡i',
-    'Vui cÆ°á»i , giáº£i trÃ­',
+    'Bất động sản',
+    'Nhà',
+    'Xe các loại',
+    'Vui cười , giải trí',
   ];
 
   const applySort = (sortType) => {
@@ -148,17 +148,17 @@ const PoupPlan = ({ isOpen = true }) => {
 
   const handleDeletePlan = async (id) => {
     confirmAlert({
-      title: 'Cáº£nh bÃ¡o !',
+      title: 'Cảnh báo !',
       // @ts-ignore
       message: (
         <span className="warning-content">
-          Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ káº¿ hoáº¡ch nÃ y khÃ´ng? Náº¿u xoÃ¡ toÃ n bá»™ content
-          bÃªn trong sáº½ bá»‹ xoÃ¡ mÃ  khÃ´ng thá»ƒ phá»¥c há»“i!
+          Bạn có chắc chắn muốn xoá kế hoạch này không? Nếu xoá toàn bộ content
+          bên trong sẽ bị xoá mà không thể phục hồi!
         </span>
       ),
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: async () => {
             const res = await CreateContent.deletePlan(id);
             if (res.status === OK) {
@@ -172,12 +172,12 @@ const PoupPlan = ({ isOpen = true }) => {
                 ])
               );
               dispatch(actionGetPlans(setOriginalPlans));
-              toast.success('XoÃ¡ káº¿ hoáº¡ch thÃ nh cÃ´ng !');
+              toast.success('Xoá kế hoạch thành công !');
             }
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -234,11 +234,11 @@ const PoupPlan = ({ isOpen = true }) => {
                         className="bg-blue-500 h-14 text-white rounded-md shadow-md p-2 w-full"
                         onClick={() => setIsOpenPopupCreate(true)}
                       >
-                        Láº­p káº¿ hoáº¡ch má»›i
+                        Lập kế hoạch mới
                       </button>
                       <div className="flex items-center gap-2 py-3">
                         <img src={menuIcon} width={40} height={40} />{' '}
-                        <span className="text-blue-500"> Máº«u káº¿ hoáº¡ch</span>
+                        <span className="text-blue-500"> Mẫu kế hoạch</span>
                       </div>
                       <PerfectScrollbar className="max-h-96 flex flex-col ">
                         {rightPlanList.map((_elt, index) => (
@@ -254,10 +254,10 @@ const PoupPlan = ({ isOpen = true }) => {
                           className="bg-blue-500 h-14 text-white rounded-md shadow-md p-2 w-2/12"
                           onClick={() => setIsOpenPopupCreate(true)}
                         >
-                          Láº­p káº¿ hoáº¡ch má»›i
+                          Lập kế hoạch mới
                         </button>
                         <span className="uppercase font-bold text-base">
-                          Danh sÃ¡ch káº¿ hoáº¡ch cá»§a báº¡n
+                          Danh sách kế hoạch của bạn
                         </span>
                         <div className="flex gap-5 ml-auto">
                           {plan &&
@@ -266,10 +266,10 @@ const PoupPlan = ({ isOpen = true }) => {
                               <span
                                 onClick={() => dispatch(backEditorScreen())}
                                 className="bg-white border-2 font-bold border-blue-500 rounded-full shadow-md cursor-pointer p-2 hover:bg-blue-500 hover:text-white"
-                                title="Tiáº¿p tá»¥c soáº¡n tháº£o"
+                                title="Tiếp tục soạn thảo"
                               >
                                 {/* <AiOutlineEdit color='green' size={25} /> */}
-                                Tiáº¿p tá»¥c soáº¡n tháº£o
+                                Tiếp tục soạn thảo
                               </span>
                             )}
 
@@ -282,7 +282,7 @@ const PoupPlan = ({ isOpen = true }) => {
                               history.push('/');
                             }}
                             className="bg-white rounded-full shadow-md cursor-pointer p-2"
-                            title="Trá»Ÿ vá» trang chá»§"
+                            title="Trở về trang chủ"
                           >
                             <FiX color="red" size={25} />
                           </span>
@@ -294,7 +294,7 @@ const PoupPlan = ({ isOpen = true }) => {
                           <div className="flex items-center cursor-text rounded-lg h-12  border-2 px-1 border-blue-300 bg-white text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
                             <input
                               type="text"
-                              placeholder="TÃ¬m theo tÃªn hoáº·c hashtag#"
+                              placeholder="Tìm theo tên hoặc hashtag#"
                               defaultValue={inputValue}
                               onChange={handleSearchPlan}
                               className="border-none bg-none rounded-lg w-96"
@@ -350,14 +350,14 @@ const PoupPlan = ({ isOpen = true }) => {
                                       <FiEdit
                                         size={30}
                                         color="#fff"
-                                        title="Sá»­a káº¿ hoáº¡ch"
+                                        title="Sửa kế hoạch"
                                         className="bg-gray-400  rounded-lg p-1 hover:bg-gray-600"
                                         onClick={() => handleEditPlan(planItem)}
                                       />
                                       <FiTrash
                                         size={30}
                                         color="#fff"
-                                        title="XoÃ¡ káº¿ hoáº¡ch"
+                                        title="Xoá kế hoạch"
                                         className="bg-gray-400  rounded-lg p-1 hover:bg-gray-600"
                                         onClick={() => handleDeletePlan(id)}
                                       />{' '}
@@ -392,7 +392,7 @@ const PoupPlan = ({ isOpen = true }) => {
                                       <FiEdit
                                         size={30}
                                         color="#fff"
-                                        title="Sá»­a káº¿ hoáº¡ch"
+                                        title="Sửa kế hoạch"
                                         className="bg-gray-400  rounded-lg p-1 hover:bg-gray-600"
                                         onClick={() =>
                                           handleEditPlan({
@@ -407,7 +407,7 @@ const PoupPlan = ({ isOpen = true }) => {
                                       <FiTrash
                                         size={30}
                                         color="#fff"
-                                        title="XoÃ¡ káº¿ hoáº¡ch"
+                                        title="Xoá kế hoạch"
                                         className="bg-gray-400  rounded-lg p-1 hover:bg-gray-600"
                                         onClick={() => handleDeletePlan(id)}
                                       />{' '}
@@ -458,6 +458,7 @@ const PoupPlan = ({ isOpen = true }) => {
 };
 
 export default PoupPlan;
+
 
 
 

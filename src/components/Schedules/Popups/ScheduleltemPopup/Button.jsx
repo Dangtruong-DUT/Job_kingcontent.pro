@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { FaRegEdit, FaSpinner, FaTrashAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -6,10 +6,10 @@ import {
   setCurrentScheduleContent,
   setIsShowFinalStep,
   setScheduleItemPopupToShow,
-} from '@/../../../store/actions/Schedules';
+} from '@/../../store/actions/Schedules';
 import { confirmAlert } from 'react-confirm-alert';
-import { userServices } from '@/../../../services/users';
-import { OK } from '@/../../../configs';
+import { userServices } from '@/../../services/users';
+import { OK } from '@/../../configs';
 
 function Button(props) {
   const { isSuccess = false, scheduleContent = null } = props;
@@ -30,11 +30,11 @@ function Button(props) {
 
   const handleDelete = () => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n xoÃ¡',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ bÃ i viáº¿t Ä‘Ã£ lÃªn lá»‹ch?',
+      title: 'Xác nhận xoá',
+      message: 'Bạn có chắc chắn muốn xoá bài viết đã lên lịch?',
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             setIsDeleting(true);
             userServices
@@ -63,7 +63,7 @@ function Button(props) {
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -82,7 +82,7 @@ function Button(props) {
           <FaTrashAlt className="w-5 h-5 text-gray-300 mr-1 group-hover:text-white transition-all duration-200 ease-linear" />
         )}
         <span className="text-gray-700 font-semibold  text-sm mt-0.5 group-hover:text-black transition-all duration-200 ease-linear">
-          XoÃ¡
+          Xoá
         </span>
       </button>
       {!isSuccess && (
@@ -92,7 +92,7 @@ function Button(props) {
         >
           <FaRegEdit className="w-5 h-5 text-gray-300 mr-1 group-hover:text-white transition-all duration-200 ease-linear" />
           <span className="text-gray-700 font-semibold  text-sm mt-0.5 group-hover:text-black transition-all duration-200 ease-linear">
-            Sá»­a
+            Sửa
           </span>
         </button>
       )}

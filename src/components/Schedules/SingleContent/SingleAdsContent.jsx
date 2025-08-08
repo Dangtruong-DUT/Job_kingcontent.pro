@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import addIcons from '@/assets/images/icon/create-content/add.png';
-import LoadingApp from '@/../LoadingApp';
+import LoadingApp from '@/LoadingApp';
 import DialogDetailPost from '@/dialogPostDetail';
 import CommentIcon from '@/assets/images/icon/comment.png';
 import LikeIcon from '@/assets/images/icon/like.png';

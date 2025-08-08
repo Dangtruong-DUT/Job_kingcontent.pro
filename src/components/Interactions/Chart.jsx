@@ -1,4 +1,4 @@
-﻿import { memo } from 'react';
+import { memo } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,14 +14,14 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import moment from 'moment';
-import { kFormatter } from '@/../utils/utilityFunc';
+import { kFormatter } from '@/utils/utilityFunc';
 
 const CategoriesChart = (props) => {
   const labels = Array.from(Array(10).keys()).map((v) =>
     moment()
       .subtract(10, 'd')
       .add(v + 1, 'd')
-      .format('DD t\\hÃ¡ng MM')
+      .format('DD t\\háng MM')
   );
   const options = {
     responsive: true,
@@ -62,7 +62,7 @@ const CategoriesChart = (props) => {
         ticks: {
           beginAtZero: true,
           stepSize: 10,
-          callback: (value) => value + ' bÃ i',
+          callback: (value) => value + ' bài',
         },
       },
     },
@@ -95,11 +95,11 @@ const CategoriesChart = (props) => {
     <div className="categoriesChart mb-5 rounded-md p-3 bg-white shadow-smBlackShadow">
       <div className="chartHeader w-full mb-5 flex">
         <div className="title w-1/2 p-3">
-          <h2 className="text-xl font-bold">Thá»‘ng kÃª xu hÆ°á»›ng</h2>
+          <h2 className="text-xl font-bold">Thống kê xu hướng</h2>
         </div>
         <div className="title w-1/2 p-3 text-right">
           <h2 className="text-base">
-            <span>Tuáº§n</span> | <span>ThÃ¡ng</span> | <span>NÄƒm</span>
+            <span>Tuần</span> | <span>Tháng</span> | <span>Năm</span>
           </h2>
         </div>
       </div>

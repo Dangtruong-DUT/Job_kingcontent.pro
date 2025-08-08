@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +10,7 @@ import {
   updateScheduleContentsStatus,
 } from '@/store/actions/Schedules';
 import { toast } from 'react-toastify';
-import { formatDate } from '@/../../helpers/date';
+import { formatDate } from '@/../helpers/date';
 import pauseIcon from '@/assets/images/icon/schedules/pause.png';
 import playIcon from '@/assets/images/icon/schedules/play.png';
 import binIcon from '@/assets/images/icon/schedules/bin.png';
@@ -20,7 +20,7 @@ import DetailSchedule from '@/DetailSchedule';
 import {
   GET_SCHEDULES,
   GET_SCHEDULES_SUCCESS,
-} from '@/../../store/types/schedules';
+} from '@/../store/types/schedules';
 
 const ManageSchedules = (props) => {
   const { schedules = null, manageCurrentSchedule = null } = useSelector(
@@ -40,11 +40,11 @@ const ManageSchedules = (props) => {
 
   const onClickRemoveSchedule = (schedule) => {
     confirmAlert({
-      title: `THÃ”NG BÃO`,
-      message: `Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a toÃ n bá»™ bÃ i viáº¿t cá»§a lá»‹ch ${schedule?.name} khÃ´ng? Dá»¯ liá»‡u Ä‘Ã£ xÃ³a khÃ´ng thá»ƒ phá»¥c há»“i`,
+      title: `THÔNG BÁO`,
+      message: `Bạn có chắc chắn muốn xóa toàn bộ bài viết của lịch ${schedule?.name} không? Dữ liệu đã xóa không thể phục hồi`,
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             dispatch(removeSchedule(schedule?.id));
             const newSchedules = schedules.filter(
@@ -57,7 +57,7 @@ const ManageSchedules = (props) => {
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -66,11 +66,11 @@ const ManageSchedules = (props) => {
 
   const onClickPlaySchedule = (schedule) => {
     confirmAlert({
-      title: `THÃ”NG BÃO`,
-      message: `Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n tiáº¿p tá»¥c lÃªn cÃ¡c bÃ i viáº¿t Ä‘Ã£ dá»«ng cá»§a lá»‹ch ${schedule?.name} khÃ´ng?`,
+      title: `THÔNG BÁO`,
+      message: `Bạn có chắc chắn muốn tiếp tục lên các bài viết đã dừng của lịch ${schedule?.name} không?`,
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             dispatch(updateScheduleContentsStatus(schedule?.id, [], 2));
             const newSchedules = schedules.map((item) => {
@@ -92,7 +92,7 @@ const ManageSchedules = (props) => {
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -101,11 +101,11 @@ const ManageSchedules = (props) => {
 
   const onClickPauseSchedule = (schedule) => {
     confirmAlert({
-      title: `THÃ”NG BÃO`,
-      message: `Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n táº¡m dá»«ng toÃ n bá»™ bÃ i viáº¿t Ä‘ang chá» cá»§a lá»‹ch ${schedule?.name} khÃ´ng?`,
+      title: `THÔNG BÁO`,
+      message: `Bạn có chắc chắn muốn tạm dừng toàn bộ bài viết đang chờ của lịch ${schedule?.name} không?`,
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             dispatch(updateScheduleContentsStatus(schedule?.id, [], 3));
             const newSchedules = schedules.map((item) => {
@@ -127,7 +127,7 @@ const ManageSchedules = (props) => {
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -169,14 +169,14 @@ const ManageSchedules = (props) => {
               <div className="bg-gray-50  text-sm overflow-hidden pt-3 pb-3 flex1 justify-between border-l-4 border-green-500 pl-2 w-full">
                 {manageCurrentSchedule ? (
                   <p className="font-bold uppercase text-base">
-                    Danh sÃ¡ch bÃ i viáº¿t cá»§a lá»‹ch:{' '}
+                    Danh sách bài viết của lịch:{' '}
                     <span className="font-italic">
                       {manageCurrentSchedule?.name}
                     </span>
                   </p>
                 ) : (
                   <p className="font-bold uppercase text-base">
-                    Danh sÃ¡ch lá»‹ch Ä‘Ã£ lÃªn
+                    Danh sách lịch đã lên
                   </p>
                 )}
               </div>
@@ -196,8 +196,8 @@ const ManageSchedules = (props) => {
                   {filteredSchedules?.length === 0 ? (
                     <div className="flex justify-center items-center h-32 border rounded-md w-full pr-2">
                       <p>
-                        KhÃ´ng cÃ³ lá»‹ch nÃ o phÃ¹ há»£p vá»›i tá»« khoÃ¡ hoáº·c chÆ°a cÃ³ lá»‹ch
-                        nÃ o Ä‘Æ°á»£c táº¡o
+                        Không có lịch nào phù hợp với từ khoá hoặc chưa có lịch
+                        nào được tạo
                       </p>
                     </div>
                   ) : (
@@ -252,9 +252,9 @@ const ManageSchedules = (props) => {
                                   onClick={() => onClickSchedule(schedule)}
                                 >
                                   <p className="font-bold">{name}</p>
-                                  <p>NgÃ y táº¡o: {formatDate(created)}</p>
+                                  <p>Ngày tạo: {formatDate(created)}</p>
                                   <p>
-                                    Sá»‘ lÆ°á»£ng bÃ i viáº¿t:{' '}
+                                    Số lượng bài viết:{' '}
                                     <span className="font-bold">
                                       {contents_count}
                                     </span>
@@ -264,8 +264,8 @@ const ManageSchedules = (props) => {
                                   {paused_contents_count > 0 && (
                                     <img
                                       src={playIcon}
-                                      alt="Tiáº¿p tá»¥c lÃªn cÃ¡c bÃ i Ä‘Ã£ dá»«ng"
-                                      title="Tiáº¿p tá»¥c lÃªn cÃ¡c bÃ i Ä‘Ã£ dá»«ng"
+                                      alt="Tiếp tục lên các bài đã dừng"
+                                      title="Tiếp tục lên các bài đã dừng"
                                       className="w-6 h-6 cursor-pointer"
                                       onClick={() =>
                                         onClickPlaySchedule(schedule)
@@ -275,8 +275,8 @@ const ManageSchedules = (props) => {
                                   {pending_contents_count > 0 && (
                                     <img
                                       src={pauseIcon}
-                                      alt="Táº¡m dá»«ng toÃ n bá»™ bÃ i viáº¿t"
-                                      title="Táº¡m dá»«ng toÃ n bá»™ bÃ i viáº¿t"
+                                      alt="Tạm dừng toàn bộ bài viết"
+                                      title="Tạm dừng toàn bộ bài viết"
                                       className="w-6 h-6 cursor-pointer"
                                       onClick={() =>
                                         onClickPauseSchedule(schedule)
@@ -285,8 +285,8 @@ const ManageSchedules = (props) => {
                                   )}
                                   <img
                                     src={binIcon}
-                                    alt="XoÃ¡ lá»‹ch"
-                                    title="XoÃ¡ lá»‹ch"
+                                    alt="Xoá lịch"
+                                    title="Xoá lịch"
                                     className="w-6 h-6 cursor-pointer"
                                     onClick={() =>
                                       onClickRemoveSchedule(schedule)
@@ -311,7 +311,7 @@ const ManageSchedules = (props) => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickBg()}
               >
-                ÄÃ³ng
+                Đóng
               </button>
             </div>
           </div>

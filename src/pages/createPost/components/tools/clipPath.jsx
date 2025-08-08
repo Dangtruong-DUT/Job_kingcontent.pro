@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 import { MdRectangle } from 'react-icons/md';
@@ -6,7 +6,7 @@ import { FaArrowDown, FaArrowLeft, FaArrowRight, FaArrowUp, FaHeart, FaSquareFul
 import { FiArrowDownRight } from 'react-icons/fi';
 import { FaGripLines } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { AddElement } from '@/../../../store/actions/createContent';
+import { AddElement } from '@/../../store/actions/createContent';
 import { uniqueId } from 'lodash';
 import { IoTriangleSharp } from 'react-icons/io5';
 import { MdHexagon } from 'react-icons/md';

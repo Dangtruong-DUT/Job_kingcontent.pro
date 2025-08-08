@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   FiCheckCircle,
   FiEdit,
@@ -8,7 +8,7 @@ import {
   FiPlusCircle,
 } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import LoadingApp from '@/../../../components/LoadingApp';
+import LoadingApp from '@/../../components/LoadingApp';
 import {
   ACTION_GET_HISTORY_QUESTION,
   deleteHistory,
@@ -17,7 +17,7 @@ import {
   toggleEditorText,
   updateHistory,
   updateHistoryHashtag,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import PopupDetailContentChat from '@/popupDetailContentChat';
 
 import styled from 'styled-components';
@@ -72,14 +72,14 @@ const Saved = (props) => {
   const handleCoppyToClipBoard = (content, id) => {
     dispatch(toggleEditorText(content, true));
     setIsCoppied({ status: true, id: id });
-    toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+    toast.success('Thao tác thành công !');
     setTimeout(() => {
       setIsCoppied({ status: false, id: null });
     }, 2000);
   };
 
   const handleDeteleQuestion = (id) => {
-    const comfirm = confirm('Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ ná»™i dung nÃ y ?');
+    const comfirm = confirm('Bạn có chắc chắn muốn xoá nội dung này ?');
     if (comfirm) {
       dispatch(deleteHistory(id));
     }
@@ -172,7 +172,7 @@ const Saved = (props) => {
       <div className="flex gap-3">
         <input
           className="w-full h-14 rounded-md shadow-sm border-gray-100 border-2 outline-none p-2"
-          placeholder="TÃ¬m kiáº¿m cÃ¢u há»i , ná»™i dung , tháº» ..."
+          placeholder="Tìm kiếm câu hỏi , nội dung , thẻ ..."
           value={inputValue}
           onChange={(e) => handleOnSearch(e.target.value)}
         />
@@ -193,7 +193,7 @@ const Saved = (props) => {
           <>
             <div className="flex justify-center flex-row mb-3">
               <span className="text-md font-bold text-center">
-                KhÃ´ng cÃ³ cÃ¢u tráº£ lá»i nÃ o hiá»ƒn thá»‹ táº¡i Ä‘Ã¢y !
+                Không có câu trả lời nào hiển thị tại đây !
               </span>
             </div>
           </>
@@ -205,7 +205,7 @@ const Saved = (props) => {
               onClick={reFind}
               className="bg-blue-500 px-3 rounded-md hover:bg-gray-400 disabled:bg-gray-400 text-white h-8"
             >
-              TÃ¬m kiáº¿m láº¡i
+              Tìm kiếm lại
             </button>
           </div>
         )}
@@ -232,7 +232,7 @@ const Saved = (props) => {
                   {tag ? (
                     <span
                       className="bg-green-500 rounded-md text-white px-3 py-1 cursor-pointer"
-                      title="Chá»‰nh sá»­a"
+                      title="Chỉnh sửa"
                       onClick={() =>
                         onClickUpdateTag(question, answer, id, tag)
                       }
@@ -253,7 +253,7 @@ const Saved = (props) => {
                     )}
                     <button
                       onClick={() => togglePopup(question, answer, id)}
-                      title="Xem thÃªm"
+                      title="Xem thêm"
                     >
                       <FiMaximize
                         size="25"
@@ -275,13 +275,13 @@ const Saved = (props) => {
                           size="25"
                           color="green"
                           className="hover:text-green-500"
-                          title="ÄÆ°a vÃ o trÃ¬nh soáº¡n tháº£o"
+                          title="Đưa vào trình soạn thảo"
                         />
                       </button>
                     )}
                     <button
                       onClick={() => handleDeteleQuestion(id)}
-                      title="XoÃ¡ káº¿t quáº£"
+                      title="Xoá kết quả"
                     >
                       <FiTrash
                         size="25"

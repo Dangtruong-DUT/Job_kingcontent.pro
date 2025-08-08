@@ -1,4 +1,4 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import { useCallback, useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,15 +13,15 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
   updateSelectedDateTime,
-} from '@/../../../store/actions/Schedules';
+} from '@/../../store/actions/Schedules';
 import ModalEvent from '@/ModalEvent';
-import { searchEventByDate, TYPE_GO_CHAT } from '@/../../../utils/utilityFunc';
+import { searchEventByDate, TYPE_GO_CHAT } from '@/../../utils/utilityFunc';
 import { confirmAlert } from 'react-confirm-alert';
 import { useHistory } from 'react-router-dom';
 import ModalListEvent from '@/ModalListEvent';
-import { ResourcesService } from '@/../../../services/resources';
-import { OK } from '@/../../../configs';
-import { EVENT } from '@/../../../components/Schedules/SourceIdeas/utility';
+import { ResourcesService } from '@/../../services/resources';
+import { OK } from '@/../../configs';
+import { EVENT } from '@/../../components/Schedules/SourceIdeas/utility';
 const CalendarStyled = styled.div`
   .react-calendar {
     width: 100% !important;
@@ -116,15 +116,15 @@ const CalendarEvents = (props) => {
       <>
         {!isHasEvent ? (
           <div>
-            NgÃ y <span className="font-bold text-red-600 w-full">{date}</span>{' '}
-            chÆ°a cÃ³ sá»± kiá»‡n nÃ o Ä‘áº·c biá»‡t, báº¡n cÃ³ muá»‘n tiáº¿p tá»¥c táº¡o lá»‹ch Ä‘Äƒng bÃ i
-            vÃ o ngÃ y nÃ y khÃ´ng
+            Ngày <span className="font-bold text-red-600 w-full">{date}</span>{' '}
+            chưa có sự kiện nào đặc biệt, bạn có muốn tiếp tục tạo lịch đăng bài
+            vào ngày này không
           </div>
         ) : (
           <div>
-            CÃ³ má»™t sá»± kiá»‡n nháº­n Ä‘Æ°á»£c nhiá»u ngÆ°á»i quan tÃ¢m vÃ o ngÃ y{' '}
-            <span className="font-bold text-red-600 w-full">{date}</span>, báº¡n
-            cÃ³ muá»‘n Ä‘Äƒng bÃ i theo dÃ²ng sá»± kiá»‡n nÃ y khÃ´ng?
+            Có một sự kiện nhận được nhiều người quan tâm vào ngày{' '}
+            <span className="font-bold text-red-600 w-full">{date}</span>, bạn
+            có muốn đăng bài theo dòng sự kiện này không?
           </div>
         )}
       </>
@@ -154,7 +154,7 @@ const CalendarEvents = (props) => {
     async (date) => {
       // check if date is in the past
       if (moment(date).isBefore(moment(), 'date')) {
-        toast.error('KhÃ´ng thá»ƒ chá»n ngÃ y Ä‘á»ƒ lÃªn bÃ i trong quÃ¡ khá»©');
+        toast.error('Không thể chọn ngày để lên bài trong quá khứ');
         return;
       }
 
@@ -162,11 +162,11 @@ const CalendarEvents = (props) => {
       const event = searchEventByDate(date, scheduleEvents);
       const isHasEvent = event ? true : false;
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
+        title: 'Thông báo',
         message: RenderTitle(dateKey, isHasEvent),
         buttons: [
           {
-            label: 'Tiáº¿p tá»¥c',
+            label: 'Tiếp tục',
             onClick: async () => {
               // check if date is today
               let selectedDate = moment(date).format('YYYY-MM-DD 00:00');
@@ -187,7 +187,7 @@ const CalendarEvents = (props) => {
             },
           },
           {
-            label: 'Huá»·',
+            label: 'Huỷ',
             onClick: () => {},
           },
         ],
@@ -198,7 +198,7 @@ const CalendarEvents = (props) => {
 
   return (
     <div className="calendarEvents mt-3">
-      <h4 className="uppercase font-bold text-base">Sá»± kiá»‡n thÃ¡ng nÃ y</h4>
+      <h4 className="uppercase font-bold text-base">Sự kiện tháng này</h4>
       <div className="calendar mt-3">
         {/* <h5 className="font-bold text-gray-600 text-base">{dateText}</h5> */}
         <div className="mt-3">

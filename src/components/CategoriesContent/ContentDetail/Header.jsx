@@ -1,8 +1,8 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { AiFillFacebook } from 'react-icons/ai';
 import { FaWindowClose } from 'react-icons/fa';
-import { getFanpageAvatar } from '@/../../helpers';
+import { getFanpageAvatar } from '@/../helpers';
 import { useSelector } from 'react-redux';
 import logo from '@/assets/images/logo.jpg';
 
@@ -60,7 +60,7 @@ function Header(props) {
         <span className="m-1 px-1 text-xs text-gray-700 font-medium bg-blue-50">
           {source_type === 'trend' || source_type === 'special'
             ? moment.unix(createdAt).format('DD/MM/YYYY')
-            : 'Content tham kháº£o'}
+            : 'Content tham khảo'}
         </span>
       </div>
       <div className="flex gap-2">

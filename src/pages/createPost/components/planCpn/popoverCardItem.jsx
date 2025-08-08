@@ -1,26 +1,26 @@
-﻿import { Popover, Transition } from '@headlessui/react';
+import { Popover, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 // @ts-ignore
-import editIcon from '@/../../../assets/images/icon/plan/edit.png';
+import editIcon from '@/../../assets/images/icon/plan/edit.png';
 // @ts-ignore
-import PinIcon from '@/../../../assets/images/icon/plan/pin-angle-fill.png';
+import PinIcon from '@/../../assets/images/icon/plan/pin-angle-fill.png';
 // @ts-ignore
-import sortIcon from '@/../../../assets/images/icon/plan/sort.png';
+import sortIcon from '@/../../assets/images/icon/plan/sort.png';
 // @ts-ignore
-import trashIcon from '@/../../../assets/images/icon/plan/trash.png';
+import trashIcon from '@/../../assets/images/icon/plan/trash.png';
 import {
   KEY_PLAN_DATA,
   KEY_PLAN_SELECT,
-} from '@/../../../reducers/createContent';
-import { CreateContent } from '@/../../../services/createContent';
+} from '@/../../reducers/createContent';
+import { CreateContent } from '@/../../services/createContent';
 import {
   actionGetPlan,
   updateProps,
-} from '@/../../../store/actions/createContent';
-import { OK } from '@/../../../configs';
+} from '@/../../store/actions/createContent';
+import { OK } from '@/../../configs';
 
 export default function PopoverTopCardItem({
   id,
@@ -75,7 +75,7 @@ export default function PopoverTopCardItem({
         },
       ])
     );
-    toast.success('XoÃ¡ phÃ¢n loáº¡i thÃ nh cÃ´ng !');
+    toast.success('Xoá phân loại thành công !');
   };
   const pinLabel = async () => {
     const res = await CreateContent.pinLabel(labelId, {
@@ -83,7 +83,7 @@ export default function PopoverTopCardItem({
     });
     if (res.status === OK) {
       dispatch(actionGetPlan(plan?.id, setOriginalPlan));
-      toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+      toast.success('Thao tác thành công !');
     }
   };
   return (
@@ -121,7 +121,7 @@ export default function PopoverTopCardItem({
                     >
                       <img src={PinIcon} alt="" width={25} height={25} />
                       <span className="hover:underline hover:text-red-500">
-                        {is_pin_to_top === 1 ? 'Bá» ghim' : 'Ghim phÃ¢n loáº¡i'}{' '}
+                        {is_pin_to_top === 1 ? 'Bỏ ghim' : 'Ghim phân loại'}{' '}
                       </span>
                     </div>
                     {!keyword && (
@@ -131,7 +131,7 @@ export default function PopoverTopCardItem({
                       >
                         <img src={editIcon} alt="" width={25} height={25} />
                         <span className="hover:underline hover:text-red-500">
-                          Sá»­a phÃ¢n loáº¡i
+                          Sửa phân loại
                         </span>
                       </div>
                     )}
@@ -142,7 +142,7 @@ export default function PopoverTopCardItem({
                     >
                       <img src={sortIcon} alt="" width={25} height={25} />
                       <span className="hover:underline hover:text-red-500">
-                        Sáº¯p xáº¿p theo thá»i gian táº¡o
+                        Sắp xếp theo thời gian tạo
                       </span>
                     </div>
                     <div
@@ -151,7 +151,7 @@ export default function PopoverTopCardItem({
                     >
                       <img src={trashIcon} alt="" width={25} height={25} />
                       <span className="hover:underline hover:text-red-500">
-                        XoÃ¡ phÃ¢n loáº¡i
+                        Xoá phân loại
                       </span>
                     </div>
                   </div>

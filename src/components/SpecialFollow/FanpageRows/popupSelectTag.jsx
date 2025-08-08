@@ -1,11 +1,11 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
-import { _dashed_border } from '@/../../pages/createPost/utility';
+import { _dashed_border } from '@/../pages/createPost/utility';
 import CreatableSelect from 'react-select/creatable';
-import { fanpageService } from '@/../../services/fanpages';
-import client from '@/../../Client';
-import { API_FANPAGES, OK } from '@/../../configs';
+import { fanpageService } from '@/services/fanpages';
+import client from '@/../Client';
+import { API_FANPAGES, OK } from '@/configs';
 import { toast } from 'react-toastify';
 const PopupSelectTag = ({
   isOpen = true,
@@ -23,7 +23,7 @@ const PopupSelectTag = ({
     const res = await client.put(`/saved-fanpages/${item.id}`, data);
     if (res.status === OK) {
       reRenderList && reRenderList();
-      toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+      toast.success('Cập nhật thành công !');
       setOpen(false);
     }
   };
@@ -70,7 +70,7 @@ const PopupSelectTag = ({
                   style={{ height: '500px', width: '500px' }}
                 >
                   <div className="flex justify-between items-center">
-                    <h2 className="font-bold  uppercase">Chá»n nhÃ£n</h2>
+                    <h2 className="font-bold  uppercase">Chọn nhãn</h2>
                     <div>
                       <button
                         className="rounded-full p-1 bg-gray-400"
@@ -85,8 +85,8 @@ const PopupSelectTag = ({
                     menuIsOpen={true}
                     options={options}
                     value={options.find((item) => item.value === value.id)}
-                    placeholder="Chá»n nhÃ£n hoáº·c táº¡o nhÃ£n má»›i ..."
-                    formatCreateLabel={(userInput) => `Táº¡o nhÃ£n : ${userInput}`}
+                    placeholder="Chọn nhãn hoặc tạo nhãn mới ..."
+                    formatCreateLabel={(userInput) => `Tạo nhãn : ${userInput}`}
                     type="creatable"
                     onChange={(original) => {
                       setValue(original);
@@ -99,7 +99,7 @@ const PopupSelectTag = ({
                       onClick={handleUpdateTag}
                       type="submit"
                     >
-                      Cáº­p nháº­t
+                      Cập nhật
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -113,4 +113,5 @@ const PopupSelectTag = ({
 };
 
 export default PopupSelectTag;
+
 

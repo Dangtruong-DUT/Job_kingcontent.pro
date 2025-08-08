@@ -1,22 +1,22 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ImCross, ImFacebook } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import InfoLeft from '@/InfoLeft';
 import InfoRight from '@/InfoRight';
 import Comments from '@/Comments';
 import { VscCommentDiscussion, VscNote } from 'react-icons/vsc';
-import { setScheduleItemPopupToShow } from '@/../../../store/actions/Schedules';
-import DetailTiktok from '@/../Tiktok/DetailTiktok';
-import { actionSetCurrentContent } from '@/../../../store/actions/instagram';
-import ContentDetail from '@/../../InstagramCpn/ContentDetail';
-import { instagramService } from '@/../../../services/instagram';
+import { setScheduleItemPopupToShow } from '@/../../store/actions/Schedules';
+import DetailTiktok from '@/Tiktok/DetailTiktok';
+import { actionSetCurrentContent } from '@/../../store/actions/instagram';
+import ContentDetail from '@/../InstagramCpn/ContentDetail';
+import { instagramService } from '@/../../services/instagram';
 import { toast } from 'react-toastify';
-import { OK } from '@/../../../configs';
-import DetailDouyin from '@/../douyin/detailDouyin';
-import ContentDetailThreads from '@/../../CategoriesContent/ContentDetailThreads/ContentDetailThreads';
-import { threadsService } from '@/../../../services/threads';
-import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
-import { convertInstagramLink } from '@/../../../helpers';
+import { OK } from '@/../../configs';
+import DetailDouyin from '@/douyin/detailDouyin';
+import ContentDetailThreads from '@/../CategoriesContent/ContentDetailThreads/ContentDetailThreads';
+import { threadsService } from '@/../../services/threads';
+import { setContentDetailToShow } from '@/../../store/actions/Contents/contentActions';
+import { convertInstagramLink } from '@/../../helpers';
 
 const ScheduleItemPopup = (props) => {
   const { scheduleContent = null } = props;
@@ -82,7 +82,7 @@ const ScheduleItemPopup = (props) => {
   };
 
   const getInstagramPostInfo = async (code, replaceText = '') => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t...');
+    toast.info('Đang lấy thông tin bài viết...');
     const res = await instagramService.getPostsInfo([code]);
     if (res.status === OK) {
       const postInfo = res?.data?.data[0];
@@ -92,7 +92,7 @@ const ScheduleItemPopup = (props) => {
   };
 
   const getThreadPostInfo = async (contentId, replaceText = '') => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t...');
+    toast.info('Đang lấy thông tin bài viết...');
     const res = await threadsService.getPostDetail(contentId);
     if (res.status === OK) {
       const postInfo = res?.data?.data;
@@ -201,7 +201,7 @@ const ScheduleItemPopup = (props) => {
           >
             <div className="flex items-center gap-2">
               <VscNote className="h-6 w-6" />
-              <span className="ml-2">BÃ i viáº¿t</span>
+              <span className="ml-2">Bài viết</span>
             </div>
           </div>
           <div

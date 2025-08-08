@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import * as SCHEDULES from '@/store/actions/Schedules';
@@ -33,7 +33,7 @@ import Threads from '@/threads';
 import Douyin from '@/douyin';
 import ChatGPT from '@/ChatGPT';
 import VideoEditor from '@/VideoEditor';
-import TabCompleted, { ParentType } from '@/../../pages/TextToVideo/TabCompleted';
+import TabCompleted, { ParentType } from '@/../pages/TextToVideo/TabCompleted';
 
 const SourceIdeas = (props) => {
   const { currentScheduleContentType: titleType = DEFAULT } = useSelector(
@@ -152,14 +152,14 @@ const SourceIdeas = (props) => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickBg()}
               >
-                Huá»·
+                Huỷ
               </button>
               {titleType !== DEFAULT && (
                 <button
                   className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold"
                   onClick={() => handleClickGoBack()}
                 >
-                  Quay láº¡i
+                  Quay lại
                 </button>
               )}
             </div>

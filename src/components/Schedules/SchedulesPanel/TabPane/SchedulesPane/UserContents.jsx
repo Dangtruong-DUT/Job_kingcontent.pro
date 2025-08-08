@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserContentRow from '@/UserContentRow';
 import { set, addMinutes, addHours } from 'date-fns';
 import ScrollBar from 'react-perfect-scrollbar';
@@ -8,7 +8,7 @@ import {
   getScheduledContents,
   getUserContents,
   getUserPlans,
-} from '@/../../../../store/actions/Schedules';
+} from '@/../../../store/actions/Schedules';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 

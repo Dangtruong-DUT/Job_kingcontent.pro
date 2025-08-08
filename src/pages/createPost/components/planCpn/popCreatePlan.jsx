@@ -1,4 +1,4 @@
-﻿import { Dialog } from 'primereact/dialog';
+import { Dialog } from 'primereact/dialog';
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiTrash, FiX } from 'react-icons/fi';
@@ -6,33 +6,33 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import ColorPicker from 'react-pick-color';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import uploadCloud from '@/../../../assets/images/icon/plan/cloud-computing.png';
+import uploadCloud from '@/../../assets/images/icon/plan/cloud-computing.png';
 
 import { InputSwitch } from 'primereact/inputswitch';
 import {
   KEY_HASH_TAG_PLANS,
   KEY_IMAGES,
-} from '@/../../../reducers/createContent';
-import { CreateContent } from '@/../../../services/createContent';
+} from '@/../../reducers/createContent';
+import { CreateContent } from '@/../../services/createContent';
 import {
   actionGetLabels,
   actionGetPlans,
   updateProps,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 
 import { Tab } from '@headlessui/react';
 import axios from 'axios';
-import { ResourcesService } from '@/../../../services/resources';
+import { ResourcesService } from '@/../../services/resources';
 import {
   UPLOAD_TYPE_IMAGE,
   _text_title,
   getBodyCreatePlan,
   getObject_create_post,
-} from '@/../utility';
+} from '@/utility';
 import PopupSuggTagChatgpt from '@/popupSuggTagChatgpt';
 import { initialColor, initialValues } from '@/utility';
 import './custom.css';
-import { isArrayEmpty, OK } from '@/../../../configs';
+import { isArrayEmpty, OK } from '@/../../configs';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -92,7 +92,7 @@ const PopupCreatePlan = ({
   const onAddUserTag = () => {
     if (userTags.length >= maxUserTag) {
       toast.error(
-        'Sá»‘ lÆ°á»£ng cá»™t content tá»‘i Ä‘a lÃ  10, vui lÃ²ng táº¡o káº¿ hoáº¡ch má»›i !'
+        'Số lượng cột content tối đa là 10, vui lòng tạo kế hoạch mới !'
       );
       return;
     }
@@ -126,7 +126,7 @@ const PopupCreatePlan = ({
   const onSubmit = async (data) => {
     setIsLoadingCreatePlan(true);
     if (data.color === null && data.thumbnail === null) {
-      toast.error('Vui lÃ²ng chá»n hÃ¬nh áº£nh hoáº·c mÃ u ná»n !');
+      toast.error('Vui lòng chọn hình ảnh hoặc màu nền !');
       setIsLoadingCreatePlan(false);
       return;
     }
@@ -137,7 +137,7 @@ const PopupCreatePlan = ({
         isAdvance &&
         tagsSelect.size !== 0
       ) {
-        toast.error('Vui lÃ²ng nháº­p tÃªn sáº£n pháº©m !');
+        toast.error('Vui lòng nhập tên sản phẩm !');
         setIsLoadingCreatePlan(false);
         return;
       }
@@ -145,7 +145,7 @@ const PopupCreatePlan = ({
       const res = await CreateContent.createPlan(requestData);
       const { status, data: resData } = res;
       if (status === OK) {
-        toast.success('Táº¡o má»›i thÃ nh cÃ´ng !');
+        toast.success('Tạo mới thành công !');
         setIsLoadingCreatePlan(false);
         reset();
         setTagsSelect(new Set());
@@ -165,7 +165,7 @@ const PopupCreatePlan = ({
         getBodyCreatePlan(data)
       );
       if (res.status === OK) {
-        toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+        toast.success('Cập nhật thành công !');
         setIsLoadingCreatePlan(false);
         reset();
         dispatch(actionGetPlans(setOriginalPlans));
@@ -195,10 +195,10 @@ const PopupCreatePlan = ({
   const handleUploadFile = async (evt) => {
     const file = event.target.files[0];
     if (file.size > MAX_FILE_SIZE) {
-      toast.warning('Vui lÃ²ng chá»n áº£nh cÃ³ dung lÆ°á»£ng nhá» hÆ¡n 2MB !');
+      toast.warning('Vui lòng chọn ảnh có dung lượng nhỏ hơn 2MB !');
       return;
     }
-    toast.info('Äang táº£i áº£nh lÃªn ... Vui lÃ²ng chá» trong giÃ¢y lÃ¡t !');
+    toast.info('Đang tải ảnh lên ... Vui lòng chờ trong giây lát !');
     setIsLoadingUploadFile(true);
     const formData = new FormData();
     formData.append('files[]', evt.target.files[0], evt.target.files[0].name);
@@ -214,7 +214,7 @@ const PopupCreatePlan = ({
         ])
       );
       toast.dismiss();
-      toast.success('Táº£i áº£nh thÃ nh cÃ´ng !');
+      toast.success('Tải ảnh thành công !');
     }
   };
 
@@ -244,7 +244,7 @@ const PopupCreatePlan = ({
 
   return (
     <Dialog
-      header={isEdit ? 'Cáº¬P NHáº¬T Káº¾ HOáº CH' : 'Láº¬P Káº¾ HOáº CH Má»šI'}
+      header={isEdit ? 'CẬP NHẬT KẾ HOẠCH' : 'LẬP KẾ HOẠCH MỚI'}
       visible={isOpen}
       baseZIndex={999999}
       className={isAdvance ? 'w-2/3' : 'w-1/3'}
@@ -252,19 +252,19 @@ const PopupCreatePlan = ({
       dismissableMask
     >
       <div className="flex items-center gap-3 mb-3 mt-2">
-        <span className="font-bold">CÆ¡ báº£n</span>
+        <span className="font-bold">Cơ bản</span>
         <InputSwitch
           checked={isAdvance}
           onChange={(e) => setIsAdvance(e.value)}
           className="switchCustom"
         />
-        <span className="font-bold">NÃ¢ng cao</span>
+        <span className="font-bold">Nâng cao</span>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex gap-5">
           <div className={isAdvance ? 'w-1/2' : 'w-full'}>
             <div className="mb-2">
-              <p className={`${_text_title} text-blue-500`}>TÃªn káº¿ hoáº¡ch *</p>
+              <p className={`${_text_title} text-blue-500`}>Tên kế hoạch *</p>
               <input
                 type="text"
                 className={`w-full rounded-lg border-2  ${
@@ -274,7 +274,7 @@ const PopupCreatePlan = ({
               />
             </div>
             <p className={`${_text_title} text-blue-500`}>
-              Chá»n mÃ u ná»n hoáº·c hÃ¬nh ná»n
+              Chọn màu nền hoặc hình nền
             </p>
             <Tab.Group>
               <Tab.List className="flex space-x-1 rounded-xl bg-gray-200 p-1">
@@ -291,7 +291,7 @@ const PopupCreatePlan = ({
                 >
                   <div className="flex justify-between items-center">
                     <div></div>
-                    <span>MÃ u ná»n</span>
+                    <span>Màu nền</span>
                     {watchAllFields.color !== null ? (
                       <FiX
                         color="#CD1818"
@@ -320,7 +320,7 @@ const PopupCreatePlan = ({
                 >
                   <div className="flex justify-between items-center">
                     <div></div>
-                    <span>HÃ¬nh ná»n</span>
+                    <span>Hình nền</span>
                     {watchAllFields.thumbnail !== null ? (
                       <FiX
                         color="#CD1818"
@@ -432,11 +432,11 @@ const PopupCreatePlan = ({
           {isAdvance && (
             <div className="w-1/2">
               <div className="mb-2">
-                <p className={`${_text_title} text-blue-500`}>Gáº®N NHÃƒN</p>
+                <p className={`${_text_title} text-blue-500`}>GẮN NHÃN</p>
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder="VÃ­ dá»¥ : Content bÃ¡n hÃ ng , Content báº¯t trends ..."
+                    placeholder="Ví dụ : Content bán hàng , Content bắt trends ..."
                     className={`w-full rounded-lg border-2  ${
                       errors['hashtag'] ? 'border-red-500' : 'border-gray-400'
                     }`}
@@ -445,7 +445,7 @@ const PopupCreatePlan = ({
                 </div>
                 <div className="mt-2">
                   <span className={`${_text_title} text-blue-500`}>
-                    CÃC Cá»˜T CONTENT BÃŠN TRONG
+                    CÁC CỘT CONTENT BÊN TRONG
                   </span>
                   <PopupSuggTagChatgpt
                     setTagsSelect={setTagsSelect}
@@ -461,10 +461,10 @@ const PopupCreatePlan = ({
                 {tagsSelect.size || userTags.length ? (
                   <>
                     <p className={`${_text_title} text-blue-500 mt-2`}>
-                      TÃªn sáº£n pháº©m
+                      Tên sản phẩm
                     </p>
                     <p className="text-red-500 italic font-bold mb-2">
-                      (*)MÃ¡y tÃ­nh sáº½ tá»± Ä‘á»™ng gá»£i Ã½ content cÃ³ sáºµn cho báº¡n
+                      (*)Máy tính sẽ tự động gợi ý content có sẵn cho bạn
                     </p>
                     <input
                       type="text"
@@ -484,10 +484,10 @@ const PopupCreatePlan = ({
             type="submit"
           >
             {isLoadingCreatePlan
-              ? 'Äang xá»­ lÃ½ ...'
+              ? 'Đang xử lý ...'
               : isEdit
-              ? 'Cáº­p nháº­t'
-              : 'Táº¡o má»›i'}
+              ? 'Cập nhật'
+              : 'Tạo mới'}
           </button>
         </div>
       </form>

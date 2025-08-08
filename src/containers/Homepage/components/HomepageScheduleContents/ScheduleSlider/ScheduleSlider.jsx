@@ -1,9 +1,9 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getScheduleContents,
   getScheduleContentsHomepage,
-} from '@/../../../../store/actions/Schedules';
+} from '@/../../../store/actions/Schedules';
 import ScheduleSingle from '@/ScheduleSingle';
 import moment from 'moment';
 
@@ -45,7 +45,7 @@ const ScheduleSlider = (props) => {
       <div className="sliderContents w-full">
         {loadingScheduleContents ? (
           <div className="w-full h-96 flex justify-center items-center">
-            Äang láº¥y dá»¯ liá»‡u...
+            Đang lấy dữ liệu...
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-4">

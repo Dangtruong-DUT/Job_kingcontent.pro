@@ -1,17 +1,17 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { _button_styled } from '@/../pages/createPost/utility';
-import { isObjEmpty } from '@/../utils/utilityFunc';
+import { _button_styled } from '@/pages/createPost/utility';
+import { isObjEmpty } from '@/utils/utilityFunc';
 import { useEffect } from 'react';
-import { LoginFBService } from '@/../services/loginFB';
+import { LoginFBService } from '@/services/loginFB';
 import {
   LOGIN_SUCCESS,
   SET_COMPLETE_INFORMATION,
 } from '@/store/types/user';
 import { toast } from 'react-toastify';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 
 const CompleteInfo = () => {
   const { isCompleteInformation } = useSelector((state) => state.userReducer);
@@ -30,10 +30,10 @@ const CompleteInfo = () => {
   const validatePhoneNumber = (value) => {
     const phoneNumberRegex = /^(\+)?\d{10,15}$/;
     if (!value) {
-      return 'Vui lÃ²ng nháº­p thÃ´ng tin ';
+      return 'Vui lòng nhập thông tin ';
     }
     if (!phoneNumberRegex.test(value)) {
-      return 'Sá»‘ Ä‘iá»‡n thoáº¡i sai Ä‘á»‹nh dáº¡ng !';
+      return 'Số điện thoại sai định dạng !';
     }
     return true;
   };
@@ -45,7 +45,7 @@ const CompleteInfo = () => {
         data
       );
       if (res.status === OK) {
-        toast.success('Cáº­p nháº­t thÃ´ng tin thÃ nh cÃ´ng !');
+        toast.success('Cập nhật thông tin thành công !');
         dispatch({
           type: LOGIN_SUCCESS,
           payload: { ...res.data, rememberMe: true },
@@ -122,20 +122,20 @@ const CompleteInfo = () => {
                 <div>
                   <div className="flex justify-center mb-2">
                     <span className="uppercase font-bold text-base">
-                      HoÃ n thiá»‡n thÃ´ng tin
+                      Hoàn thiện thông tin
                     </span>
                   </div>
                   <div className="flex justify-center mb-2">
                     <span className="font-bold text-red-500">
-                      *TÃ i khoáº£n cá»§a báº¡n chÆ°a hoÃ n thiá»‡n Ä‘áº§y Ä‘á»§ thÃ´ng tin , vui
-                      lÃ²ng hoÃ n thiá»‡n Ä‘á»ƒ sá»­ dá»¥ng há»‡ thá»‘ng !
+                      *Tài khoản của bạn chưa hoàn thiện đầy đủ thông tin , vui
+                      lòng hoàn thiện để sử dụng hệ thống !
                     </span>
                   </div>
 
                   <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-3 gap-3 mb-3">
                       <div>
-                        <span className="font-bold text-md">*Há»</span>
+                        <span className="font-bold text-md">*Họ</span>
                         <input
                           type="text"
                           className={`w-full rounded-lg border-2  ${
@@ -147,7 +147,7 @@ const CompleteInfo = () => {
                         />
                       </div>
                       <div>
-                        <span className="font-bold text-md">*TÃªn</span>
+                        <span className="font-bold text-md">*Tên</span>
                         <input
                           type="text"
                           className={`w-full rounded-lg border-2  ${
@@ -160,7 +160,7 @@ const CompleteInfo = () => {
                       </div>
                       <div>
                         <span className="font-bold text-md">
-                          *TÃªn ngÆ°á»i dÃ¹ng
+                          *Tên người dùng
                         </span>
                         <input
                           type="text"
@@ -173,13 +173,13 @@ const CompleteInfo = () => {
                             required: true,
                             minLength: {
                               value: 6,
-                              message: 'TÃªn ngÆ°á»i dÃ¹ng pháº£i lá»›n hÆ¡n 6 kÃ½ tá»±',
+                              message: 'Tên người dùng phải lớn hơn 6 ký tự',
                             },
                             pattern: {
                               value:
                                 /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/,
                               message:
-                                'TÃªn ngÆ°á»i dÃ¹ng khÃ´ng Ä‘Æ°á»£c chá»©a kÃ½ tá»± Ä‘áº·c biá»‡t',
+                                'Tên người dùng không được chứa ký tự đặc biệt',
                             },
                           })}
                         />
@@ -207,7 +207,7 @@ const CompleteInfo = () => {
                             pattern: {
                               value:
                                 /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                              message: 'Äá»‹a chá»‰ email khÃ´ng Ä‘Ãºng Ä‘á»‹nh dáº¡ng !',
+                              message: 'Địa chỉ email không đúng định dạng !',
                             },
                           })}
                         />
@@ -217,7 +217,7 @@ const CompleteInfo = () => {
                       </div>
                       <div>
                         <span className="font-bold text-md">
-                          *Sá»‘ Ä‘iá»‡n thoáº¡i
+                          *Số điện thoại
                         </span>
                         <input
                           type="number"
@@ -245,10 +245,10 @@ const CompleteInfo = () => {
                         onClick={cancelLoginFB}
                         className={`text-white p-3 hover:bg-gray-400 w-full rounded-md shadow-md bg-red-500`}
                       >
-                        Huá»· bá»
+                        Huỷ bỏ
                       </button>
                       <button type="submit" className={_button_styled}>
-                        Cáº­p nháº­t
+                        Cập nhật
                       </button>
                     </div>
                   </form>
@@ -263,5 +263,6 @@ const CompleteInfo = () => {
 };
 
 export default CompleteInfo;
+
 
 

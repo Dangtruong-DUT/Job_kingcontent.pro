@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getFacebookDestinations,
@@ -19,11 +19,11 @@ import Destinations from '@/Destinations';
 import ListSchedules from '@/ListSchedules';
 import { toast } from 'react-toastify';
 import { destructScheduleContent } from '@/helpers';
-import { userServices } from '@/../../services/users';
+import { userServices } from '@/services/users';
 import CustomizeContent from '@/CustomizeContent';
 import AutoComments from '@/AutoComments';
 import moment from 'moment';
-import { OK } from '@/../../configs';
+import { OK } from '@/configs';
 import { FiX } from 'react-icons/fi';
 const defaultCommentItem = {
   id: 1,
@@ -133,11 +133,11 @@ const FinalStep = (props) => {
 
   const handleClickGoBack = useCallback(() => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n huá»· lÃªn lá»‹ch?',
+      title: 'Xác nhận',
+      message: 'Bạn có chắc chắn muốn huỷ lên lịch?',
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: () => {
             dispatch(setCurrentScheduleContent(null));
             dispatch(setSelectedScheduleContent(null));
@@ -146,7 +146,7 @@ const FinalStep = (props) => {
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -155,11 +155,11 @@ const FinalStep = (props) => {
 
   const handleClickBg = useCallback(() => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n huá»· lÃªn lá»‹ch?',
+      title: 'Xác nhận',
+      message: 'Bạn có chắc chắn muốn huỷ lên lịch?',
       buttons: [
         {
-          label: 'XÃ¡c nháº­n',
+          label: 'Xác nhận',
           onClick: () => {
             dispatch(setCurrentScheduleContent(null));
             dispatch(setSelectedScheduleContent(null));
@@ -168,7 +168,7 @@ const FinalStep = (props) => {
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => {},
         },
       ],
@@ -217,18 +217,18 @@ const FinalStep = (props) => {
     let message = '';
     if (!scheduleName && !selectedSchedule) {
       isError = true;
-      message = 'Vui lÃ²ng chá»n hoáº·c thÃªm lá»‹ch má»›i';
+      message = 'Vui lòng chọn hoặc thêm lịch mới';
     } else {
       if (selectedDestinations.length === 0) {
         isError = true;
-        message = 'Vui lÃ²ng chá»n má»™t nÆ¡i Ä‘á»ƒ lÃªn bÃ i viáº¿t';
+        message = 'Vui lòng chọn một nơi để lên bài viết';
       }
     }
     // check date publish is in the past 10 minutes
     if (moment(selectedDateTime).isBefore(moment().add(5, 'minutes'))) {
       isError = true;
       message =
-        'Thá»i gian Ä‘Äƒng bÃ i pháº£i lá»›n hÆ¡n thá»i gian hiá»‡n táº¡i Ã­t nháº¥t 5 phÃºt';
+        'Thời gian đăng bài phải lớn hơn thời gian hiện tại ít nhất 5 phút';
     }
     if (isError) {
       toast.error(message);
@@ -296,12 +296,12 @@ const FinalStep = (props) => {
             } else {
               setIsDisableSubmit(false);
               confirmAlert({
-                title: 'ThÃ nh cÃ´ng',
+                title: 'Thành công',
                 message:
-                  'ÄÃ£ lÃªn lá»‹ch thÃ nh cÃ´ng, báº¡n cÃ³ muá»‘n lÃªn lá»‹ch tiáº¿p khÃ´ng?',
+                  'Đã lên lịch thành công, bạn có muốn lên lịch tiếp không?',
                 buttons: [
                   {
-                    label: 'Tiáº¿p tá»¥c',
+                    label: 'Tiếp tục',
                     onClick: () => {
                       dispatch(setCurrentScheduleContent(null));
                       dispatch(setSelectedScheduleContent(null));
@@ -329,7 +329,7 @@ const FinalStep = (props) => {
                     },
                   },
                   {
-                    label: 'Vá» lá»‹ch tá»•ng',
+                    label: 'Về lịch tổng',
                     onClick: () => {
                       window.location.reload();
                     },
@@ -338,7 +338,7 @@ const FinalStep = (props) => {
               });
             }
           } else {
-            toast.error('Vui lÃ²ng liÃªn há»‡ vá»›i chÃºng tÃ´i Ä‘á»ƒ Ä‘Æ°á»£c há»— trá»£');
+            toast.error('Vui lòng liên hệ với chúng tôi để được hỗ trợ');
             setIsDisableSubmit(false);
           }
         });
@@ -368,7 +368,7 @@ const FinalStep = (props) => {
             <div className="flex items-start justify-between px-2 py-4 border-b border-solid border-gray-300 rounded-t">
               <div className="bg-gray-50  text-sm overflow-hidden pt-3 pb-3 flex1 justify-between border-l-4 border-green-500 pl-2 w-full">
                 <p className="font-bold uppercase text-base">
-                  LÃªn lá»‹ch Ä‘Äƒng bÃ i
+                  Lên lịch đăng bài
                 </p>
               </div>
             </div>
@@ -440,8 +440,8 @@ const FinalStep = (props) => {
                   <p className="text-red-500 italic py-1 flex gap-2 font-bold items-center pl-2">
                     <FiX className="" />
                     <span>
-                      Content Threads cá»§a báº¡n Ä‘ang vÆ°á»£t quÃ¡ 500 kÃ½ tá»±, há»‡ thá»‘ng
-                      sáº½ tá»± Ä‘á»™ng cáº¯t bá»›t ná»™i dung
+                      Content Threads của bạn đang vượt quá 500 ký tự, hệ thống
+                      sẽ tự động cắt bớt nội dung
                     </span>
                   </p>
                 ) : null}
@@ -449,8 +449,8 @@ const FinalStep = (props) => {
                   <p className="text-red-500 italic py-1 flex gap-2 font-bold items-center pl-2">
                     <FiX className="" />
                     <span>
-                      Content Threads cá»§a báº¡n Ä‘ang vÆ°á»£t quÃ¡ 20 bá»©c áº£nh, há»‡ thá»‘ng
-                      sáº½ tá»± Ä‘á»™ng láº¥y 20 bá»©c áº£nh Ä‘áº§u tiÃªn Ä‘á»ƒ Ä‘Äƒng
+                      Content Threads của bạn đang vượt quá 20 bức ảnh, hệ thống
+                      sẽ tự động lấy 20 bức ảnh đầu tiên để đăng
                     </span>
                   </p>
                 ) : null}
@@ -461,20 +461,20 @@ const FinalStep = (props) => {
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickBg()}
               >
-                Huá»·
+                Huỷ
               </button>
               <button
                 className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                 onClick={() => handleClickGoBack()}
               >
-                Quay láº¡i
+                Quay lại
               </button>
               <button
                 className="border-2 border-gray-200 bg-blue-800 hover:bg-blue-400 py-3 px-4 text-white rounded-md"
                 onClick={() => onConfirmSchedule()}
                 disabled={isDisableSubmit}
               >
-                LÃªn lá»‹ch
+                Lên lịch
               </button>
             </div>
           </div>
@@ -486,5 +486,6 @@ const FinalStep = (props) => {
 };
 
 export default FinalStep;
+
 
 

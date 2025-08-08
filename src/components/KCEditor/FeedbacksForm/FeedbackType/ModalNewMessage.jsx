@@ -1,6 +1,6 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CloudUploadIcon, CloudDownloadIcon, XIcon } from '@heroicons/react/outline'
-import { pushFeedbackMessage, updateFeedbackMessage } from '@/../../../store/actions/editor/editorActions'
+import { pushFeedbackMessage, updateFeedbackMessage } from '@/../../store/actions/editor/editorActions'
 import { useDispatch } from "react-redux"
 import { ImCamera } from "react-icons/im"
 import { EmojiHappyIcon } from "@heroicons/react/solid"
@@ -97,7 +97,7 @@ const ModalNewMessage = (props) => {
           <textarea
             className="border-none outline-none rounded-md p-3 w-full mx-auto h-28"
             type="text"
-            placeholder="Nháº­p ná»™i dung tin nháº¯n"
+            placeholder="Nhập nội dung tin nhắn"
             onChange={(e) => handleChangeInput(e.target.value)}
             value={message}
           />
@@ -114,14 +114,14 @@ const ModalNewMessage = (props) => {
           {type==='send' && (
             <button className="p-3 bg-createContent-blueClr text-white border rounded w-5/6 cursor-pointer flex items-center justify-center m-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled={!canClick} onClick={() => {handleClickSubmit()}}>
               <CloudUploadIcon className="w-5 h-5 mr-2" />
-              <span>Gá»­i tin nháº¯n</span>
+              <span>Gửi tin nhắn</span>
             </button>
           )}
 
           {type==='receive' && (
             <button className="p-3 bg-createContent-blueClr text-white border rounded w-5/6 cursor-pointer flex items-center justify-center m-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled={!canClick} onClick={() => {handleClickSubmit()}}>
               <CloudDownloadIcon className="w-5 h-5 mr-2" />
-              <span>Nháº­n tin nháº¯n</span>
+              <span>Nhận tin nhắn</span>
             </button>
           )}
         </div>

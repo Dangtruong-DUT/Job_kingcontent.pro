@@ -1,14 +1,14 @@
-﻿import { Masonry } from 'masonic';
+import { Masonry } from 'masonic';
 import React, { useEffect, useState } from 'react';
 import CategoriesContentItem from '@/CategoriesContentItem';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveLikedData, updateLikedData } from '@/store/actions/user';
 import PopupTag from '@/CategoriesContentItem/hashtagPopup';
-import { PATH_NAME_CONTENT_LIKED } from '@/../../configs';
+import { PATH_NAME_CONTENT_LIKED } from '@/configs';
 import { useLocation, useHistory } from 'react-router-dom';
 import { actionGetAllContent } from '@/store/actions/contentUserLiked';
-import { isObjEmpty } from '@/../../utils/utilityFunc';
+import { isObjEmpty } from '@/../utils/utilityFunc';
 
 function GridLayoutContent(props) {
   const {
@@ -97,5 +97,6 @@ function GridLayoutContent(props) {
 }
 
 export default React.memo(GridLayoutContent);
+
 
 

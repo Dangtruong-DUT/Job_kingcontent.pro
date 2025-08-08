@@ -1,7 +1,7 @@
-﻿import ByItemsSelect from '@/Select';
+import ByItemsSelect from '@/Select';
 import { FiTrendingUp } from 'react-icons/fi';
 import styled from 'styled-components';
-import { getFanpageAvatar } from '@/../helpers';
+import { getFanpageAvatar } from '@/helpers';
 const ImageStyled = styled.div`
   img#img-trendding {
     width: 50px !important;
@@ -45,8 +45,8 @@ const RightContent = (props) => {
                         src={fanpage?.user_pic}
                       />
                       <p className="font-bold ml-2 text-left">
-                        {fanpage?.user_screenname} (~ {fanpage?.posts_count} bÃ i
-                        viáº¿t)
+                        {fanpage?.user_screenname} (~ {fanpage?.posts_count} bài
+                        viết)
                       </p>
                     </div>
                     <div className="hidden">

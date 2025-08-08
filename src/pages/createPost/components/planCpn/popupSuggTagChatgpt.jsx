@@ -1,28 +1,28 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
   KEY_LABELS,
   KEY_SCRIPTED_CREATION,
-} from '@/../../../reducers/createContent';
-import { REDUX_NAME_CREATE_POST } from '@/../../../utils/utilityFunc';
+} from '@/../../reducers/createContent';
+import { REDUX_NAME_CREATE_POST } from '@/../../utils/utilityFunc';
 import {
   actionGetSuggChatGPT,
   updateProps,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import styled from 'styled-components';
 import PopoverTopCardItem from '@/popoverCardItem';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { OK } from '@/../../../configs';
+import { OK } from '@/../../configs';
 import { BiPlus } from 'react-icons/bi';
-import trashIcon from '@/../../../assets/images/icon/plan/bin.png';
-import editIcon from '@/../../../assets/images/icon/plan/draw.png';
-import eyeIcon from '@/../../../assets/images/icon/plan/eyeBg.png';
+import trashIcon from '@/../../assets/images/icon/plan/bin.png';
+import editIcon from '@/../../assets/images/icon/plan/draw.png';
+import eyeIcon from '@/../../assets/images/icon/plan/eyeBg.png';
 import { FiX } from 'react-icons/fi';
 import { Checkbox } from 'rsuite';
 import { useEffect } from 'react';
-import { CreateContent } from '@/../../../services/createContent';
+import { CreateContent } from '@/../../services/createContent';
 import SingleSuggestionTag from '@/SingleSuggestionTag';
 import NewUserTag from '@/NewUserTag';
 import { confirmAlert } from 'react-confirm-alert';
@@ -340,17 +340,17 @@ const PopupSuggTagChatgpt = (props) => {
 
   const onDeleteLabel = async (label) => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: `Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xoÃ¡ cá»™t "${label.name}" ?`,
+      title: 'Xác nhận',
+      message: `Bạn có chắc chắn muốn xoá cột "${label.name}" ?`,
       buttons: [
         {
-          label: 'CÃ³',
+          label: 'Có',
           onClick: () => {
             handleDeleteLabel(label);
           },
         },
         {
-          label: 'KhÃ´ng',
+          label: 'Không',
           onClick: () => {},
         },
       ],
@@ -409,7 +409,7 @@ const PopupSuggTagChatgpt = (props) => {
             onClick={onAddUserTag}
           >
             <BiPlus />
-            <span>ThÃªm ká»‹ch báº£n</span>
+            <span>Thêm kịch bản</span>
           </button>
         </div>
       )}

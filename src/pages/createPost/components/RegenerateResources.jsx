@@ -1,19 +1,19 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import MenuIconFavorite from '@/assets/images/icon/main-menu/menu-icon-favorite.png';
 import TiktokLogoIcon from '@/assets/images/tiktok_logo.png';
-import Tiktok from '@/../../components/Schedules/Tiktok';
+import Tiktok from '@/../components/Schedules/Tiktok';
 import Special from '@/special';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { KEY_LABEL_SELECT } from '@/../../reducers/createContent';
-import { CreateContent } from '@/../../services/createContent';
+import { KEY_LABEL_SELECT } from '@/../reducers/createContent';
+import { CreateContent } from '@/services/createContent';
 import { actionChangeSelectedIndexsSpecial, actionUpdateStep1, actionUpdateStep2 } from '@/store/actions/createContent';
-import { OK } from '@/../../configs';
+import { OK } from '@/configs';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { confirmAlert } from 'react-confirm-alert';
 import { setScheduleWaitingList } from '@/store/actions/Schedules';
 
-export const SPECIAL = "Tá»« nguá»“n Theo dÃµi Ä‘áº·c biá»‡t"
+export const SPECIAL = "Từ nguồn Theo dõi đặc biệt"
 export const TIKTOK_RENEW_CAPTION = "Thay caption Tiktok"
 export const TIKTOK_TO_TEXT = "Tiktok To Text"
 
@@ -44,7 +44,7 @@ const RegenerateResources = () => {
 
   const onRegenerate = async () => {
     if (createPostState[KEY_LABEL_SELECT] === null) {
-      toast.error('Vui lÃ²ng chá»n "PhÃ¢n loáº¡i content" á»Ÿ bÃªn trÃ¡i mÃ n hÃ¬nh!');
+      toast.error('Vui lòng chọn "Phân loại content" ở bên trái màn hình!');
       return;
     }
 
@@ -78,15 +78,15 @@ const RegenerateResources = () => {
     }
     else if (selectedSource == TIKTOK_TO_TEXT) {
       if (schedulesState.autoWaitingList.contents.some((item) => item.duration > 90)) {
-        toast.error('Video báº¡n chá»n dÃ i hÆ¡n 90 giÃ¢y. Vui lÃ²ng lá»c video dÆ°á»›i 90 giÃ¢y!');
+        toast.error('Video bạn chọn dài hơn 90 giây. Vui lòng lọc video dưới 90 giây!');
         return;
       }
       confirmAlert({
-        title: 'XÃ¡c nháº­n',
-        message: 'Báº¡n muá»‘n content má»›i cÃ³ ná»™i dung nÃ o?',
+        title: 'Xác nhận',
+        message: 'Bạn muốn content mới có nội dung nào?',
         buttons: [
           {
-            label: 'CHá»ˆ VÄ‚N Báº¢N',
+            label: 'CHỈ VĂN BẢN',
             color: 'green',
             onClick: () => {
               generateContent(
@@ -104,7 +104,7 @@ const RegenerateResources = () => {
             },
           },
           {
-            label: 'VÄ‚N Báº¢N + VIDEO',
+            label: 'VĂN BẢN + VIDEO',
             color: 'blue',
             onClick: () => {
               generateContent(
@@ -122,7 +122,7 @@ const RegenerateResources = () => {
             },
           },
           {
-            label: 'HUá»¶',
+            label: 'HUỶ',
             onClick: () => { },
           },
         ],
@@ -132,14 +132,14 @@ const RegenerateResources = () => {
   }
   const generateContent = async (contents) => {
     if (contents.length == 0) {
-      toast.error('HÃ£y chá»n content gá»‘c bÃªn dÆ°á»›i !');
+      toast.error('Hãy chọn content gốc bên dưới !');
       return;
     }
     var res = await CreateContent.generateContents(createPostState.planSelect.id, createPostState[KEY_LABEL_SELECT], contents)
     if (res.status === OK) {
-      toast.success('ThÃ nh cÃ´ng, nháº­n content má»›i sau khoáº£n má»™t phÃºt!');
+      toast.success('Thành công, nhận content mới sau khoản một phút!');
 
-      // chuyá»ƒn hÆ°á»›ng Ä‘áº¿n danh sÃ¡ch phÃ¢n loáº¡i vÃ  content
+      // chuyển hướng đến danh sách phân loại và content
       dispatch(actionUpdateStep1(false));
       dispatch(actionUpdateStep2(true));
 
@@ -156,7 +156,7 @@ const RegenerateResources = () => {
       );
     }
     else {
-      toast.error('ÄÃ£ xáº£y ra lá»—i!');
+      toast.error('Đã xảy ra lỗi!');
     }
   }
 
@@ -166,7 +166,7 @@ const RegenerateResources = () => {
         className={`p-3 m-3 w-1/2 rounded-md border bg-blue-500 hover:bg-blue-700 transition-all duration-200 ease-linear cursor-pointer font-bold text-xl text-white`}
         onClick={(e) => onRegenerate()}
       >
-        Táº¡o má»›i vá»›i AI
+        Tạo mới với AI
       </button>
     );
   }
@@ -174,13 +174,13 @@ const RegenerateResources = () => {
   // return (
   //   <>
   //     <span className="italic text-red-600 text-base font-bold w-full flex justify-center items-center">
-  //       ÄANG Báº¢O TRÃŒ, Ráº¤T MONG NHáº¬N ÄÆ¯á»¢C Sá»° KIÃŠN NHáºªN Cá»¦A QUÃ KHÃCH áº .
+  //       ĐANG BẢO TRÌ, RẤT MONG NHẬN ĐƯỢC SỰ KIÊN NHẪN CỦA QUÝ KHÁCH Ạ.
   //     </span>
   //   </>
   // );
   return (
     <>
-      {/* Náº¿u chÆ°a chá»n nguá»“n thÃ¬ hiá»‡n danh sÃ¡ch nguá»“n */}
+      {/* Nếu chưa chọn nguồn thì hiện danh sách nguồn */}
       {selectedSource == null ?
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 max-h-full p-2">
           {RESOURCES_ARR.map((resource, index) => (
@@ -209,7 +209,7 @@ const RegenerateResources = () => {
               : selectedSource == TIKTOK_TO_TEXT ?
                 <>
                   <span className="italic text-red-600 text-base font-bold w-full flex justify-center items-center">
-                    Chuyá»ƒn giá»ng nÃ³i trÃªn video Tiktok thÃ nh vÄƒn báº£n. Video cÃ³ Ä‘á»™ dÃ i tá»‘i Ä‘a 90 giÃ¢y.
+                    Chuyển giọng nói trên video Tiktok thành văn bản. Video có độ dài tối đa 90 giây.
                   </span>
                   <Tiktok isAuto={true} additionalButton={renderButtonGenerate()} isCreatedContent={true} />
                 </>
@@ -222,5 +222,6 @@ const RegenerateResources = () => {
   );
 }
 export default RegenerateResources;
+
 
 

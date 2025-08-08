@@ -35,19 +35,19 @@ export const setShowScheduleCommentsPopup = (state) => (dispatch) => {
 
 export const setCurrentDateTime =
   (state = null) =>
-  (dispatch) => {
-    if (!state) {
-      const next10Minutes = moment()
-        .utc(true)
-        .add(10, 'minutes')
-        .format('YYYY-MM-DD HH:mm:ss');
-      state = next10Minutes;
-    }
-    dispatch({
-      type: types.UPDATE_CURRENT_DATE_TIME,
-      payload: state,
-    });
-  };
+    (dispatch) => {
+      if (!state) {
+        const next10Minutes = moment()
+          .utc(true)
+          .add(10, 'minutes')
+          .format('YYYY-MM-DD HH:mm:ss');
+        state = next10Minutes;
+      }
+      dispatch({
+        type: types.UPDATE_CURRENT_DATE_TIME,
+        payload: state,
+      });
+    };
 
 export const setShowScheduleItemPopup = (state) => (dispatch) => {
   dispatch({ type: types.SET_SHOW_SCHEDULE_ITEM_POPUP, payload: state });
@@ -153,111 +153,111 @@ export const getUserPlans = () => async (dispatch) => {
 
 export const getSuggestionSystemContents =
   (catId = 0, page = 1, query = '') =>
-  async (dispatch) => {
-    try {
-      if (catId) {
+    async (dispatch) => {
+      try {
+        if (catId) {
+          dispatch({
+            type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
+            payload: true,
+          });
+          let endpoint = `/categories/${catId}/contents?page=${page}`;
+          if (query) {
+            endpoint += `&${query}`;
+          }
+          await client
+            .get(endpoint)
+            .then((result) => {
+              dispatch({
+                type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
+                payload: false,
+              });
+              const { data, current_page, last_page } = result.data.data;
+              dispatch({
+                type: types.GET_SUGGESTIONS_CONTENT,
+                payload: {
+                  contents: data,
+                  page: current_page,
+                  totalPages: last_page,
+                },
+              });
+            })
+            .catch((err) => console.log('Err get Suggestions contents: ' + err));
+        }
+      } catch (error) {
+        console.log('getSuggestionSystemContents Error: ', error);
+      }
+    };
+
+export const getSuggestionTrendingContents =
+  (page = 1, query = '') =>
+    async (dispatch) => {
+      try {
+        const apiEndpoint = `/hot-trend-contents`;
         dispatch({
           type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
           payload: true,
         });
-        let endpoint = `/categories/${catId}/contents?page=${page}`;
-        if (query) {
-          endpoint += `&${query}`;
-        }
+        const start = page > 1 ? (page - 1) * loadLimitPage : 0;
         await client
-          .get(endpoint)
+          .get(`${apiEndpoint}?_limit=${loadLimitPage}&_start=${start}&${query}`)
           .then((result) => {
             dispatch({
               type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
               payload: false,
             });
-            const { data, current_page, last_page } = result.data.data;
             dispatch({
               type: types.GET_SUGGESTIONS_CONTENT,
+              payload: result.data.data,
+            });
+          })
+          .catch((err) =>
+            console.log('Err get Suggestions trending contents: ' + err)
+          );
+      } catch (error) {
+        console.log('getSuggestionTrendingContents Error: ', error);
+      }
+    };
+
+export const getEventContents =
+  (event_id = 0, page = 1, query = '') =>
+    async (dispatch) => {
+      try {
+        const apiEndpoint = `/event-contents`;
+        let endpoint = `${apiEndpoint}?page=${page}`;
+        if (event_id) endpoint += `&event_id=${event_id}`;
+        if (query) endpoint += `&${query}`;
+        dispatch({
+          type: types.GET_EVENT_CONTENTS,
+          payload: { contents: [], page: 1, totalPages: 1 },
+        });
+        await client
+          .get(endpoint)
+          .then((result) => {
+            const { data, current_page, last_page } = result.data.data;
+            const newData = data.map((_elt) => {
+              return {
+                ..._elt,
+                medias: [_elt.image_url] || [
+                  'https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=595&height=400&name=image8-2.jpg',
+                ],
+              };
+            });
+            dispatch({
+              type: types.GET_EVENT_CONTENTS,
               payload: {
-                contents: data,
+                contents: newData,
                 page: current_page,
                 totalPages: last_page,
               },
             });
           })
-          .catch((err) => console.log('Err get Suggestions contents: ' + err));
+          .catch((err) =>
+            console.log('Err get Suggestions trending contents: ' + err)
+          );
+      } catch (error) {
+        console.log('getSuggestionTrendingContents Error: ', error);
       }
-    } catch (error) {
-      console.log('getSuggestionSystemContents Error: ', error);
-    }
-  };
-
-export const getSuggestionTrendingContents =
-  (page = 1, query = '') =>
-  async (dispatch) => {
-    try {
-      const apiEndpoint = `/hot-trend-contents`;
-      dispatch({
-        type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
-        payload: true,
-      });
-      const start = page > 1 ? (page - 1) * loadLimitPage : 0;
-      await client
-        .get(`${apiEndpoint}?_limit=${loadLimitPage}&_start=${start}&${query}`)
-        .then((result) => {
-          dispatch({
-            type: types.SET_IS_LOADING_GET_SUGGESTIONS_CONTENT,
-            payload: false,
-          });
-          dispatch({
-            type: types.GET_SUGGESTIONS_CONTENT,
-            payload: result.data.data,
-          });
-        })
-        .catch((err) =>
-          console.log('Err get Suggestions trending contents: ' + err)
-        );
-    } catch (error) {
-      console.log('getSuggestionTrendingContents Error: ', error);
-    }
-  };
-
-export const getEventContents =
-  (event_id = 0, page = 1, query = '') =>
-  async (dispatch) => {
-    try {
-      const apiEndpoint = `/event-contents`;
-      let endpoint = `${apiEndpoint}?page=${page}`;
-      if (event_id) endpoint += `&event_id=${event_id}`;
-      if (query) endpoint += `&${query}`;
-      dispatch({
-        type: types.GET_EVENT_CONTENTS,
-        payload: { contents: [], page: 1, totalPages: 1 },
-      });
-      await client
-        .get(endpoint)
-        .then((result) => {
-          const { data, current_page, last_page } = result.data.data;
-          const newData = data.map((_elt) => {
-            return {
-              ..._elt,
-              medias: [_elt.image_url] || [
-                'https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=595&height=400&name=image8-2.jpg',
-              ],
-            };
-          });
-          dispatch({
-            type: types.GET_EVENT_CONTENTS,
-            payload: {
-              contents: newData,
-              page: current_page,
-              totalPages: last_page,
-            },
-          });
-        })
-        .catch((err) =>
-          console.log('Err get Suggestions trending contents: ' + err)
-        );
-    } catch (error) {
-      console.log('getSuggestionTrendingContents Error: ', error);
-    }
-  };
+    };
 
 export const getScheduledContents = () => async (dispatch) => {
   try {
@@ -279,36 +279,36 @@ export const getScheduledContents = () => async (dispatch) => {
 
 export const getScheduleContents =
   (limit = 0, date_publish = '', fromDate = '', toDate = '', scheduleId = 0) =>
-  async (dispatch) => {
-    let query = `_limit=${limit}`;
-    if (date_publish) {
-      query += `&date_publish=${date_publish}`;
-    }
-    if (fromDate) {
-      query += `&from_date=${fromDate}`;
-    }
-    if (toDate) {
-      query += `&to_date=${toDate}`;
-    }
-    if (scheduleId > 0) {
-      query += `&schedule_id=${scheduleId}`;
-    }
-    try {
-      toast.info('Äang láº¥y ná»™i dung Ä‘Ã£ lÃªn lá»‹ch, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
-      await client
-        .get(`/schedules/contents?${query}`)
-        .then((result) => {
-          dispatch({
-            type: types.GET_SCHEDULE_CONTENTS,
-            payload: result.data.data,
-          });
-          toast.dismiss();
-        })
-        .catch((err) => console.log('Err get Schedule contents: ' + err));
-    } catch (error) {
-      console.log('getScheduleContents Error: ', error);
-    }
-  };
+    async (dispatch) => {
+      let query = `_limit=${limit}`;
+      if (date_publish) {
+        query += `&date_publish=${date_publish}`;
+      }
+      if (fromDate) {
+        query += `&from_date=${fromDate}`;
+      }
+      if (toDate) {
+        query += `&to_date=${toDate}`;
+      }
+      if (scheduleId > 0) {
+        query += `&schedule_id=${scheduleId}`;
+      }
+      try {
+        toast.info('Äang láº¥y ná»™i dung Ä‘Ã£ lÃªn lá»‹ch, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+        await client
+          .get(`/schedules/contents?${query}`)
+          .then((result) => {
+            dispatch({
+              type: types.GET_SCHEDULE_CONTENTS,
+              payload: result.data.data,
+            });
+            toast.dismiss();
+          })
+          .catch((err) => console.log('Err get Schedule contents: ' + err));
+      } catch (error) {
+        console.log('getScheduleContents Error: ', error);
+      }
+    };
 
 export const updateSelectedDateTime = (selectedDate) => async (dispatch) => {
   try {
@@ -371,29 +371,28 @@ export const GET_SCHEDULE_HOME_PAGE_SUCCESS = 'GET_SCHEDULE_HOME_PAGE_SUCCESS';
 
 export const getScheduleContentsHomepage =
   (limit = 0, date_publish) =>
-  async (dispatch) => {
-    dispatch({
-      type: GET_SCHEDULE_HOME_PAGE,
-      payload: null,
-    });
-    try {
-      await client
-        .get(
-          `/schedules/contents?_limit=${limit}&${
-            date_publish && `date_publish=${date_publish}`
-          }`
-        )
-        .then((result) => {
-          dispatch({
-            type: GET_SCHEDULE_HOME_PAGE_SUCCESS,
-            payload: result?.data?.data || [],
-          });
-        })
-        .catch((err) => console.log('Err get Schedule contents: ' + err));
-    } catch (error) {
-      console.log('getScheduleContents Error: ', error);
-    }
-  };
+    async (dispatch) => {
+      dispatch({
+        type: GET_SCHEDULE_HOME_PAGE,
+        payload: null,
+      });
+      try {
+        await client
+          .get(
+            `/schedules/contents?_limit=${limit}&${date_publish && `date_publish=${date_publish}`
+            }`
+          )
+          .then((result) => {
+            dispatch({
+              type: GET_SCHEDULE_HOME_PAGE_SUCCESS,
+              payload: result?.data?.data || [],
+            });
+          })
+          .catch((err) => console.log('Err get Schedule contents: ' + err));
+      } catch (error) {
+        console.log('getScheduleContents Error: ', error);
+      }
+    };
 
 export const getFacebookDestinations = () => async (dispatch) => {
   try {
@@ -449,22 +448,22 @@ export const getTikTokInfo = () => async (dispatch) => {
 
 export const getSchedules =
   (withOutContents = 0) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: types.GET_SCHEDULES,
-      });
-      const res = await userServices.getSchedules(withOutContents);
-      dispatch({
-        type: types.GET_SCHEDULES_SUCCESS,
-        payload: res?.data?.data,
-      });
-    } catch (error) {
-      dispatch({
-        type: types.GET_SCHEDULES_FAILED,
-      });
-    }
-  };
+    async (dispatch) => {
+      try {
+        dispatch({
+          type: types.GET_SCHEDULES,
+        });
+        const res = await userServices.getSchedules(withOutContents);
+        dispatch({
+          type: types.GET_SCHEDULES_SUCCESS,
+          payload: res?.data?.data,
+        });
+      } catch (error) {
+        dispatch({
+          type: types.GET_SCHEDULES_FAILED,
+        });
+      }
+    };
 
 export const setScheduleWaitingList = (newList) => async (dispatch) => {
   dispatch({
@@ -546,22 +545,22 @@ export const removeScheduleContents = (ids) => async (dispatch) => {
 
 export const updateScheduleContentsStatus =
   (schedule_id = 0, ids = [], status) =>
-  async (dispatch) => {
-    try {
-      const res = await userServices.updateScheduleContentStatus(
-        ids,
-        schedule_id,
-        status
-      );
-      if (res.status === OK) {
-        toast.success('Cáº­p nháº­t tráº¡ng thÃ¡i thÃ nh cÃ´ng');
-      } else {
-        toast.error('Cáº­p nháº­t tráº¡ng thÃ¡i tháº¥t báº¡i');
+    async (dispatch) => {
+      try {
+        const res = await userServices.updateScheduleContentStatus(
+          ids,
+          schedule_id,
+          status
+        );
+        if (res.status === OK) {
+          toast.success('Cáº­p nháº­t tráº¡ng thÃ¡i thÃ nh cÃ´ng');
+        } else {
+          toast.error('Cáº­p nháº­t tráº¡ng thÃ¡i tháº¥t báº¡i');
+        }
+      } catch (error) {
+        console.log('ðŸš€ ~ updateScheduleContentsStatus ~ error:', error);
       }
-    } catch (error) {
-      console.log('ðŸš€ ~ updateScheduleContentsStatus ~ error:', error);
-    }
-  };
+    };
 
 export const removeSchedule = (id) => async (dispatch) => {
   try {
@@ -610,7 +609,7 @@ export const commentGetScheduleContents = (scheduleId) => async (dispatch) => {
       type: types.COMMENT_GET_SCHEDULE_CONTENTS_SUCCESS,
       payload: res?.data?.data?.contents || [],
     });
-  } catch (error) {}
+  } catch (error) { }
 };
 
 export const setSelectedEvent = (event) => async (dispatch) => {

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DEFAULT, SEVEN_SALE_SINGLE_CLOSING } from '@/utility';
 import { Tab } from '@headlessui/react';
 import { BiArrowBack } from 'react-icons/bi';
@@ -7,9 +7,9 @@ import {
   actionGetGoogleSubjects,
   actionResetState,
 } from '@/store/actions/createContent';
-import TabLeft from '@/../../components/ContentSugesstion/TabLeft';
-import TabRight from '@/../../components/ContentSugesstion/TabRight';
-import { API_EDIT_SUGGEST_KEYWORD_GG } from '@/../../configs';
+import TabLeft from '@/../components/ContentSugesstion/TabLeft';
+import TabRight from '@/../components/ContentSugesstion/TabRight';
+import { API_EDIT_SUGGEST_KEYWORD_GG } from '@/configs';
 import { actionLoadingApp } from '@/store/actions/loading';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -27,8 +27,8 @@ const Coupon = () => {
     dispatch(actionResetState());
   };
   let [categories] = useState({
-    'Gá»£i Ã½ má»™t cÃ¢u': [],
-    'Gá»£i Ã½ má»™t bÃ i viáº¿t': [],
+    'Gợi ý một câu': [],
+    'Gợi ý một bài viết': [],
   });
   return (
     <>
@@ -114,5 +114,6 @@ const Coupon = () => {
 };
 
 export default Coupon;
+
 
 

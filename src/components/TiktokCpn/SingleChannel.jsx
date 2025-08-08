@@ -1,4 +1,4 @@
-﻿import {
+import {
   FaCheckCircle,
   FaClock,
   FaHeart,
@@ -8,7 +8,7 @@
   FaUserCircle,
   FaVideo,
 } from 'react-icons/fa';
-import { kFormatter } from '@/../utils/utilityFunc';
+import { kFormatter } from '@/utils/utilityFunc';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -93,27 +93,27 @@ const SingleChannel = ({
     setIsAdding(true);
     await dispatch(actionAddChannel(channel));
     setIsAdding(false);
-    toast.success('ÄÃ£ thÃªm kÃªnh thÃ nh cÃ´ng');
+    toast.success('Đã thêm kênh thành công');
     dispatch(actionGetTiktokFollowingChannels());
   }, [channel]);
 
   const handleUnfollowChannel = useCallback(() => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n há»§y theo dÃµi kÃªnh nÃ y khÃ´ng?',
+      title: 'Xác nhận',
+      message: 'Bạn có chắc chắn muốn hủy theo dõi kênh này không?',
       buttons: [
         {
-          label: 'Cháº¯c cháº¯n',
+          label: 'Chắc chắn',
           onClick: async () => {
             setIsAdding(true);
             await dispatch(actionRemoveChannel(feed_id));
             setIsAdding(false);
             setIsNewChannel(true);
-            toast.success('ÄÃ£ há»§y theo dÃµi kÃªnh thÃ nh cÃ´ng');
+            toast.success('Đã hủy theo dõi kênh thành công');
           },
         },
         {
-          label: 'Quay láº¡i',
+          label: 'Quay lại',
           onClick: () => {},
         },
       ],

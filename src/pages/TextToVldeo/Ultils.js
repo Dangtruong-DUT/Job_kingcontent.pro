@@ -1,4 +1,4 @@
-﻿
+
 import style1 from '@/assets/images/art_styles/anime.png';
 import style2 from '@/assets/images/art_styles/aztec.png';
 import style3 from '@/assets/images/art_styles/chinese_donghua.png';
@@ -20,8 +20,8 @@ import style18 from '@/assets/images/art_styles/realperson.png';
 
 import VideoGen_Generative_Thumbnail from '@/assets/images/videogen_generative_thumbnail.png';
 import VideoGen_IStock_Thumbnail from '@/assets/images/videogen_istock_thumbnail.png';
-import { OK } from '@/../configs';
-import { TextToVideoService } from '@/../services/TextToVideo';
+import { OK } from '@/configs';
+import { TextToVideoService } from '@/services/TextToVideo';
 import { setCompletedTotalCount, setCompletedTotalPage, setLoadingCompleted, setLoadingPending, setVideosCompleted, setVideosPending } from '@/store/actions/TextToVideo';
 
 export const TABS = {
@@ -33,7 +33,7 @@ export const TABS = {
 export const SCREEN_RATIO = {
     SQUARE: {
         value: 0,
-        name: "VuÃ´ng",
+        name: "Vuông",
     },
     LANDSCAPE: {
         value: 1,
@@ -41,7 +41,7 @@ export const SCREEN_RATIO = {
     },
     PORTRAIT: {
         value: 2,
-        name: "Dá»c",
+        name: "Dọc",
     }
 };
 
@@ -52,37 +52,37 @@ export const CLIP_PACE = {
     },
     MEDIUM: {
         value: 2,
-        name: "Vá»«a",
+        name: "Vừa",
     },
     SLOW: {
         value: 3,
-        name: "Cháº­m",
+        name: "Chậm",
     },
     VERYSLOW: {
         value: 4,
-        name: "Ráº¥t cháº­m",
+        name: "Rất chậm",
     }
 };
 export const FONT_SIZE = {
     TINY: {
         value: 1,
-        name: "Ráº¥t nhá»",
+        name: "Rất nhỏ",
     },
     SMALL: {
         value: 2,
-        name: "Nhá»",
+        name: "Nhỏ",
     },
     MEDIUM: {
         value: 3,
-        name: "Vá»«a",
+        name: "Vừa",
     },
     LARGE: {
         value: 4,
-        name: "Lá»›n",
+        name: "Lớn",
     },
     VERYLARGE: {
         value: 5,
-        name: "Ráº¥t lá»›n",
+        name: "Rất lớn",
     },
 }
 export const VERTICAL_ALIGNMENT = {
@@ -115,17 +115,17 @@ export const HORIZONTAL_ALIGNMENT = {
 }
 export const MODE = {
     STANDARDSTOCK: {
-        name: "ThÆ° viá»‡n iStock",
+        name: "Thư viện iStock",
         value: 0,
         icon: VideoGen_IStock_Thumbnail
     },
     GENERATIVE: {
-        name: "áº¢nh hoáº¡t hÃ¬nh AI",
+        name: "Ảnh hoạt hình AI",
         value: 1,
         icon: VideoGen_Generative_Thumbnail
     },
     // ISTOCK: {
-    //   name: "ThÆ° viá»‡n iStock",
+    //   name: "Thư viện iStock",
     //   value: 2,
     //   icon: VideoGen_IStock_Thumbnail
     // }
@@ -133,13 +133,13 @@ export const MODE = {
 
 export const STYLES = {
     REALPERSON: {
-        name: "NgÆ°á»i tháº­t",
-		prompt: "YÃªu cáº§u phong cÃ¡ch giá»‘ng ngÆ°á»i tháº­t 100%",
+        name: "Người thật",
+		prompt: "Yêu cầu phong cách giống người thật 100%",
         picture: style18,
     },
     ANIME: {
-        name: "Hoáº¡t hÃ¬nh Nháº­t Báº£n (Anime)",
-		prompt: "Hoáº¡t hÃ¬nh Nháº­t Báº£n (Anime)",
+        name: "Hoạt hình Nhật Bản (Anime)",
+		prompt: "Hoạt hình Nhật Bản (Anime)",
         picture: style1,
     },
     AZTEC: {
@@ -148,13 +148,13 @@ export const STYLES = {
         picture: style2,
     },
     CHINESE_DONGHUA: {
-        name: "Hoáº¡t hÃ¬nh Trung Quá»‘c (Donghua)",
-		prompt: "Hoáº¡t hÃ¬nh Trung Quá»‘c (Donghua)",
+        name: "Hoạt hình Trung Quốc (Donghua)",
+		prompt: "Hoạt hình Trung Quốc (Donghua)",
         picture: style3,
     },
     CHINESE_INK_PAINTING: {
-        name: "Tranh thuá»· máº·c",
-		prompt: "Tranh thuá»· máº·c",
+        name: "Tranh thuỷ mặc",
+		prompt: "Tranh thuỷ mặc",
         picture: style4,
     },
     CYBERPUNK: {
@@ -163,28 +163,28 @@ export const STYLES = {
         picture: style5,
     },
     DISNEY_PIXAR: {
-        name: "Hoáº¡t hÃ¬nh Disney/Pixar",
-		prompt: "Hoáº¡t hÃ¬nh Disney/Pixar",
+        name: "Hoạt hình Disney/Pixar",
+		prompt: "Hoạt hình Disney/Pixar",
         picture: style6,
     },
     DREAMWORKS: {
-        name: "Hoáº¡t hÃ¬nh DreamWorks",
-		prompt: "Hoáº¡t hÃ¬nh DreamWorks",
+        name: "Hoạt hình DreamWorks",
+		prompt: "Hoạt hình DreamWorks",
         picture: style7,
     },
     GEOMETRIC_STYLE: {
-        name: "HÃ¬nh há»c (Geometric Style)",
-		prompt: "HÃ¬nh há»c (Geometric Style)",
+        name: "Hình học (Geometric Style)",
+		prompt: "Hình học (Geometric Style)",
         picture: style8,
     },
     GHIBLI: {
-        name: "Hoáº¡t hÃ¬nh Ghibli",
-		prompt: "Hoáº¡t hÃ¬nh Ghibli",
+        name: "Hoạt hình Ghibli",
+		prompt: "Hoạt hình Ghibli",
         picture: style9,
     },
     ILLUMINATION: {
-        name: "Hoáº¡t hÃ¬nh Illumination",
-		prompt: "Hoáº¡t hÃ¬nh Illumination",
+        name: "Hoạt hình Illumination",
+		prompt: "Hoạt hình Illumination",
         picture: style10,
     },
     LOW_POLY: {
@@ -193,18 +193,18 @@ export const STYLES = {
         picture: style11,
     },
     PENCIL_DRAWING: {
-        name: "Váº½ chÃ¬",
-		prompt: "Váº½ chÃ¬",
+        name: "Vẽ chì",
+		prompt: "Vẽ chì",
         picture: style12,
     },
     PIXEL_ART: {
-        name: "Nghá»‡ thuáº­t Pixel",
-		prompt: "Nghá»‡ thuáº­t Pixel",
+        name: "Nghệ thuật Pixel",
+		prompt: "Nghệ thuật Pixel",
         picture: style13,
     },
     SKETCH: {
-        name: "PhÃ¡c tháº£o",
-		prompt: "PhÃ¡c tháº£o",
+        name: "Phác thảo",
+		prompt: "Phác thảo",
         picture: style14,
     },
     STEAMPUNK: {
@@ -218,8 +218,8 @@ export const STYLES = {
         picture: style16,
     },
     WATERCOLOR: {
-        name: "Tranh mÃ u nÆ°á»›c",
-		prompt: "Tranh mÃ u nÆ°á»›c",
+        name: "Tranh màu nước",
+		prompt: "Tranh màu nước",
         picture: style17,
     },
 };
@@ -227,19 +227,19 @@ export const STYLES = {
 export const LOGO_POSITION = {
     TOP_LEFT: {
         value: 1,
-        name: "TrÃªn - TrÃ¡i",
+        name: "Trên - Trái",
     },
     TOP_RIGHT: {
         value: 2,
-        name: "TrÃªn - Pháº£i",
+        name: "Trên - Phải",
     },
     BOT_LEFT: {
         value: 3,
-        name: "DÆ°á»›i - TrÃ¡i",
+        name: "Dưới - Trái",
     },
     BOT_RIGHT: {
         value: 4,
-        name: "DÆ°á»›i - Pháº£i",
+        name: "Dưới - Phải",
     }
 }
 
@@ -298,6 +298,7 @@ export const fetchPendingVideos = async (dispatch, isLoadingEffect) => {
         }
     }
 }
+
 
 
 

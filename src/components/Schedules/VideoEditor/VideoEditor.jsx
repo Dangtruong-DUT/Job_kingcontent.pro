@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaSpinner } from 'react-icons/fa';
 import { FiPlus } from 'react-icons/fi';
@@ -6,10 +6,10 @@ import { setScheduleWaitingList } from '@/store/actions/Schedules';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import SingleVideo from '@/SingleVideo';
 import { actionGetVideos, actionLoadMoreVideos } from '@/store/actions/videoEditor';
-import LoadingApp from '@/../LoadingApp';
-import auth from '@/../../utils/auth';
+import LoadingApp from '@/LoadingApp';
+import auth from '@/../utils/auth';
 import { confirmAlert } from 'react-confirm-alert';
-import { VIDEO_EDITOR_URL } from '@/../../configs';
+import { VIDEO_EDITOR_URL } from '@/configs';
 
 const VideoEditor = (props) => {
   const dispatch = useDispatch();
@@ -93,8 +93,8 @@ const VideoEditor = (props) => {
     const accessToken = auth.getToken();
     if (!accessToken) {
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
-        message: 'Báº¡n cáº§n Ä‘Äƒng nháº­p Ä‘á»ƒ sá»­ dá»¥ng tÃ­nh nÄƒng nÃ y.',
+        title: 'Thông báo',
+        message: 'Bạn cần đăng nhập để sử dụng tính năng này.',
         buttons: [
           {
             label: 'OK',
@@ -117,13 +117,13 @@ const VideoEditor = (props) => {
         <div className="VideoEditor">
           {shouldShowEmptyState ? (
             <div className="text-center mt-4 h-80 flex items-center justify-center text-base">
-              Báº¡n xuáº¥t báº£n video nÃ o tá»« Video Editor, hÃ£y sá»­ dá»¥ng tÃ­nh nÄƒng nÃ y trong
-              trÃ¬nh táº¡o ná»™i dung.
+              Bạn xuất bản video nào từ Video Editor, hãy sử dụng tính năng này trong
+              trình tạo nội dung.
               <span
                 className="underline cursor-pointer font-bold uppercase"
                 onClick={() => onClickVideoEditor()}
               >
-                táº¡i Ä‘Ã¢y
+                tại đây
               </span>
             </div>
           ) : (
@@ -136,20 +136,20 @@ const VideoEditor = (props) => {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                       onClick={() => onSelectAll()}
                     >
-                      Chá»n toÃ n bá»™
+                      Chọn toàn bộ
                     </button>
                     <button
                       className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                       onClick={() => onUnSelectAll()}
                     >
-                      Bá» chá»n
+                      Bỏ chọn
                     </button>
                   </div>
                 )}
                 
                 {isAuto && (
                   <div className="summary text-base">
-                    <span>ÄÃ£ chá»n: </span>
+                    <span>Đã chọn: </span>
                     <span className="font-bold">
                       {autoWaitingList?.contents?.length || 0}
                     </span>
@@ -177,7 +177,7 @@ const VideoEditor = (props) => {
               ) : (
                 hasInitialized && (
                   <div className="text-center py-8 text-gray-500">
-                    KhÃ´ng cÃ³ video nÃ o Ä‘Ã£ Ä‘Æ°á»£c render
+                    Không có video nào đã được render
                   </div>
                 )
               )}
@@ -197,12 +197,12 @@ const VideoEditor = (props) => {
                     {isLoadingMore ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-400"></div>
-                        <span>Äang táº£i...</span>
+                        <span>Đang tải...</span>
                       </>
                     ) : (
                       <>
                         <FiPlus className="w-5 h-5" />
-                        <span>Xem thÃªm video</span>
+                        <span>Xem thêm video</span>
                       </>
                     )}
                   </button>
@@ -217,5 +217,6 @@ const VideoEditor = (props) => {
 };
 
 export default VideoEditor;
+
 
 

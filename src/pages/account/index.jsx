@@ -1,3 +1,2 @@
-﻿import a from '@/info';
+﻿import a from "./info";
 export default a;
-

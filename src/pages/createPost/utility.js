@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import proIcon from '@/assets/images/icon/create-content/protest.png';
 import disIcon from '@/assets/images/icon/create-content/discount.png';
 import speIcon from '@/assets/images/icon/create-content/speaking.png';
@@ -22,7 +22,7 @@ import reactionIcon from '@/assets/images/icon/create-content/reaction.png';
 import confettiIcon from '@/assets/images/icon/create-content/confetti.png';
 import chatGPTIcon from '@/assets/images/icon/create-content/chat-gpt-icon.png';
 import styled from 'styled-components';
-import LoadingApp from '@/../components/LoadingApp';
+import LoadingApp from '@/components/LoadingApp';
 import chatIcon from '@/assets/images/icon/create-content/chat.png';
 import issueIcon from '@/assets/images/icon/create-content/conversation.png';
 import folderIcon from '@/assets/images/icon/create-content/empty-folder.png';
@@ -32,42 +32,42 @@ import computerIcon from '@/assets/images/icon/create-content/computer.png';
 import presetsIcon from '@/assets/images/icon/create-content/presets.png';
 import regenerateIcon from '@/assets/images/icon/create-content/regenerate.png';
 import threadsIcon from '@/assets/images/icon/threads-grey-icon.png';
-import { isArrayEmpty } from '@/../configs';
+import { isArrayEmpty } from '@/configs';
 
-export const DEFAULT = 'CÃ´ng cá»¥ há»— trá»£';
-export const CONTENT = 'Táº¡o tiÃªu Ä‘á»';
-export const COMMIT = 'Táº¡o cam káº¿t';
-export const DISCOUNT = 'Máº«u cÃ¢u khuyáº¿n mÃ£i';
-export const ACTION = 'KÃªu gá»i hÃ nh Ä‘á»™ng';
-export const IDEA = 'Ã tÆ°á»Ÿng';
-export const COUPON = '7 tráº¡ng thÃ¡i chá»‘t sale';
-export const CUSTOMER = 'ChÃ¢n dung khÃ¡ch hÃ ng';
-export const TREND = 'Äu trend';
-export const TEXT = 'Ã tÆ°á»Ÿng ngÃ´n tá»«';
-export const TRENDING = 'Xu hÆ°á»›ng tÃ¬m kiáº¿m';
+export const DEFAULT = 'Công cụ hỗ trợ';
+export const CONTENT = 'Tạo tiêu đề';
+export const COMMIT = 'Tạo cam kết';
+export const DISCOUNT = 'Mẫu câu khuyến mãi';
+export const ACTION = 'Kêu gọi hành động';
+export const IDEA = 'Ý tưởng';
+export const COUPON = '7 trạng thái chốt sale';
+export const CUSTOMER = 'Chân dung khách hàng';
+export const TREND = 'Đu trend';
+export const TEXT = 'Ý tưởng ngôn từ';
+export const TRENDING = 'Xu hướng tìm kiếm';
 export const EMOJI = 'Emoji';
-export const CHECK = 'Check tá»« khoÃ¡ VPCS';
-export const DESIGNS = 'áº¢nh gÃ¢y chÃº Ã½';
-export const UPLOAD = 'Táº£i lÃªn áº£nh/video';
-export const SPECIAL = 'Theo dÃµi Ä‘áº·c biá»‡t';
-export const SAD = 'KhÆ¡i gá»£i ná»—i Ä‘au';
-export const SECURITY = 'Táº¡o sá»± tráº¥n an';
-export const SAVE = 'Tiáº¿t kiá»‡m';
-export const RARE = 'Táº¡o sá»± khan hiáº¿m';
-export const LIMITED = 'Táº¡o sá»± Ä‘á»™c quyá»n';
-export const HAPPY = 'Táº¡o sá»± má»›i máº»';
-export const EMOJI_SST = 'KhÆ¡i dáº­y cáº£m xÃºc';
+export const CHECK = 'Check từ khoá VPCS';
+export const DESIGNS = 'Ảnh gây chú ý';
+export const UPLOAD = 'Tải lên ảnh/video';
+export const SPECIAL = 'Theo dõi đặc biệt';
+export const SAD = 'Khơi gợi nỗi đau';
+export const SECURITY = 'Tạo sự trấn an';
+export const SAVE = 'Tiết kiệm';
+export const RARE = 'Tạo sự khan hiếm';
+export const LIMITED = 'Tạo sự độc quyền';
+export const HAPPY = 'Tạo sự mới mẻ';
+export const EMOJI_SST = 'Khơi dậy cảm xúc';
 export const CHAT_GPT = 'Chat GPT';
-export const FEEDBACKS = 'Táº¡o Feedback áº£o';
+export const FEEDBACKS = 'Tạo Feedback ảo';
 export const UPLOAD_TYPE_VIDEO = 'video';
 export const UPLOAD_TYPE_IMAGE = 'image';
-export const RECIPE = 'Viáº¿t theo cÃ´ng thá»©c';
-export const ADS = 'Máº«u quáº£ng cÃ¡o';
-export const CHAT_GPT_TOOLS_TEXT = 'TrÃ­ tuá»‡ nhÃ¢n táº¡o';
-export const CHAT_GPT_TOOLS_TEXT_STEP_2 = 'Gá»£i Ã½ theo chá»§ Ä‘á» (má»¥c con))';
+export const RECIPE = 'Viết theo công thức';
+export const ADS = 'Mẫu quảng cáo';
+export const CHAT_GPT_TOOLS_TEXT = 'Trí tuệ nhân tạo';
+export const CHAT_GPT_TOOLS_TEXT_STEP_2 = 'Gợi ý theo chủ đề (mục con))';
 export const FACEBOOK_PRESETS = 'Facebook Presets';
 export const THREADS = 'THREADS';
-export const REGENERATE = 'Táº O HÃ€NG LOáº T';
+export const REGENERATE = 'TẠO HÀNG LOẠT';
 
 export const TOOLS_ARR = [
   {
@@ -228,21 +228,21 @@ export const ContentDataStyled = styled.div`
   }
 `;
 
-export const renderTools = (loading, array, screen) => {
-  return (
-    <div className="p-2 overflow-y-scroll overflow-x-hidden max-h-screen">
-      {array.length === 0 && !loading ? (
-        <div className="flex justify-center">
-          <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
-        </div>
-      ) : loading ? (
-        <LoadingApp />
-      ) : (
-        screen
-      )}
-    </div>
-  );
-};
+// export const renderTools = (loading, array, screen) => {
+//   return (
+//     <div className="p-2 overflow-y-scroll overflow-x-hidden max-h-screen">
+//       {array.length === 0 && !loading ? (
+//         <div className="flex justify-center">
+//           <span className="font-bold">Không có dữ liệu hiển thị</span>
+//         </div>
+//       ) : loading ? (
+//         <LoadingApp />
+//       ) : (
+//         screen
+//       )}
+//     </div>
+//   );
+// };
 
 export const getObject_create_post = (
   category,
@@ -281,27 +281,27 @@ export const PEDDING = 'PEDDING';
 export const DOWNLOAD = 'DOWNLOAD';
 export const _TAB = [
   {
-    title: 'Nháº­p ná»™i dung',
+    title: 'Nhập nội dung',
     icon: chatIcon,
     type: CHAT,
   },
   {
-    title: 'Gá»£i Ã½ chá»§ Ä‘á»',
+    title: 'Gợi ý chủ đề',
     icon: issueIcon,
     type: ISUE,
   },
   {
-    title: 'NgÃ¢n hÃ ng cÃ¢u há»i',
+    title: 'Ngân hàng câu hỏi',
     icon: folderIcon,
     type: BANK,
   },
   {
-    title: 'Äang xá»­ lÃ½',
+    title: 'Đang xử lý',
     icon: syncIcon,
     type: PEDDING,
   },
   {
-    title: 'Káº¿t quáº£ Ä‘Ã£ lÆ°u',
+    title: 'Kết quả đã lưu',
     icon: downloadIcon,
     type: DOWNLOAD,
   },
@@ -309,22 +309,22 @@ export const _TAB = [
 
 export const _TAB_CHAT_GPT_PROMT = [
   {
-    title: 'NgÃ¢n hÃ ng cÃ¢u há»i',
+    title: 'Ngân hàng câu hỏi',
     icon: folderIcon,
     type: BANK,
   },
   {
-    title: 'Nháº­p ná»™i dung',
+    title: 'Nhập nội dung',
     icon: chatIcon,
     type: CHAT,
   },
   {
-    title: 'Äang xá»­ lÃ½',
+    title: 'Đang xử lý',
     icon: syncIcon,
     type: PEDDING,
   },
   {
-    title: 'Káº¿t quáº£ Ä‘Ã£ lÆ°u',
+    title: 'Kết quả đã lưu',
     icon: downloadIcon,
     type: DOWNLOAD,
   },
@@ -354,11 +354,11 @@ export const getBodyCreatePlan = (data, tagsSelect = null, userTags = null) => {
   const { name, hashtag, color, thumbnail, productName = '' } = data;
   const convertedTags = tagsSelect
     ? Array.from(tagsSelect).map((item) => {
-        return {
-          id: item.id,
-          name: item.name,
-        };
-      })
+      return {
+        id: item.id,
+        name: item.name,
+      };
+    })
     : [];
   return {
     name: name,
@@ -384,7 +384,7 @@ export const hasImage = (array) => {
   return array.some(isVideo);
 };
 
-// =================TOOL CHá»ˆNH áº¢NH ===============
+// =================TOOL CHỈNH ẢNH ===============
 export const TEXT_TOOL = 'TEXT';
 export const TEMPLATE = 'TEMPLATE';
 export const ICON = 'ICON';
@@ -510,7 +510,7 @@ export const safeSvgEncode = (svgString) => {
       .replace(/\t/g, '')
       .replace(/\s+/g, ' ')
       .trim();
-    
+
     return encodeURIComponent(cleanSvg);
   } catch (error) {
     // Return a simple fallback SVG
@@ -522,7 +522,7 @@ export const safeSvgEncode = (svgString) => {
     }
   }
 };
-export const customIconRotation = 
+export const customIconRotation =
   '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">' +
   '<g filter="url(#filter0_d)">' +
   '<circle cx="9" cy="9" r="5" fill="white"/>' +
@@ -638,11 +638,11 @@ export const getTitle = (title) => {
       return CHAT_GPT_TOOLS_TEXT;
 
     case FACEBOOK_PRESETS:
-      return 'MÃ u ná»n Facebook';
+      return 'Màu nền Facebook';
 
     case THREADS:
       return 'THREADS';
-    
+
     case REGENERATE:
       return REGENERATE;
 
@@ -650,5 +650,6 @@ export const getTitle = (title) => {
       return DEFAULT;
   }
 };
+
 
 

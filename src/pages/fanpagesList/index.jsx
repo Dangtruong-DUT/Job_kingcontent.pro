@@ -1,2 +1,2 @@
-﻿import a from '@/Fanpages'
-export default a
+﻿import a from "@/pages/Fanpages";
+export default a;

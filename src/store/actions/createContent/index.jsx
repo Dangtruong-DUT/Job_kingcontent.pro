@@ -1,10 +1,10 @@
-﻿import axios from 'axios';
+import axios from 'axios';
 import { convertFromHTML } from 'draft-js';
 import { ContentState } from 'draft-js';
 import { EditorState } from 'draft-js';
 import { htmlToDraftjs } from 'html-to-draftjs';
 import { createContext } from 'react';
-import Client from '@/../../Client';
+import Client from '@/Client';
 import { stateToHTML } from 'draft-js-export-html';
 import {
   API_FIND_BY_KEYWORD,
@@ -15,9 +15,9 @@ import {
   _LIMIT_CURRENT_MEDIUM,
   _LIMIT_CURRENT_SMALL,
   API_QUESTION_CHAT_GPT,
-} from '@/../../configs';
-import { getObject_create_post } from '@/../../pages/createPost/utility';
-import { CreateContent } from '@/../../services/createContent';
+} from '@/configs';
+import { getObject_create_post } from '@/pages/createPost/utility';
+import { CreateContent } from '@/services/createContent';
 import * as types from '@/..';
 import { ACTION_GET_ALL_FANPAGE } from '@/Fanpages';
 import { actionLoadingApp } from '@/loading';
@@ -35,10 +35,10 @@ import {
   KEY_PLANS,
   KEY_PLAN_DATA,
   KEY_PLAN_SELECT,
-} from '@/../../reducers/createContent';
-import { REDUX_NAME_CREATE_POST, isObjEmpty } from '@/../../utils/utilityFunc';
+} from '@/../reducers/createContent';
+import { REDUX_NAME_CREATE_POST, isObjEmpty } from '@/../utils/utilityFunc';
 import { uniqueId } from 'lodash';
-import { userServices } from '@/../../services/users';
+import { userServices } from '@/services/users';
 import {
   setIsActivePreset,
   setSelectFacebookPreset,
@@ -198,7 +198,7 @@ export const actionGetPostByKeyword = (api, query, keyword) => {
         responses.forEach((elt) => {
           dispatch(actionLoadingApp(false));
           elt.data.forEach((charater) => {
-            const strings = charater.content.split(/([!|.|,|ðŸš´â€â™‚ï¸|ï¿½])/);
+            const strings = charater.content.split(/([!|.|,|🚴‍♂️|�])/);
             const match = (s, content) => {
               const p = Array.from(s).reduce(
                 (a, v, i) => `${a}[^${s.substr(i)}]*?${v}`,
@@ -459,7 +459,7 @@ export const actionGetPostByKeywordIdea = (keyword, startDocument) => {
     );
     if (res.status === OK) {
       res.data.forEach((charater) => {
-        const strings = charater.content.split(/([!|.|,|ðŸš´â€â™‚ï¸|ï¿½])/);
+        const strings = charater.content.split(/([!|.|,|🚴‍♂️|�])/);
         const match = (s, content) => {
           const p = Array.from(s).reduce(
             (a, v, i) => `${a}[^${s.substr(i)}]*?${v}`,
@@ -590,11 +590,11 @@ export const createPost = (hasSchedule = false, isReels = false) => {
         dispatch(actionUpdateStep2(true));
         dispatch(actionTogglePopupSelectCate(false));
         dispatch(actionSelectLabel(null));
-        if (!hasSchedule) toast.success('Cáº­p nháº­t bÃ i viáº¿t thÃ nh cÃ´ng !');
+        if (!hasSchedule) toast.success('Cập nhật bài viết thành công !');
         dispatch(setSelectFacebookPreset(null));
         dispatch(setIsActivePreset(false));
       } else {
-        toast.error('Cáº­p nháº­t bÃ i viáº¿t tháº¥t báº¡i !');
+        toast.error('Cập nhật bài viết thất bại !');
       }
     } else {
       const newContentData = getObject_create_post(
@@ -634,11 +634,11 @@ export const createPost = (hasSchedule = false, isReels = false) => {
             },
           ])
         );
-        if (!hasSchedule) toast.success('Táº¡o bÃ i viáº¿t thÃ nh cÃ´ng !');
+        if (!hasSchedule) toast.success('Tạo bài viết thành công !');
         dispatch(setSelectFacebookPreset(null));
         dispatch(setIsActivePreset(false));
       } else {
-        if (!hasSchedule) toast.error('Táº¡o bÃ i viáº¿t tháº¥t báº¡i !');
+        if (!hasSchedule) toast.error('Tạo bài viết thất bại !');
       }
     }
   };
@@ -875,7 +875,7 @@ export const actionQuestionChatGPT = (questionData, setInputValue) => {
             const requestPedding = getState()['createPost'].syncRequestPedding;
             const requests = requestPedding.filter((_item) => _item.id !== id);
             dispatch(actionUpdateSyncRequestPedding(requests));
-            toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+            toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
           });
       }
     });
@@ -903,7 +903,7 @@ export const getBankQuestion = () => {
         payload: questionData.data,
       });
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -917,7 +917,7 @@ export const getQuestionPromt = (id) => {
         payload: questionData.data,
       });
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -963,7 +963,7 @@ export const getHistory = () => {
         payload: _newTagArray || [],
       });
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -972,10 +972,10 @@ export const saveHistory = (item) => {
     const _histories = getState()['createPost'].historyQuestionList;
     const { data: resHis, status } = await CreateContent.addHistory(item);
     if (status === OK) {
-      toast.success('LÆ°u thÃ nh cÃ´ng !');
+      toast.success('Lưu thành công !');
       dispatch(getHistory());
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -983,10 +983,10 @@ export const updateHistory = (id, item) => {
   return async (dispatch, getState) => {
     const { status } = await CreateContent.updateHistory(id, item);
     if (status === OK) {
-      toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+      toast.success('Cập nhật thành công !');
       dispatch(getHistory());
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -1000,9 +1000,9 @@ export const deleteHistory = (id) => {
         type: ACTION_GET_HISTORY_QUESTION,
         payload: _newData,
       });
-      toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+      toast.success('Xoá thành công !');
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -1028,9 +1028,9 @@ export const removeHistoryHashtag = (tag) => {
         type: ACTION_GET_TAG,
         payload: _newTagArray || [],
       });
-      toast.success('XoÃ¡ thÃ nh cÃ´ng !');
+      toast.success('Xoá thành công !');
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -1059,9 +1059,9 @@ export const updateHistoryHashtag = (tag, newTag) => {
         type: ACTION_GET_TAG,
         payload: _newTagArray || [],
       });
-      toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+      toast.success('Cập nhật thành công !');
     } else {
-      toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+      toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
     }
   };
 };
@@ -1116,11 +1116,11 @@ export const actionGetPlans = (setOriginalPlans) => {
         (_elt) => _elt.hashtag
       );
       const sugg_hash = [
-        'Content bÃ¡n hÃ ng',
-        'Content tÄƒng tÆ°Æ¡ng tÃ¡c',
+        'Content bán hàng',
+        'Content tăng tương tác',
         'Content mini game',
-        'Content báº¯t trends',
-        'Content chia sáº» chuyÃªn mÃ´n',
+        'Content bắt trends',
+        'Content chia sẻ chuyên môn',
       ];
       const dataArr = [...sugg_hash, ...arr];
       const unique = dataArr
@@ -1154,7 +1154,7 @@ export const deletePostTextWithAdminSuggestion = (data) => {
       label.contents = label.contents.filter(
         (content) => content.post_text !== 'ADMIN_SUGGESTION'
       );
-      label.keywords = 'Viáº¿t content bÃ¡n hÃ ng';
+      label.keywords = 'Viết content bán hàng';
     });
   }
   return data;
@@ -1255,7 +1255,7 @@ export const writeContentHomeToCreateScreen = (content, url, type) => {
     dispatch(createContentToHomepage({ status: true, type }));
     dispatch(toggleEditorText(content, true));
     dispatch(actionAddImage({ url: url }));
-    toast.warning('Vui lÃ²ng chá»n káº¿ hoáº¡ch !');
+    toast.warning('Vui lòng chọn kế hoạch !');
   };
 };
 export const openScreenPlan = () => {
@@ -1338,7 +1338,7 @@ export const actionGetSuggChatGPT = (label_id, product_name) => {
             const requestPedding = getState()['createPost'].syncRequestPedding;
             const requests = requestPedding.filter((_item) => _item.id !== id);
             dispatch(actionUpdateSyncRequestPedding(requests));
-            toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+            toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
           });
       }
     });
@@ -1416,7 +1416,7 @@ export const UpdateCanvasLayer = (layer) => (dispatch) => {
 };
 
 export const defaultThreadsPrompt =
-  'HÃ£y rÃºt ngáº¯n bÃ i viáº¿t sau khÃ´ng vÆ°á»£t quÃ¡ 500 kÃ­ tá»± (bao gá»“m cáº£ khoáº£ng tráº¯ng), yÃªu cáº§u váº«n giá»¯ Ä‘Æ°á»£c nhá»¯ng ná»™i dung chÃ­nh cá»§a bÃ i viáº¿t gá»‘c, gá»n gÃ ng, khÃ´ng dÃ i dÃ²ng:';
+  'Hãy rút ngắn bài viết sau không vượt quá 500 kí tự (bao gồm cả khoảng trắng), yêu cầu vẫn giữ được những nội dung chính của bài viết gốc, gọn gàng, không dài dòng:';
 
 export const actionOptimizeThreads = (text, existItem = null) => {
   return async (dispatch, getState) => {
@@ -1474,7 +1474,7 @@ export const actionOptimizeThreads = (text, existItem = null) => {
             { prop: 'threadsChatGptData', value: newThreadsChatGptDataAfter },
           ])
         );
-        toast.error('CÃ³ lá»—i xáº£y ra . Vui lÃ²ng thá»­ láº¡i !');
+        toast.error('Có lỗi xảy ra . Vui lòng thử lại !');
       });
   };
 };
@@ -1503,5 +1503,6 @@ export const updateIsSavedThreadsChatGptData = (id) => {
     dispatch(updateProps([{ prop: 'threadsChatGptData', value: newThreadsChatGptData }]))
   };
 };
+
 
 

@@ -1,24 +1,24 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import DefaultContentThumb from '@/../../../../assets/images/content-no-image.png';
-import SuccessIcon from '@/../../../../assets/images/icon/correct.png';
-import WaitingIcon from '@/../../../../assets/images/icon/time.png';
-import noImageIcon from '@/../../../../assets/images/no-image.png';
-import addIcon from '@/../../../../assets/images/icon/add-special.png';
-import { setContentDetailToShow } from '@/../../../../store/actions/Contents/contentActions';
-import { createShortContent } from '@/../../../../utils/utilityFunc';
+import DefaultContentThumb from '@/../../../assets/images/content-no-image.png';
+import SuccessIcon from '@/../../../assets/images/icon/correct.png';
+import WaitingIcon from '@/../../../assets/images/icon/time.png';
+import noImageIcon from '@/../../../assets/images/no-image.png';
+import addIcon from '@/../../../assets/images/icon/add-special.png';
+import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
+import { createShortContent } from '@/../../../utils/utilityFunc';
 import { useHistory } from 'react-router-dom';
 import { FaPlayCircle } from 'react-icons/fa';
-import DetailTiktok from '@/../../../../components/Schedules/Tiktok/DetailTiktok';
+import DetailTiktok from '@/../../../components/Schedules/Tiktok/DetailTiktok';
 import { toast } from 'react-toastify';
-import { userServices } from '@/../../../../services/users';
-import { convertInstagramLink, convertVideoLink } from '@/../../../../helpers';
-import logoTikTok from '@/../../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
-import douyinLogo from '@/../../../../assets/images/icon/main-menu/douyin.png';
-import InstagramLogo from '@/../../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import ThreadsLogo from '@/../../../../assets/images/threads-thumbnail.png';
+import { userServices } from '@/../../../services/users';
+import { convertInstagramLink, convertVideoLink } from '@/../../../helpers';
+import logoTikTok from '@/../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
+import douyinLogo from '@/../../../assets/images/icon/main-menu/douyin.png';
+import InstagramLogo from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import ThreadsLogo from '@/../../../assets/images/threads-thumbnail.png';
 import ReactPlayer from 'react-player';
 
 const TextStyled = styled.div`
@@ -155,29 +155,29 @@ const SingleContent = (props) => {
       case 1:
         return (
           <div className="flex items-center gap-1 border-r-2 border-gray-200 pr-1">
-            <img src={SuccessIcon} alt="thÃ nh cÃ´ng" className="w-5 h-5 mr-1" />
-            <span className="font-bold">ThÃ nh cÃ´ng</span>
+            <img src={SuccessIcon} alt="thành công" className="w-5 h-5 mr-1" />
+            <span className="font-bold">Thành công</span>
           </div>
         );
       case 2:
         return (
           <div className="flex items-center gap-1 border-r-2 border-gray-200 pr-1">
             <img src={WaitingIcon} alt="wating" className="w-5 h-5 mr-1" />
-            <span className="font-bold">Äang chá» Ä‘Äƒng</span>
+            <span className="font-bold">Đang chờ đăng</span>
           </div>
         );
       case 3:
         return (
           <div className="flex items-center gap-1 border-r-2 border-gray-200 pr-1">
             <img src={WaitingIcon} alt="wating" className="w-5 h-5 mr-1" />
-            <span className="font-bold">Táº¡m dá»«ng</span>
+            <span className="font-bold">Tạm dừng</span>
           </div>
         );
       case 4:
         return (
           <div className="flex items-center gap-1 border-r-2 border-gray-200 pr-1">
             <img src={WaitingIcon} alt="wating" className="w-5 h-5 mr-1" />
-            <span className="font-bold">ÄÃ£ huá»·</span>
+            <span className="font-bold">Đã huỷ</span>
           </div>
         );
 
@@ -208,7 +208,7 @@ const SingleContent = (props) => {
       case 'threads':
       case 'douyin':
         // load content from source
-        toast.info('Äang táº£i ná»™i dung, vui lÃ²ng chá» trong giÃ¢y lÃ¡t...');
+        toast.info('Đang tải nội dung, vui lòng chờ trong giây lát...');
         const res = await userServices.getSingleScheduleContent(
           scheduleContent.id
         );
@@ -267,7 +267,7 @@ const SingleContent = (props) => {
           <div className="absolute w-full ">
             <div className="flex mt-5 justify-center">
               <button
-                title="Click Ä‘á»ƒ táº¡o lá»‹ch Ä‘Äƒng bÃ i má»›i"
+                title="Click để tạo lịch đăng bài mới"
                 onClick={() => redirectPage()}
               >
                 <img src={addIcon} width={40} height={40} alt="" />

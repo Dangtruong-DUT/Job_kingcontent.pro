@@ -1,10 +1,10 @@
-﻿import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useEffect, useCallback, useState } from 'react';
 import {
   getFanpagesByKeyword,
   getTagsByKeyword,
   getGoogleSubjectsByKeyword,
-} from '@/../../../store/actions/homepage';
+} from '@/../../store/actions/homepage';
 
 const HomepageSearchBar = (props) => {
   const { setLoading, setIsSearch, isHome = true } = props;
@@ -39,7 +39,7 @@ const HomepageSearchBar = (props) => {
             <input
               className="py-3 w-full outline-none bg-transparent"
               name="keyword"
-              placeholder="TÃ¬m kiáº¿m chá»§ Ä‘á»..."
+              placeholder="Tìm kiếm chủ đề..."
               value={keyword}
               onChange={(evt) => setKeyword(evt.target.value)}
             />
@@ -58,7 +58,7 @@ const HomepageSearchBar = (props) => {
           <input
             className="h-6 w-full outline-none bg-transparent"
             name="keyword"
-            placeholder="TÃ¬m kiáº¿m chá»§ Ä‘á»..."
+            placeholder="Tìm kiếm chủ đề..."
             value={keyword}
             onChange={(evt) => setKeyword(evt.target.value)}
           />

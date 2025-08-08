@@ -1,4 +1,4 @@
-﻿import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import React, {
   useCallback,
   useEffect,
@@ -9,7 +9,7 @@ import React, {
 import { ImSearch } from 'react-icons/im';
 import { useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { isArrayEmpty } from '@/../../configs';
+import { isArrayEmpty } from '@/configs';
 import SelectCustom from '@/SelectCustom';
 import ByCommentSelect from '@/ByCommentSelect';
 import ByLikeSelect from '@/ByLikeSelect';
@@ -25,7 +25,7 @@ import InputKeyWords from '@/InputKeyWords';
 import KindOfContentSelect from '@/KindOfContentSelect';
 import ShowHideSearchFilterButton from '@/ShowHideSearchFilterButton';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import { handleSelectSort } from '@/../../helpers';
+import { handleSelectSort } from '@/../helpers';
 
 function SearchAndFilter(props) {
   const {
@@ -69,7 +69,7 @@ function SearchAndFilter(props) {
   const [isShowBtnSearch, setIsShowBtnSearch] = useState(true);
   const [isShowGroupFilters, setIsShowGroupFilters] = useState(false);
   const initSelectFanpage = {
-    name: 'Chá»n fanpage ...',
+    name: 'Chọn fanpage ...',
     value: '',
     icon: faAddressBook,
   };
@@ -81,7 +81,7 @@ function SearchAndFilter(props) {
     let paramsKeyword = '';
     let paramsToPush = '';
     // if (!valueFbId) {
-    //   toast.error('Vui lÃ²ng chá»n fanpage !');
+    //   toast.error('Vui lòng chọn fanpage !');
     //   return
     // }
     // setIsShowGroupFilters(true);
@@ -90,7 +90,7 @@ function SearchAndFilter(props) {
     }
 
     if (!isShowGroupFilters && !valueKeywords) {
-      toast.error('Vui lÃ²ng nháº­p ná»™i dung tÃ¬m kiáº¿m !');
+      toast.error('Vui lòng nhập nội dung tìm kiếm !');
       return;
     }
 
@@ -296,7 +296,7 @@ function SearchAndFilter(props) {
               className="ml-3  text-sm font-semibold text-gray-800 filter drop-shadow-md"
               htmlFor="filter"
             >
-              Lá»c theo tÆ°Æ¡ng tÃ¡c:
+              Lọc theo tương tác:
             </label>
             <div
               className="mt-1 mb-3 grid lg:grid-cols-3 grid-cols-1 gap-3 "
@@ -330,7 +330,7 @@ function SearchAndFilter(props) {
                 className="ml-3  text-sm font-semibold text-gray-800 filter drop-shadow-md"
                 htmlFor="sort"
               >
-                Sáº¯p xáº¿p dá»¯ liá»‡u:
+                Sắp xếp dữ liệu:
               </label>
               <div
                 className="mt-1 mb-3 grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-3 "
@@ -417,4 +417,5 @@ const handleSelectNumberKeyword = (value, type) => {
       break;
   }
 };
+
 

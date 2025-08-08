@@ -1,17 +1,17 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FiPlusSquare } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import LoadingApp from '@/../../../components/LoadingApp';
+import LoadingApp from '@/../../components/LoadingApp';
 import {
   actionGetChartByKeyword,
   actionGetTitle,
   actionQuestionChatGPT,
   actionResetState,
   actionUpdateSyncRequestPedding,
-} from '@/../../../store/actions/createContent';
-import { actionLoadingApp } from '@/../../../store/actions/loading';
+} from '@/../../store/actions/createContent';
+import { actionLoadingApp } from '@/../../store/actions/loading';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const Isue = () => {
@@ -43,7 +43,7 @@ const Isue = () => {
     });
     dispatch(actionUpdateSyncRequestPedding(_newSync));
     toast.success(
-      'Äang xá»­ lÃ½ cÃ¢u há»i , Vui lÃ²ng theo dÃµi tiáº¿n trÃ¬nh táº¡i mÃ n hÃ¬nh Ä‘ang xá»­ lÃ½ !'
+      'Đang xử lý câu hỏi , Vui lòng theo dõi tiến trình tại màn hình đang xử lý !'
     );
     dispatch(actionQuestionChatGPT({ question: keyword }, setInputValue));
   };
@@ -55,7 +55,7 @@ const Isue = () => {
       <div className="flex gap-1 p-2 mb-2">
         <input
           className="w-full outline-none p-2 rounded-md shadow-md"
-          placeholder="Nháº­p tá»« khoÃ¡ cáº§n cÃ³ trong tiÃªu Ä‘á» ..."
+          placeholder="Nhập từ khoá cần có trong tiêu đề ..."
           onChange={(e) => {
             if (e.target.value === '') {
               setInputValue(e.target.value);
@@ -76,7 +76,7 @@ const Isue = () => {
         {contentTitle.length === 0 && !isLoading ? (
           <div className="flex justify-center">
             <span className="font-bold mt-2  mb-72">
-              KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹
+              Không có dữ liệu hiển thị
             </span>
           </div>
         ) : isLoading && contentTitle.length === 0 ? (

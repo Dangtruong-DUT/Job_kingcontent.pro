@@ -1,6 +1,6 @@
-﻿import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { changeStateSelectedCat } from '@/../../../store/actions/editor/editorActions';
+import { changeStateSelectedCat } from '@/../../store/actions/editor/editorActions';
 
 const CatItem = (props) => {
   const { category, changeStateSelectedCat, selectedCatId } = props;
@@ -29,7 +29,7 @@ const CatItem = (props) => {
         <button
           className={`w-10/12 self-center items-center inline-block rounded-md bg-gray-200 border text-center p-2 group-hover:bg-primary group-hover:text-white ${classSelected}`}
         >
-          Chá»n ká»‹ch báº£n
+          Chọn kịch bản
         </button>
       </div>
     </div>

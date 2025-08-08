@@ -1,8 +1,8 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
-import { capitalizeFirstLetter, _LIMIT_DEFAULT } from '@/../configs';
+import { capitalizeFirstLetter, _LIMIT_DEFAULT } from '@/configs';
 import {
   actionChangeStatus,
   actionGetAllFanpage,
@@ -208,7 +208,7 @@ const Filter = ({
           rounded-md text-white hover:bg-red-500 w-48 flex justify-center items-center gap-2"
           >
             <FiRefreshCw size={20} />
-            <span>XoÃ¡ bá»™ lá»c</span>
+            <span>Xoá bộ lọc</span>
           </button>
         </div>
       ) : null}
@@ -219,7 +219,7 @@ const Filter = ({
           className="w-full h-14 focus:ring-0 focus:ring-offset-0"
           styles={customStyles}
           onChange={(original) => filterProductInCategories(original)}
-          placeholder="Lá»c danh má»¥c ..."
+          placeholder="Lọc danh mục ..."
           value={categorySelect}
         />
         <SelectStyled
@@ -227,7 +227,7 @@ const Filter = ({
           className="w-full h-14 focus:ring-0 focus:ring-offset-0"
           styles={customStyles}
           onChange={(original) => handleFilterByTime(original)}
-          placeholder="Sáº¯p xáº¿p fanpage"
+          placeholder="Sắp xếp fanpage"
           value={fanpageByTime}
         />
         <SelectStyled
@@ -235,7 +235,7 @@ const Filter = ({
           className="w-full h-14 focus:ring-0 focus:ring-offset-0"
           styles={customStyles}
           onChange={(original) => handleFilterByContent(original)}
-          placeholder="Sáº¯p xáº¿p content má»›i nháº¥t"
+          placeholder="Sắp xếp content mới nhất"
           value={amountSelect}
         />
         <SelectStyled
@@ -243,14 +243,14 @@ const Filter = ({
           className="w-full h-14 focus:ring-0 focus:ring-offset-0"
           styles={customStyles}
           onChange={(original) => handleFilterBySave(original)}
-          placeholder="ÄÆ°á»£c lÆ°u nhiá»u, Ã­t"
+          placeholder="Được lưu nhiều, ít"
           value={saveSelect}
         />
         <div className="flex">
           <input
             type="text"
             value={inputValue}
-            placeholder="Nháº­p ná»™i dung tÃ¬m kiáº¿m ..."
+            placeholder="Nhập nội dung tìm kiếm ..."
             className="w-full rounded-l-md h-14 p-2 outline-none border-gray-300"
             onChange={(e) => {
               setInputValue(e.target.value);
@@ -278,5 +278,6 @@ const Filter = ({
 };
 
 export default Filter;
+
 
 

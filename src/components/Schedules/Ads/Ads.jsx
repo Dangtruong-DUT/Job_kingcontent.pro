@@ -1,6 +1,6 @@
-﻿import { useDispatch, useSelector } from 'react-redux';
-import SearchBox from '@/../RunningAdsCpn/SearchBox';
-import Card from '@/../RunningAdsCpn/Card';
+import { useDispatch, useSelector } from 'react-redux';
+import SearchBox from '@/RunningAdsCpn/SearchBox';
+import Card from '@/RunningAdsCpn/Card';
 import DialogDetailPost from '@/SingleContent/dialogPostDetail';
 import React, { useCallback, useEffect, useState } from 'react';
 import SingleContent from '@/SingleContent';
@@ -10,7 +10,7 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import LoadingApp from '@/../LoadingApp';
+import LoadingApp from '@/LoadingApp';
 import { actionSearchADS } from '@/store/actions/runningAds';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 
@@ -92,7 +92,7 @@ const Ads = (props) => {
       {contents.length === 0 && !isLoading ? (
         <div className="flex justify-center h-60 items-center">
           <span className="font-bold">
-            Nháº­p tá»« khoÃ¡ Ä‘á»ƒ cÃ³ Ä‘Æ°á»£c káº¿t quáº£ chÃ­nh xÃ¡c
+            Nhập từ khoá để có được kết quả chính xác
           </span>
         </div>
       ) : isLoading ? (
@@ -116,7 +116,7 @@ const Ads = (props) => {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => handleLoadMore()}
             >
-              Xem thÃªm
+              Xem thêm
             </button>
           </div>
         </div>

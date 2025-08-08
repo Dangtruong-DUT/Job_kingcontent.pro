@@ -1,16 +1,16 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { HiStar } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
-import * as SCHEDULES from '@/../../../../../store/actions/Schedules';
-import logoTikTok from '@/../../../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
-import douyinLogo from '@/../../../../../assets/images/icon/main-menu/douyin.png';
-import InstagramLogo from '@/../../../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import ThreadsLogo from '@/../../../../../assets/images/threads-thumbnail.png';
+import * as SCHEDULES from '@/../../../../store/actions/Schedules';
+import logoTikTok from '@/../../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
+import douyinLogo from '@/../../../../assets/images/icon/main-menu/douyin.png';
+import InstagramLogo from '@/../../../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import ThreadsLogo from '@/../../../../assets/images/threads-thumbnail.png';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 import { FiPlayCircle } from 'react-icons/fi';
 import ReactPlayer from 'react-player';
-import { convertInstagramLink } from '@/../../../../../helpers';
+import { convertInstagramLink } from '@/../../../../helpers';
 import { FaCheck, FaQuestion, FaMinusCircle } from 'react-icons/fa';
 import { AiOutlineFieldTime } from 'react-icons/ai';
 
@@ -43,10 +43,10 @@ function ContentType(props) {
           (content) => content.status === 1 || content.status === 5
         ).length;
         if (successCount > 0) {
-          setStatusMessage(`ThÃ nh cÃ´ng: ${successCount}/${contents.length}`);
+          setStatusMessage(`Thành công: ${successCount}/${contents.length}`);
           setHasSuccess(true);
         } else {
-          setStatusMessage(`Äang chá»: ${contents.length}/${contents.length}`);
+          setStatusMessage(`Đang chờ: ${contents.length}/${contents.length}`);
           setHasSuccess(false);
         }
       }
@@ -142,9 +142,9 @@ function ContentType(props) {
         dispatch(SCHEDULES.updateSelectedDateTime(newSelectedDate));
       } else {
         toast.error(
-          `BÃ¢y giá» lÃ  ${moment(time).format(
+          `Bây giờ là ${moment(time).format(
             'HH:mm:ss DD-MM-YYYY'
-          )}, vui lÃ²ng lÃªn lá»‹ch Ä‘Äƒng bÃ i tá»« thá»i Ä‘iá»ƒm nÃ y trá»Ÿ Ä‘i`
+          )}, vui lòng lên lịch đăng bài từ thời điểm này trở đi`
         );
       }
     } else {
@@ -251,13 +251,13 @@ function ContentType(props) {
               onClick={() => handleScheduleItemPopup()}
               className="p-2 m-2 flex items-center cursor-pointer font-medium text-white hover:text-blue-500 transition-all duration-200 ease-linear rounded bg-blue-500 hover:bg-white"
             >
-              <span>Xem bÃ i viáº¿t</span>
+              <span>Xem bài viết</span>
             </li>
             <li
               onClick={() => handleSelectSuggestsPopup()}
               className="p-2 m-2 flex items-center cursor-pointer font-medium text-white hover:text-red-500 transition-all duration-200 ease-linear rounded bg-red-500 hover:bg-white"
             >
-              <span>ThÃªm bÃ i má»›i</span>
+              <span>Thêm bài mới</span>
             </li>
           </ul>
         </div>

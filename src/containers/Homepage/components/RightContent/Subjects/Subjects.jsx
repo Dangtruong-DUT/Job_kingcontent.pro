@@ -1,9 +1,9 @@
-﻿import AddSpecialIcon from '@/../../../../assets/images/icon/add-special.png';
+import AddSpecialIcon from '@/../../../assets/images/icon/add-special.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PopupSelectCate from '@/popupSelectCate';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getChosenCategories } from '@/../../../../store/actions/homepage';
+import { getChosenCategories } from '@/../../../store/actions/homepage';
 import SingleCate from '@/SingleCate';
 
 const Subjects = () => {
@@ -21,14 +21,14 @@ const Subjects = () => {
 
   return (
     <div className="userSubjects mt-3">
-      <h4 className="uppercase font-bold text-base">Chá»§ Ä‘á» cá»§a báº¡n</h4>
+      <h4 className="uppercase font-bold text-base">Chủ đề của bạn</h4>
       <div className="newSubject mt-3">
         <button
           className="flex items-center"
           onClick={() => setisOpenPopup(true)}
         >
-          <img src={AddSpecialIcon} alt="ThÃªm chá»§ Ä‘á»" className="w-16 h-16" />
-          <span className="text-sm font-bold pl-2">ThÃªm</span>
+          <img src={AddSpecialIcon} alt="Thêm chủ đề" className="w-16 h-16" />
+          <span className="text-sm font-bold pl-2">Thêm</span>
         </button>
       </div>
       <div className="listSubjects mt-3">

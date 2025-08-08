@@ -1,7 +1,7 @@
-﻿import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { removeFeedbackMessage } from '@/../../../../store/actions/editor/editorActions';
+import { removeFeedbackMessage } from '@/../../../store/actions/editor/editorActions';
 import { useCallback } from 'react';
 
 const SingleSend = (props) => {

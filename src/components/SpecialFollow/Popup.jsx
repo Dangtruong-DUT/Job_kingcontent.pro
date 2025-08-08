@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import SearchAndFilter from '@/CategoriesContent/SearchAndFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,10 +6,10 @@ import Pagination from '@/CategoriesContent/Pagination';
 import GridLayoutContent from '@/CategoriesContent/GridLayoutContent';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import ContentDetail from '@/CategoriesContent/ContentDetail';
-import client from '@/../Client';
+import client from '@/Client';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
-import { OK } from '@/../configs';
+import { OK } from '@/configs';
 
 const pageLimit = 12;
 const pageNeighbours = 1;
@@ -42,10 +42,10 @@ function SpecialFollowPopup(props) {
         setTotalPages(res.data.data.last_page || 1);
         setCurrentPage(1);
         setLoading(false);
-        toast.success('Láº¥y káº¿t quáº£ thÃ nh cÃ´ng !');
+        toast.success('Lấy kết quả thành công !');
       }
     } catch (error) {
-      toast.error('KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ !');
+      toast.error('Không tìm thấy kết quả !');
     }
   };
 
@@ -86,7 +86,7 @@ function SpecialFollowPopup(props) {
       return (
         <div className="text-center flex items-center justify-center h-60 bg-white rounded-md">
           <span className="text-base text-red-500 font-bold">
-            Vui lÃ²ng chá» trong Ã­t phÃºt Ä‘á»ƒ há»‡ thá»‘ng cáº­p nháº­t dá»¯ liá»‡u má»›i nháº¥t
+            Vui lòng chờ trong ít phút để hệ thống cập nhật dữ liệu mới nhất
           </span>
         </div>
       );
@@ -125,7 +125,7 @@ function SpecialFollowPopup(props) {
         />
         <h2 className="text-base font-bold">{`${
           fanpage.page_name || 'page name here'
-        } (${fanpage.total || 0} bÃ i viáº¿t)`}</h2>
+        } (${fanpage.total || 0} bài viết)`}</h2>
         <SearchAndFilter
           handleSearch={handleSearch}
           fanpage_id={fanpage.fanpage_id}
@@ -141,5 +141,6 @@ function SpecialFollowPopup(props) {
 }
 
 export default React.memo(SpecialFollowPopup);
+
 
 

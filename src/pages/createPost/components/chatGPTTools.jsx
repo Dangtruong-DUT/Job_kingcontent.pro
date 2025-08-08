@@ -1,10 +1,10 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { CreateContent } from '@/../../services/createContent';
+import { CreateContent } from '@/services/createContent';
 import { actionLoadingApp } from '@/store/actions/loading';
 import { CHAT_GPT_TOOLS_TEXT_STEP_2, DEFAULT } from '@/utility';
 import ChatGPTSceenPromt from '@/ChatGPTSceenPromt';
-import { isArrayEmpty, OK } from '@/../../configs';
+import { isArrayEmpty, OK } from '@/configs';
 import { ACTION_GET_BANK_QUESTION } from '@/store/actions/createContent';
 
 const ChatGPTTools = ({ stepName, setStepName, setIsChild }) => {
@@ -75,5 +75,6 @@ const ChatGPTTools = ({ stepName, setStepName, setIsChild }) => {
 };
 
 export default ChatGPTTools;
+
 
 

@@ -1,16 +1,16 @@
-﻿import React from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { Card } from 'primereact/card';
 import { Image } from 'primereact/image';
 import customData from '@/dataTemplate.json';
-import { isArrayEmpty } from '@/../../../configs';
+import { isArrayEmpty } from '@/../../configs';
 import { uniqueId } from 'lodash';
 import {
   AddElement,
   updateProps,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import { useDispatch } from 'react-redux';
-import { KEY_ELEMENTS_IMAGES } from '@/../../../reducers/createContent';
+import { KEY_ELEMENTS_IMAGES } from '@/../../reducers/createContent';
 
 const Template = ({
   canvasFromJson,
@@ -49,7 +49,7 @@ const Template = ({
           return item;
         });
         canvasFromJson(JSON.stringify(_data));
-        toast.success('Táº£i máº«u lÃªn thÃ nh cÃ´ng !');
+        toast.success('Tải mẫu lên thành công !');
       };
     }
   };
@@ -86,7 +86,7 @@ const Template = ({
           >
             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
           </svg>
-          <span className="ml-1  text-sm leading-normal">Táº£i máº«u lÃªn</span>
+          <span className="ml-1  text-sm leading-normal">Tải mẫu lên</span>
           <input
             type="file"
             className="hidden"
@@ -103,7 +103,7 @@ const Template = ({
               className="bg-blue-500 hover:bg-red-500 rounded-md p-3 mt-2 text-white font-bold"
               onClick={() => handleSelectTemplate(_elt.data)}
             >
-              Chá»n máº«u
+              Chọn mẫu
             </button>
           </div>
         ))}

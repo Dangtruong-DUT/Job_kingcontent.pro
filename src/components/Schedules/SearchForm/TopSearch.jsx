@@ -1,8 +1,8 @@
-﻿import Select from 'react-select';
+import Select from 'react-select';
 import React, { useEffect, useState } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { Label } from 'reactstrap';
-import { videoTypeOptions } from '@/../DouyinCpn/constants';
+import { videoTypeOptions } from '@/DouyinCpn/constants';
 
 const TopSearch = (props) => {
   const {
@@ -30,7 +30,7 @@ const TopSearch = (props) => {
         return acc;
       }, []);
       // push default empty hashtag
-      list.unshift({ value: '', label: 'Táº¥t cáº£' });
+      list.unshift({ value: '', label: 'Tất cả' });
       setListHashtag(list);
     }
   }, [contents, hashtag]);
@@ -45,7 +45,7 @@ const TopSearch = (props) => {
       <div className="inputContainer w-full relative">
         <input
           className="w-full h-10 rounded-md shadow-lg border-gray-100 border-2 outline-none p-2"
-          placeholder="Nháº­p ná»™i dung tÃ¬m kiáº¿m"
+          placeholder="Nhập nội dung tìm kiếm"
           required={false}
           {...register('keyword')}
         />
@@ -69,7 +69,7 @@ const TopSearch = (props) => {
               setValue('hashtag', selected.value);
             }}
             options={listHashtag}
-            placeholder="Chá»n hashtag"
+            placeholder="Chọn hashtag"
           />
         </div>
       ) : null}
@@ -81,7 +81,7 @@ const TopSearch = (props) => {
           onChange={(selected) => {
             setValue('videoType', selected.value);
           }}
-          placeholder="Chá»n loáº¡i video"
+          placeholder="Chọn loại video"
         />
       )}
       <button

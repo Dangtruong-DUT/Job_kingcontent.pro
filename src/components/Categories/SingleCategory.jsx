@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import defaultCatImg from '@/assets/images/default-cat-thumbnail.jpg';
-import { numberWithCommas } from '@/../utils/utilityFunc';
-import { env } from '@/../configs/envConfig';
+import { numberWithCommas } from '@/utils/utilityFunc';
+import { env } from '@/configs'/envConfig';
 
 const SingleCategory = (props) => {
     const { category, isActive, onTogglePopup } = props;
@@ -29,10 +29,10 @@ const SingleCategory = (props) => {
                     <h4>{cate_name}</h4>
                 </div>
                 <div className="text-left text-gray-500 origin-center group-hover:text-gray-600 transition-all">
-                    <h5>Danh má»¥c: {prName}</h5>
+                    <h5>Danh mục: {prName}</h5>
                 </div>
                 <div className="text-left text-gray-500 origin-center group-hover:text-gray-600 transition-all">
-                    <span>{numberWithCommas(countContents)} máº«u quáº£ng cÃ¡o</span>
+                    <span>{numberWithCommas(countContents)} mẫu quảng cáo</span>
                 </div>
             </div>
             <div
@@ -43,7 +43,7 @@ const SingleCategory = (props) => {
                 }}
             >
                 <span className="text-gray-500 group-hover:text-gray-600 transition-all">
-                    ðŸ·ï¸ Tá»« khoÃ¡:{" "}
+                    🏷️ Từ khoá:{" "}
                     {tags
                         .slice(0, 3)
                         .map((tag) => tag.name)
@@ -63,9 +63,9 @@ const SingleCategory = (props) => {
                             className="absolute top-1 right-1 text-gray-500 hover:text-gray-700"
                             onClick={onTogglePopup}
                         >
-                            âœ–
+                            ✖
                         </button>
-                        <h4 className="text-sm font-bold mb-2">Táº¥t cáº£ tháº»:</h4>
+                        <h4 className="text-sm font-bold mb-2">Tất cả thẻ:</h4>
                         <ul className="text-sm text-gray-700 max-h-40 overflow-y-auto">
                             {tags.map((tag) => (
                                 <li key={tag.id} className="py-1">
@@ -81,6 +81,7 @@ const SingleCategory = (props) => {
 };
 
 export default SingleCategory;
+
 
 
 

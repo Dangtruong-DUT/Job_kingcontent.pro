@@ -1,7 +1,7 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionGetSpecialContents } from '@/store/actions/createContent';
-import PostSugesstion from '@/../ContentSugesstion/PostSugesstion';
+import PostSugesstion from '@/ContentSugesstion/PostSugesstion';
 import FilterForm from '@/FilterForm';
 import SingleContent from '@/SingleContent';
 import DialogDetailPost from '@/SingleContent/dialogPostDetail';
@@ -12,7 +12,7 @@ import {
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import LoadingApp from '@/../LoadingApp';
+import LoadingApp from '@/LoadingApp';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 
 const Specials = (props) => {
@@ -106,7 +106,7 @@ const Specials = (props) => {
       <FilterForm onSearch={onSearch} isSpecial={true} isSchedule={true} />
       {!showFilter && !isLoading ? (
         <div className="flex justify-center">
-          <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+          <span className="font-bold">Không có dữ liệu hiển thị</span>
         </div>
       ) : isLoading ? (
         <LoadingApp />
@@ -119,17 +119,17 @@ const Specials = (props) => {
                   className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                   onClick={() => onSelectAll()}
                 >
-                  Chá»n toÃ n bá»™
+                  Chọn toàn bộ
                 </button>
                 <button
                   className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                   onClick={() => onUnSelectAll()}
                 >
-                  Bá» chá»n
+                  Bỏ chọn
                 </button>
               </div>
               <div className="summary mb-2 ml-auto text-base">
-                <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                <span>Số bài viết đã chọn: </span>
                 <span className="font-bold">
                   {autoWaitingList?.contents?.length || 0}
                 </span>
@@ -160,7 +160,7 @@ const Specials = (props) => {
             }`}
             onClick={(e) => getMoreContents()}
           >
-            Xem thÃªm
+            Xem thêm
           </button>
         </>
       )}

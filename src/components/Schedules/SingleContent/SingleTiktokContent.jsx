@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import addIcons from '@/assets/images/icon/create-content/add.png';
 import styled from 'styled-components';
@@ -9,7 +9,7 @@ import {
   FaRegSquare,
 } from 'react-icons/fa';
 import { FiClock, FiPlay } from 'react-icons/fi';
-import { nFormatter } from '@/../../configs';
+import { nFormatter } from '@/configs';
 import moment from 'moment';
 import { FiHeart } from 'react-icons/fi';
 import { FiShare } from 'react-icons/fi';
@@ -136,7 +136,7 @@ const SingleTiktokContent = (props) => {
             size={50}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="Nháº¥p Ä‘á»ƒ xem"
+            title="Nhấp để xem"
           />
         </div>
       </div>
@@ -187,7 +187,7 @@ const SingleTiktokContent = (props) => {
       {isScheduled && (
         <span
           className="absolute bottom-1 right-1 text-red-500"
-          title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+          title="Bài viết đã được lên lịch"
         >
           <FaExclamation />
         </span>
@@ -197,6 +197,7 @@ const SingleTiktokContent = (props) => {
 };
 
 export default SingleTiktokContent;
+
 
 
 

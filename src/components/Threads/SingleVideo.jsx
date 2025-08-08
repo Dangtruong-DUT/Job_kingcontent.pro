@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FaCheckSquare,
   FaClock,
@@ -12,12 +12,12 @@ import {
 } from 'react-icons/fa';
 import { ImPlay } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { nFormatter } from '@/../configs';
-import { checkInCollection, kFormatter } from '@/../utils/utilityFunc';
+import { nFormatter } from '@/configs';
+import { checkInCollection, kFormatter } from '@/utils/utilityFunc';
 import Images from '@/Images';
 import Header from '@/CategoriesContent/ContentDetailThreads/Header';
 import { FaRegEdit } from 'react-icons/fa';
-import { breakWord, convertInstagramLink } from '@/../helpers';
+import { breakWord, convertInstagramLink } from '@/helpers';
 import {
   FiMessageCircle,
   FiPlay,
@@ -32,24 +32,24 @@ import {
 } from '@/store/actions/Schedules';
 // @ts-ignore
 import addIcons from '@/assets/images/icon/create-content/add.png';
-import { formatUnixDate } from '@/../helpers/date';
+import { formatUnixDate } from '@/helpers/date';
 
 const defaultActions = [
-  { icon: FaEye, title: 'Xem bÃ i Ä‘Äƒng', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT' },
-  { icon: FaRegSquare, title: 'Chá»n', action: 'CHOOSE_VIDEO' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaEye, title: 'Xem bài đăng', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT' },
+  { icon: FaRegSquare, title: 'Chọn', action: 'CHOOSE_VIDEO' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const collectionActions = [
-  { icon: ImPlay, title: 'Xem bÃ i Ä‘Äƒng', action: 'VIEW_DETAIL_CONTENT' },
-  { icon: FaRegEdit, title: 'Soáº¡n tháº£o', action: 'CREATE_CONTENT' },
+  { icon: ImPlay, title: 'Xem bài đăng', action: 'VIEW_DETAIL_CONTENT' },
+  { icon: FaRegEdit, title: 'Soạn thảo', action: 'CREATE_CONTENT' },
   {
     icon: FaTimesCircle,
-    title: 'XoÃ¡ khá»i BST',
+    title: 'Xoá khỏi BST',
     action: 'REMOVE_FROM_COLLECTION',
   },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
 ];
 
 const SingleVideo = ({
@@ -261,7 +261,7 @@ const SingleVideo = ({
             </div>
             <div className="created">
               <span className="text-xs text-gray-500">
-                NgÃ y táº¡o: {formatUnixDate(created)}
+                Ngày tạo: {formatUnixDate(created)}
               </span>
             </div>
             <div className="flex items-center gap-4 mt-3 justify-between px-3">
@@ -290,7 +290,7 @@ const SingleVideo = ({
           {isScheduled && (
             <span
               className="absolute bottom-3 right-1 text-red-500"
-              title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+              title="Bài viết đã được lên lịch"
             >
               <FaExclamation />
             </span>
@@ -356,7 +356,7 @@ const SingleVideo = ({
                     )}
                     <a className="no-underline text-base font-medium text-gray-100 hover:text-white transition-all duration-200 ease-linear">
                       {item.action === 'CHOOSE_VIDEO' && isChosen
-                        ? 'Bá» chá»n'
+                        ? 'Bỏ chọn'
                         : item.title}
                     </a>
                   </li>
@@ -371,6 +371,7 @@ const SingleVideo = ({
 };
 
 export default SingleVideo;
+
 
 
 

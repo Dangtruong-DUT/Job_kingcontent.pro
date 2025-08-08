@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { GrPieChart } from 'react-icons/gr';
 import {
   setShowSchedulesPane,
@@ -7,7 +7,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { VscCalendar } from 'react-icons/vsc';
-import { setShowSourceIdeasAutoPopup } from '@/../../../store/actions/Schedules';
+import { setShowSourceIdeasAutoPopup } from '@/../../store/actions/Schedules';
 
 const ScheduleAuto = (props) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const ScheduleAuto = (props) => {
     >
       <div className="flex items-center">
         <VscCalendar className="h-6 w-6" />
-        <span className="ml-2">LÃªn lá»‹ch tá»± Ä‘á»™ng</span>
+        <span className="ml-2">Lên lịch tự động</span>
       </div>
     </div>
   );

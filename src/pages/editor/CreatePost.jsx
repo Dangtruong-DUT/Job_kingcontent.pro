@@ -1,61 +1,58 @@
-﻿import React from 'react';
-import { Helmet } from 'react-helmet';
-import KCEditor from '@/../components/KCEditor';
-import { Provider, connect, useSelector } from 'react-redux';
-import store from '@/store/types';
-import CreateContentForm from '@/../components/KCEditor/CreateContentForm';
-import FormularPopup from '@/../components/KCEditor/FormularPopup';
-import SelectCategories from '@/../components/KCEditor/SelectCategories';
-import FeedbacksForm from '@/../components/KCEditor/FeedbacksForm';
-import facebook from '@/../utils/facebook';
+﻿import React from "react";
+import { Helmet } from "react-helmet";
+import KCEditor from "@/components/KCEditor";
+import { Provider, connect, useSelector } from "react-redux";
+import store from "@/store/types";
+import CreateContentForm from "@/components/KCEditor/CreateContentForm";
+import FormularPopup from "@/components/KCEditor/FormularPopup";
+import SelectCategories from "@/components/KCEditor/SelectCategories";
+import FeedbacksForm from "@/components/KCEditor/FeedbacksForm";
+import facebook from "@/utils/facebook";
 
 const Editor = (props) => {
-  const { isShowFormularPopup = false, isShowCreateContentForm = false } =
-    useSelector((state) => state.createContent);
+    const { isShowFormularPopup = false, isShowCreateContentForm = false } = useSelector(
+        (state) => state.createContent
+    );
 
-  const { isShowCategories = false, isShowFeedbacksForm = false } = useSelector(
-    (state) => state.editor
-  );
+    const { isShowCategories = false, isShowFeedbacksForm = false } = useSelector((state) => state.editor);
 
-  // facebook.getInstalledGroupIds();
+    // facebook.getInstalledGroupIds();
 
-  const ShowCreateContentForm = () => {
-    return isShowCreateContentForm && <CreateContentForm />;
-  };
+    const ShowCreateContentForm = () => {
+        return isShowCreateContentForm && <CreateContentForm />;
+    };
 
-  const ShowFormularPopup = () => {
-    return isShowFormularPopup && <FormularPopup />;
-  };
+    const ShowFormularPopup = () => {
+        return isShowFormularPopup && <FormularPopup />;
+    };
 
-  const ShowCategoriesPopup = () => {
-    return isShowCategories && <SelectCategories />;
-  };
+    const ShowCategoriesPopup = () => {
+        return isShowCategories && <SelectCategories />;
+    };
 
-  const ShowFeedbacksForm = () => {
-    return isShowFeedbacksForm && <FeedbacksForm />;
-  };
+    const ShowFeedbacksForm = () => {
+        return isShowFeedbacksForm && <FeedbacksForm />;
+    };
 
-  return (
-    <>
-      {ShowCategoriesPopup()}
+    return (
+        <>
+            {ShowCategoriesPopup()}
 
-      {ShowCreateContentForm()}
+            {ShowCreateContentForm()}
 
-      {ShowFormularPopup()}
+            {ShowFormularPopup()}
 
-      {ShowFeedbacksForm()}
+            {ShowFeedbacksForm()}
 
-      <Provider store={store}>
-        <Helmet>
-          <title>Táº¡o Content</title>
-        </Helmet>
-        <h1 className="hidden">Táº¡o content</h1>
-        <KCEditor />
-      </Provider>
-    </>
-  );
+            <Provider store={store}>
+                <Helmet>
+                    <title>Táº¡o Content</title>
+                </Helmet>
+                <h1 className="hidden">Táº¡o content</h1>
+                <KCEditor />
+            </Provider>
+        </>
+    );
 };
 
 export default Editor;
-
-

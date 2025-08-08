@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { VscSettingsGear } from 'react-icons/vsc';
-import { changeStateShowManageSchedule } from '@/../../../store/actions/Schedules';
+import { changeStateShowManageSchedule } from '@/../../store/actions/Schedules';
 
 const ManageScheduleTab = (props) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const ManageScheduleTab = (props) => {
     >
       <div className="flex items-center gap-2">
         <VscSettingsGear className="h-6 w-6" />
-        <span>Quáº£n lÃ½</span>
+        <span>Quản lý</span>
       </div>
     </div>
   );

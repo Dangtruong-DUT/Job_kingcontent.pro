@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaPlus, FaSearch } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -6,14 +6,14 @@ import {
   deleteWhiteSpace,
   isArrayEmpty,
   REG_REMOVE_WHITE_SPACE,
-} from '@/../configs';
+} from '@/configs';
 import {
   REDUX_NAME_CONTENT_USER_LIKED,
   getFacebookIdFromUrl,
-} from '@/../utils/utilityFunc';
+} from '@/utils/utilityFunc';
 import { actionSearchContent } from '@/store/actions/contentUserLiked';
 import { FiX } from 'react-icons/fi';
-import { getFanpageAvatar } from '@/../helpers';
+import { getFanpageAvatar } from '@/helpers';
 const CardFanpageStyled = styled.div``;
 const RightContent = ({ searchStatus, setSearchStatus }) => {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
       setSearchStatus(true);
       dispatch(actionSearchContent(filterItem));
     } else {
-      alert('KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£ , vui lÃ²ng tÃ¬m kiáº¿m tá»« khoÃ¡ khÃ¡c !');
+      alert('Không tìm thấy kết quả , vui lòng tìm kiếm từ khoá khác !');
     }
   };
   const filterContentByPage = (item) => {
@@ -86,7 +86,7 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
           <p className="text-red-600 text-3xl font-bold">
             {totalContent.length}
           </p>
-          <p>Content Ä‘Ã£ thÃ­ch</p>
+          <p>Content đã thích</p>
         </div>
         <div className="bg-white rounded-lg p-1 w-full shadow-lg text-center">
           <p className="text-green-600 text-3xl font-bold">
@@ -99,7 +99,7 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
 
       <CardFanpageStyled className="mt-5 rounded-md p-3 bg-white shadow-smBlackShadow">
         <h3 className="text-base font-bold mb-2">
-          Fanpage chá»©a content Ä‘Ã£ thÃ­ch
+          Fanpage chứa content đã thích
         </h3>
         {/* render data */}
         {!isArrayEmpty(fanpages) ? (
@@ -144,7 +144,7 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
           </ul>
         ) : (
           <div className="flex items-center h-80 w-full justify-center">
-            <div className="font-bold text-red-600">KhÃ´ng tÃ¬m tháº¥y káº¿t quáº£</div>
+            <div className="font-bold text-red-600">Không tìm thấy kết quả</div>
           </div>
         )}
       </CardFanpageStyled>
@@ -154,7 +154,7 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
         <div className="flex gap-2 mb-2">
           <input
             className="w-full h-12 rounded-md shadow-sm outline-none border-2 p-2 border-gray-300"
-            placeholder="Nháº­p ná»™i dung tÃ¬m kiáº¿m"
+            placeholder="Nhập nội dung tìm kiếm"
             onChange={(e) => {
               if (!e.target.value) {
                 setSearchHashTagStatus(false);
@@ -231,5 +231,6 @@ const RightContent = ({ searchStatus, setSearchStatus }) => {
 };
 
 export default RightContent;
+
 
 

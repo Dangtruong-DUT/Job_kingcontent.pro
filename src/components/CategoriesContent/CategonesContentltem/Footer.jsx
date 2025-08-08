@@ -1,12 +1,12 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { AiOutlineLike } from 'react-icons/ai';
 import { FaRegCommentDots, FaRegShareSquare } from 'react-icons/fa';
 import { RiHeart3Line } from 'react-icons/ri';
 import { AiFillHeart } from 'react-icons/ai';
-import HashtagsSearch from '@/../../ContentLiked/HashtagsSearch';
+import HashtagsSearch from '@/../ContentLiked/HashtagsSearch';
 import styled from 'styled-components';
-import { kFormatter } from '@/../../utils/utilityFunc';
+import { kFormatter } from '@/../utils/utilityFunc';
 const TextStyle = styled.p`
     display: -webkit-box;
     -webkit-line-clamp: 1;

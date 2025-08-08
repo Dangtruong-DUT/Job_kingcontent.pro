@@ -1,8 +1,8 @@
-﻿import * as types from '@/../types';
-import client from '@/../../Client';
-import { isArrayEmpty, uniqueObjInArray } from '@/../../configs';
+import * as types from '@/types';
+import client from '@/../Client';
+import { isArrayEmpty, uniqueObjInArray } from '@/configs';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
-import { formatDate } from '@/../../helpers/date';
+import { formatDate } from '@/../helpers/date';
 
 const pageLimit = 16;
 
@@ -183,4 +183,5 @@ const Query = (cateId = 0, page, query, limit = 0) => {
   if (cateId) newQuery += `cateId=${cateId}&`;
   return `${newQuery}_limit=${curLimit}&page=${page}` + query;
 };
+
 

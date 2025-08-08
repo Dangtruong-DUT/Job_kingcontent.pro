@@ -1,5 +1,5 @@
-﻿import { useDispatch, useSelector } from 'react-redux';
-import { actionPostThreadsComment } from '@/../../../store/actions/threads';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionPostThreadsComment } from '@/../../store/actions/threads';
 import { useState } from 'react';
 import { FaSpinner } from 'react-icons/fa';
 
@@ -17,20 +17,20 @@ const NewCommentForm = ({ threadId }) => {
     <div className="flex flex-row border-b border-gray-200 cursor-pointer p-2 gap-3">
       <div className="flex flex-col w-full">
         <div className="flex justify-between mb-2">
-          ThÃªm bÃ¬nh luáº­n
+          Thêm bình luận
         </div>
 
         <div>
           <textarea
             className="w-full h-24 p-2 border border-gray-200 rounded-md"
-            placeholder="Nháº­p bÃ¬nh luáº­n cá»§a báº¡n ..."
+            placeholder="Nhập bình luận của bạn ..."
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
           ></textarea>
         </div>
         
         <div className="flex justify-end mt-2 gap-2">
-          {isPostingReply && <div className=" flex gap-2 items-center"><span>Äang Ä‘Äƒng...</span> <FaSpinner className="animate-spin"/></div>}
+          {isPostingReply && <div className=" flex gap-2 items-center"><span>Đang đăng...</span> <FaSpinner className="animate-spin"/></div>}
           <button
             className={`bg-primary text-white px-4 py-2 rounded-md ${
               isPostingReply ? "opacity-50 cursor-not-allowed" : ""
@@ -38,7 +38,7 @@ const NewCommentForm = ({ threadId }) => {
             onClick={() => onSubmitComment()}
             disabled={isPostingReply}
           >
-            ÄÄƒng
+            Đăng
           </button>
         </div>
       </div>

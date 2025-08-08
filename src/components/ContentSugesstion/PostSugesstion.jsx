@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import addIcons from '@/assets/images/icon/create-content/add.png';
 import LoadingApp from '@/LoadingApp';
@@ -18,13 +18,13 @@ import {
 import { confirmAlert } from 'react-confirm-alert';
 
 import { FiPlayCircle } from 'react-icons/fi';
-import { kFormatter } from '@/../utils/utilityFunc';
-import { KEY_HASH_VIDEO_OR_IMAGE } from '@/../reducers/createContent';
+import { kFormatter } from '@/utils/utilityFunc';
+import { KEY_HASH_VIDEO_OR_IMAGE } from '@/reducers/createContent';
 import { toast } from 'react-toastify';
-import Client from '@/../Client';
+import Client from '@/Client';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
-import { OK } from '@/../configs';
-import { convertUrlsToBase64 } from '@/../pages/createPost/utility';
+import { OK } from '@/configs';
+import { convertUrlsToBase64 } from '@/pages/createPost/utility';
 import { FaCheck } from 'react-icons/fa';
 
 const ContentStyled = styled.div`
@@ -64,11 +64,11 @@ const PostSugesstion = (props) => {
       media_url = '',
     } = content;
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n muá»‘n Ä‘Æ°a nhá»¯ng ná»™i dung nÃ o tá»« bÃ i viáº¿t nÃ y ?',
+      title: 'Xác nhận',
+      message: 'Bạn muốn đưa những nội dung nào từ bài viết này ?',
       buttons: [
         {
-          label: 'Chá»‰ chá»n ná»™i dung',
+          label: 'Chỉ chọn nội dung',
           color: 'green',
           onClick: () => {
             dispatch(toggleEditorText(post_text, true));
@@ -77,8 +77,8 @@ const PostSugesstion = (props) => {
         {
           label:
             media_type === 'video'
-              ? 'Chá»n cáº£ ná»™i dung vÃ  video'
-              : 'Chá»n cáº£ ná»™i dung vÃ  áº£nh',
+              ? 'Chọn cả nội dung và video'
+              : 'Chọn cả nội dung và ảnh',
           color: 'blue',
           onClick: async () => {
             dispatch(toggleEditorText(post_text, true));
@@ -92,7 +92,7 @@ const PostSugesstion = (props) => {
             );
             // get video url
             if (media_type === 'video') {
-              toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+              toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
               let mediass = [];
               if (media_url) {
                 const res = await Client.get(`/get-video-link/${media_url}`);
@@ -139,7 +139,7 @@ const PostSugesstion = (props) => {
           },
         },
         {
-          label: 'Huá»·',
+          label: 'Huỷ',
           onClick: () => { },
         },
       ],
@@ -155,14 +155,14 @@ const PostSugesstion = (props) => {
     <div className="p-2 specialContents">
       {multiSelect == false ? <></> :
         <div className="flex items-center justify-end space-x-5 pr-8">
-          <span className="font-bold text-lg text-gray-700">{selectedIndexsSpecial.length == 0 ? "Chá»n táº¥t cáº£ " : "Äang chá»n : " + selectedIndexsSpecial.length}</span>
+          <span className="font-bold text-lg text-gray-700">{selectedIndexsSpecial.length == 0 ? "Chọn tất cả " : "Đang chọn : " + selectedIndexsSpecial.length}</span>
           <input defaultChecked={false} onChange={(e) => handleMultiSelectContent(-1, e.target.checked)} type="checkbox" className="w-6 h-6 focus:ring-blue-500 rounded"></input>
         </div>
       }
       <div className="p-2 overflow-y-scroll overflow-x-hidden max-h-screen trendingContents">
         {contents.length === 0 /*&& !isLoading*/ ? (
           <div className="flex justify-center">
-            <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+            <span className="font-bold">Không có dữ liệu hiển thị</span>
           </div>
         ) /*: isLoading ? (
           <LoadingApp />
@@ -252,7 +252,7 @@ const PostSugesstion = (props) => {
                 className={`bg-blue-500 text-white px-4 py-2 rounded-md w-1/2 m-3 ${totalPagesSpecial === currentPageSpecial && isSpecial ? 'hidden' : ''}`}
                 onClick={() => handleGetMoreContents()}
               >
-                Xem thÃªm
+                Xem thêm
               </button>
               {additionalButton}
             </div>
@@ -264,6 +264,7 @@ const PostSugesstion = (props) => {
 };
 
 export default PostSugesstion;
+
 
 
 

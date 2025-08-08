@@ -1,9 +1,9 @@
-﻿import { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import PopupDetailContentPlan from '@/../../../../pages/createPost/components/planCpn/popupDetail';
-import { _dashed_border } from '@/../../../../pages/createPost/utility';
-import { setContentDetailToShow } from '@/../../../../store/actions/Contents/contentActions';
+import PopupDetailContentPlan from '@/../../../pages/createPost/components/planCpn/popupDetail';
+import { _dashed_border } from '@/../../../pages/createPost/utility';
+import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
 import Footer from '@/Footer';
 import { FiCalendar, FiEye, FiPlayCircle } from 'react-icons/fi';
 import { FaPencilAlt } from 'react-icons/fa';
@@ -11,21 +11,21 @@ import {
   actionUpdateStep1,
   createContentToHomepage,
   resetCreateContent,
-} from '@/../../../../store/actions/createContent';
-import { actionPushContentToCreateContentScreen } from '@/../../../../store/actions/homepage';
+} from '@/../../../store/actions/createContent';
+import { actionPushContentToCreateContentScreen } from '@/../../../store/actions/homepage';
 import {
   setCurrentDateTime,
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
-} from '@/../../../../store/actions/Schedules';
+} from '@/../../../store/actions/Schedules';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { toast } from 'react-toastify';
-import Client from '@/../../../../Client';
-import { OK } from '@/../../../../configs';
-import VideoGenIcon from '@/../../../../assets/images/icon/main-menu/menu-icon-videogen.png';
-import { setScript } from '@/../../../../store/actions/TextToVideo';
+import Client from '@/../../../Client';
+import { OK } from '@/../../../configs';
+import VideoGenIcon from '@/../../../assets/images/icon/main-menu/menu-icon-videogen.png';
+import { setScript } from '@/../../../store/actions/TextToVideo';
 
 const TextStyled = styled.div`
   span {
@@ -67,7 +67,7 @@ const SingleContent = (props) => {
 
   const handelWritePost = async () => {
     if (media_type === 'video') {
-      toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+      toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
       let customMedias = [];
       if (media_url) {
         const res = await Client.get(`/get-video-link/${media_url}`);
@@ -137,7 +137,7 @@ const SingleContent = (props) => {
   return (
     <div
       className="singleContent relative bg-white rounded-3xl mb-1 mr-5 mt-3 cursor-pointer shadow-lg pb-4 group"
-      title="Nháº¥p vÃ o Ä‘á»ƒ xem chi tiáº¿t"
+      title="Nhấp vào để xem chi tiết"
     >
       <div
         className="thumbnail w-full bg-no-repeat bg-center bg-cover rounded-t-lg mb-2 h-48 relative"
@@ -183,9 +183,9 @@ const SingleContent = (props) => {
             size={30}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="Xem chi tiáº¿t"
+            title="Xem chi tiết"
           />
-          <span>Xem chi tiáº¿t</span>
+          <span>Xem chi tiết</span>
         </div>
         <div
           className="flex items-center gap-2 cursor-pointer hover:bg-black bg-opacity-60 px-2 py-3 rounded whitespace-nowrap"
@@ -195,9 +195,9 @@ const SingleContent = (props) => {
             size={20}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="Soáº¡n bÃ i viáº¿t"
+            title="Soạn bài viết"
           />
-          <span>Soáº¡n bÃ i viáº¿t</span>
+          <span>Soạn bài viết</span>
         </div>
         {/* schedule */}
         <div
@@ -208,11 +208,11 @@ const SingleContent = (props) => {
             size={30}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="LÃªn lá»‹ch"
+            title="Lên lịch"
           />
-          <span>LÃªn lá»‹ch</span>
+          <span>Lên lịch</span>
         </div>
-        {/* Táº¡o Video AI */}
+        {/* Tạo Video AI */}
         <div
           className="flex items-center gap-2 cursor-pointer hover:bg-black bg-opacity-60 p-2 rounded whitespace-nowrap"
           onClick={() => {
@@ -221,7 +221,7 @@ const SingleContent = (props) => {
           }}
         >
           <img src={VideoGenIcon} style={{ width: "32px" }}></img>
-          <span>Táº¡o Video AI</span>
+          <span>Tạo Video AI</span>
         </div>
       </div>
     </div>

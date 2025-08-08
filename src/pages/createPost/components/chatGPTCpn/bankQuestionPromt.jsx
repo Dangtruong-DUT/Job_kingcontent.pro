@@ -1,8 +1,8 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { getQuestionPromt } from '@/../../../store/actions/createContent';
-import { CHAT } from '@/../utility';
+import { getQuestionPromt } from '@/../../store/actions/createContent';
+import { CHAT } from '@/utility';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const BankQuestionPromt = ({ setInputValue, setTabSelected }) => {
@@ -11,7 +11,7 @@ const BankQuestionPromt = ({ setInputValue, setTabSelected }) => {
     setInputValue(question);
     setTabSelected(CHAT);
     toast.success(
-      'CÃ¢u há»i Ä‘Ã£ Ä‘Æ°á»£c thÃªm vÃ o trÃ¬nh nháº­p ná»™i dung . Vui lÃ²ng chá»‰nh sá»­a hoáº·c báº¥m gá»­i Ä‘á»ƒ tÃ¬m kiáº¿m cÃ¢u há»i !'
+      'Câu hỏi đã được thêm vào trình nhập nội dung . Vui lòng chỉnh sửa hoặc bấm gửi để tìm kiếm câu hỏi !'
     );
   };
   const renderTitleChild = () => {
@@ -28,7 +28,7 @@ const BankQuestionPromt = ({ setInputValue, setTabSelected }) => {
           <PerfectScrollbar className="flex-grow overflow-auto max-h-500">
             {questions.length === 0 ? (
               <div className="flex justify-center">
-                <span>KhÃ´ng cÃ³ dÅ© liá»‡u hiá»ƒn thá»‹</span>
+                <span>Không có dũ liệu hiển thị</span>
               </div>
             ) : (
               <>

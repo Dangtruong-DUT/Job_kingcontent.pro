@@ -1,7 +1,7 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { FaWindowClose } from 'react-icons/fa';
-import { convertInstagramLink } from '@/../../helpers';
+import { convertInstagramLink } from '@/../helpers';
 import { useSelector } from 'react-redux';
 import logo from '@/assets/images/logo.jpg';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -31,7 +31,7 @@ function Header(props) {
         <h3 className=" text-sm text-blue-700 font-semibold">{displayName}</h3>
         <div className="w-full border-b border-gray-200 flex-grow"></div>
         <span className="m-1 px-1 text-gray-700 font-medium bg-blue-50">
-          {created ? moment.unix(created).format('DD/MM/YYYY') : 'Vá»«a xong'}
+          {created ? moment.unix(created).format('DD/MM/YYYY') : 'Vừa xong'}
         </span>
       </div>
       <div className="flex gap-2">

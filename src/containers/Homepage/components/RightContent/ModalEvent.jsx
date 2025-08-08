@@ -1,4 +1,4 @@
-﻿import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import moment from 'moment';
 import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,12 +8,12 @@ import {
   createContentToHomepage,
   resetCreateContent,
   writeContentHomeToCreateScreen,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import {
   TYPE_GO_CHAT,
   TYPE_GO_CONTENT,
   getCurrentYear,
-} from '@/../../../utils/utilityFunc';
+} from '@/../../utils/utilityFunc';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 const ModalEvent = (props) => {
   const { event, setIsShowModal, isShowModal, type = TYPE_GO_CHAT } = props;
@@ -112,7 +112,7 @@ const ModalEvent = (props) => {
                       onClick={() => history.push('/dang-thinh-hanh')}
                       className="bg-green-500 px-3 h-10 rounded-md text-white"
                     >
-                      Äáº¿n trang Ä‘ang thá»‹nh hÃ nh
+                      Đến trang đang thịnh hành
                     </button>
                   )}
                   <button
@@ -121,13 +121,13 @@ const ModalEvent = (props) => {
                     }
                     className="bg-blue-400 px-3 h-10 rounded-md text-white"
                   >
-                    Soáº¡n tháº£o
+                    Soạn thảo
                   </button>
                   <button
                     onClick={() => setIsShowModal(false)}
                     className="bg-red-400 px-3 h-10 rounded-md text-white"
                   >
-                    ÄÃ³ng
+                    Đóng
                   </button>
                 </div>
               </Dialog.Panel>

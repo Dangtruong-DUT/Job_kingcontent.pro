@@ -1,21 +1,21 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ImCross, ImFacebook } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import InfoLeft from '@/ScheduleItemPopup/InfoLeft';
 import InfoRight from '@/ScheduleItemPopup/InfoRight';
-import { setScheduleItemPopupToShowMultiple } from '@/../../../store/actions/Schedules';
+import { setScheduleItemPopupToShowMultiple } from '@/../../store/actions/Schedules';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import DetailTiktok from '@/../Tiktok/DetailTiktok';
-import { actionSetCurrentContent } from '@/../../../store/actions/instagram';
-import { instagramService } from '@/../../../services/instagram';
-import { threadsService } from '@/../../../services/threads';
-import { convertInstagramLink } from '@/../../../helpers';
-import { setContentDetailToShow } from '@/../../../store/actions/Contents/contentActions';
-import DetailDouyin from '@/../douyin/detailDouyin';
-import ContentDetail from '@/../../InstagramCpn/ContentDetail';
+import DetailTiktok from '@/Tiktok/DetailTiktok';
+import { actionSetCurrentContent } from '@/../../store/actions/instagram';
+import { instagramService } from '@/../../services/instagram';
+import { threadsService } from '@/../../services/threads';
+import { convertInstagramLink } from '@/../../helpers';
+import { setContentDetailToShow } from '@/../../store/actions/Contents/contentActions';
+import DetailDouyin from '@/douyin/detailDouyin';
+import ContentDetail from '@/../InstagramCpn/ContentDetail';
 import { toast } from 'react-toastify';
-import { OK } from '@/../../../configs';
-import { TextToVideoService } from '@/../../../services/TextToVideo';
+import { OK } from '@/../../configs';
+import { TextToVideoService } from '@/../../services/TextToVideo';
 
 const ScheduleMultipleItemsPopup = (props) => {
   const { contents = null } = props;
@@ -60,7 +60,7 @@ const ScheduleMultipleItemsPopup = (props) => {
   };
 
   const getInstagramPostInfo = async (code, replaceText = '') => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t...');
+    toast.info('Đang lấy thông tin bài viết...');
     const res = await instagramService.getPostsInfo([code]);
     if (res.status === OK) {
       const postInfo = res?.data?.data[0];
@@ -70,7 +70,7 @@ const ScheduleMultipleItemsPopup = (props) => {
   };
 
   const getThreadPostInfo = async (contentId, replaceText = '') => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t...');
+    toast.info('Đang lấy thông tin bài viết...');
     const res = await threadsService.getPostDetail(contentId);
     if (res.status === OK) {
       const postInfo = res?.data?.data;
@@ -87,7 +87,7 @@ const ScheduleMultipleItemsPopup = (props) => {
     toast.dismiss();
   };
   const getVideoAI = async (contentId, replaceText = '') => {
-    toast.info('Äang láº¥y thÃ´ng tin bÃ i viáº¿t...');
+    toast.info('Đang lấy thông tin bài viết...');
     const res = await TextToVideoService.getCompletedVideos(1, contentId);
     if (res.status === OK) {
       const videoInfo = res?.data?.data?.data[0];

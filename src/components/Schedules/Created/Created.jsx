@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchForm from '@/SearchForm';
 import SingleContent from '@/SingleContent';
@@ -9,7 +9,7 @@ import {
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
 import { FaLongArrowAltLeft } from 'react-icons/fa';
-import LoadingApp from '@/../LoadingApp';
+import LoadingApp from '@/LoadingApp';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 
 const Created = (props) => {
@@ -113,10 +113,10 @@ const Created = (props) => {
           onClick={goBack}
         >
           <FaLongArrowAltLeft />
-          <span>Chá»n káº¿ hoáº¡ch khÃ¡c</span>
+          <span>Chọn kế hoạch khác</span>
         </button>
         <p>
-          Báº¡n Ä‘Ã£ chá»n káº¿ hoáº¡ch:{' '}
+          Bạn đã chọn kế hoạch:{' '}
           <span className="font-bold italic text-base">
             {selectedPlan?.name}
           </span>
@@ -126,7 +126,7 @@ const Created = (props) => {
       <SearchForm onSearch={onSearch} isCreated={true} />
       {filteredContents.length === 0 && !isLoadingUserContents ? (
         <div className="flex justify-center">
-          <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+          <span className="font-bold">Không có dữ liệu hiển thị</span>
         </div>
       ) : isLoadingUserContents ? (
         <LoadingApp />
@@ -139,17 +139,17 @@ const Created = (props) => {
                   className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                   onClick={() => onSelectAll()}
                 >
-                  Chá»n toÃ n bá»™
+                  Chọn toàn bộ
                 </button>
                 <button
                   className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                   onClick={() => onUnSelectAll()}
                 >
-                  Bá» chá»n
+                  Bỏ chọn
                 </button>
               </div>
               <div className="summary mb-2 ml-auto text-base">
-                <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                <span>Số bài viết đã chọn: </span>
                 <span className="font-bold">
                   {autoWaitingList?.contents?.length || 0}
                 </span>

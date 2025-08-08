@@ -1,6 +1,6 @@
-﻿import { toast } from 'react-toastify';
-import { OK } from '@/../../configs';
-import { instagramService } from '@/../../services/instagram';
+import { toast } from 'react-toastify';
+import { OK } from '@/configs';
+import { instagramService } from '@/services/instagram';
 export const INSTAGRAM_GET_USERS = 'INSTAGRAM_GET_USERS';
 export const INSTAGRAM_GET_USERS_SUCCESS = 'INSTAGRAM_GET_USERS_SUCCESS';
 export const INSTAGRAM_GET_USER_POSTS = 'INSTAGRAM_GET_USER_POSTS';
@@ -57,7 +57,7 @@ export const actionGetUsers = (inputValue) => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_USERS_SUCCESS,
@@ -66,7 +66,7 @@ export const actionGetUsers = (inputValue) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USERS_SUCCESS,
@@ -137,7 +137,7 @@ export const actionGetHashtagPosts = (
         }
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_HASHTAG_POSTS_SUCCESS,
@@ -146,7 +146,7 @@ export const actionGetHashtagPosts = (
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_HASHTAG_POSTS_SUCCESS,
@@ -185,7 +185,7 @@ export const actionGetUserPosts = (userName, cursor = '') => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USER_POSTS_SUCCESS,
@@ -230,7 +230,7 @@ export const actionGetUserReels = (userId, cursor = '') => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USER_REELS_SUCCESS,
@@ -252,7 +252,7 @@ export const actionGetReelDetail = (reelId, code) => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_REEL_DETAIL_SUCCESS,
@@ -261,7 +261,7 @@ export const actionGetReelDetail = (reelId, code) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_REEL_DETAIL_SUCCESS,
@@ -298,7 +298,7 @@ export const actionGetUserSaved = (userId, cursor = '') => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
@@ -335,7 +335,7 @@ export const actionGetCollections = (userId = 0, cursor = '') => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_COLLECTIONS_SUCCESS,
@@ -351,14 +351,14 @@ export const actionSaveUser = (user) => {
       const response = await instagramService.saveUser(user);
       if (response.status === OK) {
         toast.dismiss();
-        toast.success('ÄÃ£ lÆ°u ngÆ°á»i dÃ¹ng thÃ nh cÃ´ng');
+        toast.success('Đã lưu người dùng thành công');
         dispatch({
           type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
           payload: response?.data?.data,
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
@@ -367,7 +367,7 @@ export const actionSaveUser = (user) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
@@ -382,14 +382,14 @@ export const actionRemoveUser = (userId) => {
     try {
       const response = await instagramService.removeUser(userId);
       if (response.status === OK) {
-        toast.success('ÄÃ£ xÃ³a ngÆ°á»i dÃ¹ng thÃ nh cÃ´ng');
+        toast.success('Đã xóa người dùng thành công');
         dispatch({
           type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
           payload: response?.data?.data,
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
 
         dispatch({
@@ -399,7 +399,7 @@ export const actionRemoveUser = (userId) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_USER_SAVED_SUCCESS,
@@ -415,7 +415,7 @@ export const actionSaveCollection = (collectionId) => {
     try {
       const response = await instagramService.saveCollection(collectionId);
       if (response.status === OK) {
-        toast.success('ÄÃ£ lÆ°u bá»™ sÆ°u táº­p thÃ nh cÃ´ng');
+        toast.success('Đã lưu bộ sưu tập thành công');
         dispatch({
           type: INSTAGRAM_GET_COLLECTIONS_SUCCESS,
           payload: response?.data?.data,
@@ -430,13 +430,13 @@ export const actionSaveCollection = (collectionId) => {
           payload: false,
         });
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
       }
     } catch (error) {
       dispatch({ type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING, payload: false });
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
     }
   };
@@ -448,7 +448,7 @@ export const actionRemoveCollection = (collectionId) => {
     try {
       const response = await instagramService.removeCollection(collectionId);
       if (response.status === OK) {
-        toast.success('ÄÃ£ xÃ³a bá»™ sÆ°u táº­p thÃ nh cÃ´ng');
+        toast.success('Đã xóa bộ sưu tập thành công');
         dispatch({
           type: INSTAGRAM_GET_COLLECTIONS_SUCCESS,
           payload: response?.data?.data,
@@ -459,7 +459,7 @@ export const actionRemoveCollection = (collectionId) => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING,
@@ -468,7 +468,7 @@ export const actionRemoveCollection = (collectionId) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({ type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING, payload: false });
     }
@@ -481,7 +481,7 @@ export const actionUpdateCollection = (id, collection) => {
     try {
       const response = await instagramService.updateCollection(id, collection);
       if (response.status === OK) {
-        toast.success('ÄÃ£ cáº­p nháº­t bá»™ sÆ°u táº­p thÃ nh cÃ´ng');
+        toast.success('Đã cập nhật bộ sưu tập thành công');
         dispatch({
           type: INSTAGRAM_GET_COLLECTIONS_SUCCESS,
           payload: response?.data?.data,
@@ -492,7 +492,7 @@ export const actionUpdateCollection = (id, collection) => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING,
@@ -501,7 +501,7 @@ export const actionUpdateCollection = (id, collection) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({ type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING, payload: false });
     }
@@ -529,7 +529,7 @@ export const actionSavePostsToCollection = (
           type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING,
           payload: false,
         });
-        toast.success('ÄÃ£ lÆ°u bÃ i viáº¿t vÃ o bá»™ sÆ°u táº­p thÃ nh cÃ´ng');
+        toast.success('Đã lưu bài viết vào bộ sưu tập thành công');
         onClose();
       } else {
         dispatch({
@@ -537,13 +537,13 @@ export const actionSavePostsToCollection = (
           payload: false,
         });
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
       }
     } catch (error) {
       dispatch({ type: INSTAGRAM_SET_COLLECTION_SAVE_LOADING, payload: false });
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
     }
   };
@@ -557,15 +557,15 @@ export const actionRemovePostsFromCollection = (collectionId, postId) => {
         postId
       );
       if (response.status === OK) {
-        toast.success('ÄÃ£ xÃ³a bÃ i viáº¿t khá»i bá»™ sÆ°u táº­p thÃ nh cÃ´ng');
+        toast.success('Đã xóa bài viết khỏi bộ sưu tập thành công');
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
     }
   };
@@ -583,7 +583,7 @@ export const actionGetCollectionDetail = (collectionId) => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_COLLECTION_DETAIL_SUCCESS,
@@ -592,7 +592,7 @@ export const actionGetCollectionDetail = (collectionId) => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_COLLECTION_DETAIL_SUCCESS,
@@ -614,7 +614,7 @@ export const actionGetCollectionPosts = () => {
         });
       } else {
         toast.error(
-          'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+          'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
         );
         dispatch({
           type: INSTAGRAM_GET_COLLECTION_POSTS_SUCCESS,
@@ -623,7 +623,7 @@ export const actionGetCollectionPosts = () => {
       }
     } catch (error) {
       toast.error(
-        'Vui lÃ²ng liÃªn há»‡ vá»›i nhÃ¢n viÃªn Ä‘á»ƒ chÃºng tÃ´i há»— trá»£ báº¡n tá»‘t hÆ¡n!'
+        'Vui lòng liên hệ với nhân viên để chúng tôi hỗ trợ bạn tốt hơn!'
       );
       dispatch({
         type: INSTAGRAM_GET_COLLECTION_POSTS_SUCCESS,
@@ -709,4 +709,5 @@ export const actionSetScheduleFilter = (filter) => async (dispatch) => {
     payload: filter,
   });
 };
+
 

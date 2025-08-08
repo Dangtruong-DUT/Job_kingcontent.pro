@@ -1,4 +1,4 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import ModalOverlay from '@/ModalOverlay';
 import Body from '@/Body';
 import Footer from '@/Footer';
@@ -17,18 +17,18 @@ import {
   useParams,
 } from 'react-router-dom';
 import { actionGetAllContent } from '@/store/actions/contentUserLiked';
-import { isArrayEmpty, OK } from '@/../../configs';
+import { isArrayEmpty, OK } from '@/configs';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
 import { useState } from 'react';
-import Client from '@/../../Client';
+import Client from '@/../Client';
 import {
   setCurrentDateTime,
   setIsShowFinalStep,
   setSelectedScheduleContent,
   setShowSourceIdeasPopup,
 } from '@/store/actions/Schedules';
-import SpecialFollowPopupNotsave from '@/../../pages/fanpagesList/Popup';
+import SpecialFollowPopupNotsave from '@/../pages/fanpagesList/Popup';
 import { setScript } from '@/store/actions/TextToVideo';
 
 const CategoriesContentItem = (props) => {
@@ -76,11 +76,11 @@ const CategoriesContentItem = (props) => {
   const handleAction = async (action, item) => {
     setContentSelect(content);
     switch (action) {
-      // XEM CHI TIá»‚T
+      // XEM CHI TIỂT
       case 'VIEW_DETAIL_CONTENT':
         setContentDetailToShow && dispatch(setContentDetailToShow(content));
         break;
-      // XEM THÃŠM BÃ€I VIáº¾T
+      // XEM THÊM BÀI VIẾT
       case 'VIEW_MORE_CONTENT':
         setIsMorePost(true);
         const page = {
@@ -91,19 +91,19 @@ const CategoriesContentItem = (props) => {
         };
         setIsShowPopup(page);
         break;
-      // THÃCH BÃ€I VIáº¾T
+      // THÍCH BÀI VIẾT
       case 'SAVE_LIKED_CONTENT':
         setIsOpenPopupTag(true);
         break;
-      //SOáº N THáº¢O
+      //SOẠN THẢO
       case 'CREATE_CONTENT':
         if (media_url || (videos && !isArrayEmpty(videos))) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
-            message: 'Vui lÃ²ng chá»n má»™t hÃ¬nh thá»©c soáº¡n tháº£o ?',
+            title: 'Thông báo',
+            message: 'Vui lòng chọn một hình thức soạn thảo ?',
             buttons: [
               {
-                label: 'Chá»‰ láº¥y vÄƒn báº£n',
+                label: 'Chỉ lấy văn bản',
                 onClick: async () => {
                   dispatch(actionUpdateStep1(true));
                   dispatch(resetCreateContent());
@@ -119,9 +119,9 @@ const CategoriesContentItem = (props) => {
                 },
               },
               {
-                label: 'Láº¥y vÄƒn báº£n & video',
+                label: 'Lấy văn bản & video',
                 onClick: async () => {
-                  toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+                  toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
                   let mediass = [];
                   if (media_url) {
                     const res = await Client.get(
@@ -160,7 +160,7 @@ const CategoriesContentItem = (props) => {
                 },
               },
               {
-                label: 'Huá»·',
+                label: 'Huỷ',
                 onClick: () => {},
               },
             ],
@@ -182,32 +182,32 @@ const CategoriesContentItem = (props) => {
         );
         history.push('/tao-content');
         break;
-      // Bá»Ž THÃCH
+      // BỎ THÍCH
       case 'DISLIKE':
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Báº¡n cÃ³ muá»‘n bá» thÃ­ch content nÃ y?',
+          title: 'Thông báo',
+          message: 'Bạn có muốn bỏ thích content này?',
           buttons: [
             {
-              label: 'CÃ³',
+              label: 'Có',
               onClick: async () => {
                 const res = await Client.delete(
                   `/liked-data/${content?.contentId}`
                 );
                 if (res.status === OK) {
                   dispatch(actionGetAllContent());
-                  toast.success('Thao tÃ¡c thÃ nh cÃ´ng !');
+                  toast.success('Thao tác thành công !');
                 }
               },
             },
             {
-              label: 'KhÃ´ng',
+              label: 'Không',
               onClick: () => {},
             },
           ],
         });
         break;
-      //LÃŠN Lá»ŠCH
+      //LÊN LỊCH
       case 'SCHEDULE_CONTENT':
         const { source_type = '' } = content;
         let source = 'system';
@@ -300,6 +300,7 @@ const CategoriesContentItem = (props) => {
 };
 
 export default CategoriesContentItem;
+
 
 
 

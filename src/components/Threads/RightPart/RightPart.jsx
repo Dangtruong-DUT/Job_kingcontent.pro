@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 import moment from 'moment';
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { isArrayEmpty, OK } from '@/../../configs';
+import { isArrayEmpty, OK } from '@/configs';
 import { setContentDetailToShow } from '@/store/actions/Contents/contentActions';
 import {
   setCurrentDateTime,
@@ -23,12 +23,12 @@ import {
   actionUpdateCollectionModalOpen,
   actionUpdateCollectionModalType,
 } from '@/store/actions/threads';
-import LoadingApp from '@/../LoadingApp';
+import LoadingApp from '@/LoadingApp';
 import SingleChannel from '@/SingleChannel';
 import SingleVideo from '@/SingleVideo';
 import Me from '@/components/me';
 import { listDefaultKws } from '@/constants';
-import { threadsService } from '@/../../services/threads';
+import { threadsService } from '@/services/threads';
 import ContentDetail from '@/ContentDetail/ContentDetail';
 import {
   actionUpdateStep1,
@@ -36,11 +36,11 @@ import {
   resetCreateContent,
 } from '@/store/actions/createContent';
 import { actionPushContentToCreateContentScreen } from '@/store/actions/homepage';
-import { convertInstagramLink } from '@/../../helpers';
+import { convertInstagramLink } from '@/../helpers';
 import { DataScroller } from 'primereact/datascroller';
 import styled from 'styled-components';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import auth from '@/../../utils/auth';
+import auth from '@/../utils/auth';
 
 // Type casting to fix JSX component compatibility
 const MasonryComponent = /** @type {any} */ (Masonry);
@@ -135,11 +135,11 @@ const RightPart = (props) => {
         } = elt;
         if (video || (videos && !isArrayEmpty(videos))) {
           confirmAlert({
-            title: 'ThÃ´ng bÃ¡o',
-            message: 'Vui lÃ²ng chá»n má»™t hÃ¬nh thá»©c soáº¡n tháº£o bÃ i viáº¿t:',
+            title: 'Thông báo',
+            message: 'Vui lòng chọn một hình thức soạn thảo bài viết:',
             buttons: [
               {
-                label: 'Chá»‰ láº¥y vÄƒn báº£n',
+                label: 'Chỉ lấy văn bản',
                 onClick: async () => {
                   dispatch(actionUpdateStep1(true));
                   dispatch(resetCreateContent());
@@ -155,9 +155,9 @@ const RightPart = (props) => {
                 },
               },
               {
-                label: 'Láº¥y vÄƒn báº£n & video',
+                label: 'Lấy văn bản & video',
                 onClick: async () => {
-                  toast.info('Äang táº£i video, vui lÃ²ng chá» trong chá»‘c lÃ¡t...');
+                  toast.info('Đang tải video, vui lòng chờ trong chốc lát...');
                   const videoUrl = videos[0].source || '';
                   const medias = [
                     {
@@ -180,7 +180,7 @@ const RightPart = (props) => {
                 },
               },
               {
-                label: 'Huá»·',
+                label: 'Huỷ',
                 onClick: () => {},
               },
             ],
@@ -205,17 +205,17 @@ const RightPart = (props) => {
 
       case 'REMOVE_FROM_COLLECTION':
         confirmAlert({
-          title: 'ThÃ´ng bÃ¡o',
-          message: 'Báº¡n cÃ³ cháº¯c muá»‘n xÃ³a content nÃ y khá»i bá»™ sÆ°u táº­p khÃ´ng?',
+          title: 'Thông báo',
+          message: 'Bạn có chắc muốn xóa content này khỏi bộ sưu tập không?',
           buttons: [
             {
-              label: 'Cháº¯c cháº¯n',
+              label: 'Chắc chắn',
               onClick: async () => {
                 dispatch(actionRemoveVideoFromCollection(videoType.id, elt.id));
               },
             },
             {
-              label: 'Äá»•i Ã½',
+              label: 'Đổi ý',
               onClick: () => {},
             },
           ],
@@ -230,12 +230,12 @@ const RightPart = (props) => {
           if (resSize.status === OK) {
             if (Number(resSize.data.data.size) > 400000000) {
               confirmAlert({
-                title: 'ThÃ´ng bÃ¡o',
+                title: 'Thông báo',
                 message:
-                  'Video nÃ y cÃ³ dung lÆ°á»£ng quÃ¡ lá»›n, táº¡m thá»i Kingcontent khÃ´ng há»— trá»£ Ä‘Æ°á»£c. Vui lÃ²ng chá»n bÃ i viáº¿t khÃ¡c!',
+                  'Video này có dung lượng quá lớn, tạm thời Kingcontent không hỗ trợ được. Vui lòng chọn bài viết khác!',
                 buttons: [
                   {
-                    label: 'Äá»“ng Ã½',
+                    label: 'Đồng ý',
                     onClick: () => {},
                   },
                 ],
@@ -273,12 +273,12 @@ const RightPart = (props) => {
             history.push('/lich-dang-bai');
           } else {
             confirmAlert({
-              title: 'ThÃ´ng bÃ¡o',
+              title: 'Thông báo',
               message:
-                'Video nÃ y khÃ´ng Ä‘á»§ Ä‘iá»u kiá»‡n vá» kÃ­ch thÆ°á»›c & Ä‘á»™ dÃ i Ä‘á»ƒ táº­n dá»¥ng thuáº­t toÃ¡n xu hÆ°á»›ng, báº¡n cÃ³ muá»‘n tiáº¿p tá»¥c lÃªn lá»‹ch Ä‘Äƒng khÃ´ng?',
+                'Video này không đủ điều kiện về kích thước & độ dài để tận dụng thuật toán xu hướng, bạn có muốn tiếp tục lên lịch đăng không?',
               buttons: [
                 {
-                  label: 'CÃ³',
+                  label: 'Có',
                   onClick: async () => {
                     dispatch(
                       setSelectedScheduleContent({
@@ -304,7 +304,7 @@ const RightPart = (props) => {
                   },
                 },
                 {
-                  label: 'KhÃ´ng',
+                  label: 'Không',
                   onClick: () => {},
                 },
               ],
@@ -348,7 +348,7 @@ const RightPart = (props) => {
       onClick={() => ds.current.load()}
       className="bg-primary text-white px-4 py-2 rounded-md"
     >
-      Xem thÃªm
+      Xem thêm
     </button>
   );
   const handleClosePopup = () => {
@@ -550,7 +550,7 @@ const RightPart = (props) => {
       dispatch(actionUpdateCollectionModalOpen(true));
       dispatch(actionUpdateCollectionModalType('addVideo'));
     } else {
-      toast.error('Vui lÃ²ng chá»n video');
+      toast.error('Vui lòng chọn video');
     }
   }, [chosenVideos]);
 
@@ -624,7 +624,7 @@ const RightPart = (props) => {
               }`}
               onClick={handleChangeChannels}
             >
-              KÃªnh
+              Kênh
             </div>
             {user?.threads_access_token && user?.threads_id && (
               <div
@@ -635,7 +635,7 @@ const RightPart = (props) => {
                 }`}
                 onClick={handleChangeMe}
               >
-                TÃ´i
+                Tôi
               </div>
             )}
           </div>
@@ -645,14 +645,14 @@ const RightPart = (props) => {
             <div className="flex gap-2 items-center justify-center ml-auto">
               {chosenVideos.length > 0 ? (
                 <div className="summary">
-                  <span>Báº¡n Ä‘Ã£ chá»n </span>
+                  <span>Bạn đã chọn </span>
                   <span className="font-bold">{chosenVideos?.length || 0}</span>
                   / <span className="font-bold">{videos?.length || 0}</span>
-                  <span> bÃ i Ä‘Äƒng</span>
+                  <span> bài đăng</span>
                 </div>
               ) : (
                 <div className="summary hidden">
-                  <span>Chá»n video bÃªn dÆ°á»›i Ä‘á»ƒ lÆ°u vÃ o bá»™ sÆ°u táº­p</span>
+                  <span>Chọn video bên dưới để lưu vào bộ sưu tập</span>
                 </div>
               )}
               <div className="actions flex gap-3 whitespace-nowrap">
@@ -662,7 +662,7 @@ const RightPart = (props) => {
                     disabled={chosenVideos.length === 0}
                     onClick={() => dispatch(actionUpdateChosenVideos([]))}
                   >
-                    Bá» chá»n
+                    Bỏ chọn
                   </button>
                 )}
 
@@ -673,7 +673,7 @@ const RightPart = (props) => {
                     videos.length === 0 || chosenVideos.length === videos.length
                   }
                 >
-                  Chá»n toÃ n bá»™
+                  Chọn toàn bộ
                 </button>
                 {!isArrayEmpty(chosenVideos) && (
                   <button
@@ -681,7 +681,7 @@ const RightPart = (props) => {
                     onClick={() => showCollectionModal()}
                     disabled={chosenVideos.length === 0}
                   >
-                    LÆ°u vÃ o bá»™ sÆ°u táº­p
+                    Lưu vào bộ sưu tập
                   </button>
                 )}
               </div>
@@ -712,7 +712,7 @@ const RightPart = (props) => {
             ) : (
               <div className="text-base text-center p-4">
                 {isShowChannels && (
-                  <span>Vui lÃ²ng chá»n má»™t kÃªnh hoáº·c tÃ¬m tá»« khoÃ¡ á»Ÿ trÃªn</span>
+                  <span>Vui lòng chọn một kênh hoặc tìm từ khoá ở trên</span>
                 )}
               </div>
             )
@@ -728,17 +728,17 @@ const RightPart = (props) => {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                       onClick={() => onSelectAll(filterData)}
                     >
-                      Chá»n toÃ n bá»™
+                      Chọn toàn bộ
                     </button>
                     <button
                       className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                       onClick={() => onUnSelectAll()}
                     >
-                      Bá» chá»n
+                      Bỏ chọn
                     </button>
                   </div>
                   <div className="summary mb-2 ml-auto text-base">
-                    <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                    <span>Số bài viết đã chọn: </span>
                     <span className="font-bold">
                       {autoWaitingList?.contents?.length || 0}
                     </span>
@@ -747,7 +747,7 @@ const RightPart = (props) => {
               )}
               {isArrayEmpty(filterData) ? (
                 <div className="text-base text-center p-4">
-                  KhÃ´ng tÃ¬m tháº¥y dá»¯ liá»‡u nÃ o
+                  Không tìm thấy dữ liệu nào
                 </div>
               ) : (
                 <ResponsiveMasonryComponent
@@ -790,21 +790,21 @@ const RightPart = (props) => {
                     <h3 className="text-xl">
                       {videoType?.type === 'channel' ? (
                         <span>
-                          Danh sÃ¡ch video cá»§a kÃªnh:{' '}
+                          Danh sách video của kênh:{' '}
                           <span className="font-bold">{videoType?.name}</span>
                         </span>
                       ) : videoType?.type === 'collection' ? (
                         <span>
-                          Danh sÃ¡ch video cá»§a bá»™ sÆ°u táº­p:{' '}
+                          Danh sách video của bộ sưu tập:{' '}
                           <span className="font-bold">{videoType?.name}</span>
                         </span>
                       ) : videoType?.type === 'keyword' ? (
                         <span>
-                          Káº¿t quáº£ tÃ¬m kiáº¿m theo tá»« khoÃ¡:{' '}
+                          Kết quả tìm kiếm theo từ khoá:{' '}
                           <span className="font-bold">{videoType?.name}</span>
                         </span>
                       ) : (
-                        <span>Danh sÃ¡ch video Ä‘ang thá»‹nh hÃ nh</span>
+                        <span>Danh sách video đang thịnh hành</span>
                       )}
                     </h3>
                   </div>
@@ -815,17 +815,17 @@ const RightPart = (props) => {
                           className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                           onClick={() => onSelectAll()}
                         >
-                          Chá»n toÃ n bá»™
+                          Chọn toàn bộ
                         </button>
                         <button
                           className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                           onClick={() => onUnSelectAll()}
                         >
-                          Bá» chá»n
+                          Bỏ chọn
                         </button>
                       </div>
                       <div className="summary mb-2 ml-auto text-base">
-                        <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                        <span>Số bài viết đã chọn: </span>
                         <span className="font-bold">
                           {autoWaitingList?.contents?.length || 0}
                         </span>
@@ -872,7 +872,7 @@ const RightPart = (props) => {
                             className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                             onClick={() => getMoreVideos()}
                           >
-                            Xem thÃªm
+                            Xem thêm
                           </button>
                         )}
                       </div>
@@ -894,6 +894,7 @@ const RightPart = (props) => {
 };
 
 export default RightPart;
+
 
 
 

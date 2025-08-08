@@ -1,7 +1,7 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import defaultCatImg from '@/assets/images/default-cat-thumbnail.jpg';
-import { numberWithCommas } from '@/../../utils/utilityFunc';
+import { numberWithCommas } from '@/../utils/utilityFunc';
 
 const SingleCategory = (props) => {
   const { category, setSelectedCat } = props;
@@ -39,10 +39,10 @@ const SingleCategory = (props) => {
         <h4>{cate_name}</h4>
       </div>
       <div className="text-left text-gray-500 origin-center group-hover:text-gray-600 transition-all">
-        <h5>Danh má»¥c: {prName}</h5>
+        <h5>Danh mục: {prName}</h5>
       </div>
       <div className="text-left text-gray-500 origin-center group-hover:text-gray-600 transition-all">
-        <span>{numberWithCommas(countContents)} máº«u quáº£ng cÃ¡o</span>
+        <span>{numberWithCommas(countContents)} mẫu quảng cáo</span>
       </div>
     </Link>
   );

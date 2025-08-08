@@ -1,11 +1,11 @@
-﻿import React, { useEffect, useState } from 'react';
-import pauseIcon from '@/../../../assets/images/icon/schedules/pause.png';
-import playIcon from '@/../../../assets/images/icon/schedules/play.png';
-import binIcon from '@/../../../assets/images/icon/schedules/bin.png';
+import React, { useEffect, useState } from 'react';
+import pauseIcon from '@/../../assets/images/icon/schedules/pause.png';
+import playIcon from '@/../../assets/images/icon/schedules/play.png';
+import binIcon from '@/../../assets/images/icon/schedules/bin.png';
 import { confirmAlert } from 'react-confirm-alert';
 import { useDispatch } from 'react-redux';
-import { removeScheduleContents, updateScheduleContentsStatus } from '@/../../../store/actions/Schedules';
-import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from '@/../../../store/types/schedules';
+import { removeScheduleContents, updateScheduleContentsStatus } from '@/../../store/actions/Schedules';
+import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from '@/../../store/types/schedules';
 
 const ScheduleActions = (props) => {
   const {listSelected = [], contents = []} = props;
@@ -28,11 +28,11 @@ const ScheduleActions = (props) => {
 
   const handlePause = () => {
     confirmAlert({
-      title: 'Táº¡m dá»«ng Ä‘Äƒng bÃ i',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n táº¡m dá»«ng táº¥t cáº£ cÃ¡c bÃ i Ä‘Ã£ chá»n? LÆ°u Ã½: chÃºng tÃ´i sáº½ chá»‰ táº¡m dá»«ng cÃ¡c bÃ i Ä‘Ã£ chá»n vÃ  Ä‘ang á»Ÿ tráº¡ng thÃ¡i chá» lÃªn bÃ i.',
+      title: 'Tạm dừng đăng bài',
+      message: 'Bạn có chắc chắn muốn tạm dừng tất cả các bài đã chọn? Lưu ý: chúng tôi sẽ chỉ tạm dừng các bài đã chọn và đang ở trạng thái chờ lên bài.',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             const ids = listSelected.map(item => item.id);
             dispatch(updateScheduleContentsStatus(0, ids, 3));
@@ -53,7 +53,7 @@ const ScheduleActions = (props) => {
           }
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {}
         }
       ]
@@ -62,11 +62,11 @@ const ScheduleActions = (props) => {
 
   const handlePlay = () => {
     confirmAlert({
-      title: 'Tiáº¿p tá»¥c Ä‘Äƒng bÃ i',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n tiáº¿p tá»¥c Ä‘Äƒng táº¥t cáº£ cÃ¡c bÃ i Ä‘Ã£ chá»n? LÆ°u Ã½: chÃºng tÃ´i sáº½ chá»‰ Ä‘Äƒng bÃ i Ä‘Ã£ chá»n vÃ  Ä‘ang á»Ÿ tráº¡ng thÃ¡i táº¡m dá»«ng.',
+      title: 'Tiếp tục đăng bài',
+      message: 'Bạn có chắc chắn muốn tiếp tục đăng tất cả các bài đã chọn? Lưu ý: chúng tôi sẽ chỉ đăng bài đã chọn và đang ở trạng thái tạm dừng.',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             const ids = listSelected.map(item => item.id);
             dispatch(updateScheduleContentsStatus(0, ids, 2));
@@ -87,7 +87,7 @@ const ScheduleActions = (props) => {
           }
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {}
         }
       ]
@@ -96,11 +96,11 @@ const ScheduleActions = (props) => {
 
   const handleDelete = () => {
     confirmAlert({
-      title: 'XÃ³a bÃ i Ä‘Äƒng',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a táº¥t cáº£ cÃ¡c bÃ i Ä‘Ã£ chá»n? Dá»¯ liá»‡u Ä‘Ã£ xÃ³a khÃ´ng thá»ƒ khÃ´i phá»¥c.',
+      title: 'Xóa bài đăng',
+      message: 'Bạn có chắc chắn muốn xóa tất cả các bài đã chọn? Dữ liệu đã xóa không thể khôi phục.',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             const ids = listSelected.map(item => item.id);
             dispatch(removeScheduleContents(ids));
@@ -113,7 +113,7 @@ const ScheduleActions = (props) => {
           }
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {}
         }
       ]
@@ -123,11 +123,11 @@ const ScheduleActions = (props) => {
   return (
     <div className="flex gap-2 items-center">
       {/* total selected */}
-      <p>Báº¡n Ä‘Ã£ chá»n <span className="font-bold">{listSelected.length}</span> / <span className="font-bold">{contents.length}</span></p>
+      <p>Bạn đã chọn <span className="font-bold">{listSelected.length}</span> / <span className="font-bold">{contents.length}</span></p>
       {/* actions */}
-      {hasPause && <img className="w-6 h-6 cursor-pointer" src={playIcon} alt="play" title="Tiáº¿p tá»¥c Ä‘Äƒng bÃ i" onClick={handlePlay} />}
-      {hasWaiting && <img className="w-6 h-6 cursor-pointer" src={pauseIcon} alt="pause" title="Táº¡m dá»«ng Ä‘Äƒng bÃ i" onClick={handlePause} />}
-      <img className="w-6 h-6 cursor-pointer" src={binIcon} alt="delete" title="XÃ³a cÃ¡c bÃ i Ä‘Ã£ chá»n" onClick={handleDelete} />
+      {hasPause && <img className="w-6 h-6 cursor-pointer" src={playIcon} alt="play" title="Tiếp tục đăng bài" onClick={handlePlay} />}
+      {hasWaiting && <img className="w-6 h-6 cursor-pointer" src={pauseIcon} alt="pause" title="Tạm dừng đăng bài" onClick={handlePause} />}
+      <img className="w-6 h-6 cursor-pointer" src={binIcon} alt="delete" title="Xóa các bài đã chọn" onClick={handleDelete} />
     </div>
   );
 };

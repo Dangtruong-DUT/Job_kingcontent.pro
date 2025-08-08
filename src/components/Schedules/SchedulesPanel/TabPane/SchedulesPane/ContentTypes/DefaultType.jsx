@@ -1,4 +1,4 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoPlus } from 'react-icons/go';
 import moment from 'moment';
@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import {
   setShowSourceIdeasPopup,
   updateSelectedDateTime,
-} from '@/../../../../../store/actions/Schedules';
+} from '@/../../../../store/actions/Schedules';
 
 function DefaultType(props) {
   const { hour, day } = props;
@@ -31,9 +31,9 @@ function DefaultType(props) {
         dispatch(updateSelectedDateTime(newSelectedDate));
       } else {
         toast.error(
-          `BÃ¢y giá» lÃ  ${moment(time).format(
+          `Bây giờ là ${moment(time).format(
             'HH:mm:ss DD-MM-YYYY'
-          )}, vui lÃ²ng lÃªn lá»‹ch Ä‘Äƒng bÃ i tá»« thá»i Ä‘iá»ƒm nÃ y trá»Ÿ Ä‘i`
+          )}, vui lòng lên lịch đăng bài từ thời điểm này trở đi`
         );
       }
     } else {

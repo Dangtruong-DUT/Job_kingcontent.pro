@@ -1,12 +1,12 @@
-﻿import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FiPlayCircle } from 'react-icons/fi';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdOutlineClear } from 'react-icons/md';
 import { setSelectedScheduleContent } from '@/store/actions/Schedules';
 import ReactPlayer from 'react-player';
-import { convertInstagramLink, getNoImage } from '@/../../helpers';
-import Client from '@/../../Client';
+import { convertInstagramLink, getNoImage } from '@/../helpers';
+import Client from '@/../Client';
 
 const isNumericRegex = (str) => {
     // return /^\d+$/.test(str);

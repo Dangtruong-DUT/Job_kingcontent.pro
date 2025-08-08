@@ -1,5 +1,5 @@
-﻿import { OK } from '@/../configs';
-import { VideoEditorService } from '@/../services/videoEditor';
+import { OK } from '@/configs';
+import { VideoEditorService } from '@/services/videoEditor';
 
 const VIDEO_EDITOR_PREFIX = 'VIDEO_EDITOR';
 
@@ -124,7 +124,7 @@ export const actionRemoveVideo = (videoId, currentPage = 1, perPage = 4) => {
     } else {
       dispatch({
         type: ACTION_REMOVE_VIDEO_FAILURE,
-        payload: "XÃ³a video tháº¥t báº¡i",
+        payload: "Xóa video thất bại",
       });
     }
   };
@@ -140,7 +140,7 @@ export const actionUpdateCurrentVideo = (data, shouldRefresh = false, currentPag
     if (res.status === OK) {
       dispatch({
         type: ACTION_UPDATE_CURRENT_VIDEO_SUCCESS,
-        payload: "Cáº­p nháº­t video thÃ nh cÃ´ng",
+        payload: "Cập nhật video thành công",
       });
       if (shouldRefresh) {
         dispatch(actionGetVideos(currentPage, perPage));
@@ -148,7 +148,7 @@ export const actionUpdateCurrentVideo = (data, shouldRefresh = false, currentPag
     } else {
       dispatch({
         type: ACTION_UPDATE_CURRENT_VIDEO_FAILURE,
-        payload: "Cáº­p nháº­t video tháº¥t báº¡i",
+        payload: "Cập nhật video thất bại",
       });
     }
   };
@@ -167,5 +167,6 @@ export const actionSetShowModal = (show) => {
     payload: show,
   };
 };
+
 
 

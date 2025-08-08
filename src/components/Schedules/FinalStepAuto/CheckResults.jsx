@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useState } from 'react';
-import { userServices } from '@/../../services/users';
+import { userServices } from '@/services/users';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
@@ -190,5 +190,6 @@ const CheckResults = (props) => {
 };
 
 export default CheckResults;
+
 
 

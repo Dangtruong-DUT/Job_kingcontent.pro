@@ -1,6 +1,6 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Checkbox } from 'rsuite';
-import defaultImg from '@/../../../assets/images/anh-cute-nhat.jpg';
+import defaultImg from '@/../../assets/images/anh-cute-nhat.jpg';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 const MAX_CHARACTERS = 100;
@@ -80,7 +80,7 @@ const SingleSuccessContent = (props) => {
         onClick={() => onChooseContent(content?.id)}
         >
           <p className="line-clamp-2 mb-2">{description}</p>
-          <p className="italic">NgÃ y Ä‘Äƒng: {datePublish}</p>
+          <p className="italic">Ngày đăng: {datePublish}</p>
         </div>
         {hasComments && (
           <p
@@ -91,7 +91,7 @@ const SingleSuccessContent = (props) => {
               setIsShowCommented(true);
             }}
           >
-            ÄÃ£ Comment
+            Đã Comment
           </p>
         )}
       </div>

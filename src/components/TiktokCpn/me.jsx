@@ -1,4 +1,4 @@
-﻿import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   FaCalendarAlt,
@@ -13,9 +13,9 @@ import Select from 'react-select';
 import { Link } from '@mui/material';
 import { actionGetMyVideos } from '@/store/actions/tiktok';
 import LoadingApp from '@/LoadingApp';
-import { getNoImage } from '@/../helpers';
-import { nFormatter } from '@/../configs';
-import { formatUnixDate } from '@/../helpers/date';
+import { getNoImage } from '@/helpers';
+import { nFormatter } from '@/configs';
+import { formatUnixDate } from '@/helpers/date';
 
 const Me = (props) => {
   const { handleAction } = props;
@@ -102,13 +102,13 @@ const Me = (props) => {
           {/* quick filter here */}
           <div className="quickFilter">
             <label className="mb-2 pl-1 font-bold">
-              Lá»c, sáº¯p xáº¿p nhanh bÃ i viáº¿t
+              Lọc, sắp xếp nhanh bài viết
             </label>
             {/* search box */}
             <div className="flex flex-row gap-3 p-1">
               <input
                 type="text"
-                placeholder="TÃ¬m kiáº¿m nhanh ná»™i dung"
+                placeholder="Tìm kiếm nhanh nội dung"
                 className="border border-gray-300 rounded-md p-2 w-1/4"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -119,11 +119,11 @@ const Me = (props) => {
                 id="date_order"
                 className="w-1/4"
                 options={[
-                  { value: '', label: 'Máº·c Ä‘á»‹nh' },
-                  { value: 'desc', label: 'Má»›i nháº¥t' },
-                  { value: 'asc', label: 'CÅ© nháº¥t' },
+                  { value: '', label: 'Mặc định' },
+                  { value: 'desc', label: 'Mới nhất' },
+                  { value: 'asc', label: 'Cũ nhất' },
                 ]}
-                placeholder="NgÃ y Ä‘Äƒng"
+                placeholder="Ngày đăng"
                 onChange={(selected) => setDateOrder(selected.value)}
               />
               {/* likes order */}
@@ -132,20 +132,20 @@ const Me = (props) => {
                 id="likes_order"
                 className="w-1/4"
                 options={[
-                  { value: '', label: 'Máº·c Ä‘á»‹nh' },
-                  { value: 'desc', label: 'Nhiá»u nháº¥t' },
-                  { value: 'asc', label: 'Ãt nháº¥t' },
+                  { value: '', label: 'Mặc định' },
+                  { value: 'desc', label: 'Nhiều nhất' },
+                  { value: 'asc', label: 'Ít nhất' },
                 ]}
-                placeholder="LÆ°á»£t thÃ­ch"
+                placeholder="Lượt thích"
                 onChange={(selected) => setLikesOrder(selected.value)}
               />
             </div>
           </div>
           <div className="flex flex-row font-bold border-b-2 border-gray-200 p-2 gap-3">
-            <div className="w-28 text-center">Loáº¡i bÃ i viáº¿t</div>
-            <div className="w-2/5 text-center">Ná»™i dung</div>
-            <div className="w-1/5 text-center">NgÃ y Ä‘Äƒng</div>
-            <div className="w-1/5 text-center">HÃ nh Ä‘á»™ng</div>
+            <div className="w-28 text-center">Loại bài viết</div>
+            <div className="w-2/5 text-center">Nội dung</div>
+            <div className="w-1/5 text-center">Ngày đăng</div>
+            <div className="w-1/5 text-center">Hành động</div>
           </div>
           {myVideos ? (
             <div className="myVideos">
@@ -232,7 +232,7 @@ const Me = (props) => {
                       className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                       onClick={() => getMorePosts()}
                     >
-                      Xem thÃªm
+                      Xem thêm
                     </button>
                   )}
                 </div>
@@ -246,5 +246,6 @@ const Me = (props) => {
 };
 
 export default Me;
+
 
 

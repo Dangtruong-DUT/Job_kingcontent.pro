@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectCustom from '@/SelectCustom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSpecialFanpages } from '@/store/actions/homepage';
@@ -16,10 +16,10 @@ import {
   ScheduleList,
   TimeStampList,
 } from '@/constant';
-import { SpecialService } from '@/../../services/special';
-import { OK } from '@/../../configs';
+import { SpecialService } from '@/services/special';
+import { OK } from '@/configs';
 import Select from 'react-select';
-import KindOfContentSelect from '@/../CategoriesContent/SearchAndFilter/KindOfContentSelect';
+import KindOfContentSelect from '@/CategoriesContent/SearchAndFilter/KindOfContentSelect';
 
 function ExtraFilters(props) {
   const {
@@ -68,7 +68,7 @@ function ExtraFilters(props) {
       let newFanpages = specialFanpages.map((elt) => {
         const { name = '' } = elt?.special_hash_tag || {};
         return {
-          label: name ? `${elt?.page_name || elt?.fanpage_id} - ${name}` : `${elt?.page_name || elt?.fanpage_id} (ChÆ°a cÃ³ nhÃ£n)`,
+          label: name ? `${elt?.page_name || elt?.fanpage_id} - ${name}` : `${elt?.page_name || elt?.fanpage_id} (Chưa có nhãn)`,
           value: elt.fanpage_id,
         };
       });
@@ -152,7 +152,7 @@ function ExtraFilters(props) {
           <div className="flex-grow w-1/3">
             <Select
               options={listFanpages}
-              placeholder="Chá»n fanpage"
+              placeholder="Chọn fanpage"
               name="feed_id"
               register={register}
               onChange={(selectedOption) => {
@@ -185,5 +185,6 @@ function ExtraFilters(props) {
 }
 
 export default ExtraFilters;
+
 
 

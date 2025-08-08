@@ -1,14 +1,14 @@
-﻿import { TYPE_GO_CONTENT } from '@/../../../../utils/utilityFunc';
-import Footer from '@/../HomepageSpecial/SliderContents/Footer';
-import { getFanpageAvatar } from '@/../../../../helpers';
+import { TYPE_GO_CONTENT } from '@/../../../utils/utilityFunc';
+import Footer from '@/HomepageSpecial/SliderContents/Footer';
+import { getFanpageAvatar } from '@/../../../helpers';
 import { FiEye } from 'react-icons/fi';
 import { FaPencilAlt } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import {
   actionUpdateStep1,
   resetCreateContent,
-} from '@/../../../../store/actions/createContent';
-import { actionPushContentToCreateContentScreen } from '@/../../../../store/actions/homepage';
+} from '@/../../../store/actions/createContent';
+import { actionPushContentToCreateContentScreen } from '@/../../../store/actions/homepage';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 const TextStyled = styled.div`
@@ -94,9 +94,9 @@ const SingleSubject = (props) => {
             size={30}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="Xem chi tiáº¿t"
+            title="Xem chi tiết"
           />
-          <span>Xem chi tiáº¿t</span>
+          <span>Xem chi tiết</span>
         </div>
         <div
           className="flex items-center gap-2 w-1/2 cursor-pointer hover:bg-black bg-opacity-60 py-1 px-2 rounded"
@@ -106,9 +106,9 @@ const SingleSubject = (props) => {
             size={20}
             color="#fff"
             className="hover:scale-125 cursor-pointer"
-            title="Soáº¡n bÃ i viáº¿t"
+            title="Soạn bài viết"
           />
-          <span>Soáº¡n bÃ i viáº¿t</span>
+          <span>Soạn bài viết</span>
         </div>
       </div>
     </div>

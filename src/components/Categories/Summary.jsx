@@ -1,6 +1,6 @@
-﻿import { memo } from 'react';
+import { memo } from 'react';
 import CountUp from 'react-countup';
-import { numberWithCommas } from '@/../utils/utilityFunc';
+import { numberWithCommas } from '@/utils/utilityFunc';
 
 const Summary = (props) => {
     const {
@@ -22,10 +22,10 @@ const Summary = (props) => {
                         decimal="."
                         className="text-red-500 text-5xl mb-1"
                     />
-                    <div className="uppercase font-bold p-2 text-base">Máº«u Contents</div>
+                    <div className="uppercase font-bold p-2 text-base">Mẫu Contents</div>
                 </div>
                 <div className="text-left p-2">
-                    <span>Cáº­p nháº­t 24h qua: </span>
+                    <span>Cập nhật 24h qua: </span>
                     <span className="text-red-600 text-base">
                         +{numberWithCommas(Math.floor(Math.random() * 10000))}
                     </span>
@@ -44,7 +44,7 @@ const Summary = (props) => {
                     <div className="uppercase font-bold p-2 text-base">Fanpages</div>
                 </div>
                 <div className="text-left p-2">
-                    <span>Cáº­p nháº­t 24h qua: </span>
+                    <span>Cập nhật 24h qua: </span>
                     <span className="text-red-600 text-base">
                         +{numberWithCommas(Math.floor(Math.random() * 1000))}
                     </span>
@@ -60,10 +60,10 @@ const Summary = (props) => {
                         decimal="."
                         className="text-editor-formular text-5xl mb-1"
                     />
-                    <div className="uppercase font-bold p-2 text-base">Bá»™ sÆ°u táº­p</div>
+                    <div className="uppercase font-bold p-2 text-base">Bộ sưu tập</div>
                 </div>
                 <div className="text-left p-2">
-                    <span>Cáº­p nháº­t 24h qua: </span>
+                    <span>Cập nhật 24h qua: </span>
                     <span className="text-red-600 text-base">
                         +{numberWithCommas(Math.floor(Math.random() * 1000))}
                     </span>
@@ -79,10 +79,10 @@ const Summary = (props) => {
                         decimal="."
                         className="text-green-500 text-5xl mb-1"
                     />
-                    <div className="uppercase font-bold p-2 text-base">Ká»‹ch báº£n há»‡ thá»‘ng</div>
+                    <div className="uppercase font-bold p-2 text-base">Kịch bản hệ thống</div>
                 </div>
                 <div className="text-left p-2">
-                    <span>Cáº­p nháº­t 24h qua: </span>
+                    <span>Cập nhật 24h qua: </span>
                     <span className="text-red-600 text-base">
                         +{numberWithCommas(Math.floor(Math.random() * 1000))}
                     </span>

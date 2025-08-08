@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import { ImSpinner } from 'react-icons/im';
@@ -12,8 +12,8 @@ import {
   actionRemoveChannel,
   actionUpdateCurrentVideoType,
 } from '@/store/actions/threads';
-import { kFormatter } from '@/../utils/utilityFunc';
-import { convertInstagramLink } from '@/../helpers';
+import { kFormatter } from '@/utils/utilityFunc';
+import { convertInstagramLink } from '@/helpers';
 
 const SingleChannel = ({
   key = 0,
@@ -57,7 +57,7 @@ const SingleChannel = ({
   // function click to show channel videos
   const handleClickChannel = () => {
     if (isLoading || nextIsLoading) {
-      toast.info('Äang táº£i dá»¯ liá»‡u, vui lÃ²ng chá» trong giÃ¢y lÃ¡t');
+      toast.info('Đang tải dữ liệu, vui lòng chờ trong giây lát');
       return;
     }
     dispatch(actionGetThreadsVideosByChannel(pk));
@@ -80,26 +80,26 @@ const SingleChannel = ({
     setIsAdding(true);
     await dispatch(actionAddChannel(channel));
     setIsAdding(false);
-    toast.success('ÄÃ£ thÃªm kÃªnh thÃ nh cÃ´ng');
+    toast.success('Đã thêm kênh thành công');
   }, [channel]);
 
   const handleUnfollowChannel = useCallback(() => {
     confirmAlert({
-      title: 'XÃ¡c nháº­n',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n há»§y theo dÃµi kÃªnh nÃ y khÃ´ng?',
+      title: 'Xác nhận',
+      message: 'Bạn có chắc chắn muốn hủy theo dõi kênh này không?',
       buttons: [
         {
-          label: 'Cháº¯c cháº¯n',
+          label: 'Chắc chắn',
           onClick: async () => {
             setIsAdding(true);
             await dispatch(actionRemoveChannel(id));
             setIsAdding(false);
             setIsNewChannel(true);
-            toast.success('ÄÃ£ há»§y theo dÃµi kÃªnh thÃ nh cÃ´ng');
+            toast.success('Đã hủy theo dõi kênh thành công');
           },
         },
         {
-          label: 'Quay láº¡i',
+          label: 'Quay lại',
           onClick: () => {},
         },
       ],

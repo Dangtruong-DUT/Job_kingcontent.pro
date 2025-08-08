@@ -1,5 +1,5 @@
-﻿import { BsEye } from 'react-icons/bs';
-import { formatDate } from '@/../../helpers/date';
+import { BsEye } from 'react-icons/bs';
+import { formatDate } from '@/../helpers/date';
 import { BiRefresh } from 'react-icons/bi';
 import { TiDelete } from 'react-icons/ti';
 
@@ -41,20 +41,20 @@ const Fanpage = (props) => {
         <div className="pl-3 align-middle h-20 table-cell">
           <span className="font-bold">{page_name}</span>
           <br />
-          <span>NgÃ y thÃªm: {formatDate(created)}</span>
+          <span>Ngày thêm: {formatDate(created)}</span>
         </div>
       </div>
       <div className="w-2/5">
         <div className="w-1/3 float-left">
           <div className="align-middle h-20 table-cell text-center">
-            BÃ i viáº¿t hiá»‡n cÃ³:
+            Bài viết hiện có:
             <br />
-            <strong>{total} bÃ i</strong>
+            <strong>{total} bài</strong>
           </div>
         </div>
         <div className="w-1/3 float-left">
           <div className="align-middle h-20 table-cell">
-            <span className="font-bold">NhÃ£n</span>:&nbsp;
+            <span className="font-bold">Nhãn</span>:&nbsp;
             <span
               className="text-yellow-500 cursor-pointer"
               onClick={(e) => {
@@ -62,15 +62,15 @@ const Fanpage = (props) => {
                 setVisible(!visible);
               }}
             >
-              {special_hash_tag ? special_hash_tag.name : 'ChÆ°a chá»n...'}
+              {special_hash_tag ? special_hash_tag.name : 'Chưa chọn...'}
             </span>
           </div>
         </div>
         <div className="w-1/3 float-left">
           <div className="align-middle h-20 table-cell text-center">
-            LÃ m má»›i sau:
+            Làm mới sau:
             <br />
-            10h ná»¯a
+            10h nữa
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ const Fanpage = (props) => {
             }`}
             onClick={() => updateContent(fanpage)}
           >
-            <div className="float-right">Cáº­p nháº­t</div>
+            <div className="float-right">Cập nhật</div>
             <BiRefresh
               className="w-5 h-5 mr-2 float-right"
               fill={is_queue ? 'grey' : 'green'}
@@ -100,7 +100,7 @@ const Fanpage = (props) => {
             className="cursor-pointer"
             onClick={() => deleteContent(fanpage)}
           >
-            <div className="float-right">XÃ³a</div>
+            <div className="float-right">Xóa</div>
             <TiDelete className="w-5 h-5 mr-2 float-right" fill="red" />
           </div>
         </div>

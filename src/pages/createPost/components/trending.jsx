@@ -1,12 +1,12 @@
-﻿import { Tab } from '@headlessui/react';
+import { Tab } from '@headlessui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import aimIcon from '@/assets/images/icon/create-content/aim.png';
-import LoadingApp from '@/../../components/LoadingApp';
-import { API_GET_GOOGLE_SUGGESTIONS_DETAIL, OK } from '@/../../configs';
+import LoadingApp from '@/../components/LoadingApp';
+import { API_GET_GOOGLE_SUGGESTIONS_DETAIL, OK } from '@/configs';
 import {
   ACTION_GET_TITLE_CHILD,
   actionGetChartByKeyword,
@@ -14,7 +14,7 @@ import {
   actionResetState,
 } from '@/store/actions/createContent';
 import { actionLoadingApp } from '@/store/actions/loading';
-import Client from '@/../../Client';
+import Client from '@/../Client';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -79,7 +79,7 @@ const Trending = () => {
               <tbody className="divide-y">
                 {titleChild.length === 0 && !isLoading ? (
                   <div className="flex justify-center">
-                    <span>KhÃ´ng cÃ³ dÅ© liá»‡u hiá»ƒn thá»‹</span>
+                    <span>Không có dũ liệu hiển thị</span>
                   </div>
                 ) : isLoading ? (
                   <LoadingApp />
@@ -111,8 +111,8 @@ const Trending = () => {
     );
   };
   let [categories] = useState({
-    // 'NhÃ¢n kháº©u há»c': [],
-    'TOP 20 bÃ i viáº¿t': [],
+    // 'Nhân khẩu học': [],
+    'TOP 20 bài viết': [],
   });
 
   return (
@@ -120,7 +120,7 @@ const Trending = () => {
       <div className="flex gap-1 p-2 mb-2">
         <input
           className="w-full outline-none p-2 rounded-md shadow-md"
-          placeholder="Nháº­p tá»« khoÃ¡ cáº§n cÃ³ trong tiÃªu Ä‘á» ..."
+          placeholder="Nhập từ khoá cần có trong tiêu đề ..."
           onChange={(e) => {
             if (e.target.value === '') {
               setInputValue(e.target.value);
@@ -162,7 +162,7 @@ const Trending = () => {
               {contentTitle.length === 0 && !isLoading ? (
                 <div className="flex justify-center">
                   <span className="font-bold mt-2 mb-2">
-                    KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹
+                    Không có dữ liệu hiển thị
                   </span>
                 </div>
               ) : (isLoading && contentTitle.length) || isLoading ? (
@@ -237,7 +237,7 @@ const Trending = () => {
                           }}
                           disabled={loadingData}
                         >
-                          Xem thÃªm
+                          Xem thêm
                         </button>
                       )}
                     </>
@@ -253,6 +253,7 @@ const Trending = () => {
 };
 
 export default Trending;
+
 
 
 

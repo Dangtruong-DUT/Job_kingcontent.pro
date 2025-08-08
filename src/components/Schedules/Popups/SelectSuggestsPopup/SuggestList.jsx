@@ -1,7 +1,7 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ScrollBar from 'react-perfect-scrollbar';
 import SuggestItem from '@/SuggestItem';
-import { defaultSuggestList, destructCategories } from '@/../helpers';
+import { defaultSuggestList, destructCategories } from '@/helpers';
 import { connect } from 'react-redux';
 
 function SuggestList(props) {

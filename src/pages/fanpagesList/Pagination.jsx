@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   actionGetAllFanpage,
@@ -11,7 +11,7 @@ import {
   BiFirstPage,
 } from 'react-icons/bi';
 import { AMOUNT_SORT, FANPAGE_SORT, SAVED_SORT } from '@/utility';
-import { _LIMIT_DEFAULT } from '@/../configs';
+import { _LIMIT_DEFAULT } from '@/configs';
 
 const Pagination = ({
   totalPages,
@@ -151,7 +151,7 @@ const Pagination = ({
       )}
       <input
         type="number"
-        placeholder="Äi Ä‘áº¿n trang"
+        placeholder="Đi đến trang"
         max={totalPages}
         min={1}
         value={pageInput}
@@ -164,12 +164,13 @@ const Pagination = ({
         onClick={gotoPages}
         className="bg-blue-500 hover:bg-blue-700 w-28 rounded-lg text-white"
       >
-        Äi Ä‘áº¿n trang
+        Đi đến trang
       </button>
     </div>
   );
 };
 
 export default Pagination;
+
 
 

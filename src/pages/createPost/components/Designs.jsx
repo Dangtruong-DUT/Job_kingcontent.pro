@@ -1,8 +1,8 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import styled from 'styled-components';
-import DialogImage from '@/../../components/ContentSugesstion/DialogImage';
+import DialogImage from '@/../components/ContentSugesstion/DialogImage';
 import {
   actionAddImage,
   actionGetDesignCategories,
@@ -13,7 +13,7 @@ import {
   KEY_EDITOR_IMAGE,
   KEY_HASH_VIDEO_OR_IMAGE,
   KEY_INDEX_IMAGE_SELECT,
-} from '@/../../reducers/createContent';
+} from '@/../reducers/createContent';
 
 const Designs = (props) => {
   const { setIsRightImage, setImagesRightEditor, setIsEditor } = props;
@@ -100,7 +100,7 @@ const Designs = (props) => {
                       className="bg-blue-500 mb-1 text-white rounded-md hover:bg-red-600 transition-all p-2"
                       onClick={() => handleEditImage(full_url)}
                     >
-                      Viáº¿t gÃ¬ vÃ o Ä‘Ã¢y
+                      Viết gì vào đây
                     </button>
                     <button
                       className={`${
@@ -112,8 +112,8 @@ const Designs = (props) => {
                       disabled={imageSelect.some((elt) => elt.id === _elt.id)}
                     >
                       {imageSelect.some((elt) => elt.id === _elt.id)
-                        ? 'ÄÃ£ chá»n'
-                        : 'Chá»n'}
+                        ? 'Đã chọn'
+                        : 'Chọn'}
                     </button>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const Designs = (props) => {
             })
           ) : (
             <h4 className="font-bold text-center">
-              KhÃ´ng tÃ¬m tháº¥y máº«u áº£nh gá»£i Ã½
+              Không tìm thấy mẫu ảnh gợi ý
             </h4>
           )}
         </div>
@@ -134,7 +134,7 @@ const Designs = (props) => {
                 dispatch(actionGetDesigns(designCurrentPage + 1, catId))
               }
             >
-              Táº£i thÃªm
+              Tải thêm
             </button>
           )}
         </div>
@@ -150,14 +150,14 @@ const Designs = (props) => {
       <div>
         <Select
           options={categoriesDesignAvailable}
-          placeholder="Chá»§ Ä‘á»"
+          placeholder="Chủ đề"
           onChange={(el) => setCatId(el.value)}
         />
       </div>
       <div className="designsContainer p-2 overflow-y-scroll overflow-x-hidden max-h-screen">
         {designs.length === 0 && !isLoading ? (
           <div className="flex justify-center">
-            <span className="font-bold">KhÃ´ng cÃ³ dá»¯ liá»‡u hiá»ƒn thá»‹</span>
+            <span className="font-bold">Không có dữ liệu hiển thị</span>
           </div>
         ) : (
           renderImage()

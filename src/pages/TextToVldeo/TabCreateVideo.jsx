@@ -1,7 +1,7 @@
 ﻿import { useState, useEffect, useRef, useMemo } from 'react';
 import React from 'react';
 import Select from 'react-select';
-import { TextToVideoService } from '@/../services/TextToVideo';
+import { TextToVideoService } from '@/services/TextToVideo';
 import { confirmAlert } from 'react-confirm-alert';
 import loadingIcon from '@/assets/images/loading/loading.gif';
 import new_icon from '@/assets/images/icon/new_tag.png';
@@ -1051,6 +1051,7 @@ const TabCreateVideo = ({ handleFetchPendingCompletedVideos, dataVoices, dataFon
   );
 }
 export default TabCreateVideo;
+
 
 
 

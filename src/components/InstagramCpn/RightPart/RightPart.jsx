@@ -1,5 +1,5 @@
-﻿import { useDispatch, useSelector } from 'react-redux';
-import LoadingApp from '@/../LoadingApp';
+import { useDispatch, useSelector } from 'react-redux';
+import LoadingApp from '@/LoadingApp';
 import SingleUser from '@/SingleUser';
 import React, { useEffect, useState } from 'react';
 import {
@@ -10,7 +10,7 @@ import {
   actionSetCurrentUser,
   actionUpdateChosenPosts,
 } from '@/store/actions/instagram';
-import { convertInstagramLink } from '@/../../helpers';
+import { convertInstagramLink } from '@/../helpers';
 import UserContents from '@/UserContents';
 import { FiArrowLeft, FiChevronLeft } from 'react-icons/fi';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -139,7 +139,7 @@ const RightPart = (props) => {
       dispatch(actionSetCollectionModalOpen(true));
       dispatch(actionSetCollectionType('addPosts'));
     } else {
-      toast.error('Vui lÃ²ng chá»n bÃ i viáº¿t');
+      toast.error('Vui lòng chọn bài viết');
     }
   };
 
@@ -194,17 +194,17 @@ const RightPart = (props) => {
                           className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-3 text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 font-bold mr-1"
                           onClick={() => onSelectAll()}
                         >
-                          Chá»n toÃ n bá»™
+                          Chọn toàn bộ
                         </button>
                         <button
                           className="border-2 border-gray-200 bg-gray-100 hover:bg-blue-50 py-3 px-4 text-gray-500 rounded-md"
                           onClick={() => onUnSelectAll()}
                         >
-                          Bá» chá»n
+                          Bỏ chọn
                         </button>
                       </div>
                       <div className="summary mb-2 ml-auto text-base">
-                        <span>Sá»‘ bÃ i viáº¿t Ä‘Ã£ chá»n: </span>
+                        <span>Số bài viết đã chọn: </span>
                         <span className="font-bold">
                           {autoWaitingList?.contents?.length || 0}
                         </span>
@@ -235,7 +235,7 @@ const RightPart = (props) => {
           {!currentCollection && isShowUsers && (
             <div>
               <div className="flex items-center gap-3 border border-gray-300 rounded-md bg-white py-4 px-3 mb-2">
-                <h3 className="text-sm font-bold">Káº¿t quáº£ tÃ¬m kiáº¿m</h3>
+                <h3 className="text-sm font-bold">Kết quả tìm kiếm</h3>
               </div>
               <PerfectScrollbar className="max-h-screen">
                 {users.length > 0 ? (
@@ -255,7 +255,7 @@ const RightPart = (props) => {
                   </div>
                 ) : (
                   <div className="text-center text-gray-500 border border-gray-300 rounded-md bg-white p-3">
-                    Vui lÃ²ng nháº­p tá»« khoÃ¡ Ä‘á»ƒ tÃ¬m kiáº¿m
+                    Vui lòng nhập từ khoá để tìm kiếm
                   </div>
                 )}
               </PerfectScrollbar>
@@ -307,7 +307,7 @@ const RightPart = (props) => {
                   <div className="collectionActions flex gap-2 items-center justify-center ml-auto bg-white">
                     {chosenPosts.length > 0 ? (
                       <div className="summary">
-                        <span>Báº¡n Ä‘Ã£ chá»n </span>
+                        <span>Bạn đã chọn </span>
                         <span className="font-bold">
                           {chosenPosts?.length || 0}
                         </span>
@@ -315,12 +315,12 @@ const RightPart = (props) => {
                         <span className="font-bold">
                           {contentsData?.length || 0}
                         </span>
-                        <span> bÃ i viáº¿t</span>
+                        <span> bài viết</span>
                       </div>
                     ) : (
                       <div className="summary hidden">
                         <span>
-                          Chá»n bÃ i viáº¿t bÃªn dÆ°á»›i Ä‘á»ƒ lÆ°u vÃ o bá»™ sÆ°u táº­p
+                          Chọn bài viết bên dưới để lưu vào bộ sưu tập
                         </span>
                       </div>
                     )}
@@ -330,7 +330,7 @@ const RightPart = (props) => {
                         disabled={chosenPosts.length === 0}
                         onClick={() => dispatch(actionUpdateChosenPosts([]))}
                       >
-                        Bá» chá»n
+                        Bỏ chọn
                       </button>
                       <button
                         className="border-1 border-green-700 bg-green-700 disabled:cursor-not-allowed hover:bg-green-500 py-3 px-4 text-white rounded-md"
@@ -340,14 +340,14 @@ const RightPart = (props) => {
                           chosenPosts.length === contentsData.length
                         }
                       >
-                        Chá»n toÃ n bá»™
+                        Chọn toàn bộ
                       </button>
                       <button
                         className="border-1 disabled:cursor-not-allowed border-primary bg-primary hover:bg-primaryHover py-3 px-4 text-white rounded-md"
                         onClick={() => showCollectionModal()}
                         disabled={chosenPosts.length === 0}
                       >
-                        LÆ°u vÃ o bá»™ sÆ°u táº­p
+                        Lưu vào bộ sưu tập
                       </button>
                     </div>
                   </div>

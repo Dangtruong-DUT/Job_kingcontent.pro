@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
-import { env } from '@/../configs/envConfig';
+import { env } from '@/configs'/envConfig';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import {
   loginFBFunction,
@@ -417,6 +417,7 @@ const LoginForm = (props) => {
 };
 
 export default LoginForm;
+
 
 
 

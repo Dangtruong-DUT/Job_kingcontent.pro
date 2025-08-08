@@ -1,8 +1,8 @@
-﻿import React, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Input } from 'rsuite';
-import { setScheduleCommentsWaitingList } from '@/../../../../store/actions/Schedules';
+import { setScheduleCommentsWaitingList } from '@/../../../store/actions/Schedules';
 
 const NewComment = (props) => {
   const { comment = [], index = 0, onRemoveComment } = props;
@@ -73,9 +73,9 @@ const NewComment = (props) => {
     <div className="commentItem flex gap-3 items-center text-center mb-2">
       <div className="w-6/12 text-center">
         <Input
-          placeholder={`Comment thá»© ${
+          placeholder={`Comment thứ ${
             index + 1
-          } ...\nCÃ³ thá»ƒ chá»n ngáº«u nhiÃªn comment theo cáº¥u trÃºc A | B | C`}
+          } ...\nCó thể chọn ngẫu nhiên comment theo cấu trúc A | B | C`}
           componentClass={'textarea'}
           rows={3}
           value={comment?.message}

@@ -1,8 +1,8 @@
-﻿import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionGetThreadComments, actionPostThreadsComment } from '@/../../../store/actions/threads';
-import { DATE_TIME_FORMAT, formatDate } from '@/../../../helpers/date';
-import LoadingApp from '@/../../LoadingApp';
+import { actionGetThreadComments, actionPostThreadsComment } from '@/../../store/actions/threads';
+import { DATE_TIME_FORMAT, formatDate } from '@/../../helpers/date';
+import LoadingApp from '@/../LoadingApp';
 import { FiX } from 'react-icons/fi';
 import SingleComment from '@/SingleComment';
 import NewCommentForm from '@/NewCommentForm';
@@ -77,11 +77,11 @@ const ListComments = (props) => {
                 style={{ maxWidth: '35%' }}
               >
                 <div className="mt-2">
-                  <div>Xem bÃ¬nh luáº­n cá»§a bÃ i viáº¿t</div>
+                  <div>Xem bình luận của bài viết</div>
                   {isLoadingReplies ? <LoadingApp /> : (
                     <>
                       {comments?.length === 0 ? (
-                        <div className="flex items-center justify-center h-28">KhÃ´ng cÃ³ bÃ¬nh luáº­n nÃ o</div>
+                        <div className="flex items-center justify-center h-28">Không có bình luận nào</div>
                       ) : (
                         <Fragment>
                           <div className="listComments py-2">
@@ -97,7 +97,7 @@ const ListComments = (props) => {
                                 onClick={onLoadMore}
                                 className="bg-primary text-white px-4 py-2 rounded-md w-1/2"
                               >
-                                Xem thÃªm
+                                Xem thêm
                               </button>
                             </div>
                           )}

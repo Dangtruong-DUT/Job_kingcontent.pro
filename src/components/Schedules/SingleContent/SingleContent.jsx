@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import addIcons from '@/assets/images/icon/create-content/add.png';
 import CommentIcon from '@/assets/images/icon/comment.png';
@@ -6,7 +6,7 @@ import LikeIcon from '@/assets/images/icon/like.png';
 import ShareIcon from '@/assets/images/icon/share.png';
 import defaultThumbUrl from '@/assets/images/anh-cute-nhat.jpg';
 import styled from 'styled-components';
-import { kFormatter } from '@/../../utils/utilityFunc';
+import { kFormatter } from '@/../utils/utilityFunc';
 import {
   FaCheckSquare,
   FaExclamation,
@@ -240,7 +240,7 @@ const SingleContent = (props) => {
       {isScheduled && (
         <span
           className="absolute bottom-1 right-1 text-red-500"
-          title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+          title="Bài viết đã được lên lịch"
         >
           <FaExclamation />
         </span>

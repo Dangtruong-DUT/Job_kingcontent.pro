@@ -1,18 +1,18 @@
-﻿import moment from 'moment';
+import moment from 'moment';
 import React, { useCallback } from 'react';
 import { GoPlus } from 'react-icons/go';
 import { HiStar } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
-import defaultEventIcon from '@/../../../../../assets/images/anh-cute-nhat.jpg';
+import defaultEventIcon from '@/../../../../assets/images/anh-cute-nhat.jpg';
 import {
   setShowSourceIdeasPopup,
   updateSelectedDateTime,
   setCurrentScheduleContentType,
   setSelectedEvent,
-} from '@/../../../../../store/actions/Schedules';
+} from '@/../../../../store/actions/Schedules';
 import { toast } from 'react-toastify';
-import { EVENT } from '@/../../../../Schedules/SourceIdeas/utility';
-import { searchEventByDate } from '@/../../../../../utils/utilityFunc';
+import { EVENT } from '@/../../../Schedules/SourceIdeas/utility';
+import { searchEventByDate } from '@/../../../../utils/utilityFunc';
 
 function EventType(props) {
   const { hour, day, event = null } = props;
@@ -41,9 +41,9 @@ function EventType(props) {
         dispatch(updateSelectedDateTime(newSelectedDate));
       } else {
         toast.error(
-          `BÃ¢y giá» lÃ  ${moment(time).format(
+          `Bây giờ là ${moment(time).format(
             'HH:mm:ss DD-MM-YYYY'
-          )}, vui lÃ²ng lÃªn lá»‹ch Ä‘Äƒng bÃ i tá»« thá»i Ä‘iá»ƒm nÃ y trá»Ÿ Ä‘i`
+          )}, vui lòng lên lịch đăng bài từ thời điểm này trở đi`
         );
       }
     } else {

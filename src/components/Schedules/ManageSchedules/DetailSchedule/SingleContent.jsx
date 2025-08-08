@@ -1,25 +1,25 @@
-﻿import React, { useEffect, useState } from 'react';
-import { formatDate } from '@/../../../helpers/date';
+import React, { useEffect, useState } from 'react';
+import { formatDate } from '@/../../helpers/date';
 import { Link } from '@mui/material';
 import { FaEye, FaFacebook } from 'react-icons/fa';
 import { ImFacebook } from 'react-icons/im';
-import { getScheduleSourceLink } from '@/../../../helpers';
-import pauseIcon from '@/../../../assets/images/icon/schedules/pause.png';
-import playIcon from '@/../../../assets/images/icon/schedules/play.png';
-import binIcon from '@/../../../assets/images/icon/schedules/bin.png';
+import { getScheduleSourceLink } from '@/../../helpers';
+import pauseIcon from '@/../../assets/images/icon/schedules/pause.png';
+import playIcon from '@/../../assets/images/icon/schedules/play.png';
+import binIcon from '@/../../assets/images/icon/schedules/bin.png';
 import { FiPlayCircle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from '@/../../../store/types/schedules';
+import { MANAGE_GET_SCHEDULE_CONTENTS_SUCCESS } from '@/../../store/types/schedules';
 import { confirmAlert } from 'react-confirm-alert';
 import {
   removeScheduleContents,
   updateScheduleContentsStatus,
-} from '@/../../../store/actions/Schedules';
-import logoTikTok from '@/../../../assets/images/icon/main-menu/menu-icon-tiktok.png';
-import douyinLogo from '@/../../../assets/images/icon/main-menu/douyin.png';
-import InstagramLogo from '@/../../../assets/images/icon/main-menu/menu-icon-instagram.png';
-import ThreadsLogo from '@/../../../assets/images/threads-thumbnail.png';
-import FacebookIcon from '@/../../../assets/images/icon/facebook.png';
+} from '@/../../store/actions/Schedules';
+import logoTikTok from '@/../../assets/images/icon/main-menu/menu-icon-tiktok.png';
+import douyinLogo from '@/../../assets/images/icon/main-menu/douyin.png';
+import InstagramLogo from '@/../../assets/images/icon/main-menu/menu-icon-instagram.png';
+import ThreadsLogo from '@/../../assets/images/threads-thumbnail.png';
+import FacebookIcon from '@/../../assets/images/icon/facebook.png';
 
 const SingleContent = (props) => {
   const { content, index, listSelected, setListSelected } = props;
@@ -98,7 +98,7 @@ const SingleContent = (props) => {
 
         case 'user':
           setSourceLogo('');
-          setSourceName('Tá»± soáº¡n');
+          setSourceName('Tự soạn');
           setIsFb(false);
           break;
 
@@ -110,7 +110,7 @@ const SingleContent = (props) => {
 
         default:
           setSourceLogo(FacebookIcon);
-          setSourceName('KhÃ¡c');
+          setSourceName('Khác');
           setIsFb(true);
           break;
       }
@@ -135,11 +135,11 @@ const SingleContent = (props) => {
 
   const handlePause = () => {
     confirmAlert({
-      title: 'Táº¡m dá»«ng Ä‘Äƒng bÃ i',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n táº¡m dá»«ng bÃ i viáº¿t?',
+      title: 'Tạm dừng đăng bài',
+      message: 'Bạn có chắc chắn muốn tạm dừng bài viết?',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             dispatch(updateScheduleContentsStatus(0, [id], 3));
             // update status of these contents from reducer
@@ -159,7 +159,7 @@ const SingleContent = (props) => {
           },
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {},
         },
       ],
@@ -168,11 +168,11 @@ const SingleContent = (props) => {
 
   const handlePlay = () => {
     confirmAlert({
-      title: 'Tiáº¿p tá»¥c Ä‘Äƒng bÃ i',
-      message: 'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n tiáº¿p tá»¥c Ä‘Äƒng bÃ i viáº¿t?',
+      title: 'Tiếp tục đăng bài',
+      message: 'Bạn có chắc chắn muốn tiếp tục đăng bài viết?',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             dispatch(updateScheduleContentsStatus(0, [id], 2));
             // update status of these contents from reducer
@@ -192,7 +192,7 @@ const SingleContent = (props) => {
           },
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {},
         },
       ],
@@ -201,12 +201,12 @@ const SingleContent = (props) => {
 
   const handleDelete = () => {
     confirmAlert({
-      title: 'XÃ³a bÃ i Ä‘Äƒng',
+      title: 'Xóa bài đăng',
       message:
-        'Báº¡n cÃ³ cháº¯c cháº¯n muá»‘n xÃ³a bÃ i viáº¿t? Dá»¯ liá»‡u Ä‘Ã£ xÃ³a khÃ´ng thá»ƒ khÃ´i phá»¥c.',
+        'Bạn có chắc chắn muốn xóa bài viết? Dữ liệu đã xóa không thể khôi phục.',
       buttons: [
         {
-          label: 'Äá»“ng Ã½',
+          label: 'Đồng ý',
           onClick: () => {
             dispatch(removeScheduleContents([id]));
             // remove these contents from reducer
@@ -220,7 +220,7 @@ const SingleContent = (props) => {
           },
         },
         {
-          label: 'Há»§y',
+          label: 'Hủy',
           onClick: () => {},
         },
       ],
@@ -239,7 +239,7 @@ const SingleContent = (props) => {
               className="text-base no-underline w-40"
             >
               <span className="bg-greenSuccess p-2 my-0.5 w-40 inline-block rounded-md font-medium text-white">
-                ThÃ nh cÃ´ng
+                Thành công
               </span>
             </Link>
           </div>
@@ -251,18 +251,18 @@ const SingleContent = (props) => {
             className="bg-red-500 p-2 my-0.5 w-40 inline-block rounded-md font-medium text-white"
             title={reason}
           >
-            ÄÃ£ cÃ³ lá»—i
+            Đã có lỗi
           </span>
         ) : (
           <span className="bg-yellow-500 p-2 my-0.5 w-40 inline-block rounded-md font-medium text-white">
-            Äang chá» Ä‘Äƒng
+            Đang chờ đăng
           </span>
         );
 
       case 3:
         return (
           <span className="bg-red-500 p-2 my-0.5 w-40 inline-block rounded-md font-medium text-white">
-            Äang táº¡m dá»«ng
+            Đang tạm dừng
           </span>
         );
 
@@ -280,7 +280,7 @@ const SingleContent = (props) => {
         <input
           type="checkbox"
           className="w-5 h-5"
-          title="Chá»n bÃ i viáº¿t"
+          title="Chọn bài viết"
           checked={isChecked}
           onChange={onCheck}
         />
@@ -316,7 +316,7 @@ const SingleContent = (props) => {
             <p className="text-sm line-clamp-3">
               {replaced_post_text || source_content?.post_text}
             </p>
-            <p>NgÃ y táº¡o: {formatDate(created)}</p>
+            <p>Ngày tạo: {formatDate(created)}</p>
           </div>
         </div>
       </div>
@@ -373,7 +373,7 @@ const SingleContent = (props) => {
             src={pauseIcon}
             alt="pause"
             className="w-6 h-6 cursor-pointer"
-            title="Táº¡m dá»«ng bÃ i viáº¿t"
+            title="Tạm dừng bài viết"
             onClick={handlePause}
           />
         )}
@@ -382,7 +382,7 @@ const SingleContent = (props) => {
             src={playIcon}
             alt="play"
             className="w-6 h-6 cursor-pointer"
-            title="Tiáº¿p tá»¥c Ä‘Äƒng bÃ i"
+            title="Tiếp tục đăng bài"
             onClick={handlePlay}
           />
         )}
@@ -390,7 +390,7 @@ const SingleContent = (props) => {
           src={binIcon}
           alt="delete"
           className="w-6 h-6 cursor-pointer"
-          title="XoÃ¡ bÃ i viáº¿t"
+          title="Xoá bài viết"
           onClick={handleDelete}
         />
       </div>

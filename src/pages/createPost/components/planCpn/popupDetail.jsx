@@ -1,6 +1,6 @@
-﻿import { XIcon } from '@heroicons/react/outline';
+import { XIcon } from '@heroicons/react/outline';
 import moment from 'moment';
-import { TYPE_GO_CHAT, getCurrentYear } from '@/../../../utils/utilityFunc';
+import { TYPE_GO_CHAT, getCurrentYear } from '@/../../utils/utilityFunc';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,15 +10,15 @@ import {
   resetCreateContent,
   toggleEditorText,
   updateProps,
-} from '@/../../../store/actions/createContent';
+} from '@/../../store/actions/createContent';
 import { useHistory } from 'react-router-dom';
-import Image from '@/../../../components/CategoriesContent/CategoriesContentItem/Image';
+import Image from '@/../../components/CategoriesContent/CategoriesContentItem/Image';
 import { FiEdit2, FiEdit3, FiX } from 'react-icons/fi';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { actionPushContentToCreateContentScreen } from '@/../../../store/actions/homepage';
+import { actionPushContentToCreateContentScreen } from '@/../../store/actions/homepage';
 import { toast } from 'react-toastify';
 import ReactPlayer from 'react-player';
-import { isArrayEmpty } from '@/../../../configs';
+import { isArrayEmpty } from '@/../../configs';
 const PopupDetailContentPlan = ({
   isOpen,
   item,
@@ -71,12 +71,12 @@ const PopupDetailContentPlan = ({
                 style={{ height: '50%' }}
               >
                 <div className="flex justify-between items-center mb-3">
-                  <h2 className="font-bold  uppercase">CHI TIáº¾T BÃ€I ÄÄ‚NG</h2>
+                  <h2 className="font-bold  uppercase">CHI TIẾT BÀI ĐĂNG</h2>
                   <div className="flex gap-2">
                     {showTool && (
                       <button
                         className="rounded-full p-1 bg-gray-400"
-                        title="Soáº¡n tháº£o bÃ i Ä‘Äƒng"
+                        title="Soạn thảo bài đăng"
                         onClick={() =>
                           pushToScreenCreateContent(item.post_text, item.medias)
                         }

@@ -1,7 +1,7 @@
-﻿import * as types from '@/../types/user';
-import client from '@/../../Client';
-import auth from '@/../../utils/auth';
-import { API_USER_LIKED_CONTENT, OK } from '@/../../configs';
+import * as types from '@/types/user';
+import client from '@/../Client';
+import auth from '@/../utils/auth';
+import { API_USER_LIKED_CONTENT, OK } from '@/configs';
 import { toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert';
 import { actionGetAllContent } from '@/contentUserLiked';
@@ -29,10 +29,10 @@ export const loginFunction =
           type: types.LOGIN_FAILURE,
           payload: response,
         });
-        toast.error('ÄÄƒng nháº­p khÃ´ng thÃ nh cÃ´ng');
+        toast.error('Đăng nhập không thành công');
       }
     } catch (err) {
-      toast.error('ÄÄƒng nháº­p khÃ´ng thÃ nh cÃ´ng');
+      toast.error('Đăng nhập không thành công');
     }
   };
 
@@ -50,7 +50,7 @@ export const loginFBFunction = (request) => async (dispatch, history) => {
           type: types.LOGIN_SUCCESS,
           payload: response.data,
         });
-        toast.success('ÄÄƒng nháº­p thÃ nh cÃ´ng !');
+        toast.success('Đăng nhập thành công !');
       }
     } else {
       dispatch({
@@ -68,7 +68,7 @@ export const logoutFunction =
   async (dispatch) => {
     try {
       auth.clearAppStorage();
-      !noMessage && toast.success('ÄÄƒng xuáº¥t thÃ nh cÃ´ng !');
+      !noMessage && toast.success('Đăng xuất thành công !');
       dispatch({ type: types.LOGOUT });
     } catch (err) {
       console.log('error:', err);
@@ -81,7 +81,7 @@ export const registerFunction = (data, setTypeForm, type, reset) => {
       const response = await client.post('/register', data);
       if (response.status === OK) {
         setTypeForm(type);
-        toast.success('ÄÄƒng kÃ­ thÃ nh cÃ´ng !');
+        toast.success('Đăng kí thành công !');
         reset && reset();
       }
     } catch (error) {
@@ -141,11 +141,11 @@ export const saveLikedData =
             });
             togglePopupTag && togglePopupTag();
             confirmAlert({
-              title: 'XÃ¡c nháº­n',
-              message: 'ÄÃ£ chuyá»ƒn content vÃ o má»¥c yÃªu thÃ­ch thÃ nh cÃ´ng !',
+              title: 'Xác nhận',
+              message: 'Đã chuyển content vào mục yêu thích thành công !',
               buttons: [
                 {
-                  label: 'Chuyá»ƒn tá»›i má»¥c yÃªu thÃ­ch',
+                  label: 'Chuyển tới mục yêu thích',
                   onClick: () => {
                     if (history) {
                       history.push('/content-da-thich');
@@ -180,7 +180,7 @@ export const updateLikedData =
         .then(() => {
           setDeps && setDeps();
           togglePopupTag();
-          toast.success('Cáº­p nháº­t thÃ nh cÃ´ng !');
+          toast.success('Cập nhật thành công !');
         })
         .catch((err) => console.log('Err get totalFanpage: ' + err));
       dispatch({
@@ -270,4 +270,5 @@ export const getLikedData = () => async (dispatch) => {
     console.log('Error get totalFanpage: ' + error);
   }
 };
+
 

@@ -1,6 +1,6 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import InstagramIcon from '@/assets/images/icon/main-menu/menu-icon-instagram.png';
-import { convertInstagramLink } from '@/../helpers';
+import { convertInstagramLink } from '@/helpers';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   actionSetCurrentUser,

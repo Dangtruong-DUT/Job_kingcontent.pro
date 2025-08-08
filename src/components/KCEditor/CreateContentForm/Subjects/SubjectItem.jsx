@@ -1,6 +1,6 @@
-﻿import { useCallback } from 'react';
+import { useCallback } from 'react';
 import { connect } from 'react-redux';
-import { getContentSuggestions } from '@/../../../store/actions/editor/createContentActions';
+import { getContentSuggestions } from '@/../../store/actions/editor/createContentActions';
 
 const SubjectItem = (props) => {
   const {itemData,setIsSearch, selectedCatId, getContentSuggestions} = props;

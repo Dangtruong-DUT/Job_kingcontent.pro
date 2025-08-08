@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import {
   FaComment,
   FaHeart,
@@ -12,11 +12,11 @@ import {
   FaExclamation,
   FaPencilAlt,
 } from 'react-icons/fa';
-import { checkInCollection, fancyTimeFormat } from '@/../utils/utilityFunc';
+import { checkInCollection, fancyTimeFormat } from '@/utils/utilityFunc';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ImPlay, ImVideoCamera } from 'react-icons/im';
-import { nFormatter } from '@/../configs';
+import { nFormatter } from '@/configs';
 import {
   FiClock,
   FiHeart,
@@ -33,35 +33,35 @@ import {
 } from '@/store/actions/Schedules';
 // @ts-ignore
 import addIcons from '@/assets/images/icon/create-content/add.png';
-import { convertInstagramLink } from '@/../helpers';
+import { convertInstagramLink } from '@/helpers';
 import { confirmAlert } from 'react-confirm-alert';
-import auth from '@/../utils/auth';
+import auth from '@/utils/auth';
 
 const defaultActions = [
   { icon: ImPlay, title: 'Xem video', action: 'VIEW_DETAIL_CONTENT' },
   /*{
     icon: FaHeart,
-    title: 'ThÃªm vÃ o BST',
+    title: 'Thêm vào BST',
     action: 'ADD_TO_COLLECTION',
   },*/
-  { icon: FaRegSquare, title: 'Chá»n', action: 'CHOOSE_VIDEO' },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
-  { icon: FaDownload, title: 'Táº£i vá»', action: 'DOWNLOAD', size: 40 },
+  { icon: FaRegSquare, title: 'Chọn', action: 'CHOOSE_VIDEO' },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaDownload, title: 'Tải về', action: 'DOWNLOAD', size: 40 },
 ];
 
 const collectionActions = [
   { icon: ImPlay, title: 'Xem video', action: 'VIEW_DETAIL_CONTENT' },
   {
     icon: FaTimesCircle,
-    title: 'XoÃ¡ khá»i BST',
+    title: 'Xoá khỏi BST',
     action: 'REMOVE_FROM_COLLECTION',
   },
-  { icon: FaClock, title: 'LÃªn lá»‹ch', action: 'SCHEDULE_CONTENT' },
-  { icon: FaDownload, title: 'Táº£i vá»', action: 'DOWNLOAD', size: 40 },
+  { icon: FaClock, title: 'Lên lịch', action: 'SCHEDULE_CONTENT' },
+  { icon: FaDownload, title: 'Tải về', action: 'DOWNLOAD', size: 40 },
 ];
 
 const actionsForEditor = [
-  { icon: ImVideoCamera, title: 'Sá»­a video', action: 'EDIT_VIDEO' },
+  { icon: ImVideoCamera, title: 'Sửa video', action: 'EDIT_VIDEO' },
 ];
 
 const SingleVideo = ({
@@ -189,12 +189,12 @@ const SingleVideo = ({
       dispatch(setShowSourceIdeasPopup(false));
     } else {
       confirmAlert({
-        title: 'ThÃ´ng bÃ¡o',
+        title: 'Thông báo',
         message:
-          'Kingcontent chá»‰ há»— trá»£ Ä‘Äƒng video dÃ i tá»‘i Ä‘a 5 phÃºt. Vui lÃ²ng chá»n video khÃ¡c',
+          'Kingcontent chỉ hỗ trợ đăng video dài tối đa 5 phút. Vui lòng chọn video khác',
         buttons: [
           {
-            label: 'Äá»“ng Ã½',
+            label: 'Đồng ý',
             onClick: () => {},
           },
         ],
@@ -254,7 +254,7 @@ const SingleVideo = ({
                 size={50}
                 color="#fff"
                 className="hover:scale-125 cursor-pointer"
-                title="Nháº¥p Ä‘á»ƒ xem"
+                title="Nhấp để xem"
               />
             </div>
           </div>
@@ -362,7 +362,7 @@ const SingleVideo = ({
                     )}
                     <a className="no-underline text-base font-medium text-gray-100 hover:text-white transition-all duration-200 ease-linear">
                       {item.action === 'CHOOSE_VIDEO' && isChosen
-                        ? 'Bá» chá»n'
+                        ? 'Bỏ chọn'
                         : item.title}
                     </a>
                   </li>
@@ -375,7 +375,7 @@ const SingleVideo = ({
       {isScheduled && (
         <span
           className="absolute bottom-3 right-1 text-red-500"
-          title="BÃ i viáº¿t Ä‘Ã£ Ä‘Æ°á»£c lÃªn lá»‹ch"
+          title="Bài viết đã được lên lịch"
         >
           <FaExclamation />
         </span>
@@ -383,7 +383,7 @@ const SingleVideo = ({
       {duration > 300 && (
         <span
           className="absolute top-2 right-7 text-red-500"
-          title="Video dÃ i hÆ¡n 5 phÃºt"
+          title="Video dài hơn 5 phút"
         >
           <FiSlash />
         </span>
@@ -402,6 +402,7 @@ const SingleVideo = ({
 };
 
 export default SingleVideo;
+
 
 
 

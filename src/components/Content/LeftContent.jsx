@@ -1,8 +1,8 @@
-﻿import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import Card from '@/Card';
 import SearchBox from '@/SearchBox';
-import PopupDetailContentPlan from '@/../pages/createPost/components/planCpn/popupDetail';
+import PopupDetailContentPlan from '@/pages/createPost/components/planCpn/popupDetail';
 import GridLayoutContent from '@/CategoriesContent/GridLayoutContent';
 import Pagination from '@/CategoriesContent/Pagination';
 const limit = 9;
@@ -75,7 +75,7 @@ const LeftContent = (props) => {
         ) : (
           <div className="flex justify-center items-center h-96 bg-white w-full rounded-md">
             <div className="text-center">
-              <p className="text-base">Báº¡n chÆ°a thÃ­ch bÃ i viáº¿t nÃ o</p>
+              <p className="text-base">Bạn chưa thích bài viết nào</p>
             </div>
           </div>
         )}

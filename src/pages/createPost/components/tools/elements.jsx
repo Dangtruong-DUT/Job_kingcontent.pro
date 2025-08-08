@@ -1,4 +1,4 @@
-﻿import 'fabric/dist/fabric.js';
+import 'fabric/dist/fabric.js';
 import { uniqueId } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { FaGripLines, FaHistory, FaIcons, FaLayerGroup, FaLongArrowAltUp, FaSitemap, FaSquareFull } from 'react-icons/fa';
@@ -8,11 +8,11 @@ import { MdClear, MdHexagon, MdLayersClear, MdRectangle } from 'react-icons/md';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { isArrayEmpty } from '@/../../../configs';
-import { KEY_ELEMENTS_IMAGES } from '@/../../../reducers/createContent';
-import { AddElement, DeleteElement, ResetCanvasLayer, UpdateCanvasLayer } from '@/../../../store/actions/createContent';
-import { REDUX_NAME_CREATE_POST } from '@/../../../utils/utilityFunc';
-import { _dashed_border, hasEmoji } from '@/../utility';
+import { isArrayEmpty } from '@/../../configs';
+import { KEY_ELEMENTS_IMAGES } from '@/../../reducers/createContent';
+import { AddElement, DeleteElement, ResetCanvasLayer, UpdateCanvasLayer } from '@/../../store/actions/createContent';
+import { REDUX_NAME_CREATE_POST } from '@/../../utils/utilityFunc';
+import { _dashed_border, hasEmoji } from '@/utility';
 import { IoMdCloseCircle } from 'react-icons/io';
 const Elements = ({ editor, removeObject, backgroundColor,
   canvasWidth,
@@ -100,7 +100,7 @@ const Elements = ({ editor, removeObject, backgroundColor,
       <div className='flex justify-end'>
       <IoMdCloseCircle size={35} className='hover:text-red-500 cursor-pointer' onClick={() => setLayerStatus(false)} />
       </div>
-      <div className='text-white flex items-center gap-3'><FaHistory size={25} color='#ffffff' /><span>Lá»‹ch sá»­</span></div>
+      <div className='text-white flex items-center gap-3'><FaHistory size={25} color='#ffffff' /><span>Lịch sử</span></div>
 
       <PerfectScrollbar
         className="flex flex-col mt-2"
@@ -108,7 +108,7 @@ const Elements = ({ editor, removeObject, backgroundColor,
       >
         {history.length === 0 ? <div className='flex items-center flex-col'>
           {/* <TbHistoryOff size={100} color='#fff' /> */}
-          <span>ChÆ°a cÃ³ lá»‹ch sá»­ thiáº¿t kÃª</span>
+          <span>Chưa có lịch sử thiết kê</span>
         </div> : history.map((_elt, index) => (
           <p
             key={index}
@@ -119,17 +119,17 @@ const Elements = ({ editor, removeObject, backgroundColor,
             <div className="flex items-center gap-2 p-3" onClick={() => activeHistory(_elt, index)}>
 
               <FaSitemap size={25} />
-              <span>Lá»‹ch sá»­ __{index + 1}__</span>
+              <span>Lịch sử __{index + 1}__</span>
             </div>
           </p>
         ))}
       </PerfectScrollbar>
       <div className={_dashed_border}></div>
-      <div className='text-white flex items-center gap-3 mt-2'><FaLayerGroup size={25} color='#ffffff' /><h2>ThÃ nh pháº§n</h2></div>
+      <div className='text-white flex items-center gap-3 mt-2'><FaLayerGroup size={25} color='#ffffff' /><h2>Thành phần</h2></div>
       {
         isArrayEmpty(elements) ? <div className='flex items-center flex-col'>
           {/* <MdLayersClear size={100} color='#fff' /> */}
-          <span>ChÆ°a cÃ³ thÃ nh pháº§n thiáº¿t káº¿</span>
+          <span>Chưa có thành phần thiết kế</span>
         </div> : <PerfectScrollbar
           className="flex flex-col mt-2"
           style={{ height: '35vh' }}
@@ -170,7 +170,7 @@ const Elements = ({ editor, removeObject, backgroundColor,
                         {
                           _elt.iType === 'circle' || _elt.type === 'circle' ? <RiCheckboxBlankCircleFill size={20} color={_elt.fill} /> : _elt.iType === 'rectangle' || (_elt.width > _elt.height && !_elt.points && !_elt.lineCoords) ? <MdRectangle size={20} color={_elt.fill} /> : _elt.iType === 'square' || (_elt.width === _elt.height && !_elt.points && !_elt.lineCoords) ? <FaSquareFull size={20} color={_elt.fill} /> : _elt.iType === 'arrow' || (_elt.points && _elt?.points.length === 9) ? <FiArrowDownRight size={20} color={_elt.fill} /> :  _elt.type === 'triangle' ? <IoTriangleSharp size={20} color={_elt.fill} /> : (_elt.points && _elt?.points.length === 6) ? <MdHexagon size={20} color={_elt.fill} /> : <FaGripLines size={20} color={_elt.fill} />
                         }
-                        <span>Khá»‘i</span>
+                        <span>Khối</span>
                       </div>
                     </div> : (
                       <div className='flex items-center gap-2'>
@@ -183,7 +183,7 @@ const Elements = ({ editor, removeObject, backgroundColor,
                         <div className="flex items-center gap-2" onClick={() => onSelectObject(_elt.customId)}>
                           {/* <IoImage size={20} /> */}
                           <img src={_elt.imageData ? _elt.imageData : _elt.src} alt="" height={30} width={30} />
-                          <span>HÃ¬nh áº£nh</span>
+                          <span>Hình ảnh</span>
                         </div>
                       </div>
 
