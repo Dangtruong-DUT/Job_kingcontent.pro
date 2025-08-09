@@ -1,3 +1,3 @@
-﻿import FeedbacksForm from './FeedbacksForm'
+import FeedbacksForm from './FeedbacksForm'
 
 export default FeedbacksForm

@@ -1,4 +1,3 @@
-﻿import SearchForm from './SearchForm';
+import SearchForm from './SearchForm';
 
 export default SearchForm;
-

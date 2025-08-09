@@ -1,4 +1,4 @@
-﻿import {
+import {
   ACTION_GET_TIKTOK_VIDEOS,
   ACTION_GET_TIKTOK_VIDEOS_SUCCESS,
   ACTION_GET_TIKTOK_COLLECTIONS,
@@ -26,7 +26,7 @@
   ACTION_UPDATE_CHANNEL_ORDER_TYPE,
   ACTION_GET_MY_VIDEOS,
   ACTION_GET_MY_VIDEOS_SUCCESS,
-} from '@/store/actions/tiktok';
+} from '../../store/actions/tiktok';
 
 const initialState = {
   searchVideos: {
@@ -435,5 +435,3 @@ const tiktokReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default tiktokReducers;
-
-

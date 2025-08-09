@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
-import { OK } from '@/configs';
-import { instagramService } from '@/services/instagram';
+import { OK } from '../../../configs';
+import { instagramService } from '../../../services/instagram';
 export const INSTAGRAM_GET_USERS = 'INSTAGRAM_GET_USERS';
 export const INSTAGRAM_GET_USERS_SUCCESS = 'INSTAGRAM_GET_USERS_SUCCESS';
 export const INSTAGRAM_GET_USER_POSTS = 'INSTAGRAM_GET_USER_POSTS';
@@ -709,5 +709,3 @@ export const actionSetScheduleFilter = (filter) => async (dispatch) => {
     payload: filter,
   });
 };
-
-

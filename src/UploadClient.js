@@ -1,5 +1,5 @@
-﻿import axios from 'axios';
-import auth from '@/utils/auth';
+import axios from 'axios';
+import auth from './utils/auth';
 
 const baseURL = 'http://tools.kingcontent.pro/upload-file-to-gcs';
 const headers = {
@@ -63,4 +63,3 @@ instance.interceptors.response.use(
 );
 
 export default instance;
-

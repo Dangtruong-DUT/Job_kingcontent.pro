@@ -1,5 +1,5 @@
-﻿import Client from '@/Client';
-import { API_SPECIAL_HASHTAG } from '@/configs';
+import Client from '../Client';
+import { API_SPECIAL_HASHTAG } from '../configs';
 
 export const SpecialService = {
     getAllTag() {

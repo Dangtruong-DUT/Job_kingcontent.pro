@@ -1,38 +1,38 @@
 import React from 'react';
-import proIcon from '@/assets/images/icon/create-content/protest.png';
-import disIcon from '@/assets/images/icon/create-content/discount.png';
-import speIcon from '@/assets/images/icon/create-content/speaking.png';
-import ideaIcon from '@/assets/images/icon/create-content/idea.png';
-import couponIcon from '@/assets/images/icon/create-content/coupon.png';
-import trendIcon from '@/assets/images/icon/create-content/trending-topic.png';
-import textIcon from '@/assets/images/icon/create-content/text-box.png';
-import trendingIcon from '@/assets/images/icon/create-content/trending.png';
-import smileyIcon from '@/assets/images/icon/create-content/smiley.png';
-import checkIcon from '@/assets/images/icon/create-content/check.png';
-import rateIcon from '@/assets/images/icon/create-content/rate.png';
-import imgIcon from '@/assets/images/icon/create-content/image.png';
-import upIcon from '@/assets/images/icon/create-content/cloud-computing.png';
-import colIcon from '@/assets/images/icon/create-content/column.png';
-import painIcon from '@/assets/images/icon/create-content/pain.png';
-import shieldIcon from '@/assets/images/icon/create-content/shield.png';
-import saveMoneyIcon from '@/assets/images/icon/create-content/save-money.png';
-import ratingIcon from '@/assets/images/icon/create-content/rating.png';
-import rankingIcon from '@/assets/images/icon/create-content/ranking.png';
-import reactionIcon from '@/assets/images/icon/create-content/reaction.png';
-import confettiIcon from '@/assets/images/icon/create-content/confetti.png';
-import chatGPTIcon from '@/assets/images/icon/create-content/chat-gpt-icon.png';
+import proIcon from '../../assets/images/icon/create-content/protest.png';
+import disIcon from '../../assets/images/icon/create-content/discount.png';
+import speIcon from '../../assets/images/icon/create-content/speaking.png';
+import ideaIcon from '../../assets/images/icon/create-content/idea.png';
+import couponIcon from '../../assets/images/icon/create-content/coupon.png';
+import trendIcon from '../../assets/images/icon/create-content/trending-topic.png';
+import textIcon from '../../assets/images/icon/create-content/text-box.png';
+import trendingIcon from '../../assets/images/icon/create-content/trending.png';
+import smileyIcon from '../../assets/images/icon/create-content/smiley.png';
+import checkIcon from '../../assets/images/icon/create-content/check.png';
+import rateIcon from '../../assets/images/icon/create-content/rate.png';
+import imgIcon from '../../assets/images/icon/create-content/image.png';
+import upIcon from '../../assets/images/icon/create-content/cloud-computing.png';
+import colIcon from '../../assets/images/icon/create-content/column.png';
+import painIcon from '../../assets/images/icon/create-content/pain.png';
+import shieldIcon from '../../assets/images/icon/create-content/shield.png';
+import saveMoneyIcon from '../../assets/images/icon/create-content/save-money.png';
+import ratingIcon from '../../assets/images/icon/create-content/rating.png';
+import rankingIcon from '../../assets/images/icon/create-content/ranking.png';
+import reactionIcon from '../../assets/images/icon/create-content/reaction.png';
+import confettiIcon from '../../assets/images/icon/create-content/confetti.png';
+import chatGPTIcon from '../../assets/images/icon/create-content/chat-gpt-icon.png';
 import styled from 'styled-components';
-import LoadingApp from '@/components/LoadingApp';
-import chatIcon from '@/assets/images/icon/create-content/chat.png';
-import issueIcon from '@/assets/images/icon/create-content/conversation.png';
-import folderIcon from '@/assets/images/icon/create-content/empty-folder.png';
-import syncIcon from '@/assets/images/icon/create-content/sync.png';
-import downloadIcon from '@/assets/images/icon/create-content/download.png';
-import computerIcon from '@/assets/images/icon/create-content/computer.png';
-import presetsIcon from '@/assets/images/icon/create-content/presets.png';
-import regenerateIcon from '@/assets/images/icon/create-content/regenerate.png';
-import threadsIcon from '@/assets/images/icon/threads-grey-icon.png';
-import { isArrayEmpty } from '@/configs';
+import LoadingApp from '../../components/LoadingApp';
+import chatIcon from '../../assets/images/icon/create-content/chat.png';
+import issueIcon from '../../assets/images/icon/create-content/conversation.png';
+import folderIcon from '../../assets/images/icon/create-content/empty-folder.png';
+import syncIcon from '../../assets/images/icon/create-content/sync.png';
+import downloadIcon from '../../assets/images/icon/create-content/download.png';
+import computerIcon from '../../assets/images/icon/create-content/computer.png';
+import presetsIcon from '../../assets/images/icon/create-content/presets.png';
+import regenerateIcon from '../../assets/images/icon/create-content/regenerate.png';
+import threadsIcon from '../../assets/images/icon/threads-grey-icon.png';
+import { isArrayEmpty } from '../../configs';
 
 export const DEFAULT = 'Công cụ hỗ trợ';
 export const CONTENT = 'Tạo tiêu đề';
@@ -228,21 +228,21 @@ export const ContentDataStyled = styled.div`
   }
 `;
 
-// export const renderTools = (loading, array, screen) => {
-//   return (
-//     <div className="p-2 overflow-y-scroll overflow-x-hidden max-h-screen">
-//       {array.length === 0 && !loading ? (
-//         <div className="flex justify-center">
-//           <span className="font-bold">Không có dữ liệu hiển thị</span>
-//         </div>
-//       ) : loading ? (
-//         <LoadingApp />
-//       ) : (
-//         screen
-//       )}
-//     </div>
-//   );
-// };
+export const renderTools = (loading, array, screen) => {
+  return (
+    <div className="p-2 overflow-y-scroll overflow-x-hidden max-h-screen">
+      {array.length === 0 && !loading ? (
+        <div className="flex justify-center">
+          <span className="font-bold">Không có dữ liệu hiển thị</span>
+        </div>
+      ) : loading ? (
+        <LoadingApp />
+      ) : (
+        screen
+      )}
+    </div>
+  );
+};
 
 export const getObject_create_post = (
   category,
@@ -354,11 +354,11 @@ export const getBodyCreatePlan = (data, tagsSelect = null, userTags = null) => {
   const { name, hashtag, color, thumbnail, productName = '' } = data;
   const convertedTags = tagsSelect
     ? Array.from(tagsSelect).map((item) => {
-      return {
-        id: item.id,
-        name: item.name,
-      };
-    })
+        return {
+          id: item.id,
+          name: item.name,
+        };
+      })
     : [];
   return {
     name: name,
@@ -510,7 +510,7 @@ export const safeSvgEncode = (svgString) => {
       .replace(/\t/g, '')
       .replace(/\s+/g, ' ')
       .trim();
-
+    
     return encodeURIComponent(cleanSvg);
   } catch (error) {
     // Return a simple fallback SVG
@@ -522,7 +522,7 @@ export const safeSvgEncode = (svgString) => {
     }
   }
 };
-export const customIconRotation =
+export const customIconRotation = 
   '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">' +
   '<g filter="url(#filter0_d)">' +
   '<circle cx="9" cy="9" r="5" fill="white"/>' +
@@ -642,7 +642,7 @@ export const getTitle = (title) => {
 
     case THREADS:
       return 'THREADS';
-
+    
     case REGENERATE:
       return REGENERATE;
 
@@ -650,6 +650,3 @@ export const getTitle = (title) => {
       return DEFAULT;
   }
 };
-
-
-

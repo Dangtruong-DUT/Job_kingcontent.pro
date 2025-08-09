@@ -1,4 +1,3 @@
-﻿import SelectCategories from './SelectCategories';
+import SelectCategories from "./SelectCategories";
 
 export default SelectCategories
-

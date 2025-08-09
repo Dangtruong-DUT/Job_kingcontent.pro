@@ -1,6 +1,6 @@
-import * as types from '@/store/types';
-import client from '@/Client';
-import auth from '@/utils/auth';
+import * as types from '../../types';
+import client from '../../../Client';
+import auth from '../../../utils/auth';
 
 export const getCreatedContents = (userId) => async (dispatch) => {
   try {
@@ -96,39 +96,39 @@ export const getAllCategories = () => async (dispatch) => {
 
 export const get100DonCharts =
   (catId = 0) =>
-    async (dispatch) => {
-      try {
-        const limit = 1;
-        let query = `_limit=${limit}`;
-        if (catId) query += `&category=${catId}`;
-        const { data } = await client.get(`/100-don-charts?${query}`);
-        dispatch({
-          type: types.GET_100_DON_CHARTS,
-          payload: data,
-        });
-      } catch (error) {
-        console.log('error', error);
-      }
-    };
+  async (dispatch) => {
+    try {
+      const limit = 1;
+      let query = `_limit=${limit}`;
+      if (catId) query += `&category=${catId}`;
+      const { data } = await client.get(`/100-don-charts?${query}`);
+      dispatch({
+        type: types.GET_100_DON_CHARTS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
 export const get100DonDetails =
   (page = 1, catId = 0) =>
-    async (dispatch) => {
-      try {
-        const limit = 20;
-        let start = 0;
-        if (page > 1) start = (page - 1) * limit;
-        let query = `_limit=${limit}&_start=${start}`;
-        if (catId) query += `&category=${catId}`;
-        const { data } = await client.get(`/100-don-details?${query}`);
-        dispatch({
-          type: types.GET_100_DON_DETAILS,
-          payload: data,
-        });
-      } catch (error) {
-        console.log('error', error);
-      }
-    };
+  async (dispatch) => {
+    try {
+      const limit = 20;
+      let start = 0;
+      if (page > 1) start = (page - 1) * limit;
+      let query = `_limit=${limit}&_start=${start}`;
+      if (catId) query += `&category=${catId}`;
+      const { data } = await client.get(`/100-don-details?${query}`);
+      dispatch({
+        type: types.GET_100_DON_DETAILS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
 export const changeStateCategoriesPopup = (state) => (dispatch) => {
   dispatch({
@@ -257,4 +257,3 @@ export const setContentType = (state) => (dispatch) => {
     payload: state,
   });
 };
-

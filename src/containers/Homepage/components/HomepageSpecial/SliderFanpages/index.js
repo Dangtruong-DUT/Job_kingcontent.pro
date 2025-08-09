@@ -1,3 +1,3 @@
-﻿import SliderFanpages from './SliderFanpages'
+import SliderFanpages from './SliderFanpages'
 
 export default SliderFanpages

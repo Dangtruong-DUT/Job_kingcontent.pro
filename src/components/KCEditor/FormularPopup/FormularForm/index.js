@@ -1,4 +1,3 @@
-﻿import FormularForm from './FormularForm';
+import FormularForm from "./FormularForm";
 
 export default FormularForm
-

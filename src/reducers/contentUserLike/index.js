@@ -1,9 +1,9 @@
-﻿import {
+import {
   ACTION_GET_ALL_CONTENTS,
   ACTION_GET_ALL_FANPAGES,
   ACTION_GET_HASH_TAG,
   ACTION_SEARCH_CONTENT,
-} from '@/store/actions/contentUserLiked';
+} from '../../store/actions/contentUserLiked';
 
 const initialState = {
   contents: [],
@@ -39,5 +39,3 @@ const ContentUserLikeReducers = (state = initialState, { type,payload }) => {
   }
 };
 export default ContentUserLikeReducers;
-
-

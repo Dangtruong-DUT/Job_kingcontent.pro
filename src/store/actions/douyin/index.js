@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
-import { OK } from '@/configs';
-import { douyinService } from '@/services/douyin';
-// import { ACTION_RESET_DOUYIN_STORE } from '@/reducers/tiktok';
+import { OK } from '../../../configs';
+import { douyinService } from '../../../services/douyin';
+// import { ACTION_RESET_DOUYIN_STORE } from '../../../reducers/tiktok';
 
 export const ACTION_GET_DOUYIN_VIDEOS = 'ACTION_GET_DOUYIN_VIDEOS';
 export const ACTION_GET_DOUYIN_VIDEOS_SUCCESS =
@@ -448,5 +448,3 @@ export const actionUpdateFilteringSettings = (settings) => {
 //     });
 //   };
 // }
-
-

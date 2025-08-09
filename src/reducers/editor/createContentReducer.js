@@ -1,4 +1,4 @@
-﻿import * as types from '@/store/types';
+import * as types from '../../store';
 
 const contentInitialState = {
   isShowCreateContentForm: false,
@@ -64,5 +64,3 @@ const createContentReducer = (state = contentInitialState, action) => {
 };
 
 export default createContentReducer;
-
-

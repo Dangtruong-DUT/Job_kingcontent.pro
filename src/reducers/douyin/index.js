@@ -1,4 +1,4 @@
-﻿import {
+import {
   ACTION_GET_DOUYIN_VIDEOS,
   ACTION_GET_DOUYIN_VIDEOS_SUCCESS,
   ACTION_GET_DOUYIN_COLLECTIONS,
@@ -28,7 +28,7 @@
   ACTION_FILTER_DOUYIN_VIDEOS_SUCCESS,
   ACTION_CHANGE_LOADING_APP,
   ACTION_RESET_VIDEO,
-} from '@/store/actions/douyin/index';
+} from '../../store/actions/douyin/index';
 
 const initialState = {
   searchVideos: {
@@ -82,6 +82,7 @@ const douyinReducers = (state = initialState, { type, payload }) => {
         }
       }
       return { ...state, isLoading: true, searchVideos: null };
+      break;
 
     case ACTION_GET_DOUYIN_VIDEOS_SUCCESS:
       if (payload) {
@@ -124,9 +125,11 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           nextIsLoading: false,
         };
       }
+      break;
 
     case ACTION_GET_DOUYIN_COLLECTIONS:
       return { ...state, isLoading: true };
+      break;
 
     case ACTION_GET_DOUYIN_COLLECTIONS_SUCCESS:
       if (payload) {
@@ -149,9 +152,11 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           isLoading: false,
         };
       }
+      break;
 
     case ACTION_GET_DOUYIN_FOLLOWING_CHANNELS:
       return { ...state, isLoading: true };
+      break;
 
     case ACTION_GET_DOUYIN_FOLLOWING_CHANNELS_SUCCESS:
       if (payload) {
@@ -174,57 +179,55 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           isLoading: false,
         };
       }
+      break;
 
     case ACTION_GET_DOUYIN_CHANNELS:
-      {
-        const { offset = 0 } = payload;
-        if (parseInt(offset) === 0) {
-          return { ...state, isLoading: true };
-        } else {
-          return { ...state, nextIsLoading: true };
-        }
-
+      const { offset = 0 } = payload;
+      if (parseInt(offset) === 0) {
+        return { ...state, isLoading: true };
+      } else {
+        return { ...state, nextIsLoading: true };
       }
+      break;
+
     case ACTION_GET_DOUYIN_CHANNELS_SUCCESS:
-      {
-        let newSearchChannel = {
-          users: [],
-          next_offset: 0,
-          search_id: '',
-        };
-        if (payload) {
-          const { next_cursor = 0, users = [], has_next = 0 } = payload;
-          if (parseInt(next_cursor) === 30) {
-            // first page
-            return {
-              ...state,
-              searchChannel: payload,
-              isLoading: false,
-              nextIsLoading: false,
-            };
-          } else {
-            const oldData = state?.searchChannel?.users ?? [];
-            const newData = [...oldData, ...users];
-            return {
-              ...state,
-              searchChannel: {
-                ...payload,
-                users: newData,
-              },
-              isLoading: false,
-              nextIsLoading: false,
-            };
-          }
-        } else {
+      let newSearchChannel = {
+        users: [],
+        next_offset: 0,
+        search_id: '',
+      };
+      if (payload) {
+        const { next_cursor = 0, users = [], has_next = 0 } = payload;
+        if (parseInt(next_cursor) === 30) {
+          // first page
           return {
             ...state,
-            searchChannel: newSearchChannel,
+            searchChannel: payload,
+            isLoading: false,
+            nextIsLoading: false,
+          };
+        } else {
+          const oldData = state?.searchChannel?.users ?? [];
+          const newData = [...oldData, ...users];
+          return {
+            ...state,
+            searchChannel: {
+              ...payload,
+              users: newData,
+            },
             isLoading: false,
             nextIsLoading: false,
           };
         }
-
+      } else {
+        return {
+          ...state,
+          searchChannel: newSearchChannel,
+          isLoading: false,
+          nextIsLoading: false,
+        };
       }
+
     case ACTION_GET_DOUYIN_VIDEOS_BY_CHANNEL:
       if (payload) {
         const { offset = 0 } = payload;
@@ -235,6 +238,7 @@ const douyinReducers = (state = initialState, { type, payload }) => {
         }
       }
       return { ...state, isLoading: true };
+      break;
 
     case ACTION_GET_DOUYIN_VIDEOS_BY_CHANNEL_SUCCESS:
       if (payload) {
@@ -264,35 +268,41 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           nextIsLoading: false,
         };
       }
+      break;
 
     case ACTION_CHANGE_SEARCH_TYPE:
       return { ...state, searchType: payload };
+      break;
 
     case ACTION_UPDATE_CHOSEN_VIDEOS:
       return { ...state, chosenVideos: payload };
+      break;
 
     case ACTION_UPDATE_CURRENT_VIDEO_TYPE:
       return { ...state, videoType: payload };
+      break;
 
     case ACTION_UPDATE_COLLECTION_MODAL_TYPE:
       return { ...state, modalCollectionType: payload };
+      break;
 
     case ACTION_UPDATE_COLLECTION_MODAL_OPEN:
       return { ...state, modalCollectionOpen: payload };
+      break;
 
     case ACTION_UPDATE_CURRENT_COLLECTION:
       return { ...state, currentCollection: payload };
+      break;
 
     case ACTION_GET_DOUYIN_VIDEOS_BY_COLLECTION:
-      {
-        const { page = 1 } = payload;
-        if (parseInt(page) === 1) {
-          return { ...state, isLoading: true, searchVideos: payload };
-        } else {
-          return { ...state, nextIsLoading: true };
-        }
-
+      const { page = 1 } = payload;
+      if (parseInt(page) === 1) {
+        return { ...state, isLoading: true, searchVideos: payload };
+      } else {
+        return { ...state, nextIsLoading: true };
       }
+      break;
+
     case ACTION_GET_DOUYIN_VIDEOS_BY_COLLECTION_SUCCESS:
       if (payload) {
         const { page = 1, has_next = false, videos = [] } = payload;
@@ -327,12 +337,16 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           nextIsLoading: false,
         };
       }
+      break;
 
     case ACTION_GET_ALL_COLLECTIONS_VIDEOS_SUCCESS:
       return { ...state, collectionsVideos: payload };
+      break;
 
     case ACTION_REMOVE_VIDEO_FROM_COLLECTION:
       return { ...state, isLoading: true };
+      break;
+
     case ACTION_REMOVE_VIDEO_FROM_COLLECTION_SUCCESS:
       if (payload) {
         const videos = state?.searchVideos?.videos;
@@ -344,20 +358,22 @@ const douyinReducers = (state = initialState, { type, payload }) => {
         };
       }
       return { ...state, isLoading: false };
-    case ACTION_SAVE_COLLECTION_SUCCESS:
-      {
-        const { id = 0 } = payload;
-        return {
-          ...state,
-          latestCollectionId: id,
-        };
+      break;
 
-      }
+    case ACTION_SAVE_COLLECTION_SUCCESS:
+      const { id = 0 } = payload;
+      return {
+        ...state,
+        latestCollectionId: id,
+      };
+      break;
+
     case ACTION_UPDATE_CURRENT_KEYWORD:
       return {
         ...state,
         keyword: payload,
       };
+      break;
 
     case ACTION_UPDATE_FILLTERING_SETTINGS:
       return {
@@ -412,6 +428,7 @@ const douyinReducers = (state = initialState, { type, payload }) => {
           nextIsLoading: false,
         };
       }
+      break;
     case ACTION_RESET_VIDEO:
       return {
         ...state,
@@ -424,5 +441,3 @@ const douyinReducers = (state = initialState, { type, payload }) => {
   }
 };
 export default douyinReducers;
-
-

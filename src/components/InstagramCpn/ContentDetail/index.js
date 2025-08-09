@@ -1,3 +1,3 @@
-﻿import ContentDetail from './ContentDetail.jsx'
+import ContentDetail from './ContentDetail'
 
 export default ContentDetail;

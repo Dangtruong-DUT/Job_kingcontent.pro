@@ -1,5 +1,5 @@
-﻿import { API_VIDEO_EDITOR } from '@/configs';
-import Client from '@/Client';
+import { API_VIDEO_EDITOR } from "../configs";
+import Client from '../Client';
 
 export const VideoEditorService = {
   getVideos(page = 1, perPage = 12) {
@@ -19,5 +19,3 @@ export const VideoEditorService = {
     );
   }
 }
-
-

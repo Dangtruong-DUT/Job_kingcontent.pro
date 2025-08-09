@@ -1,5 +1,5 @@
-import * as types from '@/store/types';
-import client from '@/Client';
+import * as types from '../..';
+import client from '../../../Client';
 
 export const changeStateCreateContentForm = (state) => (dispatch) => {
   dispatch({
@@ -56,52 +56,52 @@ export const changeSelectedKeyword = (state) => (dispatch) => {
 
 export const getContentSuggestions =
   (catId, keywords = [], page = 1, isExclude = false) =>
-    async (dispatch) => {
-      try {
-        const limit = 9; // default latest 9 contents
-        const sort = 'id:DESC';
-        let start = 0;
-        if (page > 1) start = (page - 1) * limit;
+  async (dispatch) => {
+    try {
+      const limit = 9; // default latest 9 contents
+      const sort = 'id:DESC';
+      let start = 0;
+      if (page > 1) start = (page - 1) * limit;
 
-        let query = `_limit=${limit}&_sort=${sort}&_start=${start}&category=${catId}`;
-        if (keywords && keywords.length > 0) {
-          keywords.map((kw, i) => {
-            if (isExclude) {
-              query += `&_where[${i}][content_ncontains]=${kw}`;
-            } else {
-              query += `&_where[_or][${i}][content_contains]=${kw}`;
-            }
-          });
-        }
-        const { data } = await client.get(`/contents?${query}`);
-        dispatch({ type: types.GET_CONTENT_SUGGESTIONS, payload: data });
-      } catch (error) {
-        console.log('error', error);
+      let query = `_limit=${limit}&_sort=${sort}&_start=${start}&category=${catId}`;
+      if (keywords && keywords.length > 0) {
+        keywords.map((kw, i) => {
+          if (isExclude) {
+            query += `&_where[${i}][content_ncontains]=${kw}`;
+          } else {
+            query += `&_where[_or][${i}][content_contains]=${kw}`;
+          }
+        });
       }
-    };
+      const { data } = await client.get(`/contents?${query}`);
+      dispatch({ type: types.GET_CONTENT_SUGGESTIONS, payload: data });
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
 export const getFacebookPresets =
   (curentPage = 1) =>
-    async (dispatch) => {
-      try {
-        dispatch({ type: types.GET_FACEBOOK_PRESETS, payload: [] });
-        const { data: resData } = await client.get(
-          `/facebook-presets?page=${curentPage}&_limit=48`
-        );
-        const { data, last_page, current_page } = resData?.data || {};
-        dispatch({
-          type: types.GET_FACEBOOK_PRESETS_SUCCESS,
-          payload: {
-            data,
-            last_page,
-            current_page,
-          },
-        });
-      } catch (error) {
-        console.log('error', error);
-        dispatch({ type: types.GET_FACEBOOK_PRESETS, payload: [] });
-      }
-    };
+  async (dispatch) => {
+    try {
+      dispatch({ type: types.GET_FACEBOOK_PRESETS, payload: [] });
+      const { data: resData } = await client.get(
+        `/facebook-presets?page=${curentPage}&_limit=48`
+      );
+      const { data, last_page, current_page } = resData?.data || {};
+      dispatch({
+        type: types.GET_FACEBOOK_PRESETS_SUCCESS,
+        payload: {
+          data,
+          last_page,
+          current_page,
+        },
+      });
+    } catch (error) {
+      console.log('error', error);
+      dispatch({ type: types.GET_FACEBOOK_PRESETS, payload: [] });
+    }
+  };
 
 export const setSelectFacebookPreset = (preset) => (dispatch) => {
   dispatch({ type: types.SET_SELECTED_FACEBOOK_PRESET, payload: preset });
@@ -110,4 +110,3 @@ export const setSelectFacebookPreset = (preset) => (dispatch) => {
 export const setIsActivePreset = (isActive) => (dispatch) => {
   dispatch({ type: types.SET_IS_ACTIVE_PRESET, payload: isActive });
 };
-

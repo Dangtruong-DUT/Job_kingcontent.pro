@@ -1,3 +1,3 @@
-﻿import Subjects from './Subjects'
+import Subjects from './Subjects'
 
 export default Subjects

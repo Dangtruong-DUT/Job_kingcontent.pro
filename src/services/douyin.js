@@ -1,5 +1,5 @@
-﻿import Client from '@/Client';
-import { API_GET_DOUYIN } from '@/configs';
+import Client from '../Client';
+import { API_GET_DOUYIN } from '../configs';
 
 export const douyinService = {
   getDouyinVideos(
@@ -94,4 +94,3 @@ export const douyinService = {
     });
   },
 };
-

@@ -1,5 +1,5 @@
-import * as categoriesTypes from '@/store/types/categories';
-import client from '@/Client';
+import * as categoriesTypes from '../../types/categories';
+import client from '@/Client.js';
 
 export const getParentCategories = () => async (dispatch) => {
   try {
@@ -19,56 +19,56 @@ export const getParentCategories = () => async (dispatch) => {
 
 export const getChildCategories =
   (query = {}, setIsCateSelect) =>
-    async (dispatch) => {
-      try {
-        await client
-          .get(`/categories/children`)
-          .then((result) => {
-            if (setIsCateSelect) {
-              const defaultCatId = 205;
-              // const defaultCatId = result.data.data[0]?.cate_id
-              setIsCateSelect(defaultCatId);
-            }
-            dispatch({
-              type: categoriesTypes.GET_CHILD_CATEGORIES,
-              payload: result.data.data,
-            });
-          })
-          .catch((err) => console.log('Err get child categories: ' + err));
-      } catch (error) {
-        console.log('Error get child categories: ' + error);
-      }
-    };
+  async (dispatch) => {
+    try {
+      await client
+        .get(`/categories/children`)
+        .then((result) => {
+          if (setIsCateSelect) {
+            const defaultCatId = 205;
+            // const defaultCatId = result.data.data[0]?.cate_id
+            setIsCateSelect(defaultCatId);
+          }
+          dispatch({
+            type: categoriesTypes.GET_CHILD_CATEGORIES,
+            payload: result.data.data,
+          });
+        })
+        .catch((err) => console.log('Err get child categories: ' + err));
+    } catch (error) {
+      console.log('Error get child categories: ' + error);
+    }
+  };
 
 export const getChildCategoriesSearch =
   (query = {}) =>
-    async (dispatch) => {
-      try {
-        await client
-          .get(`/categories/children`)
-          .then((result) => {
-            const data = result.data.data.map((_elt) => {
-              return {
-                value: _elt.cate_id,
-                label: _elt.cate_name,
-              };
-            });
-            const defaultData = [
-              {
-                value: 'DEFAULT',
-                label: 'Tất cả',
-              },
-            ].concat(data);
-            dispatch({
-              type: categoriesTypes.GET_CHILD_CATEGORIES,
-              payload: defaultData,
-            });
-          })
-          .catch((err) => console.log('Err get child categories: ' + err));
-      } catch (error) {
-        console.log('Error get child categories: ' + error);
-      }
-    };
+  async (dispatch) => {
+    try {
+      await client
+        .get(`/categories/children`)
+        .then((result) => {
+          const data = result.data.data.map((_elt) => {
+            return {
+              value: _elt.cate_id,
+              label: _elt.cate_name,
+            };
+          });
+          const defaultData = [
+            {
+              value: 'DEFAULT',
+              label: 'Tất cả',
+            },
+          ].concat(data);
+          dispatch({
+            type: categoriesTypes.GET_CHILD_CATEGORIES,
+            payload: defaultData,
+          });
+        })
+        .catch((err) => console.log('Err get child categories: ' + err));
+    } catch (error) {
+      console.log('Error get child categories: ' + error);
+    }
+  };
 
 export const getTakeCareFbCategories = () => async (dispatch) => {
   const cateId = '257';
@@ -100,4 +100,3 @@ export const getTakeCareFbCategories = () => async (dispatch) => {
     console.log('Error get take care FB categories: ' + error);
   }
 };
-

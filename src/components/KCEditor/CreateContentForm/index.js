@@ -1,3 +1,3 @@
-﻿import CreateContent from './CreateContent'
+import CreateContent from './CreateContent'
 
 export default CreateContent

@@ -1,5 +1,5 @@
-import { OK } from '@/configs';
-import { VideoEditorService } from '@/services/videoEditor';
+import { OK } from "../../configs";
+import { VideoEditorService } from "../../services/videoEditor";
 
 const VIDEO_EDITOR_PREFIX = 'VIDEO_EDITOR';
 
@@ -167,6 +167,3 @@ export const actionSetShowModal = (show) => {
     payload: show,
   };
 };
-
-
-

@@ -1,3 +1,3 @@
-﻿import RightContent from './RightContent'
+import RightContent from './RightContent'
 
 export default RightContent

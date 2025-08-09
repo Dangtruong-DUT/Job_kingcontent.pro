@@ -1,5 +1,5 @@
-﻿import Client from '@/Client';
-import { API_TEXT_TO_VIDEO } from '@/configs';
+import Client from '../Client';
+import { API_TEXT_TO_VIDEO } from '../configs';
 
 export const TextToVideoService = {
   getVoices() {
@@ -63,4 +63,3 @@ export const TextToVideoService = {
     );
   }
 };
-

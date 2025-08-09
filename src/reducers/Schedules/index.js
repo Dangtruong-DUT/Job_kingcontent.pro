@@ -1,6 +1,6 @@
-﻿import moment from 'moment';
-import * as types from '@/store/types/schedules';
-import { DEFAULT } from '@/components/Schedules/Sourceldeas/utility';
+import moment from 'moment';
+import * as types from '../../store/types/schedules';
+import { DEFAULT } from '../../components/Schedules/SourceIdeas/utility';
 
 const SchedulesReducerInitialState = {
   showSuggestionsPopup: false,
@@ -179,43 +179,39 @@ const SchedulesReducer = (state = SchedulesReducerInitialState, action) => {
       return { ...state, isLoadingSuggestionsContent: payload };
 
     case types.GET_SUGGESTIONS_CONTENT:
-      {
-        const { page = 1 } = payload;
-        if (page === 1) {
-          return {
-            ...state,
-            suggestionsContent: payload.contents,
-            suggestionsTotalPages: payload.totalPages,
-            suggestionsCurrentPage: page,
-          };
-        } else {
-          return {
-            ...state,
-            suggestionsContent: [
-              ...state.suggestionsContent,
-              ...payload.contents,
-            ],
-            suggestionsTotalPages: payload.totalPages,
-            suggestionsCurrentPage: page,
-          };
-        }
-
+      const { page = 1 } = payload;
+      if (page === 1) {
+        return {
+          ...state,
+          suggestionsContent: payload.contents,
+          suggestionsTotalPages: payload.totalPages,
+          suggestionsCurrentPage: page,
+        };
+      } else {
+        return {
+          ...state,
+          suggestionsContent: [
+            ...state.suggestionsContent,
+            ...payload.contents,
+          ],
+          suggestionsTotalPages: payload.totalPages,
+          suggestionsCurrentPage: page,
+        };
       }
+
     case types.GET_EVENT_CONTENTS:
-      {
-        if (payload.page === 1) {
-          return {
-            ...state,
-            eventContents: payload.contents,
-            eventTotalPages: payload.totalPages,
-          };
-        } else {
-          return {
-            ...state,
-            eventContents: [...state.eventContents, ...payload.contents],
-            eventTotalPages: payload.totalPages,
-          };
-        }
+      if (payload.page === 1) {
+        return {
+          ...state,
+          eventContents: payload.contents,
+          eventTotalPages: payload.totalPages,
+        };
+      } else {
+        return {
+          ...state,
+          eventContents: [...state.eventContents, ...payload.contents],
+          eventTotalPages: payload.totalPages,
+        };
       }
 
     case types.SET_SUGGESTIONS_CONTENT:
@@ -339,31 +335,29 @@ const SchedulesReducer = (state = SchedulesReducerInitialState, action) => {
       return { ...state, scheduledContents: payload };
 
     case types.UPDATE_EDITING_CONTENT:
-      {
-        const { id, text, source_type } = payload;
-        const editingContents = state.editingContents;
-        if (editingContents.length === 0) {
-          return { ...state, editingContents: [{ id, text, source_type }] };
-        }
-        const findContent = editingContents.find(
-          (content) => content.id === id && content.source_type === source_type
-        );
-        if (findContent) {
-          const newEditingContents = editingContents.map((content) => {
-            if (content.id === id && content.source_type === source_type) {
-              return { ...content, text };
-            }
-            return content;
-          });
-          return { ...state, editingContents: newEditingContents };
-        } else {
-          return {
-            ...state,
-            editingContents: [...editingContents, { id, text, source_type }],
-          };
-        }
-
+      const { id, text, source_type } = payload;
+      const editingContents = state.editingContents;
+      if (editingContents.length === 0) {
+        return { ...state, editingContents: [{ id, text, source_type }] };
       }
+      const findContent = editingContents.find(
+        (content) => content.id === id && content.source_type === source_type
+      );
+      if (findContent) {
+        const newEditingContents = editingContents.map((content) => {
+          if (content.id === id && content.source_type === source_type) {
+            return { ...content, text };
+          }
+          return content;
+        });
+        return { ...state, editingContents: newEditingContents };
+      } else {
+        return {
+          ...state,
+          editingContents: [...editingContents, { id, text, source_type }],
+        };
+      }
+      return { ...state, editingContents: newEditingContents };
 
     case types.RESET_EDITING_CONTENTS:
       return { ...state, editingContents: [] };
@@ -390,5 +384,3 @@ const SchedulesReducer = (state = SchedulesReducerInitialState, action) => {
   }
 };
 export default SchedulesReducer;
-
-

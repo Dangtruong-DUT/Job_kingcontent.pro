@@ -1,4 +1,3 @@
-﻿import ChildCategories from './ChildCategories';
+import ChildCategories from "./ChildCategories";
 
 export default ChildCategories;
-

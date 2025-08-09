@@ -1,5 +1,5 @@
-﻿import Client from '@/Client';
-import { API_GET_TIKTOK } from '@/configs';
+import Client from '../Client';
+import { API_GET_TIKTOK } from '../configs';
 
 export const tiktokService = {
   getTiktokVideos(inputValue, offset = 0, search_id = '') {
@@ -101,4 +101,3 @@ export const tiktokService = {
     return Client.get(`${API_GET_TIKTOK}/video/${video_id}/script`);
   },
 };
-

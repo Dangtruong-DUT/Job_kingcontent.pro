@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
-import { OK } from '@/configs';
-import { tiktokService } from '@/services/tiktok';
+import { OK } from '../../../configs';
+import { tiktokService } from '../../../services/tiktok';
 
 export const ACTION_GET_TIKTOK_VIDEOS = 'ACTION_GET_TIKTOK_VIDEOS';
 export const ACTION_GET_TIKTOK_VIDEOS_SUCCESS =
@@ -455,5 +455,3 @@ export const actionGetMyVideos = (nextCursor = '') => {
     }
   };
 };
-
-

@@ -1,4 +1,3 @@
-﻿import Specials from './Specials';
+import Specials from './Specials';
 
 export default Specials;
-

@@ -1,6 +1,6 @@
-﻿import axios from 'axios';
-import Client from '@/Client';
-import UploadClient from '@/UploadClient';
+import axios from 'axios';
+import Client from '../Client';
+import UploadClient from '../UploadClient';
 export const API_RESOURCES = '/resources';
 export const API_UPLOAD = 'http://tools.kingcontent.pro/upload-file-to-gcs';
 
@@ -58,4 +58,3 @@ export const ResourcesService = {
     );
   },
 };
-

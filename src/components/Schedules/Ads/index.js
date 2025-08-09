@@ -1,4 +1,3 @@
-﻿import Ads from './Ads';
+import Ads from './Ads';
 
 export default Ads;
-

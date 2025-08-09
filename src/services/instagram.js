@@ -1,6 +1,6 @@
-﻿import { isArray } from 'lodash';
-import Client from '@/Client';
-import { API_GET_INSTAGAM } from '@/configs';
+import { isArray } from 'lodash';
+import Client from '../Client';
+import { API_GET_INSTAGAM } from '../configs';
 
 export const instagramService = {
   searchUsers(inputValue) {
@@ -89,4 +89,3 @@ export const instagramService = {
     return Client.get(`${API_GET_INSTAGAM}/list?${ids}`);
   },
 };
-

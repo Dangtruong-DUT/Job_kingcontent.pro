@@ -1,7 +1,7 @@
-﻿import { toast } from 'react-toastify';
-import { OK } from '@/configs';
-import { runningAdsService } from '@/services/runningAds';
-import { getObjectTemplateCard } from '@/utils/utilityFunc';
+import { toast } from 'react-toastify';
+import { OK } from '../../../configs';
+import { runningAdsService } from '../../../services/runningAds';
+import { getObjectTemplateCard } from './ultility';
 
 export const ACTION_SEARCH_ADS = 'ACTION_SEARCH_ADS';
 export const ACTION_EMPTY_ARR_SEARCH = 'ACTION_EMPTY_ARR_SEARCH';
@@ -27,7 +27,7 @@ export const actionSearchADS = (
           type: ACTION_EMPTY_ARR_SEARCH,
           payload: [],
         });
-        // toast.error('CÃ³ lá»—i xáº£y ra , vui lÃ²ng thá»­ láº¡i !');
+        // toast.error('Có lỗi xảy ra , vui lòng thử lại !');
         setLoading(false);
         return;
       } else {
@@ -46,7 +46,7 @@ export const actionSearchADS = (
         type: ACTION_EMPTY_ARR_SEARCH,
         payload: [],
       });
-      // toast.error('CÃ³ lá»—i xáº£y ra , vui lÃ²ng thá»­ láº¡i !');
+      // toast.error('Có lỗi xảy ra , vui lòng thử lại !');
       setLoading(false);
     }
   };
@@ -69,5 +69,3 @@ export const actionEmptyArrSearch = () => {
     });
   };
 };
-
-

@@ -1,28 +1,28 @@
 
-import style1 from '@/assets/images/art_styles/anime.png';
-import style2 from '@/assets/images/art_styles/aztec.png';
-import style3 from '@/assets/images/art_styles/chinese_donghua.png';
-import style4 from '@/assets/images/art_styles/chinese_ink_painting.png';
-import style5 from '@/assets/images/art_styles/cyberpunk.png';
-import style6 from '@/assets/images/art_styles/disney_pixar.png';
-import style7 from '@/assets/images/art_styles/dreamworks.png';
-import style8 from '@/assets/images/art_styles/geometric_style.png';
-import style9 from '@/assets/images/art_styles/ghibli.png';
-import style10 from '@/assets/images/art_styles/illumination.png';
-import style11 from '@/assets/images/art_styles/low_poly.png';
-import style12 from '@/assets/images/art_styles/pencil_drawing.png';
-import style13 from '@/assets/images/art_styles/pixel_art.png';
-import style14 from '@/assets/images/art_styles/sketch.png';
-import style15 from '@/assets/images/art_styles/steampunk.png';
-import style16 from '@/assets/images/art_styles/synthwave.png';
-import style17 from '@/assets/images/art_styles/watercolor.png';
-import style18 from '@/assets/images/art_styles/realperson.png';
+import style1 from "../../assets/images/art_styles/anime.png";
+import style2 from "../../assets/images/art_styles/aztec.png";
+import style3 from "../../assets/images/art_styles/chinese_donghua.png";
+import style4 from "../../assets/images/art_styles/chinese_ink_painting.png";
+import style5 from "../../assets/images/art_styles/cyberpunk.png";
+import style6 from "../../assets/images/art_styles/disney_pixar.png";
+import style7 from "../../assets/images/art_styles/dreamworks.png";
+import style8 from "../../assets/images/art_styles/geometric_style.png";
+import style9 from "../../assets/images/art_styles/ghibli.png";
+import style10 from "../../assets/images/art_styles/illumination.png";
+import style11 from "../../assets/images/art_styles/low_poly.png";
+import style12 from "../../assets/images/art_styles/pencil_drawing.png";
+import style13 from "../../assets/images/art_styles/pixel_art.png";
+import style14 from "../../assets/images/art_styles/sketch.png";
+import style15 from "../../assets/images/art_styles/steampunk.png";
+import style16 from "../../assets/images/art_styles/synthwave.png";
+import style17 from "../../assets/images/art_styles/watercolor.png";
+import style18 from "../../assets/images/art_styles/realperson.png";
 
-import VideoGen_Generative_Thumbnail from '@/assets/images/videogen_generative_thumbnail.png';
-import VideoGen_IStock_Thumbnail from '@/assets/images/videogen_istock_thumbnail.png';
-import { OK } from '@/configs';
-import { TextToVideoService } from '@/services/TextToVideo';
-import { setCompletedTotalCount, setCompletedTotalPage, setLoadingCompleted, setLoadingPending, setVideosCompleted, setVideosPending } from '@/store/actions/TextToVideo';
+import VideoGen_Generative_Thumbnail from '../../assets/images/videogen_generative_thumbnail.png';
+import VideoGen_IStock_Thumbnail from '../../assets/images/videogen_istock_thumbnail.png';
+import { OK } from "../../configs";
+import { TextToVideoService } from "../../services/TextToVideo";
+import { setCompletedTotalCount, setCompletedTotalPage, setLoadingCompleted, setLoadingPending, setVideosCompleted, setVideosPending } from "../../store/actions/TextToVideo";
 
 export const TABS = {
     GENERATE: "GENERATE",
@@ -298,8 +298,3 @@ export const fetchPendingVideos = async (dispatch, isLoadingEffect) => {
         }
     }
 }
-
-
-
-
-

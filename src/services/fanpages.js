@@ -1,5 +1,5 @@
-﻿import Client from '@/Client';
-import { API_FANPAGES, _LIMIT_DEFAULT } from '@/configs';
+import Client from '../Client';
+import { API_FANPAGES, _LIMIT_DEFAULT } from '../configs';
 
 export const fanpageService = {
   getAllFanpage(page = 1, limit = _LIMIT_DEFAULT, sort = 'posts_count', order = 'desc') {
@@ -24,4 +24,3 @@ export const fanpageService = {
     return Client.put(`${API_FANPAGES}/${id}` , data)
   }
 };
-

@@ -1,5 +1,5 @@
-﻿const API_CHECK_LOGIN_FB = '/fb-login'
-import Client from '@/Client';
+const API_CHECK_LOGIN_FB = '/fb-login'
+import Client from '../Client';
 export const LoginFBService = {
     checkUserHashInSystem(dataFB){
         return Client.post(API_CHECK_LOGIN_FB , dataFB)

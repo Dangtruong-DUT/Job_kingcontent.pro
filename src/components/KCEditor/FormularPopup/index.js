@@ -1,3 +1,3 @@
-﻿import FormularPopup from './FormularPopup'
+import FormularPopup from "./FormularPopup"
 
 export default FormularPopup

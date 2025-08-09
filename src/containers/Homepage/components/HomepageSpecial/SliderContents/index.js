@@ -1,3 +1,3 @@
-﻿import SliderContents from './SliderContents'
+import SliderContents from './SliderContents'
 
 export default SliderContents
