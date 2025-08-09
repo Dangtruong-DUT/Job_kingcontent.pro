@@ -7,7 +7,7 @@ import ModalHashTag from "../../components/VideoEditor/ModalHashTag";
 import { useDispatch, useSelector } from "react-redux";
 import { actionSetShowModal } from "../../store/actions/videoEditor";
 import auth from '../../utils/auth';
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useHistory } from "react-router-dom";
 // @ts-ignore
 import CreateVideoIcon from "../../assets/images/icon/video-editing.png";
 import { confirmAlert } from "react-confirm-alert";

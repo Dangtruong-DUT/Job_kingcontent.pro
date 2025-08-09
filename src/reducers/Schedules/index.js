@@ -1,6 +1,6 @@
 import moment from 'moment';
 import * as types from '../../store/types/schedules';
-import { DEFAULT } from '../../components/Schedules/SourceIdeas/utility';
+import { DEFAULT } from '../../components/Schedules/Sourceldeas/utility.jsx';
 
 const SchedulesReducerInitialState = {
   showSuggestionsPopup: false,

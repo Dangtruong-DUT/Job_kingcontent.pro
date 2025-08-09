@@ -1,4 +1,4 @@
-import { CLIP_PACE, HORIZONTAL_ALIGNMENT, MODE, SCREEN_RATIO, STYLES, TABS, VERTICAL_ALIGNMENT } from "../../pages/TextToVideo/Ultils";
+import { CLIP_PACE, HORIZONTAL_ALIGNMENT, MODE, SCREEN_RATIO, STYLES, TABS, VERTICAL_ALIGNMENT } from "../../pages/TextToVldeo/Ultils.js";
 import { textToVideoActions } from "../../store/actions/TextToVideo";
 
 const initialState = {

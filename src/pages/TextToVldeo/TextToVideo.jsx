@@ -9,7 +9,7 @@ import TabCreateVideo from "./TabCreateVideo";
 import TabPending from "./TabPending";
 import TabCompleted, { ParentType } from "./TabCompleted";
 import { fetchCompletedVideos, fetchPendingVideos, TABS } from "./Ultils";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useHistory } from "react-router-dom";
 import auth from "../../utils/auth";
 import VideoGenError from '../../assets/images/videogen-error.jpg'
 

@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import PrivateRoute from "./containers/PrivateRoute";
-import Layout from "@/components/Layout.js";
+import Layout from "@/components/Layout.jsx";
 import Login from "./pages/Login.jsx";
 import Logout from "./pages/Logout.jsx";
 import Home from "./pages/Home.jsx";
