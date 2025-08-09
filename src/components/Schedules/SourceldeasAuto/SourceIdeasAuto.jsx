@@ -18,18 +18,18 @@ import {
     CHATGPT,
     VIDEOGEN_AI,
     VIDEO_EDITOR,
-} from "@/SourceIdeas/utility";
+} from "../Sourceldeas/utility.js";
 
-import Created from "@/Created";
-import Events from "@/Events";
-import Liked from "@/Liked";
-import Specials from "@/Specials";
-import Takecare from "@/Takecare";
-import Tiktok from "@/Tiktok";
-import Instagram from "@/Instagram";
-import Threads from "@/threads";
-import Douyin from "@/douyin";
-import Plans from "@/Created/Plans";
+import Created from "../Created/Created.jsx";
+import Events from "../Events/Events.jsx";
+import Liked from "../Liked/Liked.jsx";
+import Specials from "../Specials/Specials.jsx";
+import Takecare from "../Takecare/Takecare.jsx";
+import Tiktok from "../Tiktok/Tiktok.jsx";
+import Instagram from "../Instagram/Instagram.jsx";
+import Threads from "../threads/threads.jsx";
+import Douyin from "../douyin/douyin.jsx";
+import Plans from "../Created/Plans.jsx";
 
 import {
     setCurrentScheduleContentType,
@@ -39,9 +39,9 @@ import {
 } from "@/store/actions/Schedules";
 import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
-import ChatGPT from "@/ChatGPT";
-import VideoEditor from "@/VideoEditor";
-import TabCompleted, { ParentType } from "@/pages/TextToVideo/TabCompleted";
+import ChatGPT from "../ChatGPT/ChatGPT.jsx";
+import VideoEditor from "../VideoEditor/VideoEditor.jsx";
+import TabCompleted, { ParentType } from "@/pages/TextToVldeo/TabCompleted.jsx";
 
 const SourceIdeasAuto = (props) => {
     const { autoWaitingList, currentScheduleContentType = DEFAULT } = useSelector(

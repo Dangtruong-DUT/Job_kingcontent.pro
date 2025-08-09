@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { actionAddImage, createContentToHomepage, toggleEditorText } from "@/store/actions/createContent";
 import { TYPE_GO_CONTENT, TYPE_GO_PAGE } from "@/utils/utilityFunc";
-import CalendarEvents from "@/CalendarEvents";
+import CalendarEvents from "./CalendarEvents";
 import { Link } from "react-router-dom";
-import ModalEvent from "@/ModalEvent";
-import Subjects from "@/Subjects";
-import SingleSubject from "@/Subjects/SingleSubject";
+import ModalEvent from "./ModalEvent";
+import Subjects from "./Subjects";
+import SingleSubject from "./Subjects/SingleSubject";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 const RightContent = () => {
     const { trendding, topicSelected } = useSelector((state) => state.homepage);

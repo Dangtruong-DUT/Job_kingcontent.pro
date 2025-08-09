@@ -23,13 +23,13 @@ import {
     actionUpdateCollectionModalOpen,
     actionUpdateCollectionModalType,
 } from "@/store/actions/threads";
-import LoadingApp from "@/LoadingApp";
-import SingleChannel from "@/SingleChannel";
-import SingleVideo from "@/SingleVideo";
-import Me from "@/components/me";
-import { listDefaultKws } from "@/constants";
+import LoadingApp from "@/components/LoadingApp";
+import SingleChannel from "../SingleChannel";
+import SingleVideo from "../SingleVideo";
+import Me from "../components/me.jsx";
+import { listDefaultKws } from "../constants.js";
 import { threadsService } from "@/services/threads";
-import ContentDetail from "@/ContentDetail/ContentDetail";
+import ContentDetail from "../ContentDetail/ContentDetail.jsx";
 import { actionUpdateStep1, createContentToHomepage, resetCreateContent } from "@/store/actions/createContent";
 import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
 import { convertInstagramLink } from "@/helpers";
@@ -103,7 +103,7 @@ const RightPart = (props) => {
                 dispatch(setContentDetailToShow(elt));
                 break;
 
-            case "CHOOSE_VIDEO":
+            case "CHOOSE_VIDEO": {
                 const index = chosenVideos.findIndex((item) => item.id === elt.id);
                 if (index > -1) {
                     const newChosenVideos = chosenVideos.filter((item) => item.id !== elt.id);
@@ -112,8 +112,9 @@ const RightPart = (props) => {
                     dispatch(actionUpdateChosenVideos([...chosenVideos, elt]));
                 }
                 break;
+            }
 
-            case "CREATE_CONTENT":
+            case "CREATE_CONTENT": {
                 const {
                     text = "",
                     images = [],
@@ -184,6 +185,7 @@ const RightPart = (props) => {
                 );
                 history.push("/tao-content");
                 break;
+            }
 
             case "REMOVE_FROM_COLLECTION":
                 confirmAlert({
@@ -204,7 +206,7 @@ const RightPart = (props) => {
                 });
                 break;
 
-            case "SCHEDULE_CONTENT":
+            case "SCHEDULE_CONTENT": {
                 if (elt.media_type === "video") {
                     const resSize = await threadsService.checkSizeVideo(elt.videos[0].source);
                     if (resSize.status === OK) {
@@ -301,7 +303,7 @@ const RightPart = (props) => {
                 }
 
                 break;
-
+            }
             default:
                 break;
         }

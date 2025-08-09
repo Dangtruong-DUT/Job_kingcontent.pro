@@ -8,9 +8,9 @@ import { _dashed_border } from "@/pages/createPost/utility";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import { actionUpdateStep1, resetCreateContent } from "@/store/actions/createContent";
 import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";
-import Footer from "@/Footer";
-import Header from "@/Header";
-import Medias from "@/Medias";
+import Footer from "./Footer";
+import Header from "./Header";
+import Medias from "./Medias";
 import { getPathVideo } from "@/utils/utilityFunc";
 
 function ContentDetailThreads(props) {

@@ -19,7 +19,7 @@ import ShareIcon from '@/assets/images/icon/share.png';
 import LikeIcon from '@/assets/images/icon/like.png';
 import CommentIcon from '@/assets/images/icon/comment.png';
 import Image from '@/CategoriesContent/CategoriesContentItem/Image';
-import SingleContent from '@/SingleContent';
+import SingleContent from '../KCEditor/Column/SingleContent';
 
 export const CardStyled = styled.div`
   .divide-title {

@@ -1,10 +1,10 @@
-import AddSpecialIcon from "@/assets/images/icon/add-special.png";
-import SingleFanpage from "@/SingleFanpage";
+import addSpecialIcon from "@/assets/images/icon/preview.png";
+import SingleFanpage from "./SingleFanpage";
 import { getSpecialFanpages } from "@/store/actions/homepage";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
-import FanpageEmpty from "@/FanpageEmpty";
+import FanpageEmpty from "./FanpageEmpty";
 
 const responsive = {
     superLargeDesktop: {

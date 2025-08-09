@@ -11,12 +11,12 @@ import {
     updateHistory,
     updateHistoryHashtag,
 } from "@/store/actions/createContent";
-import PopupDetailContentChat from "@/popupDetailContentChat";
+import PopupDetailContentChat from "../popupDetailContentChat.jsx";
 
 import styled from "styled-components";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import PopupTag from "@/popupTag";
+import PopupTag from "./popupTag.jsx";
 import { FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
 import moment from "moment";
 import PerfectScrollbar from "react-perfect-scrollbar";

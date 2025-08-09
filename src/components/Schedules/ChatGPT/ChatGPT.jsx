@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionLoadingApp } from "@/store/actions/loading";
 import { getHistory } from "@/store/actions/createContent";
 import { FaSpinner } from "react-icons/fa";
-import SingleItem from "@/singleItem";
+import SingleItem from "./singleItem";
 import { setScheduleWaitingList } from "@/store/actions/Schedules";
 import { useHistory } from "react-router-dom";
 import PopupDetailContentChat from "@/pages/createPost/components/popupDetailContentChat";

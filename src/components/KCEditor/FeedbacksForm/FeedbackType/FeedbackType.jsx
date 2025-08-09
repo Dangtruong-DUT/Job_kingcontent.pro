@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import Messenger from "@/Messenger";
-import Zalo from "@/Zalo";
-import Actions from "@/Actions";
-import ModalNewMessage from "@/ModalNewMessage";
-import ModalNewTime from "@/ModalNewTime";
-import SettingsForm from "@/SettingsForm";
+import Messenger from "./Messenger/Messenger.jsx";
+import Zalo from "./Zalo";
+import Actions from "./Actions";
+import ModalNewMessage from "./ModalNewMessage";
+import ModalNewTime from "./ModalNewTime";
+import SettingsForm from "./SettingsForm";
 import { toPng } from "html-to-image";
-import FeedbackContents from "@/FeedbackContents";
+import FeedbackContents from "../FeedbackContents/FeedbackContents";
 import { actionAddImage } from "@/store/actions/createContent";
 import { saveFeedbackData } from "@/store/actions/editor/editorActions";
 

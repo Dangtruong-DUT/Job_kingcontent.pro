@@ -1,7 +1,7 @@
 import React from "react";
 import addIcon from "@/assets/images/icon/add-special.png";
-import noImageIcon from "@/assets/images/no-image.png";
-import Footer from "@/Footer";
+import noImageSrc from "@/assets/images/content-no-image.png";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 const SliderEmpty = () => {
     return (

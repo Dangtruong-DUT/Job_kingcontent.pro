@@ -77,7 +77,7 @@ const LeftPart = (props) => {
                             ))}
                         </PerfectScrollbar>
                     ) : (
-                        <h3 className="font-bold px-2 text-center mt-5">Báº¡n chÆ°a theo dÃµi kÃªnh Threads nÃ o</h3>
+                        <h3 className="font-bold px-2 text-center mt-5">Bạn chưa theo dõi kênh Threads nào</h3>
                     )
                 ) : (
                     <></>
@@ -107,9 +107,7 @@ const LeftPart = (props) => {
                                 ))}
                             </PerfectScrollbar>
                         ) : (
-                            <h3 className="font-bold px-2 text-center mt-5">
-                                Báº¡n chÆ°a táº¡o bá»™ sÆ°u táº­p Threads nÃ o
-                            </h3>
+                            <h3 className="font-bold px-2 text-center mt-5">Bạn chưa tạo bộ sưu tập Threads nào</h3>
                         )}
                     </div>
                 ) : (

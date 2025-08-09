@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { breakWord } from "@/helpers";
 import { _dashed_border } from "@/pages/createPost/utility";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
-import Footer from "@/Footer";
-import Header from "@/Header";
-import Medias from "@/Medias";
+import Footer from "./Footer";
+import Header from "./Header";
+import Medias from "./Medias";
 
 function ContentDetail(props) {
     const dispatch = useDispatch();

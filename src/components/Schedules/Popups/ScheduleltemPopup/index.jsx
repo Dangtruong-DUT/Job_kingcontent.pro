@@ -1,19 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ImCross, ImFacebook } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-import InfoLeft from "@/InfoLeft";
-import InfoRight from "@/InfoRight";
-import Comments from "@/Comments";
+import InfoLeft from "./InfoLeft";
+import InfoRight from "./InfoRight";
+import Comments from "./Comments/Comments";
 import { VscCommentDiscussion, VscNote } from "react-icons/vsc";
 import { setScheduleItemPopupToShow } from "@/store/actions/Schedules";
-import DetailTiktok from "@/Tiktok/DetailTiktok";
+import DetailTiktok from "../../Tiktok/DetailTiktok.jsx";
 import { actionSetCurrentContent } from "@/store/actions/instagram";
-import ContentDetail from "@/InstagramCpn/ContentDetail";
+import ContentDetail from "@/components/InstagramCpn/ContentDetail/ContentDetail.jsx";
 import { instagramService } from "@/services/instagram";
 import { toast } from "react-toastify";
 import { OK } from "@/configs";
-import DetailDouyin from "@/douyin/detailDouyin";
-import ContentDetailThreads from "@/CategoriesContent/ContentDetailThreads/ContentDetailThreads";
+import DetailDouyin from "../../douyin/detailDouyin.jsx";
+import ContentDetailThreads from "@/components/CategoriesContent/ContentDetailThreads/ContentDetailThreads.jsx";
 import { threadsService } from "@/services/threads";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 import { convertInstagramLink } from "@/helpers";
@@ -115,13 +115,14 @@ const ScheduleItemPopup = (props) => {
             return;
         }
         switch (source_type) {
-            case "tiktok":
+            case "tiktok": {
                 const elt = {
                     post_id: content_id,
                 };
                 setObjSelect(elt);
                 setOpen(true);
                 break;
+            }
 
             case "special":
             case "trending":

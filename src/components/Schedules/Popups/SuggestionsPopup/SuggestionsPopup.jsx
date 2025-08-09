@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import FilterAndSort from "@/FilterAndSort";
-import Header from "@/Header";
-import SearchBar from "@/SearchBar";
-import SuggestionsList from "@/SuggestionsList";
+import FilterAndSort from "./FilterAndSort.jsx";
+import ContentSuggestionsItem from "./SuggestionItem.jsx";
+import Header from "./Header.jsx";
+import SearchBar from "./SearchBar.jsx";
+import SuggestionsList from "./SuggestionsList.jsx";
 import * as SCHEDULES from "@/store/actions/Schedules";
 
 function SuggestionsPopup(props) {
@@ -69,7 +70,7 @@ function SuggestionsPopup(props) {
 
                 case "sale":
                 case "minigame":
-                case "feedback":
+                case "feedback": {
                     // get data from choosen category in system with keywords
                     let query = "";
                     if (keywords && keywords.length > 0) {
@@ -78,8 +79,8 @@ function SuggestionsPopup(props) {
                         });
                     }
                     dispatch(SCHEDULES.getSuggestionSystemContents(selectedCat?.old_id, 0, loadMore, query));
-
                     break;
+                }
 
                 default:
                     break;

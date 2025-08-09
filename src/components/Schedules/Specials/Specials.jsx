@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetSpecialFollowContent } from "@/store/actions/createContent";
 import PostSugesstion from "@/components/ContentSugesstion/PostSugesstion";
-import FilterForm from "@/FilterForm";
+import FilterForm from "../FilterForm/FilterForm.jsx";
 import SingleContent from "@/SingleContent";
 import DialogDetailPost from "@/SingleContent/dialogPostDetail";
 import { destructSearchData } from "@/SourceIdeas/utility";
@@ -12,8 +12,9 @@ import {
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
 } from "@/store/actions/Schedules";
-import LoadingApp from "@/LoadingApp";
+import LoadingApp from "@/components/LoadingApp";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
+import { actionGetSpecialContents } from "../../../store/actions/createContent";
 
 const Specials = (props) => {
     const { isAuto = false, handleAddToWaitingList = () => {} } = props;

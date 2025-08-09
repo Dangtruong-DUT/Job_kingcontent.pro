@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { getChildCategories } from "@/store/actions/categories";
 import { useDispatch, useSelector } from "react-redux";
-import ByItemsSelect from "@/Select";
+import ByItemsSelect from "./Select";
 import { getContents } from "@/store/actions/Contents/contentActions";
-import Contents from "@/Contents";
-import ContentDetail from "@/CategoriesContent/ContentDetail";
+import Contents from "./Contents/Contents";
+import ContentDetail from "../../../CategoriesContent/ContentDetail/ContentDetail.jsx";
 
 const FeedbackContents = (props) => {
     const [catId, setCatId] = useState(0);

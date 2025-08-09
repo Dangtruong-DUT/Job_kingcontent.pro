@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import LoadingApp from "@/LoadingApp";
-import SingleUser from "@/SingleUser";
+import LoadingApp from "@/components/LoadingApp";
+import SingleUser from "../SingleUser";
 import React, { useEffect, useState } from "react";
 import {
     actionGetHashtagPosts,
@@ -11,12 +11,12 @@ import {
     actionUpdateChosenPosts,
 } from "@/store/actions/instagram";
 import { convertInstagramLink } from "@/helpers";
-import UserContents from "@/UserContents";
+import UserContents from "./UserContents";
 import { FiArrowLeft, FiChevronLeft } from "react-icons/fi";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import SinglePost from "@/UserPosts/SinglePost";
+import SinglePost from "./UserPosts/SinglePost";
 import { toast } from "react-toastify";
-import QuickFilter from "@/QuickFilter";
+import QuickFilter from "../QuickFilter";
 import { applyOrder } from "@/helpers";
 import { setScheduleWaitingList } from "@/store/actions/Schedules";
 import { listDefaultHashTag } from "@/helpers";

@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 
 import { changeStateSelectedCat } from "@/store/actions/Schedules";
+import { env } from "../../../../configs/envConfig";
 
 const CatItem = (props) => {
     const { category, changeStateSelectedCat, selectedCat } = props;
     const { id, name, image } = category;
-    const baseURL = process.env.API_URL;
+    const baseURL = env.API_URL;
     const catThumbnail = image ? image.url : "/uploads/file_6257c2001ccf1_b0541a0021.jpg";
     const classSelected = selectedCat && id === selectedCat.id ? "bg-primary text-white" : "";
 

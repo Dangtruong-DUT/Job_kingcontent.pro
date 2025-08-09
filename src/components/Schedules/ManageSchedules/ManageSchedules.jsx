@@ -12,11 +12,11 @@ import {
 import { toast } from "react-toastify";
 import { formatDate } from "@/helpers/date";
 import pauseIcon from "@/assets/images/icon/schedules/pause.png";
-import playIcon from "@/assets/images/icon/schedules/play.png";
-import binIcon from "@/assets/images/icon/schedules/bin.png";
+import playIcon from "@/assets/images/icon/schedules/pause.png";
+import binIcon from "@/assets/images/icon/remove-icon.png";
 import { confirmAlert } from "react-confirm-alert";
-import SearchBox from "@/SearchBox";
-import DetailSchedule from "@/DetailSchedule";
+import SearchBox from "./SearchBox";
+import DetailSchedule from "./DetailSchedule/DetailSchedule";
 import { GET_SCHEDULES, GET_SCHEDULES_SUCCESS } from "@/store/types/schedules";
 
 const ManageSchedules = (props) => {

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
-import NewComments from "@/NewComments";
-import Settings from "@/Settings";
+import NewComments from "./NewComments/NewComents.jsx";
+import Settings from "./Settings";
 import { useDispatch, useSelector } from "react-redux";
 import { setScheduleCommentsWaitingList } from "@/store/actions/Schedules";
 import { toast } from "react-toastify";
@@ -51,7 +51,7 @@ const Comments = () => {
                     start_time: moment(start_time).format("HH:mm"),
                 };
                 userServices.addMultipleComments(postingData).then((res) => {
-                    const { success = false, message = "", data = [] } = res?.data;
+                    const { success = false, message = "", data = [] } = res && res.data ? res.data : {};
                     if (success === false) {
                         toast.error(<div dangerouslySetInnerHTML={{ __html: message }} />, { autoClose: 10000 });
                         setIsDisableSubmit(false);

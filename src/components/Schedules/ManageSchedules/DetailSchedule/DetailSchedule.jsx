@@ -2,9 +2,14 @@ import { FaAngleLeft } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { manageGetScheduleContents, manageSetCurrentSchedule } from "@/store/actions/Schedules";
 import { useEffect, useState } from "react";
-import ListContents from "@/ListContents";
-import LoadingApp from "@/LoadingApp";
-import SearchBox from "@/SeachBox";
+import ListContents from "./ListContents.jsx";
+import { MdExpandMore } from "react-icons/md";
+import { toast } from "react-toastify";
+import { FiChevronDown, FiEdit3, FiTrash2 } from "react-icons/fi";
+import { IMF_NONE, IMF_PAUSE, IMF_PLAY } from "@/store/types/Schedules";
+import LoadingApp from "@/components/LoadingApp";
+import { confirmAlert } from "react-confirm-alert";
+import SearchBox from "../SearchBox.jsx";
 import ScheduleActions from "@/ScheduleActions";
 
 const DetailSchedule = (props) => {

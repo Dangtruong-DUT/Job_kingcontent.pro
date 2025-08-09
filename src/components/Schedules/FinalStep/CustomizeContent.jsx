@@ -5,7 +5,7 @@ import { Label } from "reactstrap";
 import { Checkbox, DatePicker, Input } from "rsuite";
 import { setCurrentDateTime } from "@/store/actions/Schedules";
 import { CalendarLocaleVn } from "@/helpers/date";
-import PreviewContent from "@/PreviewContent";
+import PreviewContent from "../PreviewContent/PreviewContent.jsx";
 
 const CustomizeContent = (props) => {
     const {

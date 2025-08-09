@@ -1,8 +1,8 @@
 ﻿import { useCallback, useEffect, useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { connect } from 'react-redux';
-import CatListing from '@/CatListing';
-import SearchBar from '@/SearchBar';
+import CatListing from './CatListing';
+import SearchBar from './SearchBar';
 
 const ChildCategories = (props) => {
     const { childCategories, selectedParent } = props;

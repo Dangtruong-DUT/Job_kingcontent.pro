@@ -1,5 +1,5 @@
-﻿import ChartDetails from '@/ChartDetails';
-import Charts from '@/Charts';
+﻿import ChartDetails from "./ChartDetails";
+import Charts from "./Charts";
 
 const CustomerOverview = () => {
     return (
@@ -7,8 +7,7 @@ const CustomerOverview = () => {
             <Charts />
             <ChartDetails />
         </>
-    )
-}
+    );
+};
 
 export default CustomerOverview;
-

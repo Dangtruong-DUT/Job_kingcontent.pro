@@ -1,10 +1,10 @@
 /* eslint-disable max-lines */
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SingleChannel from "@/SingleChannel";
-import SingleVideo from "@/SingleVideo";
-import LoadingApp from "@/LoadingApp";
-import DetailTiktok from "@/Schedules/Tiktok/DetailTiktok";
+import SingleChannel from "../SingleChannel";
+import SingleVideo from "../SingleVideo";
+import LoadingApp from "@/components/LoadingApp";
+import DetailTiktok from "@/components/Schedules/Tiktok/DetailTiktok";
 import {
     actionGetTikTokCollections,
     actionGetTiktokChannels,
@@ -28,12 +28,12 @@ import {
 } from "@/store/actions/Schedules";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
-import Me from "@/me";
+import Me from "../me";
 import { isDevMode } from "@/utils/utilityFunc";
 import { OK, VIDEO_EDITOR_URL } from "@/configs";
 import { tiktokService } from "@/services/tiktok";
 import { setActiveTab, setIsLoadingGenerateScript, setScript } from "@/store/actions/TextToVideo";
-import { TABS } from "@/pages/TextToVideo/Ultils";
+import { TABS } from "@/pages/TextToVldeo/Ultils";
 import auth from "@/utils/auth";
 import { env } from "@/configs/envConfig";
 

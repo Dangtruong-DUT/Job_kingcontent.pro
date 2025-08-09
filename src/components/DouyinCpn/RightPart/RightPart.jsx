@@ -26,10 +26,10 @@ import {
     setSelectedScheduleContent,
     setShowSourceIdeasPopup,
 } from "@/store/actions/Schedules";
-import LoadingApp from "@/LoadingApp";
-import DetailDouyin from "@/Schedules/douyin/detailDouyin";
-import SingleChannel from "@/SingleChannel";
-import SingleVideo from "@/SingleVideo";
+import LoadingApp from "@/components/LoadingApp";
+import DetailDouyin from "@/components/Schedules/douyin/detailDouyin";
+import SingleChannel from "../SingleChannel";
+import SingleVideo from "../SingleVideo";
 import auth from "@/utils/auth";
 
 const renderTitle = (type, name) => {

@@ -19,21 +19,21 @@ import {
     CHATGPT,
     VIDEO_EDITOR,
     VIDEOGEN_AI,
-} from "@/utility";
-import Trends from "@/Trends";
-import Ads from "@/Ads";
-import Plans from "@/Created/Plans";
-import Events from "@/Events";
-import Liked from "@/Liked";
-import Specials from "@/Specials";
-import Takecare from "@/Takecare";
-import Tiktok from "@/Tiktok";
-import Instagram from "@/Instagram";
-import Threads from "@/threads";
-import Douyin from "@/douyin";
-import ChatGPT from "@/ChatGPT";
-import VideoEditor from "@/VideoEditor";
-import TabCompleted, { ParentType } from "@/pages/TextToVideo/TabCompleted";
+} from "./utility";
+import Trends from "../Trends/Trends";
+import Ads from "../Ads/Ads.jsx";
+import Plans from "../Created/Plans.jsx";
+import Events from "../Events/Events";
+import Liked from "../Liked/Liked.jsx";
+import Specials from "../Specials/Specials.jsx";
+import Takecare from "../Takecare/Takecare.jsx";
+import Tiktok from "../Tiktok/Tiktok.jsx";
+import Instagram from "../Instagram/Instagram.jsx";
+import Threads from "../threads/threads.jsx";
+import Douyin from "../douyin/douyin.jsx";
+import ChatGPT from "../ChatGPT/ChatGPT.jsx";
+import VideoEditor from "../VideoEditor/VideoEditor.jsx";
+import TabCompleted, { ParentType } from "@/pages/TextToVldeo/TabCompleted.jsx";
 
 const SourceIdeas = (props) => {
     const { currentScheduleContentType: titleType = DEFAULT } = useSelector((state) => state.schedules);

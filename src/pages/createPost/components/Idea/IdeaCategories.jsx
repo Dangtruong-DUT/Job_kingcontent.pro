@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateContent } from "@/services/createContent";
-import defaultImage from "@/assets/images/category_default_loading.png";
+import categoryDefaultLoading from "@/assets/images/content-no-image.png";
 import { actionSelectCategory, actionTogglePopupSelectCate } from "@/store/actions/createContent";
 import { isObjEmpty } from "@/utils/utilityFunc";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -27,6 +27,7 @@ const IdeaCategories = () => {
     const [cateType, setCateType] = useState("all");
     const defaultValue = listOptions.find((item) => item.value === cateType);
     const [keyword, setKeyword] = useState("");
+    const defaultImage = categoryDefaultLoading;
 
     const handleGetAll = async () => {
         const res = await CreateContent.getAllChildCategories();

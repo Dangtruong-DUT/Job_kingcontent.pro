@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SelectCustom from '@/SelectCustom';
+import SelectCustom from './SelectCustom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSpecialFanpages } from '@/store/actions/homepage';
 import {
@@ -19,7 +19,7 @@ import {
 import { SpecialService } from '@/services/special';
 import { OK } from '@/configs';
 import Select from 'react-select';
-import KindOfContentSelect from '@/CategoriesContent/SearchAndFilter/KindOfContentSelect';
+import KindOfContentSelect from '@/components/CategoriesContent/SearchAndFilter/KindOfContentSelect';
 
 function ExtraFilters(props) {
   const {

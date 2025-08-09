@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import VideoEmpty from "@/VideoEmpty";
+import VideoEmpty from "./VideoEmpty";
 import tiktokIcon from "@/assets/images/tiktok_logo.png";
 
 import moment from "moment";
 import { FiCalendar, FiClock, FiPlay } from "react-icons/fi";
 import { nFormatter } from "@/configs";
-import ModalShowVideo from "@/ModalShowVideo";
+import ModalShowVideo from "./ModalShowVideo";
 import { useHistory } from "react-router-dom";
 import {
     setCurrentDateTime,

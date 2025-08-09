@@ -1,6 +1,6 @@
 ﻿import { connect, useSelector } from 'react-redux';
-import SingleReceive from '@/SingleReceive';
-import SingleSend from '@/SingleSend';
+import SingleReceive from './SingleReceive';
+import SingleSend from './SingleSend';
 
 const ListMessages = (props) => {
   const { type, setIsShowModalMessage, setMessageData, setMessageType } = props;

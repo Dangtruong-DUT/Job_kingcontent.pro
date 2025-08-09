@@ -6,7 +6,7 @@ import { KEY_LABELS, KEY_SCRIPTED_CREATION } from "@/reducers/createContent";
 import { REDUX_NAME_CREATE_POST } from "@/utils/utilityFunc";
 import { actionGetSuggChatGPT, updateProps } from "@/store/actions/createContent";
 import styled from "styled-components";
-import PopoverTopCardItem from "@/popoverCardItem";
+import PopoverCardItem from "./popoverCardItem.jsx";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { OK } from "@/configs";
 import { BiPlus } from "react-icons/bi";
@@ -17,8 +17,8 @@ import { FiX } from "react-icons/fi";
 import { Checkbox } from "rsuite";
 import { useEffect } from "react";
 import { CreateContent } from "@/services/createContent";
-import SingleSuggestionTag from "@/SingleSuggestionTag";
-import NewUserTag from "@/NewUserTag";
+import SingleSuggestionTag from "./SingleSuggestionTag.jsx";
+import NewUserTag from "./NewUserTag.jsx";
 import { confirmAlert } from "react-confirm-alert";
 
 const PopupStyled = styled.div`

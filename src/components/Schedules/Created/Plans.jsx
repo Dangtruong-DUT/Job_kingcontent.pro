@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import SearchForm from "@/SearchForm";
-import SingleContent from "@/SingleContent";
+import SearchForm from "../SearchForm";
+import SingleContent from "../SingleContent/SingleContent.jsx";
 import DialogDetailPost from "@/SingleContent/dialogPostDetail";
 import {
     setIsShowFinalStep,

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Contents from "@/components/KCEditor/FeedbacksForm/FeedbackContents/Contents";
+import Contents from "@/components/KCEditor/FeedbacksForm/FeedbackContents/Contents/Contents.jsx";
 import ContentDetail from "@/components/CategoriesContent/ContentDetail";
 import { getContents } from "@/store/actions/Contents/contentActions";
 import KindOfContentSelect from "@/components/CategoriesContent/SearchAndFilter/KindOfContentSelect";

@@ -9,7 +9,7 @@ import "./styles.css";
 import Select from "react-select";
 import { toast } from "react-toastify";
 import { FiX } from "react-icons/fi";
-import AutoComments from "@/AutoComments";
+import AutoComments from "./AutoComments/AutoComments.jsx";
 import { CalendarLocaleVn } from "@/helpers/date";
 
 const listTypeHasReels = ["tiktok", "instagram", "threads", "douyin", "user", "video_editor", "video_ai"];

@@ -2,10 +2,10 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetThreadComments, actionPostThreadsComment } from "@/store/actions/threads";
 import { DATE_TIME_FORMAT, formatDate } from "@/helpers/date";
-import LoadingApp from "@/LoadingApp";
+import LoadingApp from "@/components/LoadingApp";
 import { FiX } from "react-icons/fi";
-import SingleComment from "@/SingleComment";
-import NewCommentForm from "@/NewCommentForm";
+import SingleComment from "./SingleComment";
+import NewCommentForm from "./NewCommentForm";
 
 const { Transition, Dialog } = require("@headlessui/react");
 

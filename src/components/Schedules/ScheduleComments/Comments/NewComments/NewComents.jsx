@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import NewComment from "@/NewComment";
+import NewComment from "./NewComment";
 import { FaPlusCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setScheduleCommentsWaitingList } from "@/store/actions/Schedules";

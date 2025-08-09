@@ -4,13 +4,13 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // @ts-ignore
-import editIcon from "@/assets/images/icon/plan/edit.png";
+import editIcon from "@/assets/images/icon/plan/draw.png";
 // @ts-ignore
-import PinIcon from "@/assets/images/icon/plan/pin-angle-fill.png";
+import pinAngleFillIcon from "@/assets/images/icon/plan/menu.png";
 // @ts-ignore
-import sortIcon from "@/assets/images/icon/plan/sort.png";
+import sortIcon from "@/assets/images/icon/plan/menu.png";
 // @ts-ignore
-import trashIcon from "@/assets/images/icon/plan/trash.png";
+import trashIcon from "@/assets/images/icon/plan/bin.png";
 import { KEY_PLAN_DATA, KEY_PLAN_SELECT } from "@/reducers/createContent";
 import { CreateContent } from "@/services/createContent";
 import { actionGetPlan, updateProps } from "@/store/actions/createContent";
@@ -106,7 +106,7 @@ export default function PopoverTopCardItem({
                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                     <div className="relative bg-white p-2 text-black">
                                         <div className="flex gap-2 items-center mb-2 cursor-pointer" onClick={pinLabel}>
-                                            <img src={PinIcon} alt="" width={25} height={25} />
+                                            <img src={pinAngleFillIcon} alt="" width={25} height={25} />
                                             <span className="hover:underline hover:text-red-500">
                                                 {is_pin_to_top === 1 ? "Bỏ ghim" : "Ghim phân loại"}{" "}
                                             </span>

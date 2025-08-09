@@ -9,10 +9,10 @@ import styled from "styled-components";
 import { kFormatter } from "@/utils/utilityFunc";
 import Client from "@/Client";
 import logoTikTok from "@/assets/images/icon/main-menu/menu-icon-tiktok.png";
-import douyinLogo from "@/assets/images/icon/main-menu/douyin.png";
+import douyinIcon from "../../../../assets/images/icon/schedules/douyin.png";
 import InstagramLogo from "@/assets/images/icon/main-menu/menu-icon-instagram.png";
 import ThreadsLogo from "@/assets/images/threads-thumbnail.png";
-import threadsIcon from "@/assets/images/icon/threads-black-icon.png";
+import threadsIcon from "../../../../assets/images/icon/schedules/threads.png";
 import FacebookIcon from "@/assets/images/icon/facebook.png";
 import { getScheduleSourceLink } from "@/helpers";
 import { OK } from "@/configs";
@@ -58,7 +58,7 @@ function InfoRight(props) {
                     break;
 
                 case "douyin":
-                    setSourceLogo(douyinLogo);
+                    setSourceLogo(douyinIcon);
                     break;
 
                 case "threads":
@@ -86,7 +86,8 @@ function InfoRight(props) {
             setLoading(true);
             await Client.get(`/schedules/content-realtime-data/${id}`).then((res) => {
                 if (res.status === OK) {
-                    const { likes = 0, comments = 0, shares = 0 } = res?.data?.data;
+                    const data = res?.data?.data ?? {};
+                    const { likes = 0, comments = 0, shares = 0 } = data;
                     setLikes(likes);
                     setComments(comments);
                     setShares(shares);
@@ -113,7 +114,6 @@ function InfoRight(props) {
                         </span>
                     </div>
                 );
-                break;
 
             case 2:
                 return error_count > 2 ? (
@@ -126,11 +126,9 @@ function InfoRight(props) {
                 ) : (
                     <span className="bg-yellowLabel px-2 my-0.5 max-w-max rounded-md font-medium">Đang chờ đăng</span>
                 );
-                break;
 
             case 3:
                 return <span className="bg-red-500 px-2 my-0.5 max-w-max rounded-md font-medium">Đã huỷ</span>;
-                break;
 
             case 5:
                 return (
@@ -140,7 +138,6 @@ function InfoRight(props) {
                         </span>
                     </div>
                 );
-                break;
 
             case 6:
                 return (
@@ -153,7 +150,6 @@ function InfoRight(props) {
 
             default:
                 return <></>;
-                break;
         }
     };
 

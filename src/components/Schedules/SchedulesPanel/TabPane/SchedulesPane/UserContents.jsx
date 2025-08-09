@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import UserContentRow from "@/UserContentRow";
+import UserContentRow from "./UserContentRow";
 import { set, addMinutes, addHours } from "date-fns";
 import ScrollBar from "react-perfect-scrollbar";
 import {

@@ -10,12 +10,12 @@ import {
 } from "@/store/actions/Schedules";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { confirmAlert } from "react-confirm-alert";
-import Destinations from "@/Destinations";
+import Destinations from "./Destinations";
 import { toast } from "react-toastify";
 import { userServices } from "@/services/users";
-import Settings from "@/Settings";
-import ListSchedules from "@/FinalStep/ListSchedules";
-import CheckResults from "@/CheckResults";
+import Settings from "./Settings";
+import ListSchedules from "../FinalStep/ListSchedules.jsx";
+import CheckResults from "./CheckResults";
 // add custom css for this component
 import "./FinalStepAuto.css";
 import { breakWord } from "@/helpers";

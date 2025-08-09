@@ -1,4 +1,4 @@
-﻿import SuggestionContents from '@/SuggestionContents'
+﻿import SuggestionContents from './SuggestionContents'
 
 export default SuggestionContents;
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import VideoEmpty from "@/VideoEmpty";
+import VideoEmpty from "./VideoEmpty";
 import tiktokIcon from "@/assets/images/tiktok_logo.png";
 
 import moment from "moment";

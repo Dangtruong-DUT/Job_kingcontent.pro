@@ -1,7 +1,7 @@
 ﻿import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import SingleDes from '@/SingleDes';
-import Filtering from '@/Filtering';
+import SingleDes from './SingleDes';
+import Filtering from './Filtering';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 

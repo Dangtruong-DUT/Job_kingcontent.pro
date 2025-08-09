@@ -1,10 +1,10 @@
 ﻿import React from 'react';
-import ReportTab from '@/ReportTab';
-import SchedulesTab from '@/SchedulesTab';
-import ScheduleAuto from '@/ScheduleAuto';
-import ScheduleComments from '@/ScheduleComments';
-import ScheduleList from '@/ScheduleList';
-import ManageScheduleTab from '@/ManageScheduleTab';
+import ReportTab from './ReportTab';
+import SchedulesTab from './SchedulesTab';
+import ScheduleAuto from './ScheduleAuto';
+import ScheduleComments from './ScheduleComments';
+import ScheduleList from './ScheduleList';
+import ManageScheduleTab from './ManageScheduleTab';
 
 function Tabs() {
   return (

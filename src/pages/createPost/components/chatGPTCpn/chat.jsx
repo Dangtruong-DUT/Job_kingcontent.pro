@@ -15,9 +15,9 @@ import {
     updateIsSavedChatGPT,
 } from "@/store/actions/createContent";
 import { actionLoadingApp } from "@/store/actions/loading";
-import PopupDetailContentChat from "@/popupDetailContentChat";
+import PopupDetailContentChat from "../popupDetailContentChat";
 import { toast } from "react-toastify";
-import PopupTag from "@/popupTag";
+import PopupTag from "./popupTag";
 import { TYPE_GO_CHAT } from "@/utils/utilityFunc";
 
 import { confirmAlert } from "react-confirm-alert";

@@ -8,7 +8,7 @@ import ShareIcon from "@/assets/images/icon/share.png";
 import Client from "@/Client";
 import { breakWord } from "@/helpers";
 import { getPathVideo, kFormatter } from "@/utils/utilityFunc";
-import Image from "@/CategoriesContent/CategoriesContentItem/Image";
+import Image from "./CategoriesContent/CategoriesContentItem/Image";
 export const CardStyled = styled.div`
     .divide-title {
         height: 1px;

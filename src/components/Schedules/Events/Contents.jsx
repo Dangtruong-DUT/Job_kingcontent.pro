@@ -12,8 +12,8 @@ import PostSugesstion from "@/components/ContentSugesstion/PostSugesstion";
 import SingleContent from "@/SingleContent";
 import DialogDetailPost from "@/SingleContent/dialogPostDetail";
 import { FaAngleLeft } from "react-icons/fa";
-import FilterForm from "@/FilterForm";
-import { destructSearchData } from "@/SourceIdeas/utility";
+import FilterForm from "../FilterForm";
+import { destructSearchData } from "@/components/SourceIdeas/utility";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 
 const Contents = (props) => {

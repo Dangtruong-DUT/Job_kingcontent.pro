@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ImCross, ImFacebook } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-import InfoLeft from "@/ScheduleItemPopup/InfoLeft";
-import InfoRight from "@/ScheduleItemPopup/InfoRight";
+import InfoLeft from "../ScheduleltemPopup/InfoLeft.jsx";
+import InfoRight from "../ScheduleltemPopup/InfoRight.jsx";
 import { setScheduleItemPopupToShowMultiple } from "@/store/actions/Schedules";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import DetailTiktok from "@/Tiktok/DetailTiktok";
+import DetailTiktok from "../../Tiktok/DetailTiktok.jsx";
 import { actionSetCurrentContent } from "@/store/actions/instagram";
 import { instagramService } from "@/services/instagram";
 import { threadsService } from "@/services/threads";
 import { convertInstagramLink } from "@/helpers";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
-import DetailDouyin from "@/douyin/detailDouyin";
-import ContentDetail from "@/InstagramCpn/ContentDetail";
+import DetailDouyin from "../../douyin/detailDouyin.jsx";
+import ContentDetail from "@/components/InstagramCpn/ContentDetail/ContentDetail.jsx";
 import { toast } from "react-toastify";
 import { OK } from "@/configs";
 import { TextToVideoService } from "@/services/TextToVideo";
@@ -112,13 +112,14 @@ const ScheduleMultipleItemsPopup = (props) => {
             return;
         }
         switch (source_type) {
-            case "tiktok":
+            case "tiktok": {
                 const elt = {
                     post_id: content_id,
                 };
                 setObjSelect(elt);
                 setOpen(true);
                 break;
+            }
 
             case "special":
             case "trending":

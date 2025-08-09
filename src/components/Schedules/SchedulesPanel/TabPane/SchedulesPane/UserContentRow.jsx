@@ -1,7 +1,7 @@
 ﻿import React from 'react';
-import ContentType from '@/ContentTypes/ContentType';
-import EventType from '@/ContentTypes/EventType';
-import DefaultType from '@/ContentTypes/DefaultType';
+import ContentType from './ContentTypes/ContentType';
+import EventType from './ContentTypes/EventType';
+import DefaultType from './ContentTypes/DefaultType';
 import {
   FaCheck,
   FaQuestion,

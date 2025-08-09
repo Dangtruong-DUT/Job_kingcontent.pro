@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import SuccessContents from "@/SuccessContents";
-import { default as NewComments } from "@/Comments";
+import SuccessContents from "./SuccessContents/SuccessContents";
+import { default as NewComments } from "./Comments/Comments";
 // import other Comments component
-import { default as ScheduledComments } from "@/Popups/ScheduleItemPopup/Comments";
+import { default as ScheduledComments } from "../Popups/ScheduleltemPopup/Comments/Comments";
 
 import {
     commentGetScheduleContents,
@@ -12,7 +12,7 @@ import {
     setShowScheduleCommentsPopup,
 } from "@/store/actions/Schedules";
 import { formatDate } from "@/helpers/date";
-import SearchBox from "@/ManageSchedules/SearchBox";
+import SearchBox from "../ManageSchedules/SearchBox.jsx";
 import { FaAngleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -43,7 +43,7 @@ const ScheduleComments = () => {
 
     const onClickSchedule = (schedule) => {
         const { id, success_contents_count = 0 } = schedule;
-        if (success_contents_count === 0 && false) {
+        if (success_contents_count === 0) {
             toast.info("Lịch này chưa có bài viết nào đăng thành công trên Facebook. Vui lòng chọn lịch khác!");
             return;
         }

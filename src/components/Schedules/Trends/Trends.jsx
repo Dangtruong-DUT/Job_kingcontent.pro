@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetTrendingContent } from "@/store/actions/createContent";
 import PostSugesstion from "@/components/ContentSugesstion/PostSugesstion";
-import FilterForm from "@/FilterForm";
-import SingleContent from "@/SingleContent";
-import DialogDetailPost from "@/SingleContent/dialogPostDetail";
-import { destructSearchData } from "@/SourceIdeas/utility";
+import FilterForm from "../FilterForm/FilterForm.jsx";
+import SingleContent from "../SingleContent/SingleContent.jsx";
+// import DialogDetailPost from "@/SingleContent/dialogPostDetail";
+import { lineGadientReg } from "../Sourceldeas/utility.js";
 import { setIsShowFinalStep, setSelectedScheduleContent, setShowSourceIdeasPopup } from "@/store/actions/Schedules";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
 

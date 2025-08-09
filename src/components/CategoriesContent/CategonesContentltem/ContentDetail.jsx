@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setContentDetailToShow } from "@/store/actions/Contents/contentActions";
-import Medias from "@/Medias";
-import Header from "@/Header";
-import Footer from "@/Footer";
+import Medias from "./Medias";
+import Header from "./Header";
+import Footer from "./Footer";
 import { isArrayEmpty } from "@/configs";
 import { actionUpdateStep1, resetCreateContent } from "@/store/actions/createContent";
 import { actionPushContentToCreateContentScreen } from "@/store/actions/homepage";

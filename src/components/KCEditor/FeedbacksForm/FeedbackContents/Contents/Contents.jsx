@@ -1,5 +1,5 @@
 ﻿import { useSelector } from 'react-redux';
-import Content from '@/Content';
+import Content from './Content';
 
 const Contents = (props) => {
   const { isIdea = false } = props;

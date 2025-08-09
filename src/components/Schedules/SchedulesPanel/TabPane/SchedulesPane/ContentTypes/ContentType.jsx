@@ -72,7 +72,7 @@ function ContentType(props) {
                     setSourceLogo(ThreadsLogo);
                     break;
 
-                default:
+                default: {
                     setSourceLogo("");
                     if (!source_content) return;
                     const { medias = [], media_type: contentMediaType = "", media_url = "" } = source_content;
@@ -82,6 +82,7 @@ function ContentType(props) {
                     else setIsVideo(false);
                     setVideoUrl(media_url);
                     break;
+                }
             }
             setIsUserContent(source_type === "user");
         } else {
