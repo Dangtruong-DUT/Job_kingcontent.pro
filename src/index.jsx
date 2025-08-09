@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // css for editor
 import './assets/css/editor.css';
-import App from './App.js';
+import App from './App';
 import store from './store';
 import { Provider } from 'react-redux';
 
